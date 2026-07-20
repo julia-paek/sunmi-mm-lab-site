@@ -1,0 +1,158 @@
+/* MM LAB responsive safety layer — phone / large phone / tablet / desktop */
+html{
+  min-width:0;
+  max-width:100%;
+  overflow-x:hidden;
+  overflow-x:clip;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body{
+  min-width:0;
+  max-width:100%;
+  overflow-x:hidden;
+  overflow-x:clip;
+}
+body>*{min-width:0}
+img,video,svg,canvas,iframe{max-width:100%}
+button,input,select,textarea{max-width:100%}
+.wrap,.container,.container-wide,.hero-img,.process,.footer-grid,.footer-bottom{width:100%}
+.grid-2>*,.grid-3>*,.grid-4>*,.cards>*,.sgrid>*,.tier>*,.footer-grid>*,.family-grid>*,.vf-location-grid>*,.vf-selected>*{min-width:0}
+
+@media (max-width:1024px){
+  .wrap,.container,.container-wide{padding-left:24px!important;padding-right:24px!important}
+  .hero-img,.process{padding-left:24px!important;padding-right:24px!important}
+  .footer-grid,.footer-bottom{padding-left:24px!important;padding-right:24px!important}
+  .modal,.sheet-panel{max-width:calc(100vw - 32px)}
+}
+
+/* iPad and smaller: use the compact navigation and remove fixed desktop assumptions. */
+@media (max-width:860px){
+  body{font-size:16px}
+  body>header.nav,body>nav.nav,body>nav.gnb{padding-left:18px!important;padding-right:18px!important}
+  body>header.nav .menu,body>nav.nav .menu,body>nav.gnb .gnb-menu{display:none!important}
+  body>header.nav .hamb,body>nav.nav .hamb{display:block!important}
+  .mnav{display:flex!important}
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:30px 24px!important}
+  .family-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+  .family-thumbs{grid-template-columns:1fr!important}
+  .family-thumb{grid-template-columns:64px minmax(0,1fr)!important;gap:10px!important}
+  .family-thumb .ft-img{width:64px!important}
+  .family-thumb .ft-copy,.family-thumb small,.family-thumb strong{min-width:0!important}
+  .family-thumb small{white-space:normal!important;overflow-wrap:anywhere!important}
+  .modal-overlay,.ov{padding:16px!important;padding-top:max(16px,env(safe-area-inset-top))!important;padding-bottom:max(16px,env(safe-area-inset-bottom))!important}
+  .modal{width:100%!important;max-height:calc(100dvh - 32px)!important;padding:42px 24px 24px!important}
+  input,select,textarea{font-size:16px!important}
+  .float,.floating-inquiry{right:16px!important;bottom:max(16px,env(safe-area-inset-bottom))!important}
+}
+
+/* iPhone Pro Max / iPhone Pro */
+@media (max-width:600px){
+  :root{--mobile-edge:16px}
+  .wrap,.container,.container-wide{padding-left:var(--mobile-edge)!important;padding-right:var(--mobile-edge)!important}
+  .hero-img,.process{padding-left:var(--mobile-edge)!important;padding-right:var(--mobile-edge)!important}
+  .footer-grid,.footer-bottom{padding-left:var(--mobile-edge)!important;padding-right:var(--mobile-edge)!important}
+  .section,.sec{padding-top:64px!important;padding-bottom:64px!important}
+  .section-sm{padding-top:48px!important;padding-bottom:48px!important}
+  .hero{padding-left:0!important;padding-right:0!important}
+  .hero h1,.display{font-size:clamp(38px,12vw,56px)!important;line-height:1.02!important}
+  .h1{font-size:clamp(34px,10.5vw,48px)!important}
+  .h2,.sec-head h2{font-size:clamp(28px,8.5vw,40px)!important}
+  .h3{font-size:clamp(22px,6.8vw,30px)!important}
+  .btn{min-height:46px;padding:12px 18px!important;font-size:15px!important}
+  /* Home window/interior cards stay side by side on mobile. */
+  #cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  #cards .card{aspect-ratio:1/1!important;min-height:0!important}
+  .footer-grid{grid-template-columns:1fr!important;gap:28px!important}
+  .footer{padding-top:64px!important;padding-bottom:calc(92px + env(safe-area-inset-bottom))!important}
+  .footer-bottom{margin-top:34px!important;padding-top:22px!important}
+  .mrow{grid-template-columns:1fr!important}
+  .mcta{padding:9px 10px calc(9px + env(safe-area-inset-bottom))!important;gap:8px!important}
+  .mcta-info{padding-left:2px!important}
+  .mcta-info b{white-space:normal!important;line-height:1.3!important}
+  .mcta .quote{padding:12px 14px!important}
+  .sheet-panel{left:8px!important;right:8px!important;top:max(12px,env(safe-area-inset-top))!important;max-width:none!important;padding-top:56px!important}
+  .sheet-x{margin-right:14px!important}
+  .lb{padding:16px!important}
+  .lb img{max-width:100%!important;max-height:68dvh!important}
+  .lb-x{top:max(14px,env(safe-area-inset-top))!important;right:14px!important}
+  .lb-nav{width:42px!important;height:52px!important}
+
+  /* Home figures retain the intended three-column mobile layout. */
+  #about .about-stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;border-top:1px solid #2F5233!important}
+  #about .ast{display:block!important;padding:22px 4px 20px!important;border-right:1px solid #D9D1C1!important;border-bottom:0!important}
+  #about .ast:last-child{border-right:0!important}
+  #about .ast .ic{display:block!important}
+  #about .ast .fig{font-size:clamp(30px,10vw,40px)!important;white-space:nowrap!important}
+  #about .ast .lab{margin-top:12px!important;font-size:clamp(10px,3vw,12px)!important;line-height:1.4!important;white-space:nowrap!important}
+  #about .ast .lab small{font-size:clamp(8px,2.45vw,10px)!important;line-height:1.4!important;white-space:nowrap!important}
+  .ev-track,.cs-track,.pc-track{padding-left:var(--mobile-edge)!important;padding-right:var(--mobile-edge)!important}
+  .ev-card{flex-basis:min(78vw,296px)!important;max-width:min(78vw,296px)!important;aspect-ratio:12/13!important}
+  .cs-card{flex-basis:min(82vw,320px)!important;max-width:min(82vw,320px)!important}
+  .pc-card{flex-basis:min(78vw,290px)!important;max-width:min(78vw,290px)!important;min-height:300px!important}
+  .brand{flex-basis:min(78vw,300px)!important;max-width:min(78vw,300px)!important;min-height:300px!important;padding:28px 22px!important}
+
+  /* Three-item brand figures remain one compact row on phones. */
+  .stats-row-3{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}
+  .stats-row-3 .stat{padding:16px 4px!important}
+  .stats-row-3 .stat-num{font-size:clamp(24px,8vw,34px)!important}
+  .stats-row-3 .stat-label{font-size:11px!important;line-height:1.35!important;word-break:keep-all}
+
+  /* Page-owned grids keep their own responsive layout; only shared controls are normalized here. */
+  .flow{scroll-padding-left:var(--mobile-edge)!important}
+  .fstep{flex-basis:min(76vw,280px)!important;max-width:min(76vw,280px)!important}
+  .partner-index,.filters,.filter,.chips,.tab-bar{justify-content:flex-start!important;flex-wrap:nowrap!important;overflow-x:auto!important;scrollbar-width:none!important;padding-bottom:8px!important}
+  .fbtn,.chip,.tab{flex:0 0 auto!important;white-space:nowrap!important}
+
+  /* Viewframe product page */
+  .vf-story{height:clamp(450px,67svh,500px)!important}
+  .vf-scene-copy{left:18px!important;right:18px!important;bottom:22px!important}
+  .vf-scene-copy h3{font-size:clamp(30px,9.2vw,38px)!important}
+  .vf-compare-head,.vf-location-head{display:block!important}
+  .vf-compare-head>*+*,.vf-location-head>*+*{margin-top:10px!important}
+  .vf-model{flex-basis:min(84vw,320px)!important}
+  .vf-selected{width:100%!important}
+  .vf-selected-copy{padding:18px 16px 20px!important}
+  .vf-selected-copy h4{font-size:32px!important}
+  .vf-location-grid{grid-template-columns:1fr!important}
+  .vf-floorplan{min-height:0!important}
+  .vf-plan-art{width:100%!important;max-height:none!important;object-fit:contain!important}
+  .vf-location-copy{padding:24px 16px 28px!important}
+  .vf-location-stage{grid-template-columns:minmax(0,1fr) 104px!important;gap:10px!important}
+  .vf-location-product-meta strong{font-size:34px!important}
+  .vf-location-models button{flex-basis:108px!important}
+  .vf-hotspot::after{max-width:calc(100vw - 52px)!important;white-space:normal!important;line-height:1.25!important}
+
+  /* Euro system pages */
+  .e9-hero{width:calc(100% - 24px)!important;height:clamp(450px,67svh,500px)!important;min-height:0!important}
+  .e9-hero-copy{padding:28px 20px 32px!important}
+  .e9-hero h1{font-size:clamp(36px,10.8vw,48px)!important}
+  .e9-slider-note{display:block!important}
+  .e9-type-nav{padding-left:var(--mobile-edge)!important;padding-right:var(--mobile-edge)!important}
+  .e9-rail{padding-left:var(--mobile-edge)!important;padding-right:var(--mobile-edge)!important}
+  .e9-scene,.e9-scene--medium,.e9-scene--portrait{flex-basis:calc(100vw - 48px)!important;height:440px!important}
+  .e9-scene-copy{padding:24px 48px!important}
+  .e9-scene h3,.e9-scene--portrait h3{font-size:clamp(28px,8.4vw,38px)!important}
+}
+
+/* Narrow phones and landscape-safe tightening. */
+@media (max-width:390px){
+  :root{--mobile-edge:14px}
+  .mg-logo small{display:none!important}
+  .hero h1,.display{font-size:clamp(36px,11.5vw,46px)!important}
+  #about .ast .fig{font-size:clamp(28px,9.5vw,37px)!important}
+  .ev-card{flex-basis:min(76vw,282px)!important;max-width:min(76vw,282px)!important}
+  .brand,.pc-card{flex-basis:min(76vw,276px)!important;max-width:min(76vw,276px)!important}
+  .vf-location-stage{grid-template-columns:1fr!important}
+  .vf-location-product-meta{text-align:center!important}
+  .e9-scene-copy{padding-left:44px!important;padding-right:44px!important}
+}
+
+@media (orientation:landscape) and (max-height:520px){
+  .modal{max-height:calc(100dvh - 16px)!important}
+  .vf-story,.e9-hero{min-height:420px!important;height:calc(100dvh - 24px)!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+}

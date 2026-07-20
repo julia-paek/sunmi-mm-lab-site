@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MM LAB — Making Space</title>
+<meta name="description" content="공간의 완성은 밀리미터의 차이에서 시작됩니다. 프리미엄 창호와 인테리어로 더 정교한 공간을 만듭니다.">
+<meta name="theme-color" content="#F4F0E6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MM LAB — Making Space">
+<meta property="og:description" content="공간의 완성은 밀리미터의 차이에서 시작됩니다. 프리미엄 창호와 인테리어로 더 정교한 공간을 만듭니다.">
+<meta property="og:locale" content="ko_KR">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+<style>
+@font-face{font-family:'Gmarket Sans';src:url('assets/fonts/gmarket-sans/GmarketSansBold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Gmarket Sans';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+/* ═══════════════════════════════════════════════════════════════
+   MM LAB — Apple Canvas Site (apple-canvas skill)
+   Apple 제품페이지 근접 톤 · 단일 블루 액센트 · 풍부한 액션
+═══════════════════════════════════════════════════════════════ */
+:root{
+  --bg:#F4F0E6; --bg-alt:#EAE4D6; --ink:#1B1713; --headline:#1F3822; --muted:#6E7C64;
+  --hairline:#DAD2C2; --line-strong:#111111;
+  --accent:#2F5233; --accent-press:#1F3822;
+  --cta:#2F5233; --cta-press:#1F3822; /* 딥그린 — 창호 프레임 컬러 (mm lab) */
+  --ink-d:#f5f5f7; --muted-d:#a1a1a6;
+  --ease:cubic-bezier(0.4,0,0.2,1); --ease-soft:cubic-bezier(0.16,1,0.3,1);
+  --nav-h:56px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  background:var(--bg); color:var(--ink); line-height:1.5; font-size:19px;
+  -webkit-font-smoothing:antialiased; overflow-x:clip;
+  word-break:keep-all; line-break:strict; overflow-wrap:break-word;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+section[id]{scroll-margin-top:78px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:50px;padding:14px 28px;border-radius:0;background:var(--cta);color:#fff;font-weight:600;font-size:16px;transition:transform .25s var(--ease),background .25s var(--ease)}
+.btn:hover{background:var(--cta-press);transform:translateY(-2px)}
+.btn-dark{background:var(--headline);color:#fff}.btn-dark:hover{background:#000}
+.btn-ghost{background:transparent;color:var(--headline);border:1px solid var(--line-strong)}
+.btn-ghost:hover{background:var(--bg-alt)}
+
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:1000;transition:width .08s linear}
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;z-index:900;transition:background .3s var(--ease),border-color .3s var(--ease)}
+.nav.scrolled{background:rgba(255,255,255,.9);border-bottom-color:var(--hairline)}
+.nav .logo{font-weight:700;letter-spacing:.14em;font-size:17px;color:var(--headline)}
+.nav .logo .logo-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:400;font-size:13px;letter-spacing:.02em;text-transform:lowercase;color:#4F7355;margin-left:12px;white-space:nowrap}
+.menu{display:flex;gap:34px;align-items:center}
+.menu a{font-size:14px;color:var(--accent);position:relative;transition:color .2s var(--ease)}
+.menu a:hover,.menu a.active{color:var(--headline)}
+.menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-18px;height:2px;background:var(--accent)}
+.hamb{display:none;width:26px;height:20px;position:relative}
+.hamb span{position:absolute;left:2px;width:22px;height:1.5px;background:var(--ink);transition:.3s var(--ease)}
+.hamb span:nth-child(1){top:5px}.hamb span:nth-child(2){top:13px}
+.hamb.open span:nth-child(1){top:9px;transform:rotate(45deg)}
+.hamb.open span:nth-child(2){top:9px;transform:rotate(-45deg)}
+.mnav{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);padding:24px 32px 32px;flex-direction:column;gap:18px;border-bottom:1px solid var(--hairline);z-index:899;transform:translateY(-110%);transition:transform .4s var(--ease-soft)}
+.mnav.open{transform:none}
+.mnav a{font-size:20px;font-weight:600}
+
+/* hero */
+.hero{padding:calc(var(--nav-h) + 72px) 0 36px;text-align:left}
+.hero .a{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease-soft),transform .9s var(--ease-soft)}
+.hero.ready .a{opacity:1;transform:none}
+.hero .a:nth-child(2){transition-delay:.08s}.hero .a:nth-child(3){transition-delay:.16s}.hero .a:nth-child(4){transition-delay:.24s}
+.hero h1{font-size:clamp(60px,10vw,152px);font-weight:900;line-height:.92;letter-spacing:-.03em;color:var(--headline);margin-top:16px}
+.hero .lead{font-size:clamp(16px,1.9vw,20px);color:var(--muted);margin:24px 0 0;max-width:430px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:64px}
+.card{position:relative;height:560px;border-radius:0;overflow:hidden;background:#e7e7e9;cursor:pointer;transition:transform .5s var(--ease-soft),box-shadow .5s var(--ease-soft);will-change:transform}
+.card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.10)}
+.card .media{position:absolute;inset:0}
+.card .media img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease-soft)}
+.card:hover .media img{transform:scale(1.05)}
+.card .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.86) 0%,rgba(255,255,255,.3) 26%,rgba(255,255,255,0) 52%)}
+.card .ct{position:absolute;top:44px;left:44px;right:44px;z-index:2}
+.card .ct small{font-size:12px;letter-spacing:.04em;color:var(--muted)}
+.card .ct h2{font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-.02em;margin:10px 0 12px;color:var(--headline)}
+.card .ct p{font-size:17px;color:#6E7C64;line-height:1.55}
+.card .pill{position:absolute;left:44px;bottom:44px;z-index:3;background:var(--accent);color:#fff;padding:12px 22px;border-radius:0;font-weight:600;font-size:15px;opacity:0;transform:translateY(8px);transition:.3s var(--ease)}
+.card:hover .pill{opacity:1;transform:none}
+
+/* section */
+.sec{padding:clamp(96px,13vh,168px) 0}
+.sec-gray{background:var(--bg-alt)}
+.sec-head{text-align:center;margin-bottom:62px}
+.sec-head h2{font-size:clamp(32px,5vw,64px);font-weight:700;letter-spacing:-.02em;color:var(--headline);margin:14px 0}
+.sec-head p{font-size:19px;color:var(--muted);max-width:600px;margin:0 auto}
+
+/* carousel */
+.carousel{position:relative;margin:0 -8px}
+.track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px;scrollbar-width:none;scroll-behavior:smooth;cursor:grab}
+.track.drag{cursor:grabbing;scroll-snap-type:none}
+.track::-webkit-scrollbar{display:none}
+.brand{flex:0 0 330px;max-width:330px;scroll-snap-align:center;background:var(--bg);border:1px solid var(--hairline);border-radius:0;padding:36px 30px;min-height:344px;display:flex;flex-direction:column;transition:transform .4s var(--ease-soft),box-shadow .4s var(--ease-soft)}
+.sec-gray .brand{background:#fff}
+.brand:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(0,0,0,.08)}
+.brand .tag{font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+.brand .bn{font-size:clamp(28px,2.4vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-top:12px;color:var(--headline)}
+.brand .bs{font-size:15px;color:var(--muted);margin-top:7px;line-height:1.55}
+.brand .bm{font-size:14px;color:#74806F;margin-top:auto;padding-top:20px;border-top:1px solid var(--hairline);line-height:1.75}
+.brand .bc{font-size:15px;font-weight:600;color:var(--accent);margin-top:13px}.brand .bc::after{content:' →'}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:0;background:rgba(255,255,255,.92);border:1px solid var(--hairline);box-shadow:0 8px 22px rgba(0,0,0,.10);display:flex;align-items:center;justify-content:center;font-size:21px;color:var(--ink);font-weight:300;z-index:5;transition:background .25s var(--ease),color .25s var(--ease),opacity .25s var(--ease)}
+.car-btn:hover{background:var(--headline);color:#fff;border-color:var(--headline)}
+.car-btn:disabled{opacity:0;pointer-events:none}
+.car-prev{left:6px}.car-next{right:6px}
+@media(max-width:900px){.car-btn{width:42px;height:42px;font-size:19px}}
+
+/* events — Apple '사면 가장 좋은 이유' 스타일 라이트 캐러셀 */
+.events{background:var(--bg-alt);padding:clamp(88px,12vh,150px) 0;position:relative;overflow:hidden}
+.ev-head{max-width:1280px;margin:0 auto 40px;padding:0 32px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.ev-head h2{font-size:clamp(26px,3.4vw,40px);font-weight:700;letter-spacing:-.01em;color:var(--headline);line-height:1.25}
+.ev-head h2 span{color:var(--muted);font-weight:600;font-size:.75em}
+.ev-head a{font-size:16px;font-weight:500;color:var(--accent);white-space:nowrap;padding-bottom:6px}
+.ev-head a::after{content:' ›'}
+.ev-wrap{position:relative}
+.ev-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px max(calc((100vw - 1280px)/2 + 32px),32px) 8px;scrollbar-width:none;scroll-behavior:smooth;cursor:grab}
+.ev-track.drag{cursor:grabbing;scroll-snap-type:none}
+.ev-track::-webkit-scrollbar{display:none}
+.ev-card{flex:0 0 340px;max-width:340px;aspect-ratio:7/8;scroll-snap-align:center;border-radius:0;overflow:hidden;background:#fff;display:flex;flex-direction:column;min-height:0;color:inherit;text-decoration:none;transition:transform .4s var(--ease-soft),box-shadow .4s var(--ease-soft)}
+.ev-card:hover{transform:none;box-shadow:6px 6px 0 var(--accent)}
+.ev-body{padding:26px 26px 0;display:flex;flex-direction:column;gap:8px}
+.ev-sub{font-size:13px;color:var(--accent);font-weight:600}
+@font-face{font-family:'Gmarket Sans';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');font-weight:700;font-display:swap}
+@font-face{font-family:'Gmarket Sans';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');font-weight:500;font-display:swap}
+.ev-title{font-family:'Gmarket Sans','SUIT Variable','Pretendard Variable',sans-serif;font-size:27px;font-weight:700;letter-spacing:-.02em;line-height:1.22;color:var(--headline)}
+.ev-desc{font-size:16px;color:var(--muted);line-height:1.65;margin-top:6px}
+.ev-warning{display:inline;padding:0 .04em;color:inherit;font-weight:inherit;background:linear-gradient(transparent 72%,#DCE3B1 72%,#DCE3B1 91%,transparent 91%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.nb{white-space:nowrap}
+.ev-visual{margin-top:auto;height:150px;display:grid;place-items:center;font-weight:700;letter-spacing:-.03em}
+.ev-visual span{font-family:'Gmarket Sans','SUIT Variable',sans-serif;font-weight:700;font-size:clamp(34px,3.6vw,46px);line-height:1;color:var(--headline)}
+.ev-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:0;background:rgba(255,255,255,.92);border:1px solid var(--hairline);box-shadow:0 8px 22px rgba(0,0,0,.10);color:var(--ink);font-size:21px;font-weight:300;display:flex;align-items:center;justify-content:center;z-index:5;transition:background .25s var(--ease),color .25s var(--ease),opacity .25s var(--ease)}
+.ev-arrow:hover{background:var(--headline);color:#fff;border-color:var(--headline)}
+.ev-arrow:disabled{opacity:0;pointer-events:none}
+.ev-prev{left:14px}.ev-next{right:14px}
+@media(max-width:900px){.ev-card{flex:0 0 286px;max-width:286px;min-height:0}.ev-body{padding:22px 22px 0;gap:6px}.ev-desc{font-size:14px;line-height:1.58;margin-top:4px}.ev-visual{height:88px}.ev-visual span{font-size:34px}.ev-arrow{width:42px;height:42px;font-size:19px}.ev-title{font-size:22px}}
+
+/* cases — Apple Arcade 스타일 와이드 카드 자동 캐러셀 */
+.cs-wrap{position:relative}
+.cs-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px max(calc((100vw - 1280px)/2 + 32px),32px) 8px;scrollbar-width:none;scroll-behavior:smooth;cursor:grab}
+.cs-track.drag{cursor:grabbing;scroll-snap-type:none}
+.cs-track::-webkit-scrollbar{display:none}
+.cs-card{flex:0 0 440px;max-width:440px;scroll-snap-align:center;display:block}
+.cs-media{aspect-ratio:16/9;border-radius:0;overflow:hidden;background-size:cover;background-position:center;transition:transform .5s var(--ease-soft)}
+.cs-card:hover .cs-media{transform:scale(1.02)}
+.cs-title{margin-top:14px;font-size:17px;font-weight:600;color:var(--headline)}
+.cs-sub{font-size:14px;color:var(--muted);margin-top:2px}
+@media(max-width:900px){.cs-card{flex:0 0 320px;max-width:320px}.cs-title{font-size:15px}}
+
+/* coming — Apple 스토어 '최신 제품' 스타일 가로 카드 캐러셀 */
+.pcoming{background:var(--bg-alt);padding:clamp(88px,12vh,150px) 0;position:relative;overflow:hidden}
+.pc-wrap{position:relative}
+.pc-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px max(calc((100vw - 1280px)/2 + 32px),32px) 8px;scrollbar-width:none;scroll-behavior:smooth;cursor:grab}
+.pc-track.drag{cursor:grabbing;scroll-snap-type:none}
+.pc-track::-webkit-scrollbar{display:none}
+.pc-card{flex:0 0 330px;max-width:330px;scroll-snap-align:center;background:#fff;border-radius:0;padding:30px 28px 24px;min-height:360px;display:flex;flex-direction:column;transition:transform .4s var(--ease-soft),box-shadow .4s var(--ease-soft)}
+.pc-card:hover{transform:none;box-shadow:6px 6px 0 var(--accent)}
+.pc-tag{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--accent);text-transform:uppercase}
+.pc-name{font-size:26px;font-weight:700;letter-spacing:-.01em;margin-top:12px;color:var(--headline)}
+.pc-desc{font-size:15px;color:var(--muted);margin-top:8px;line-height:1.6}
+.pc-art{margin-top:auto;align-self:center;padding-top:22px;color:#c4c4ca;transition:color .35s var(--ease)}
+.pc-art svg{width:128px;height:128px;display:block}
+.pc-card:hover .pc-art{color:var(--accent)}
+.pc-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:0;background:rgba(255,255,255,.92);border:1px solid var(--hairline);box-shadow:0 8px 22px rgba(0,0,0,.10);color:var(--ink);font-size:21px;font-weight:300;display:flex;align-items:center;justify-content:center;z-index:5;transition:background .25s var(--ease),color .25s var(--ease),opacity .25s var(--ease)}
+.pc-arrow:hover{background:var(--headline);color:#fff;border-color:var(--headline)}
+.pc-arrow:disabled{opacity:0;pointer-events:none}
+.pc-prev{left:14px}.pc-next{right:14px}
+@media(max-width:900px){.pc-card{flex:0 0 280px;max-width:280px;min-height:300px;padding:25px 22px 21px}.pc-art svg{width:88px;height:88px}.pc-arrow{width:42px;height:42px;font-size:19px}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+.stat .fig{font-size:clamp(56px,7vw,88px);font-weight:700;line-height:1;letter-spacing:-.03em;color:var(--headline)}
+.stat .fig .u{font-size:.38em;color:var(--muted);font-weight:500;margin-left:.12em}
+.stat .lab{font-size:15px;color:var(--muted);margin-top:14px}
+
+/* marquee */
+.marq{overflow:hidden;padding:30px 0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marq-track{display:flex;gap:56px;width:max-content;animation:marq 34s linear infinite}
+.marq:hover .marq-track{animation-play-state:paused}
+.mi{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.mi b{font-size:19px;font-weight:700;color:var(--headline)}
+.mi span{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:.02em;color:#6E7C64}
+.dot{width:5px;height:5px;border-radius:0;background:var(--line-strong)}
+@keyframes marq{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+
+/* footer */
+.footer{background:var(--bg-alt);color:#2F5233;padding:96px 0 48px;border-top:1px solid #111}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.footer h3{font-size:20px;letter-spacing:.14em;margin-bottom:14px;color:#1F3822}
+.footer h4{font-size:15px;font-weight:600;margin-bottom:16px;color:#1F3822}
+.footer p,.footer a{color:#6E7C64;line-height:2;font-size:14px;display:block;transition:color .2s var(--ease)}
+.footer a:hover{color:#1F3822}
+.footer-bottom{margin-top:56px;padding-top:30px;border-top:1px solid #111;font-size:12px;color:#8E9784;line-height:1.9;font-family:'JetBrains Mono',ui-monospace,monospace}
+@media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr}}
+
+/* floating + mobile cta */
+.float{position:fixed;right:26px;bottom:26px;background:var(--cta);color:#fff;padding:16px 26px;border-radius:0;z-index:850;box-shadow:0 14px 30px rgba(17,17,17,.42);font-weight:600;font-size:15px;transition:transform .25s var(--ease)}
+.float:hover{transform:translateY(-3px)}
+.mcta{display:none;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #2F5233;padding:10px 12px;gap:16px;align-items:center;z-index:860;box-shadow:0 -5px 0 rgba(17,17,17,.08)}
+.mcta-info{display:flex;flex:1;min-width:0;flex-direction:column;gap:2px;padding-left:8px}
+.mcta-info span{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.08em;color:#77705F}
+.mcta-info b{font-size:13px;font-weight:700;color:#2F5233;white-space:nowrap}
+.mcta .quote{flex:0 0 auto;padding:13px 18px;background:var(--cta);color:#fff;font-size:13px;font-weight:600;text-align:center}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease-soft),transform .9s var(--ease-soft)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== BRANDS SHEET (창호 클릭 시 오버레이) ===== */
+.sheet{position:fixed;inset:0;z-index:1050;background:rgba(0,0,0,.42);opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.sheet.open{opacity:1;pointer-events:auto}
+.sheet-panel{position:absolute;left:0;right:0;bottom:0;top:max(48px,6vh);background:var(--bg-alt);border-radius:0;overflow-y:auto;overscroll-behavior:contain;transform:translateY(40px);opacity:0;transition:transform .5s var(--ease-soft),opacity .5s var(--ease-soft);padding:72px 0 90px}
+.sheet.open .sheet-panel{transform:none;opacity:1}
+.sheet-x{position:sticky;top:0;float:right;margin:-52px 28px 0 0;width:40px;height:40px;border-radius:0;background:#fff;border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-size:21px;color:var(--ink);z-index:5;transition:.25s var(--ease)}
+.sheet-x:hover{background:var(--headline);color:#fff;border-color:var(--headline)}
+@media(max-width:900px){.sheet-panel{top:32px;padding:60px 0 80px}}
+
+/* modal */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1100;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);display:flex;align-items:center;justify-content:center;padding:24px}
+.ov.open{opacity:1;pointer-events:auto}
+.modal{background:#fff;border-radius:0;max-width:480px;width:100%;padding:40px 32px 32px;position:relative;transform:translateY(20px) scale(.98);transition:transform .3s var(--ease-soft);max-height:90vh;overflow-y:auto}
+.ov.open .modal{transform:none}
+.modal .x{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:0;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--ink)}
+.modal .x:hover{background:#e8e8ed}
+.modal h3{font-size:24px;font-weight:700;margin-bottom:8px}
+.modal .ms{font-size:14px;color:var(--muted);margin-bottom:24px}
+.mf{display:flex;flex-direction:column;gap:12px}
+.mf label{font-size:13px;font-weight:500;margin-bottom:4px;display:block}
+.mf input,.mf select,.mf textarea{width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:0;font-size:15px;font-family:inherit;background:#fbfbfd;color:var(--ink);transition:border-color .2s var(--ease),background .2s var(--ease)}
+.mf input:focus,.mf select:focus,.mf textarea:focus{outline:none;border-color:var(--accent);background:#fff}
+.mf textarea{resize:vertical;min-height:84px}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.msub{width:100%;padding:15px;background:var(--cta);color:#fff;border-radius:0;font-size:15px;font-weight:600;margin-top:8px;transition:background .2s var(--ease)}
+.msub:hover{background:var(--cta-press)}
+@media(max-width:480px){.mrow{grid-template-columns:1fr}}
+
+@media(max-width:900px){
+  .nav{padding:0 14px}.wrap{padding:0 20px}
+  /* 모바일에서도 상단 메뉴 노출 (햄버거 대신) */
+  .nav .logo{font-size:14px;letter-spacing:.1em}
+  .nav .logo .logo-sub{display:none}
+  .menu{display:flex;gap:13px}
+  .menu a{font-size:12px;white-space:nowrap}
+  .menu a.active::after{bottom:-12px}
+  .hamb{display:none}.mnav{display:none}
+  /* 모바일: 카드 2장 좌우 양분 (한 화면) */
+  .cards{grid-template-columns:1fr 1fr;gap:12px;margin-top:44px}
+  .card{height:auto;aspect-ratio:1/1;border-radius:0;min-width:0}
+  /* 좁은 세로 카드에서 사진이 하늘만 확대되어 깨져 보이는 것 방지 — 창틀·실내 쪽으로 초점 */
+  .card .media img{object-position:50% 78%}
+  .card .scrim{background:linear-gradient(180deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.55) 34%,rgba(255,255,255,0) 60%)}
+  .card .ct{top:20px;left:16px;right:16px}
+  .card .ct small{font-size:9px;letter-spacing:.03em}
+  .card .ct h2{font-size:clamp(22px,6.5vw,30px);margin:8px 0 8px}
+  .card .ct p{font-size:12px;line-height:1.5}
+  .card .pill{left:12px;bottom:12px;padding:8px 12px;font-size:11px}
+  .stats{grid-template-columns:1fr;gap:48px}
+  .float{display:none}.mcta{display:flex}body{padding-bottom:78px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal,.hero .a{opacity:1!important;transform:none!important}
+  .marq{-webkit-mask-image:none;mask-image:none}.marq-track{animation:none;flex-wrap:wrap;justify-content:center;row-gap:16px;width:auto}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ═══ TE 개편 — mm lab 계측 카탈로그 (화이트+블랙 믹스 · 직각 · 괘선) ═══ */
+body{counter-reset:mmsec}
+.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:lowercase;letter-spacing:.08em;font-weight:500}
+.sec-head .eyebrow::before{counter-increment:mmsec;content:counter(mmsec,decimal-leading-zero) " — "}
+.sec-head::after{content:"";display:block;width:140px;height:9px;margin:22px auto 0;background:repeating-linear-gradient(90deg,#111 0 1px,transparent 1px 10px)}
+/* 히어로 — 밀리미터 눈금 모티프 */
+.hero .lead::after{content:"";display:block;width:180px;height:9px;margin:26px 0 0;background:repeating-linear-gradient(90deg,#111 0 1px,transparent 1px 10px)}
+/* 히어로 — 에디토리얼 오버랩 (텍스트 레이어 × 사진 레이어) */
+.hero .eyebrow::before{content:"— "}
+.hero-ed{position:relative;min-height:clamp(460px,60vh,620px);display:flex;align-items:center}
+.hero-photo{position:absolute;top:0;right:0;width:66%;height:100%;overflow:hidden;background:#EAE4D6;z-index:1}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;filter:saturate(.9) brightness(1.03) contrast(.97)}
+.hero-copy{position:relative;z-index:2;max-width:84%}
+.hero .cards{margin-top:64px}
+@media(max-width:760px){
+  .hero-ed{display:grid;grid-template-columns:1fr;min-height:0}
+  .hero-photo{grid-area:1/1;position:relative;width:100%;height:clamp(440px,68svh,500px);margin-bottom:0}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,240,230,0) 28%,rgba(244,240,230,.5) 58%,rgba(244,240,230,.92) 100%);z-index:1;pointer-events:none}
+  .hero-photo img{object-position:58% 50%}
+  .hero-copy{grid-area:1/1;position:relative;align-self:end;left:auto;right:auto;bottom:auto;max-width:none;margin:0 18px 24px;padding:0;background:transparent;border:0;color:#1F3822}
+  .hero .eyebrow{color:#4F7355}
+  .hero h1{color:#1F3822;text-shadow:0 1px 10px rgba(244,240,230,.6)}
+  .hero .lead{color:#4F7355;font-size:14px;line-height:1.65;margin-top:18px;max-width:310px}
+  .hero .lead::after{background:repeating-linear-gradient(90deg,#4F7355 0 1px,transparent 1px 10px);opacity:.85;margin-top:20px}
+  .hero .cards{margin-top:44px}
+}
+.nav{background:rgba(244,240,230,.88);border-bottom:1px solid #2F5233}
+.nav.scrolled{background:rgba(244,240,230,.96);border-bottom-color:#2F5233}
+.mnav{background:var(--bg);border-bottom:1px solid #2F5233}
+/* 히어로 카드·브랜드 카드 = 괘선 사각 */
+.card{background:#fff;border:1px solid #2F5233}
+.card:hover{transform:none;box-shadow:6px 6px 0 var(--accent)}
+.card .pill{background:var(--accent)}
+.brand{background:#fff;border:1px solid #2F5233}
+.brand:hover{transform:none;box-shadow:5px 5px 0 var(--accent)}
+.brand .bm{border-top:1px solid #2F5233;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px}
+/* WHY = 블랙 구획 (화이트+블랙 믹스) */
+.events{background:var(--bg-alt)}
+.events .ev-head h2{color:var(--headline)}
+.events .ev-head a{color:var(--accent)}
+.ev-card{background:#fff;border:1px solid #2F5233}
+/* 화살표·카드류 */
+.ev-arrow,.car-btn,.pc-arrow{background:#fff;border:1px solid #2F5233;color:#2F5233;box-shadow:none}
+.ev-arrow:hover,.car-btn:hover,.pc-arrow:hover{background:#111;color:#fff;border-color:#2F5233}
+.cs-card{border:1px solid #2F5233;background:#fff}
+.cs-card .cs-title{padding:0 16px}
+.cs-card .cs-sub{padding:0 16px 16px}
+.pc-card{background:#fff;border:1px solid #2F5233}
+/* 수치 = 모노 */
+.stat .fig{font-family:'JetBrains Mono',ui-monospace,monospace}
+.marq{border-top:1px solid #2F5233;border-bottom:1px solid #2F5233}
+/* 플로팅·모달·모바일 CTA */
+.float{background:var(--accent);box-shadow:4px 4px 0 rgba(17,17,17,.2);padding:12px 20px;font-size:14px;min-height:0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .24s ease,transform .24s ease,visibility .24s}
+.float.show{opacity:1;visibility:visible;transform:none}
+.float:hover{background:#111;transform:none}
+.mcta{background:rgba(244,240,230,.96);border-top:1px solid #2F5233}
+.mcta .call{background:#fff;border:1px solid #2F5233;color:#2F5233}
+.modal{background:#fff;border:1px solid #2F5233}
+.mf input,.mf select,.mf textarea{background:#fff;border:1px solid #2F5233}
+.sheet-x{background:#fff;border:1px solid #2F5233}
+/* 룩앤필 — 레퍼런스 '13+/64+' 컬러 플러스 */
+.stats .u{color:var(--accent);font-weight:700}
+/* ABOUT MM LAB — 에디토리얼 */
+#about .about-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,90px);align-items:end;margin-bottom:clamp(56px,7vw,84px)}
+#about .about-hd h2{font-family:'Archivo','SUIT Variable',sans-serif;font-weight:900;font-size:clamp(44px,7vw,104px);line-height:.92;letter-spacing:-.03em;color:var(--headline);margin-top:10px}
+#about .about-tx{padding-bottom:8px}
+#about .about-tx p{font-size:clamp(15px,1.7vw,18px);color:#6E7C64;line-height:1.85;margin-bottom:26px;max-width:520px}
+#about .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #2F5233}
+#about .ast{padding:34px 28px 30px;border-right:1px solid #D9D1C1}
+#about .ast:last-child{border-right:none}
+#about .ast .ic{color:var(--accent);font-size:18px;margin-bottom:16px}
+#about .ast .fig{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:clamp(48px,6vw,80px);font-weight:700;line-height:1;letter-spacing:-.03em;color:var(--accent)}
+#about .ast .fig .u{font-size:.42em;font-weight:700}
+#about .ast .lab{font-size:15px;font-weight:600;color:var(--headline);margin-top:16px}
+#about .ast .lab small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:4px}
+@media(max-width:760px){
+  #about .about-top{grid-template-columns:1fr;gap:24px;align-items:start}
+  #about .about-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #about .ast{min-width:0;padding:22px 4px 20px;border-right:1px solid #D9D1C1;border-bottom:none}
+  #about .ast:last-child{border-right:none}
+  #about .ast .ic{font-size:13px;margin-bottom:12px}
+  #about .ast .fig{font-size:clamp(30px,10vw,40px)}
+  #about .ast .lab{font-size:clamp(10px,3vw,12px);line-height:1.4;margin-top:12px;white-space:nowrap}
+  #about .ast .lab small{font-size:clamp(8px,2.45vw,10px);line-height:1.4;word-break:keep-all;white-space:nowrap}
+}
+#why-t{font-family:'Archivo','SUIT Variable',sans-serif;font-weight:900;font-size:clamp(40px,6vw,86px);line-height:.94;letter-spacing:-.03em}
+#why-t span{display:block;font-family:'SUIT Variable','Pretendard Variable',sans-serif;font-size:clamp(15px,1.5vw,18px);font-weight:600;letter-spacing:-.01em;margin-top:16px;color:#6E7C64}
+
+/* 브랜딩 타이포 — SUIT Heavy 900 */
+.sec-head h2,.card .ct h2,.ev-head h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-serif;font-weight:900}
+.hero h1{font-family:'Gmarket Sans','SUIT Variable','SUIT','Pretendard Variable',sans-serif;font-weight:700;line-height:.88;letter-spacing:-.055em!important}
+/* ═══ 타이틀 폰트 통일 — Gmarket Sans Bold (영문 포함) ═══ */
+.hero h1,.sec-head h2,.card .ct h2,.ev-head h2,.ev-title,.ev-visual span,
+.cs-title,.brand .bn,.pc-name,.stat .fig,
+#about .about-hd h2,#why-t,.about-hd h2{
+  font-family:'Gmarket Sans','SUIT Variable','Pretendard Variable',sans-serif!important;font-weight:700!important;
+}
+</style>
+<link rel="stylesheet" href="responsive.css?v=r4">
+</head>
+<body>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="logo">MM LAB<span class="logo-sub">millimeter laboratory</span></div>
+  <nav class="menu" id="menu" aria-label="주 메뉴">
+    <a href="#" onclick="goHome();return false;">홈</a>
+    <a href="#" onclick="openBrands();return false;">창호</a>
+    <a href="interior.html">인테리어</a>
+    <a href="brand.html">브랜드 소개</a>
+    <a href="#cases">시공사례</a>
+    <a href="#" onclick="openModal();return false;">상담신청</a>
+  </nav>
+  <button class="hamb" id="hamb" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+</header>
+<div class="mnav" id="mnav">
+  <a href="#" onclick="goHome();return false;">홈</a>
+  <a href="#" onclick="openBrands();return false;">창호</a><a href="interior.html">인테리어</a><a href="brand.html">브랜드 소개</a><a href="#cases">시공사례</a>
+  <a href="#" onclick="openModal();return false;">상담신청</a>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-ed">
+      <div class="hero-photo a"><img src="assets/mm-lab-hero-v2.jpg" width="1536" height="1024" alt="따뜻한 자연광과 블랙 프레임 창호가 어우러진 MM LAB 거실과 주방" loading="eager" fetchpriority="high"></div>
+      <div class="hero-copy">
+        <h1 class="a">Making<br>Space</h1>
+        <p class="lead a">공간의 완성은 밀리미터의 차이에서 시작됩니다.<br>프리미엄 창호와 인테리어로 더 정교한 공간을 만듭니다.</p>
+      </div>
+    </div>
+    <div class="cards a" id="cards">
+      <a href="#" class="card" aria-label="창호 브랜드 보기" onclick="openBrands();return false;">
+        <div class="media"><img src="assets/window-hero.png" alt="시스템창호 시공 — 호수 전망 와이드 거실창" loading="lazy"></div>
+        <div class="scrim" aria-hidden="true"></div>
+        <div class="ct"><small>PREMIUM WINDOW SYSTEM</small><h2>창호</h2><p>KCC · LX하우시스 · 독일 시스템창호(KBE)<br>프리미엄 창호 컬렉션</p></div>
+        <span class="pill">더 알아보기 →</span>
+      </a>
+      <a href="interior.html" class="card" id="interior-card" aria-label="인테리어 협력 네트워크 알아보기">
+        <div class="media"><img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?q=80&w=1400&auto=format&fit=crop" alt="프리미엄 인테리어 공간" loading="lazy"></div>
+        <div class="scrim" aria-hidden="true"></div>
+        <div class="ct"><small>CERTIFIED INTERIOR NETWORK</small><h2>인테리어</h2><p>인증된 협력 네트워크 기반<br>프리미엄 공간 솔루션</p></div>
+        <span class="pill">더 알아보기 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT MM LAB — 에디토리얼 (대형 헤딩 + 소개 + 스탯) -->
+<section class="sec reveal" id="about" aria-labelledby="about-t">
+  <div class="wrap">
+    <div class="about-top">
+      <div class="about-hd">
+        <h2 id="about-t">ABOUT<br>MM LAB</h2>
+      </div>
+      <div class="about-tx">
+        <p>MM LAB은 밀리미터 단위의 정밀함으로 공간을 만듭니다. KCC · LX하우시스 · 독일 KBE 본사 정품 창호를 직거래하고, 검증된 파트너와 인테리어까지 하나의 흐름으로 연결합니다. 자재 선택부터 시공까지, 더 정확하고 합리적으로 완성하는 것이 우리의 방식입니다.</p>
+        <a href="brand.html" class="btn btn-primary">브랜드 소개 보기 →</a>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="ast"><div class="fig"><span data-count="1200">0</span><span class="u">+</span></div><div class="lab">누적 시공 세대<small>전국 아파트·주택·상가</small></div></div>
+      <div class="ast"><div class="fig"><span data-count="4">0</span><span class="u">+</span></div><div class="lab">본사 정품 브랜드<small>KCC·LX·KBE·고구려</small></div></div>
+      <div class="ast"><div class="fig"><span data-count="10">0</span><span class="u">년</span></div><div class="lab">본사 품질 보증<small>거주 시공 가능</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY MM LAB — Apple '사면 가장 좋은 이유' 스타일 라이트 캐러셀 -->
+<section class="events reveal" id="why" aria-labelledby="why-t">
+  <div class="ev-head">
+    <h2 id="why-t">WHY<br>MM LAB?</h2>
+  </div>
+  <div class="ev-wrap">
+    <div class="ev-track" id="etrack">
+
+      <a class="ev-card" href="brand.html#genuine" aria-label="본사 승인 제작과 저가 공업사 제품 비교 보기">
+        <div class="ev-body">
+          <div class="ev-sub">AUTHENTIC ONLY</div>
+          <div class="ev-title">본사 정품만 사용<br>저가 공업사 제품 미취급</div>
+          <p class="ev-desc">KCC · LX하우시스 · KBE 본사 정품만 엄선해 시공합니다.</p>
+        </div>
+        <div class="ev-visual" aria-hidden="true"><span>정품만</span></div>
+      </a>
+
+      <a class="ev-card" href="brand.html#save" aria-label="직거래 절감 안내 자세히 보기">
+        <div class="ev-body">
+          <div class="ev-sub">DIRECT TRADE</div>
+          <div class="ev-title">유통 마진 20% 절감,<br><span style="white-space:nowrap">30평 기준 약 200만 원</span></div>
+          <p class="ev-desc">본사 직거래로 불필요한 유통 단계를 줄여, 같은 자재를 더 합리적으로 제안합니다.</p>
+        </div>
+        <div class="ev-visual" aria-hidden="true"><span>20%</span></div>
+      </a>
+
+      <a class="ev-card" href="brand.html#model" aria-label="창호 단독 시공과 본사 직거래 방식 자세히 보기">
+        <div class="ev-body">
+          <div class="ev-sub">WINDOW FIRST</div>
+          <div class="ev-title">창호만 따로<br>시공할 수 있어요</div>
+          <p class="ev-desc">창호만 단독으로도, 인테리어와 함께도 원하는 방식으로 진행합니다.</p>
+        </div>
+        <div class="ev-visual" aria-hidden="true"><span>창호 단독</span></div>
+      </a>
+
+      <a class="ev-card" href="brand.html#brand-verified" aria-label="검증된 협력사 안내 자세히 보기">
+        <div class="ev-body">
+          <div class="ev-sub">VERIFIED NETWORK</div>
+          <div class="ev-title">검증된 협력사와<br>연결해 드려요</div>
+          <p class="ev-desc">직접 검증한 협력사와 연결해 책임 범위를 명확히 합니다.</p>
+        </div>
+        <div class="ev-visual" aria-hidden="true"><span>함께</span></div>
+      </a>
+
+      <a class="ev-card" href="brand.html#brand-warranty" aria-label="본사 품질 보증 안내 자세히 보기">
+        <div class="ev-body">
+          <div class="ev-sub">WARRANTY</div>
+          <div class="ev-title">본사 품질 보증<br>10년</div>
+          <p class="ev-desc">본사 품질 보증 10년. 거주 중에도 시공할 수 있습니다.</p>
+        </div>
+        <div class="ev-visual" aria-hidden="true"><span>10년</span></div>
+      </a>
+
+    </div>
+    <button class="ev-arrow ev-prev" id="eprev" aria-label="이전 카드">‹</button>
+    <button class="ev-arrow ev-next" id="enext" aria-label="다음 카드">›</button>
+  </div>
+</section>
+
+<!-- CASES — Apple Arcade 스타일 자동 캐러셀 -->
+<section class="sec reveal" id="cases" aria-labelledby="cases-t" style="overflow:hidden">
+  <div class="ev-head">
+    <h2 id="cases-t">실제 시공 사례<br><span>사진 한 장이 백 마디 설명보다 정확합니다.</span></h2>
+    <a href="cases.html">전체 시공사례 보기</a>
+  </div>
+  <div class="cs-wrap">
+    <div class="cs-track" id="ctrack"><!-- CASES 데이터로 자동 생성 --></div>
+    <button class="pc-arrow pc-prev" id="cprev" aria-label="이전 사례">‹</button>
+    <button class="pc-arrow pc-next" id="cnext" aria-label="다음 사례">›</button>
+  </div>
+</section>
+
+<!-- COMING — Apple 스토어 '최신 제품' 스타일 -->
+<section class="pcoming reveal" aria-labelledby="coming-t">
+  <div class="ev-head">
+    <h2 id="coming-t">곧, 더 많은 영역에서<br><span>창호를 시작으로 인테리어 전 영역을 차근차근 준비하고 있습니다.</span></h2>
+  </div>
+  <div class="pc-wrap">
+    <div class="pc-track" id="ptrack"><!-- COMING 데이터로 자동 생성 --></div>
+    <button class="pc-arrow pc-prev" id="pprev" aria-label="이전 항목">‹</button>
+    <button class="pc-arrow pc-next" id="pnext" aria-label="다음 항목">›</button>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<section class="marq" aria-label="취급 브랜드 및 신뢰 지표">
+  <div class="marq-track" aria-hidden="true" id="marq">
+    <div class="mi"><b>KCC</b><span>본사 정품 직거래</span></div><span class="dot"></span>
+    <div class="mi"><b>LX하우시스</b><span>본사 정품 직거래</span></div><span class="dot"></span>
+    <div class="mi"><b>KBE</b><span>독일 직수입</span></div><span class="dot"></span>
+    <div class="mi"><b>고구려안전방충망</b><span>안전·기밀</span></div><span class="dot"></span>
+    <div class="mi"><b>10년 보증</b><span>본사 품질 보증</span></div><span class="dot"></span>
+    <div class="mi"><b>거주 시공</b><span>살면서 시공 가능</span></div><span class="dot"></span>
+    <div class="mi"><b>20% 절감</b><span>유통 마진 직거래</span></div><span class="dot"></span>
+    <div class="mi"><b>KCC</b><span>본사 정품 직거래</span></div><span class="dot"></span>
+    <div class="mi"><b>LX하우시스</b><span>본사 정품 직거래</span></div><span class="dot"></span>
+    <div class="mi"><b>KBE</b><span>독일 직수입</span></div><span class="dot"></span>
+    <div class="mi"><b>고구려안전방충망</b><span>안전·기밀</span></div><span class="dot"></span>
+    <div class="mi"><b>10년 보증</b><span>본사 품질 보증</span></div><span class="dot"></span>
+    <div class="mi"><b>거주 시공</b><span>살면서 시공 가능</span></div><span class="dot"></span>
+    <div class="mi"><b>20% 절감</b><span>유통 마진 직거래</span></div><span class="dot"></span>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><h3>MM LAB</h3><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px">support@mmlab.kr<br>02-0000-0000 (평일 09:00~18:00)</p></div>
+      <div><h4>창호 브랜드</h4><a href="lx-vue.html">LX하우시스</a><a href="kcc.html">KCC</a><a href="kbe.html">독일 시스템창호 KBE</a><a href="kogo.html">고구려안전방충망</a></div>
+      <div><h4>인테리어</h4><a href="#">주거 인테리어</a><a href="#">부분 리모델링</a><a href="#">A/S 안내</a><a href="#">거주 시공</a></div>
+      <div><h4>B2B / 도매</h4><a href="#" onclick="openModal();return false;">도매·납품 문의</a><a href="#" onclick="openModal();return false;">협력 인테리어사 등록</a><a href="#" onclick="openModal();return false;">대량 견적</a></div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 MM LAB. All rights reserved.<br>
+      대표자 어반로드 · 사업자등록번호 000-00-00000 · 통신판매업 신고 제2026-서울-00000호<br>
+      서울특별시 ○○구 ○○로 00 · 본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.
+    </div>
+  </div>
+</footer>
+
+<div class="mcta">
+  <div class="mcta-info"><span>consult</span><b>무료 상담 · 현장 실측</b></div>
+  <a href="#" class="quote" onclick="openModal();return false;">상담신청</a>
+</div>
+
+<!-- BRANDS SHEET (창호 배너 클릭 시) -->
+<div class="sheet" id="brandsSheet" aria-hidden="true">
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="brands-t">
+    <button class="sheet-x" onclick="closeBrands()" aria-label="닫기">×</button>
+    <section class="sec-gray" id="brands" style="padding:0">
+      <div class="wrap">
+        <div class="sec-head"><p class="eyebrow">Window Brands</p><h2 id="brands-t">4개 본사 정품 브랜드</h2><p>공간과 예산에 맞춰 정확하게 선택할 수 있도록.</p></div>
+        <div class="carousel">
+          <div class="track" id="track"><!-- BRANDS 데이터로 자동 생성 --></div>
+          <button class="car-btn car-prev" id="prev" aria-label="이전 브랜드">‹</button>
+      <button class="car-btn car-next" id="next" aria-label="다음 브랜드">›</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="ov" id="modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-t">
+    <button class="x" onclick="closeModal()" aria-label="닫기">×</button>
+    <h3 id="modal-t">편하게 남겨주세요</h3>
+    <p class="ms">MM LAB · 영업일 24시간 내 답변</p>
+    <form class="mf" onsubmit="submitForm(event)">
+      <div class="mrow"><div><label for="f-name">이름</label><input id="f-name" name="name" type="text" required placeholder="홍길동" autocomplete="name"></div><div><label for="f-tel">연락처</label><input id="f-tel" name="tel" type="tel" required placeholder="010-0000-0000" autocomplete="tel" inputmode="tel"></div></div>
+      <div class="mrow"><div><label for="f-size">평형</label><select id="f-size" name="size"><option value="">선택</option><option>20평대</option><option>30평대</option><option>40평대</option><option>50평+</option><option>상가·기타</option></select></div><div><label for="f-brand">관심 브랜드</label><select id="f-brand" name="brand"><option value="">선택</option><option>LX하우시스</option><option>KCC</option><option>독일 시스템창호 KBE</option><option>고구려안전방충망</option><option>잘 모르겠음 / 추천</option></select></div></div>
+      <div><label for="f-when">시공 희망 시기</label><select id="f-when" name="when"><option value="">선택</option><option>1개월 이내</option><option>1~3개월</option><option>3~6개월</option><option>6개월+ / 미정</option></select></div>
+      <div><label for="f-msg">문의 내용</label><textarea id="f-msg" name="message" required placeholder="관심 모델·평형 등을 적어주세요."></textarea></div>
+      <button type="submit" class="msub">상담신청</button>
+    </form>
+  </div>
+</div>
+
+<script src="sitenav.js?v=g44"></script>
+<script>
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* hero entrance */
+addEventListener('load',function(){document.getElementById('hero').classList.add('ready');});
+setTimeout(function(){document.getElementById('hero').classList.add('ready');},400);
+
+/* progress bar + nav scrolled */
+var nav=document.getElementById('nav'),prog=document.getElementById('progress');
+function onScroll(){
+  var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+  prog.style.width=(max>0?(scrollY/max*100):0)+'%';
+  nav.classList.toggle('scrolled',scrollY>10);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* hamburger */
+var hamb=document.getElementById('hamb'),mnav=document.getElementById('mnav');
+function setMenu(o){hamb.classList.toggle('open',o);mnav.classList.toggle('open',o);hamb.setAttribute('aria-expanded',String(o));}
+hamb.addEventListener('click',function(){setMenu(!hamb.classList.contains('open'));});
+mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+
+/* scrollspy (brands는 시트로 분리되어 제외) */
+var menuLinks=document.querySelectorAll('#menu a');
+if('IntersectionObserver' in window){
+  var so=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){var id=e.target.id;menuLinks.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+id);});}
+  });},{rootMargin:'-45% 0px -50% 0px'});
+  ['why','cases'].forEach(function(id){var el=document.getElementById(id);if(el)so.observe(el);});
+}
+
+/* brands sheet — 창호 배너 클릭 시 오버레이 */
+var brandsSheet=document.getElementById('brandsSheet'),brandsLast=null;
+function openBrands(){
+  brandsLast=document.activeElement;
+  setMenu(false);
+  brandsSheet.classList.add('open');
+  brandsSheet.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  dispatchEvent(new Event('resize')); /* 캐러셀 화살표 상태 갱신 */
+  var x=brandsSheet.querySelector('.sheet-x');if(x)setTimeout(function(){x.focus();},80);
+}
+function closeBrands(){
+  brandsSheet.classList.remove('open');
+  brandsSheet.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(brandsLast&&brandsLast.focus){brandsLast.focus();brandsLast=null;}
+}
+brandsSheet.addEventListener('click',function(e){if(e.target===brandsSheet)closeBrands();});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&brandsSheet.classList.contains('open'))closeBrands();});
+/* 상세 페이지에서 '창호'로 돌아온 경우(#brands) 시트 자동 열기 */
+if(location.hash==='#brands'){setTimeout(openBrands,350);}
+
+/* reveal */
+if('IntersectionObserver' in window){
+  var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
+
+/* count-up */
+function countUp(el){var t=+el.dataset.count,d=1100,s=null;if(reduce){el.textContent=t.toLocaleString();return;}
+  function tick(n){if(!s)s=n;var p=Math.min((n-s)/d,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(t*e).toLocaleString();if(p<1)requestAnimationFrame(tick);}requestAnimationFrame(tick);}
+if('IntersectionObserver' in window){
+  var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){countUp(e.target);co.unobserve(e.target);}});},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(el){co.observe(el);});
+}else{document.querySelectorAll('[data-count]').forEach(function(el){el.textContent=(+el.dataset.count).toLocaleString();});}
+
+/* hero parallax (subtle, desktop only) */
+if(!reduce){
+  var cards=document.getElementById('cards');
+  addEventListener('scroll',function(){if(innerWidth<=900||!cards)return;var y=scrollY*0.04;cards.style.transform='translateY('+(-y)+'px)';},{passive:true});
+}
+
+/* carousel: arrows + drag (범용 — 브랜드 시트 + 이벤트 캐러셀) */
+function initCarousel(trackId,prevId,nextId){
+  var track=document.getElementById(trackId),prev=document.getElementById(prevId),next=document.getElementById(nextId);
+  if(!track||!prev||!next)return;
+  function step(){var c=track.firstElementChild,g=parseInt(getComputedStyle(track).gap)||20;return c?c.getBoundingClientRect().width+g:350;}
+  function upd(){prev.disabled=track.scrollLeft<=4;next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-4;}
+  prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+  next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});});
+  track.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  // drag to scroll (pointer)
+  var down=false,sx=0,sl=0,moved=0;
+  track.addEventListener('pointerdown',function(e){down=true;moved=0;sx=e.clientX;sl=track.scrollLeft;track.classList.add('drag');});
+  addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;moved+=Math.abs(dx);track.scrollLeft=sl-dx;});
+  addEventListener('pointerup',function(){if(!down)return;down=false;track.classList.remove('drag');});
+  track.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(e){if(moved>8)e.preventDefault();});});
+}
+/* ═══════════ 콘텐츠 데이터 (→ 나중에 관리자/Supabase 연결 시 이 배열만 교체) ═══════════ */
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+/* cases 테이블 매핑 — 시공사례 (id·status·price·purchasable = 커머스 확장 대비 필드) */
+var CASES = [
+  {id:'case-1', status:'published', price:null, purchasable:false, title:'KBE 88mm 시스템창호 / 거실 전면', location:'서울 · 양천구 · 신정 래미안', image:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1400&auto=format&fit=crop'},
+  {id:'case-2', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 타운하우스', location:'경기 · 김포 · 라피아노 1차', image:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1400&auto=format&fit=crop'},
+  {id:'case-3', status:'published', price:null, purchasable:false, title:'KBE / 패시브하우스 적용', location:'경기 · 용인 · W 타운하우스', image:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1400&auto=format&fit=crop'},
+  {id:'case-4', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 타운하우스', location:'경기 · 김포 · 라피아노 2차', image:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop'},
+  {id:'case-5', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 공공시설', location:'충남 · 아산 · 중앙도서관', image:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1400&auto=format&fit=crop'}
+];
+
+/* 창호 브랜드 — 브랜드 시트 (id·status·price·purchasable = 커머스 확장 대비 필드) */
+var BRANDS = [
+  {id:'brand-lx', status:'active', price:null, purchasable:false, href:'lx-vue.html', tag:'K-BPI 18회 1위', name:'LX하우시스', sub:'뷰프레임(일반창) · 유로시스템9(시스템창)', meta:'일반창 9종 + 시스템창<br>자동환기 · 스마트핸들 · 베젤리스'},
+  {id:'brand-kcc', status:'active', price:null, purchasable:false, href:'kcc.html', tag:'국내 1위', name:'KCC', sub:'KS-WEI 6년 연속 1위', meta:'시스템창 · 발코니 · 일반창<br>13개 모델 / ASA 7색'},
+  {id:'brand-kbe', status:'active', price:null, purchasable:false, href:'kbe.html', tag:'독일 직수입', name:'독일 시스템창호 KBE', sub:'120년 profine 그룹', meta:'88mm 7챔버 / 패시브하우스<br>래미안 신정 · 김포 라피아노'},
+  {id:'brand-kogo', status:'active', price:null, purchasable:false, href:'kogo.html', tag:'안전방충망 전문', name:'고구려안전방충망', sub:'추락 방지 · 미세먼지 차단', meta:'안전 · 기밀 · 미세먼지<br>창호와 통합 시공'}
+];
+
+/* categories 테이블 매핑 (status=준비중) — "곧 더 많은 영역에서" */
+var ICON = {
+  door:`<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="14" width="88" height="92" rx="2"/><line x1="46" y1="14" x2="46" y2="106"/><line x1="76" y1="14" x2="76" y2="106"/><line x1="24" y1="24" x2="38" y2="24"/><line x1="54" y1="24" x2="68" y2="24"/><line x1="84" y1="24" x2="98" y2="24"/><circle cx="42" cy="60" r="1.6" fill="currentColor"/><circle cx="80" cy="60" r="1.6" fill="currentColor"/></svg>`,
+  paint:`<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="20" width="58" height="24" rx="6"/><path d="M74 28 H94 V54 H84 V72"/><rect x="78" y="72" width="12" height="28" rx="3"/><line x1="24" y1="58" x2="24" y2="72"/><line x1="36" y1="58" x2="36" y2="84"/><line x1="48" y1="58" x2="48" y2="66"/></svg>`,
+  furniture:`<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="16" width="84" height="88" rx="3"/><line x1="60" y1="16" x2="60" y2="104"/><line x1="18" y1="48" x2="60" y2="48"/><line x1="18" y1="76" x2="60" y2="76"/><line x1="68" y1="56" x2="68" y2="66"/><line x1="24" y1="104" x2="24" y2="112"/><line x1="96" y1="104" x2="96" y2="112"/></svg>`,
+  total:`<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 84 V70 q0-7 7-7 h34 q7 0 7 7 v14"/><rect x="16" y="84" width="60" height="13" rx="4"/><line x1="22" y1="97" x2="22" y2="104"/><line x1="70" y1="97" x2="70" y2="104"/><line x1="94" y1="44" x2="94" y2="104"/><path d="M86 44 h16 l-4-12 h-8 z"/><line x1="14" y1="104" x2="106" y2="104"/></svg>`
+};
+/* (id·status·price·purchasable = 커머스 확장 대비 필드) */
+var COMING = [
+  {id:'cat-door', status:'coming_soon', price:null, purchasable:false, name:'중문', desc:'공간을 나누는 가장 우아한 방법.', icon:ICON.door},
+  {id:'cat-paint', status:'coming_soon', price:null, purchasable:false, name:'탄성도장', desc:'균열 없는 마감, 오래가는 컬러.', icon:ICON.paint},
+  {id:'cat-furniture', status:'coming_soon', price:null, purchasable:false, name:'맞춤가구', desc:'공간에 맞게, 취향에 맞게.', icon:ICON.furniture},
+  {id:'cat-total', status:'coming_soon', price:null, purchasable:false, name:'토탈 인테리어', desc:'창호부터 가구까지, 한 번에.', icon:ICON.total}
+];
+
+function renderCases(){var t=document.getElementById('ctrack');if(!t)return;
+  t.innerHTML=CASES.map(function(c){return '<a href="#" class="cs-card" aria-label="'+esc(c.title)+'"><div class="cs-media" style="background-image:url(\''+c.image+'\')"></div><div class="cs-title">'+esc(c.title)+'</div><div class="cs-sub">'+esc(c.location)+'</div></a>';}).join('');}
+function renderBrands(){var t=document.getElementById('track');if(!t)return;
+  t.innerHTML=BRANDS.map(function(b){return '<a href="'+b.href+'" class="brand"><div class="tag">'+esc(b.tag)+'</div><div class="bn">'+esc(b.name)+'</div><div class="bs">'+esc(b.sub)+'</div><div class="bm">'+b.meta+'</div><div class="bc">더 알아보기</div></a>';}).join('');}
+function renderComing(){var t=document.getElementById('ptrack');if(!t)return;
+  t.innerHTML=COMING.map(function(c){return '<article class="pc-card"><div class="pc-tag">Coming Soon</div><div class="pc-name">'+esc(c.name)+'</div><p class="pc-desc">'+esc(c.desc)+'</p><div class="pc-art" aria-hidden="true">'+c.icon+'</div></article>';}).join('');}
+renderCases();renderBrands();renderComing();
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+initCarousel('track','prev','next');
+initCarousel('etrack','eprev','enext');
+initCarousel('ptrack','pprev','pnext');
+initCarousel('ctrack','cprev','cnext');
+
+/* 시공사례 — 자동으로 흐르는 캐러셀 (호버·드래그 시 정지, 끝에서 처음으로) */
+(function(){
+  if(reduce) return;
+  var track=document.getElementById('ctrack');
+  if(!track) return;
+  var paused=false;
+  track.addEventListener('pointerenter',function(){paused=true;});
+  track.addEventListener('pointerleave',function(){paused=false;});
+  track.addEventListener('pointerdown',function(){paused=true;});
+  addEventListener('pointerup',function(){if(!track.matches(':hover'))paused=false;});
+  setInterval(function(){
+    if(paused||document.hidden)return;
+    var max=track.scrollWidth-track.clientWidth;
+    var c=track.firstElementChild,g=parseInt(getComputedStyle(track).gap)||20;
+    var step=c?c.getBoundingClientRect().width+g:460;
+    if(track.scrollLeft>=max-8) track.scrollTo({left:0,behavior:'smooth'});
+    else track.scrollBy({left:step,behavior:'smooth'});
+  },3800);
+})();
+
+/* modal + focus trap */
+var modal=document.getElementById('modal'),lastFocus=null;
+function focusables(){return modal.querySelectorAll('button,[href],input,select,textarea');}
+function openModal(){lastFocus=document.activeElement;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var f=modal.querySelector('input,select,textarea');if(f)setTimeout(function(){f.focus();},60);}
+function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus&&lastFocus.focus){lastFocus.focus();lastFocus=null;}}
+modal.addEventListener('click',function(e){if(e.target.id==='modal')closeModal();});
+addEventListener('keydown',function(e){
+  if(!modal.classList.contains('open'))return;
+  if(e.key==='Escape'){closeModal();return;}
+  if(e.key==='Tab'){var f=focusables();if(!f.length)return;var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
+});
+function submitForm(e){e.preventDefault();alert('데모입니다. 실제 발송은 추후 연결됩니다.\n\n감사합니다.');closeModal();}
+
+/* 홈으로 — 시트·모바일 메뉴 닫고 맨 위로 */
+function goHome(){
+  if(typeof closeBrands==='function')closeBrands();
+  setMenu(false);
+  scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+}
+
+/* 플로팅 상담 — 메인 비주얼을 지난 뒤 노출 */
+(function(){
+  var fl=document.querySelector('.float');
+  if(!fl)return;
+  function upd(){
+    fl.classList.toggle('show',scrollY>600);
+  }
+  addEventListener('scroll',upd,{passive:true});
+  upd();
+})();
+
+/* 미연결(#) 링크 점프 방지 */
+document.querySelectorAll('a[href="#"]').forEach(function(a){if(a.hasAttribute('onclick'))return;a.addEventListener('click',function(e){e.preventDefault();});});
+</script>
+</body>
+</html>

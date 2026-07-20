@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>브랜드 — MM LAB</title>
+<meta name="description" content="MM LAB 브랜드 — 1DAY 클린 시공, 직거래 절감, 본사 정품. 회사 소개와 대표 인사말.">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+<style>
+@font-face{font-family:'Gmarket Sans';src:url('assets/fonts/gmarket-sans/GmarketSansBold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+/* ═══════════ MM LAB — 브랜드 (라이트 단색 배경) ═══════════ */
+:root{
+  --bg:#F4F0E6; --card:#ffffff; --line:#D9D1C1; --line-strong:#111111;
+  --ink:#6E7C64; --muted:#8A9683; --headline:#1F3822;
+  --accent:#2F5233; --accent-press:#1F3822;
+  --ease:cubic-bezier(0.4,0,0.2,1); --ease-soft:cubic-bezier(0.16,1,0.3,1);
+  --nav-h:54px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;font-size:18px;-webkit-font-smoothing:antialiased;overflow-x:clip;word-break:keep-all;line-break:strict;overflow-wrap:break-word}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:52px;padding:15px 30px;border-radius:0;background:var(--accent);color:#fff;font-weight:600;font-size:16px;transition:transform .25s var(--ease),background .25s var(--ease)}
+.btn:hover{background:var(--accent-press);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--headline);border:1px solid var(--line-strong)}
+.btn-ghost:hover{background:var(--card)}
+
+/* nav (light translucent) */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(244,240,230,.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);z-index:900}
+.nav .logo{font-weight:700;letter-spacing:.16em;font-size:16px;color:var(--headline)}
+.nav .logo .logo-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:400;font-size:13px;letter-spacing:.02em;text-transform:lowercase;color:#4F7355;margin-left:12px;white-space:nowrap}
+.menu{display:flex;gap:28px;align-items:center}
+.menu a{font-size:14px;color:var(--accent)}
+.menu a:hover,.menu a.active{color:var(--headline)}.menu a.active{font-weight:600}
+@media(max-width:900px){.nav{padding:0 14px}.menu{gap:13px}.menu a{font-size:12px;white-space:nowrap}.nav .logo{font-size:13px;letter-spacing:.1em}.nav .logo .logo-sub{display:none}}
+
+/* panels */
+.panel{padding:clamp(64px,9vh,116px) 0;text-align:center}
+section[id],main [id]{scroll-margin-top:calc(var(--nav-h) + 70px)}
+/* 스티키 섹션 탭 */
+.subnav{position:sticky;top:var(--nav-h);z-index:800;background:rgba(244,240,230,.94);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line)}
+.subnav-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:4px;padding:0 18px;height:48px;overflow-x:auto;scrollbar-width:none}
+.subnav-in::-webkit-scrollbar{display:none}
+.subnav a{font-size:14px;color:var(--muted);padding:7px 13px;border-radius:0;white-space:nowrap;transition:color .2s var(--ease),background .2s var(--ease)}
+.subnav a:hover{color:var(--ink)}
+.subnav a.on{color:var(--accent);font-weight:600;background:rgba(17,17,17,.08)}
+.subnav .sp{flex:1}
+.subnav .cta{background:var(--accent);color:#fff;font-weight:600}
+.subnav .cta:hover{color:#fff;background:var(--accent-press)}
+@media(max-width:600px){.subnav-in{justify-content:space-between;gap:0;padding:0 8px;overflow:visible}.subnav a{font-size:12px;padding:7px 6px}.subnav .sp,.subnav .cta{display:none}}
+/* 핵심 요약 카드 */
+.summary{max-width:1080px;margin:42px auto 0;padding:0 28px}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:760px){.sgrid{grid-template-columns:1fr 1fr}}
+.scard{background:var(--card);border:1px solid var(--line);border-radius:0;padding:24px 22px;text-align:left;display:block;transition:transform .3s var(--ease-soft),border-color .2s var(--ease)}
+.scard:hover{transform:translateY(-4px);border-color:var(--accent)}
+.scard .k{font-size:clamp(28px,3.2vw,38px);font-weight:800;color:var(--headline);letter-spacing:-.02em;line-height:1}
+.scard .k em{color:var(--accent);font-style:normal}
+.scard .l{font-size:14px;font-weight:700;color:var(--ink);margin-top:12px}
+.scard .d{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5}
+.panel.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:var(--nav-h)}
+.h-hero{font-size:clamp(48px,9vw,116px);font-weight:700;letter-spacing:-.03em;line-height:1.02;color:var(--headline)}
+.hero-mark{position:relative;z-index:0;display:inline-block;white-space:nowrap}
+.hero-mark::after{content:"";position:absolute;z-index:-1;left:-.02em;right:-.02em;bottom:.04em;height:.12em;background:rgba(143,165,132,.48);transform:rotate(-.7deg);transform-origin:left center}
+.h-big{font-size:clamp(34px,5.5vw,76px);font-weight:700;letter-spacing:-.03em;line-height:1.08;color:var(--headline)}
+.sub{font-size:clamp(18px,2.2vw,24px);color:var(--muted);margin-top:26px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.6}
+.grad{color:var(--accent)}
+.scrollcue{margin-top:52px;font-size:12px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+.scrollcue::after{content:"";display:block;width:1px;height:40px;margin:14px auto 0;background:linear-gradient(var(--muted),transparent);animation:cue 1.8s var(--ease) infinite}
+@media(max-width:600px){.panel.hero{min-height:clamp(500px,70svh,620px);padding-top:calc(var(--nav-h) + 24px);padding-bottom:32px}.scrollcue{margin-top:28px}}
+@keyframes cue{0%{opacity:.2;transform:scaleY(.4)}50%{opacity:1;transform:scaleY(1)}100%{opacity:.2;transform:scaleY(.4)}}
+
+/* mega numbers */
+.mega{font-size:clamp(110px,21vw,300px);font-weight:800;line-height:.9;letter-spacing:-.05em;color:var(--headline)}
+.mega span{color:var(--accent)}
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);max-width:920px;margin:48px auto 0}
+.steps::before{content:"";position:absolute;top:34px;left:11%;right:11%;height:1px;background:var(--line-strong)}
+.step{position:relative;z-index:1;display:flex;min-width:0;flex-direction:column;align-items:center;padding:0 18px;font-size:15px;color:var(--ink);text-align:center}
+.step:not(:last-child)::after{content:'→';position:absolute;top:23px;right:-10px;width:20px;background:var(--bg);color:var(--muted);font-size:14px}
+.step-icon{display:grid;place-items:center;width:68px;height:68px;margin-bottom:16px;background:var(--bg);color:var(--accent)}
+.step-icon svg{width:52px;height:52px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.step small{display:block;color:var(--accent);font-weight:700;font-size:13px;margin-bottom:6px;letter-spacing:.04em}
+.step strong{font-size:15px;font-weight:600;color:var(--ink);line-height:1.45}
+@media(max-width:700px){
+  .steps{grid-template-columns:1fr 1fr;gap:28px 0;overflow:visible;margin-top:38px}
+  .steps::before,.step:not(:last-child)::after{display:none}
+  .step{min-height:168px;padding:18px 12px;border-top:1px solid var(--line-strong)}
+  .step:nth-child(odd){border-right:1px solid var(--line-strong)}
+}
+.fineprint{font-size:13px;color:#9a9aa0;margin:24px auto 0;line-height:1.6;max-width:640px}
+
+/* tier */
+.tier{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px;text-align:left}
+@media(max-width:900px){.tier{grid-template-columns:1fr 1fr}}@media(max-width:560px){.tier{grid-template-columns:1fr}}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:0;padding:28px 24px;transition:transform .35s var(--ease-soft),box-shadow .35s var(--ease-soft)}
+.tcard:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.07)}
+.tcard .lv{font-size:12px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
+.tcard .nm{font-size:20px;font-weight:700;margin-top:10px;color:var(--headline)}
+.tcard .ds{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6}
+
+/* 대표 인사말 */
+.ceo-grid{display:grid;grid-template-columns:.82fr 1.5fr;gap:clamp(32px,5vw,64px);align-items:center;text-align:left;max-width:980px;margin:48px auto 0}
+@media(max-width:820px){.ceo-grid{grid-template-columns:1fr;gap:28px}}
+.portrait{aspect-ratio:3/4;border-radius:0;background:#EDEBE5;border:1px solid var(--line);display:grid;place-items:center;color:#a7a7ad;font-size:14px}
+.ceo-name{margin-top:18px;font-size:16px;color:var(--muted)}.ceo-name b{color:var(--headline);font-weight:700;font-size:18px}
+.ceo-role{font-size:13px;color:#9a9aa0;margin-top:4px;letter-spacing:.02em}
+.ceo-msg p{font-size:clamp(16px,1.8vw,19px);color:#3a3a40;line-height:1.85;margin-bottom:16px}
+.ceo-lead{font-size:clamp(20px,2.4vw,28px);font-weight:700;color:var(--headline);margin-bottom:22px}
+.ceo-msg .sign{margin-top:24px;font-size:14px;color:var(--muted)}.ceo-msg .sign b{color:var(--headline)}
+.ceo-msg .ceo-eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0;line-height:1.4}
+.ceo-head{font-size:clamp(28px,3.9vw,48px);font-weight:700;letter-spacing:-.02em;line-height:1.22;color:var(--headline);margin:12px 0 20px}
+.ceo-msg .ceo-q{font-size:clamp(18px,2.1vw,22px);color:var(--accent);font-weight:700;margin-bottom:20px;line-height:1.5}
+.ceo-msg .ceo-sub{font-size:clamp(19px,2.2vw,24px);font-weight:700;color:var(--headline);letter-spacing:-.01em;margin:30px 0 12px;line-height:1.35}
+
+/* service flow — 인테리어 Our Process와 같은 편집형 구성 */
+#flow .wrap{max-width:1180px}
+#flow .h-big{font-size:clamp(34px,4.5vw,62px)}
+.flow-carousel{position:relative}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);margin-top:48px;text-align:left;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fstep{position:relative;min-height:280px;padding:34px 28px 32px;border-right:1px solid var(--line);transition:background .25s}
+.fstep:last-child{border-right:0}
+.fstep::after{content:"";position:absolute;left:0;right:100%;bottom:-1px;height:3px;background:var(--accent);transition:right .32s var(--ease)}
+.fstep:hover{background:rgba(255,255,255,.48)}
+.fstep:hover::after{right:0}
+.fstep .no{font-family:'Newsreader',serif;font-size:54px;line-height:1;color:var(--accent);letter-spacing:-.04em}
+.flow-mark{position:absolute;top:39px;right:27px;width:7px;height:7px;border:1px solid var(--accent);transform:rotate(45deg)}
+.flow-label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:500;letter-spacing:.1em;color:var(--muted);margin-top:24px}
+.fstep h4{font-size:19px;font-weight:700;margin-top:8px;color:var(--headline);letter-spacing:-.02em}
+.fstep p{font-size:14px;color:var(--muted);margin-top:13px;line-height:1.65;max-width:210px}
+.flow-arrow{display:none;position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:1px solid var(--headline);background:rgba(250,248,242,.94);color:var(--headline);font-size:22px;z-index:2}
+.flow-arrow:hover{background:var(--headline);color:#fff}.flow-arrow:disabled{opacity:0;pointer-events:none}
+.flow-prev{left:4px}.flow-next{right:4px}
+@media(max-width:760px){
+  .flow-carousel{margin:0 -6px}
+  .flow{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;border:0;padding:6px 6px 16px;scrollbar-width:none;-ms-overflow-style:none}
+  .flow::-webkit-scrollbar{display:none}
+  .fstep{flex:0 0 76%;min-height:228px;padding:27px 22px 25px;scroll-snap-align:start;border:1px solid var(--line);background:rgba(255,255,255,.28)}
+  .fstep:last-child{border-right:1px solid var(--line)}
+  .flow-arrow{display:block}
+}
+
+.lead{font-size:clamp(17px,2vw,21px);color:var(--muted);line-height:1.85;max-width:680px;margin:22px auto 0}
+.lead b{color:var(--ink)}
+.trust{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
+.tbadge{border:1px solid var(--line-strong);border-radius:0;padding:11px 22px;font-size:14px;color:var(--ink)}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease-soft),transform 1s var(--ease-soft)}
+.reveal.in{opacity:1;transform:none}
+
+/* footer (dark, 사이트 공통) */
+.footer{background:var(--bg-alt);color:var(--ink);border-top:1px solid var(--line-strong);padding:64px 0 44px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;max-width:1080px;margin:0 auto;padding:0 28px}
+.footer h3{font-size:19px;letter-spacing:.14em;margin-bottom:14px;color:var(--headline)}
+.footer h4{font-size:15px;font-weight:600;margin-bottom:14px;color:var(--headline)}
+.footer p,.footer a{color:var(--ink);line-height:2;font-size:14px;display:block}
+.footer a:hover{color:var(--headline)}
+.footer-bottom{max-width:1080px;margin:44px auto 0;padding:26px 28px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.9;font-family:'JetBrains Mono',ui-monospace,monospace}
+@media(max-width:740px){.footer-grid{grid-template-columns:1fr 1fr}}
+
+.float{position:fixed;right:24px;bottom:24px;background:var(--accent);color:#fff;padding:15px 24px;border-radius:0;z-index:850;box-shadow:0 14px 30px rgba(17,17,17,.42);font-weight:600;font-size:15px;transition:transform .25s var(--ease)}
+.float:hover{transform:translateY(-3px)}
+@media(max-width:900px){.float{right:14px;bottom:14px;padding:13px 18px;font-size:14px}}
+
+/* modal */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1200;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);display:flex;align-items:center;justify-content:center;padding:24px}
+.ov.open{opacity:1;pointer-events:auto}
+.modal{background:#fff;border-radius:0;max-width:460px;width:100%;padding:38px 30px 30px;position:relative;transform:translateY(20px) scale(.98);transition:transform .3s var(--ease-soft);max-height:90vh;overflow-y:auto}
+.ov.open .modal{transform:none}
+.modal .x{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:0;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:20px}
+.modal h3{font-size:23px;font-weight:700;margin-bottom:8px}
+.modal .ms{font-size:14px;color:var(--muted);margin-bottom:22px}
+.mf{display:flex;flex-direction:column;gap:12px}
+.mf label{font-size:13px;font-weight:500;margin-bottom:4px;display:block}
+.mf input,.mf select,.mf textarea{width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:0;font-size:15px;font-family:inherit;background:#fbfbfd;color:var(--ink)}
+.mf input:focus,.mf select:focus,.mf textarea:focus{outline:none;border-color:var(--accent);background:#fff}
+.mf textarea{resize:vertical;min-height:80px}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.msub{width:100%;padding:14px;background:var(--accent);color:#fff;border-radius:0;font-size:15px;font-weight:600;margin-top:6px}
+@media(max-width:480px){.mrow{grid-template-columns:1fr}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1!important;transform:none!important}.scrollcue::after{animation:none}}
+/* 사업모델 비교 — 유통 경로와 선택 방식을 직접 보여주는 다이어그램 */
+.cmp{display:flex;flex-direction:column;gap:52px;max-width:1080px;margin:48px auto 0;text-align:left}
+.cmp-row{padding:0;background:transparent;border:0}
+.cmp-label{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;font-size:15px;font-weight:700;color:var(--muted)}
+.cmp-label small{font-size:13px;font-weight:600;letter-spacing:.02em}
+.cmp-row.normal .cmp-label small{color:#8c7b68}
+.cmp-row.mm .cmp-label{color:var(--accent)}
+.chain{--nodes:4;display:grid;grid-template-columns:repeat(var(--nodes),minmax(0,1fr));border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong)}
+.cmp-row.mm .chain{--nodes:3;max-width:850px;margin:0 auto;border-color:rgba(47,91,57,.46)}
+.ch{position:relative;display:flex;min-width:0;min-height:190px;flex-direction:column;align-items:flex-start;justify-content:flex-start;border:0;border-right:1px solid var(--line-strong);border-radius:0;background:transparent;padding:22px 26px 24px;font-size:14px;font-weight:600;color:var(--ink);text-align:left;line-height:1.35;transition:background .3s var(--ease-soft),transform .3s var(--ease-soft)}
+.ch:last-child{border-right:0}
+.ch::before{content:attr(data-step);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:25px;font-weight:500;line-height:1;color:var(--muted);letter-spacing:-.04em}
+.ch:not(:last-child)::after{content:'→';position:absolute;z-index:2;right:-12px;top:50%;width:24px;height:24px;display:grid;place-items:center;background:var(--bg);color:var(--muted);font-size:16px;font-weight:400;transform:translateY(-50%)}
+.node-icon{position:absolute;top:18px;right:20px;display:grid;place-items:center;width:46px;height:46px;color:var(--muted)}
+.node-icon svg{width:42px;height:42px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ch strong{display:block;margin-top:auto;font-size:17px;font-weight:700;color:var(--headline)}
+.ch:hover{z-index:1;background:#f7f4ee;transform:translateY(-4px)}
+.ch small{display:block;font-size:13px;color:var(--muted);margin-top:7px;font-weight:500}
+.ch.hi{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ch.hi::before,.ch.hi .node-icon,.ch.hi strong{color:#fff}
+.ch.hi:hover{background:#254b2e}
+.ch.hi small{color:rgba(255,255,255,.88)}
+.ch.you{box-shadow:inset 0 -4px 0 var(--accent)}
+.ch.you small{color:var(--accent);font-weight:700}
+.cmp-note{position:relative;color:var(--muted);font-size:18px;margin-top:38px;max-width:820px;margin-left:auto;margin-right:auto;padding-top:24px;line-height:1.7;text-align:center}
+.cmp-note::before{content:"";position:absolute;top:0;left:50%;width:54px;height:2px;background:var(--accent);transform:translateX(-50%)}
+.cmp-note b{color:var(--accent);font-weight:800}
+.ways{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:920px;margin:62px auto 0;text-align:center}
+.ways::before{content:"";position:absolute;left:50%;top:8%;bottom:8%;width:1px;background:var(--line-strong)}
+.way,.way.hi{display:flex;flex-direction:column;align-items:center;background:transparent;border:0;box-shadow:none;padding:12px clamp(20px,5vw,64px)}
+.way-symbol{display:grid;place-items:center;width:112px;height:112px;margin-bottom:24px;border:1px solid var(--accent);border-radius:50%;color:var(--accent);background:var(--bg);transition:transform .3s var(--ease-soft),background .3s var(--ease-soft),box-shadow .3s var(--ease-soft)}
+.way-symbol svg{width:58px;height:58px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.way:hover .way-symbol{transform:translateY(-6px);background:#fff;box-shadow:0 8px 0 rgba(47,91,57,.13)}
+.way .wn{font-size:22px;font-weight:700;color:var(--headline)}
+.way p{font-size:15px;color:var(--muted);margin-top:10px;line-height:1.65;max-width:340px}
+.way p b{color:var(--headline);font-weight:800}
+.way .wtag{display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:var(--accent);padding-bottom:4px;border-bottom:1px solid currentColor}
+@media(max-width:700px){
+  .cmp{gap:36px;margin-top:40px}
+  .cmp-label{font-size:14px;margin-bottom:14px}
+  .chain{display:grid;grid-template-columns:1fr 1fr;max-width:none;overflow:visible}
+  .cmp-row.mm .chain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:none;overflow:visible}
+  .ch,.ch.hi{min-height:164px;padding:16px 14px 18px;font-size:13px;border-right:1px solid var(--line-strong)}
+  .ch:not(:last-child)::after{display:none}
+  .cmp-row.normal .ch{border-bottom:1px solid var(--line-strong)}
+  .cmp-row.normal .ch:nth-child(2n){border-right:0}
+  .cmp-row.normal .ch:nth-child(n+3){border-bottom:0}
+  .cmp-row.mm .ch:last-child{border-right:0}
+  .ch::before{font-size:22px}
+  .node-icon{top:12px;right:10px;width:34px;height:34px}
+  .node-icon svg{width:31px;height:31px}
+  .ch strong{font-size:15px}
+  .ch small{font-size:13px;line-height:1.2}
+  .cmp-note{font-size:15px;margin-top:30px;padding-top:20px}
+  .ways{margin-top:48px}
+  .way,.way.hi{padding:8px 12px}
+  .way-symbol{width:82px;height:82px;margin-bottom:18px}
+  .way-symbol svg{width:42px;height:42px}
+  .way .wn{font-size:18px}
+  .way p{font-size:13px;line-height:1.55}
+  .way .wtag{font-size:13px}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+/* hero quotes (감성 카피) */
+.quotes{max-width:600px;margin:34px auto 0;display:flex;flex-direction:column;gap:11px}
+.quotes p{font-size:clamp(16px,2vw,20px);color:var(--ink);line-height:1.6}
+.quotes p::before{content:"“";color:var(--accent);font-weight:700;margin-right:2px}
+.quotes p::after{content:"”";color:var(--accent);font-weight:700;margin-left:2px}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:640px;margin:38px auto 0}
+.stat{text-align:center}
+.stat .fig{font-size:clamp(32px,4vw,46px);font-weight:800;letter-spacing:-.03em;color:var(--headline);line-height:1}
+.stat .fig span{font-size:.42em;color:var(--accent);margin-left:2px}
+.stat .lab{font-size:13px;color:var(--muted);margin-top:8px}
+/* 진행 안내 — 조건별 선형 아이콘 인덱스 */
+.info{display:grid;grid-template-columns:repeat(5,1fr);max-width:1080px;margin:52px auto 0;border:0;overflow:visible;background:transparent;text-align:center}
+.info .row{display:flex;min-width:0;flex-direction:column;align-items:center;border:0;border-right:1px solid var(--line-strong);padding:0 22px}
+.info .row:last-child{border-right:0}
+.info dt{display:flex;flex-direction:column;align-items:center;padding:0;background:transparent;font-size:16px;font-weight:700;color:var(--headline)}
+.info-icon{display:grid;place-items:center;width:72px;height:72px;margin-bottom:17px;color:var(--accent)}
+.info-icon svg{width:56px;height:56px;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.info dd{padding:10px 0 0;font-size:14px;color:var(--muted);line-height:1.65}
+.info dd b{color:var(--accent);font-weight:800}
+@media(max-width:760px){
+  .info{display:grid;grid-template-columns:1fr 1fr;overflow:visible;margin-top:42px}
+  .info .row{min-height:184px;padding:19px 12px;border-right:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong)}
+  .info .row:nth-child(2n){border-right:0}
+  .info .row:last-child{grid-column:1/-1;min-height:164px;border-right:0;border-bottom:0}
+}
+/* faq */
+.faq{max-width:760px;margin:44px auto 0;text-align:left}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px 4px;text-align:left;font-size:clamp(16px,2vw,19px);font-weight:600;color:var(--headline)}
+.qa button .ic{flex:none;color:var(--accent);font-size:24px;transition:transform .3s var(--ease-soft)}
+.qa.open button .ic{transform:rotate(45deg)}
+.qa .ans{max-height:0;overflow:hidden;transition:max-height .35s var(--ease-soft)}
+.qa .ans p{padding:0 4px 24px;font-size:15.5px;color:var(--muted);line-height:1.75}
+/* 브랜드 원칙 — 카드 대신 의미가 연결되는 심벌 다이어그램 */
+.vals{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1120px;margin:58px auto 0;text-align:center}
+.vals::before{content:"";position:absolute;top:55px;left:11%;right:11%;height:1px;background:var(--line-strong)}
+.val{position:relative;min-width:0;padding:0 22px;background:transparent;border:0}
+.val[href]{cursor:pointer}.val[href]:focus-visible{outline:1px solid var(--accent);outline-offset:10px}
+.val-symbol{position:relative;z-index:1;display:grid;place-items:center;width:112px;height:112px;margin:0 auto 28px;border:1px solid var(--accent);border-radius:50%;background:var(--bg);color:var(--accent);transition:transform .35s var(--ease-soft),box-shadow .35s var(--ease-soft),background .35s}
+.val-symbol::after{content:"";position:absolute;inset:8px;border:1px dashed rgba(47,91,57,.36);border-radius:50%}
+.val-symbol svg{width:52px;height:52px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.val:hover .val-symbol{transform:translateY(-7px);background:#fff;box-shadow:0 10px 0 rgba(47,91,57,.16)}
+.val .n{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.05em}
+.val h3{font-size:20px;font-weight:700;letter-spacing:-.02em;margin:11px 0 10px;color:var(--headline)}
+.val p{font-size:15px;color:var(--muted);line-height:1.7}
+.val .auth-exclusion{display:inline;padding:0 .04em;color:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;background:linear-gradient(transparent 72%,#DCE3B1 72%,#DCE3B1 91%,transparent 91%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+@media(max-width:760px){
+  .vals{grid-template-columns:1fr 1fr;gap:42px 12px;margin-top:44px}
+  .vals::before{display:none}
+  .val{padding:0 8px}
+  .val-symbol{width:92px;height:92px;margin-bottom:20px}
+  .val-symbol svg{width:42px;height:42px}
+  .val h3{font-size:17px;line-height:1.35}
+  .val p{font-size:13px;line-height:1.65}
+  .val .auth-exclusion{padding:0 .03em}
+}
+/* 정식 제작 여부 — 저가 공업사 제품과의 비교 시안 */
+.auth-study{padding-top:36px;padding-bottom:72px}
+#genuine{scroll-margin-top:112px}
+.auth-bridge{max-width:1080px;margin:0 auto 46px;padding:0 0 28px;border-bottom:1px solid var(--line);text-align:center}
+.auth-bridge::before{content:'';display:block;width:46px;height:2px;margin:0 auto 20px;background:var(--accent)}
+.auth-bridge h2{font-family:'Gmarket Sans','Pretendard Variable',Pretendard,sans-serif;font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-.03em;line-height:1.35;color:var(--headline)}
+.auth-bridge p{margin-top:10px;color:var(--muted);font-size:15px;line-height:1.7}
+.auth-route{max-width:1080px;margin:0 auto 46px;padding:0 0 28px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left}
+.auth-route-top{display:flex;align-items:flex-start;justify-content:space-between;gap:28px}
+.auth-route h3{font-family:'Gmarket Sans','Pretendard Variable',Pretendard,sans-serif;font-size:22px;font-weight:700;letter-spacing:-.025em;line-height:1.3;color:var(--headline);white-space:nowrap}
+.auth-route p{max-width:770px;color:#405e47;font-size:14px;line-height:1.7}
+.auth-route-flow{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,5vw,72px);margin-top:28px;counter-reset:route}
+.auth-route-flow::before{content:'';position:absolute;left:7%;right:7%;top:23px;height:1px;background:var(--line-strong);opacity:.65}
+.auth-route-step{position:relative;z-index:1;min-height:84px;padding:56px 8px 0;border:0;background:transparent;color:var(--headline);font-size:13px;font-weight:700;line-height:1.45;text-align:center}
+.auth-route-step::before{counter-increment:route;content:'0' counter(route);position:absolute;left:50%;top:0;display:grid;place-items:center;width:46px;height:46px;border:1px solid var(--accent);border-radius:50%;background:var(--bg);color:var(--accent);font:700 11px 'JetBrains Mono',monospace;transform:translateX(-50%)}
+.auth-route-step:not(:last-child)::after{content:'›';position:absolute;right:calc(-1 * clamp(20px,3vw,43px));top:14px;display:grid;place-items:center;width:18px;height:18px;background:var(--bg);color:var(--accent);font-size:20px;font-weight:400}
+.auth-route-step.warn{color:var(--headline)}
+.auth-route-step.warn::before{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 0 7px rgba(47,82,51,.09)}
+.auth-card{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:minmax(320px,.78fr) minmax(0,1.22fr);column-gap:clamp(38px,5vw,72px);row-gap:0;border:0;background:transparent;text-align:left;overflow:visible}
+.auth-visual{position:relative;isolation:isolate;grid-column:1;grid-row:1/6;align-self:center;display:grid;place-items:center;width:100%;min-height:0;max-height:560px;aspect-ratio:4/4.25;padding:28px;background:#f5f3ec;border:0;overflow:hidden}
+.auth-visual::before{content:'';position:absolute;z-index:-2;inset:0;background-image:linear-gradient(rgba(47,91,57,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(47,91,57,.07) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(ellipse at center,#000 42%,rgba(0,0,0,.72) 68%,transparent 96%);mask-image:radial-gradient(ellipse at center,#000 42%,rgba(0,0,0,.72) 68%,transparent 96%)}
+.auth-visual::after{content:'';position:absolute;z-index:-1;left:22%;right:20%;bottom:14%;height:8%;border-radius:50%;background:rgba(31,56,34,.12);filter:blur(13px);transform:skewX(-10deg)}
+.auth-visual img{position:relative;z-index:1;width:min(88%,380px);height:78%;object-fit:contain;mix-blend-mode:multiply;clip-path:inset(0 18% 0 0);transform:translateY(3%)}
+.auth-label{position:absolute;font-size:12px;color:var(--muted);line-height:1.45}
+.auth-label b{display:block;color:var(--headline);font-size:14px;margin-bottom:2px}
+.auth-label.hidden{z-index:4;width:min(230px,calc(100% - 28px));padding:11px 13px;border:1px solid rgba(47,82,51,.36);background:rgba(244,240,230,.96);color:var(--ink);opacity:0;visibility:hidden;pointer-events:none;box-shadow:0 8px 20px rgba(31,56,34,.08);transition:opacity .16s ease,transform .16s ease;transform:translateY(4px)}
+.auth-label.hidden.show{opacity:1;visibility:visible;transform:translateY(0)}
+.auth-label.hidden b{color:var(--headline)}
+.auth-marker{position:absolute;z-index:3;width:32px;height:32px;border:0;border-radius:50%;background:var(--accent);color:#fff;font:700 13px 'JetBrains Mono',monospace;box-shadow:none;cursor:pointer;transition:background .18s ease,transform .18s ease}
+.auth-marker:hover,.auth-marker:focus-visible,.auth-marker.on{background:var(--headline);transform:translateY(-2px);box-shadow:none;outline:none}
+.auth-marker.m1{left:55%;top:34%}.auth-marker.m2{left:34%;top:39%}.auth-marker.m3{left:51%;top:61%}.auth-marker.m4{left:67%;top:48%}
+.auth-copy{display:contents}
+.auth-copy>.eyebrow,.auth-copy>.h-big,.auth-copy>.auth-intro,.auth-copy>.auth-compare,.auth-copy>.auth-outcome{grid-column:2}
+.auth-copy>.eyebrow{grid-row:1;align-self:end}
+.auth-copy>.h-big{grid-row:2}.auth-copy>.auth-intro{grid-row:3}.auth-copy>.auth-compare{grid-row:4}.auth-copy>.auth-outcome{grid-row:5}
+.auth-copy .h-big{font-size:clamp(30px,3.5vw,46px);line-height:1.12;margin-top:10px}
+.auth-intro{max-width:600px;margin-top:14px;color:var(--muted);font-size:16px;line-height:1.7}
+.auth-compare{position:relative;margin-top:30px;padding:8px 0;border:0;border-top:1px solid var(--line)}
+.auth-row{display:grid;grid-template-columns:92px 1fr 1fr}
+.auth-row>div{min-width:0;padding:12px 13px;border:0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.5}
+.auth-head>div{padding-top:10px;background:transparent;color:var(--muted);font-family:'Gmarket Sans','Pretendard Variable',Pretendard,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.015em;text-align:left}
+.auth-head>div:nth-child(2){color:var(--accent)}.auth-head>div:nth-child(3){color:var(--headline)}
+.auth-part{display:flex;align-items:center;padding-left:0!important;color:var(--headline);font-weight:800;background:transparent}
+.auth-approved,.auth-workshop{position:relative;padding-left:34px!important}
+.auth-approved::before,.auth-workshop::before{content:'';position:absolute;left:13px;top:17px;width:9px;height:9px;border-radius:50%}
+.auth-approved{color:var(--accent);font-weight:700}.auth-approved::before{background:var(--accent)}
+.auth-workshop{color:var(--headline)}.auth-workshop::before{border:1px solid var(--accent);background:transparent}
+.auth-outcome{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:22px}
+.auth-outcome::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+.auth-outcome div{position:relative;padding:17px 14px 5px 38px;font-size:13px;font-weight:800;line-height:1.5}
+.auth-outcome div::before{position:absolute;left:5px;top:13px;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;font-size:12px}
+.auth-outcome .good{background:transparent;color:var(--accent)}.auth-outcome .good::before{content:'✓';background:var(--accent);color:#fff}
+.auth-outcome .risk{background:transparent;color:var(--headline)}.auth-outcome .risk::before{content:'!';border:1px solid var(--accent);color:var(--accent)}
+.auth-defects{grid-column:1/-1;grid-row:6;margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}
+.auth-defects h3{font-family:'Gmarket Sans','Pretendard Variable',Pretendard,sans-serif;font-size:17px;font-weight:700;letter-spacing:-.02em;color:var(--headline)}
+.auth-defect-list{position:relative;display:grid;grid-template-columns:repeat(4,1fr);column-gap:26px;row-gap:0;margin-top:14px}
+.auth-defect{position:relative;min-height:104px;padding:16px 0 16px 46px;border:0;border-top:1px solid var(--line);background:transparent}
+.auth-defect .num{position:absolute;left:0;top:15px;display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--accent);border-radius:50%;color:var(--accent);font:700 11px 'JetBrains Mono',monospace}
+.auth-defect strong{display:block;margin-bottom:5px;color:var(--headline);font-family:'Gmarket Sans','Pretendard Variable',Pretendard,sans-serif;font-size:14px;font-weight:700;letter-spacing:-.02em;line-height:1.55}
+.auth-defect p{color:var(--headline);font-size:14px;font-weight:400;letter-spacing:-.01em;line-height:1.65}
+.auth-defect p b{font-family:inherit;color:inherit;font-size:inherit;font-weight:700}
+.auth-note{grid-column:1/-1;grid-row:7;margin-top:11px;color:#7c8277;font-size:11px;line-height:1.6}
+@media(max-width:980px){
+  .auth-card{grid-template-columns:1fr;gap:26px}
+  .auth-visual{grid-column:auto;grid-row:auto;justify-self:center;width:min(100%,620px);max-height:none;aspect-ratio:1/1}
+  .auth-visual img{width:min(78%,390px);height:76%}
+  .auth-copy{display:flex;flex-direction:column;padding-top:18px}
+  .auth-copy>.eyebrow,.auth-copy>.h-big,.auth-copy>.auth-intro,.auth-copy>.auth-compare,.auth-copy>.auth-outcome,.auth-copy>.auth-defects,.auth-copy>.auth-note{grid-column:auto;grid-row:auto}
+  .auth-defects{margin-top:24px}.auth-defect-list{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .auth-study{padding-top:12px;padding-bottom:52px}
+  .auth-bridge{margin-bottom:32px;padding-bottom:22px}.auth-bridge::before{margin-bottom:16px}.auth-bridge h2{font-size:23px}.auth-bridge p{font-size:13px}
+  .auth-route{padding:0 0 24px;margin-bottom:28px}
+  .auth-route-top{display:block}.auth-route h3{font-size:20px;white-space:normal}.auth-route p{font-size:13px;margin-top:8px}
+  .auth-route-flow{grid-template-columns:repeat(4,1fr);gap:4px;margin-top:22px}
+  .auth-route-flow::before{left:9%;right:9%;top:19px}
+  .auth-route-step{min-height:88px;padding:48px 2px 0;font-size:10.5px;line-height:1.4}.auth-route-step::before{width:38px;height:38px;font-size:10px}.auth-route-step:not(:last-child)::after{display:none}
+  .auth-card{grid-template-columns:1fr;gap:18px;min-height:0}
+  .auth-copy{display:contents}
+  .auth-copy>.eyebrow{grid-column:1;grid-row:1;align-self:end}
+  .auth-copy>.h-big{grid-column:1;grid-row:2}
+  .auth-copy>.auth-intro{grid-column:1;grid-row:3;margin-bottom:8px}
+  .auth-copy>.auth-compare{grid-column:1;grid-row:4;margin-top:8px}
+  .auth-copy>.auth-outcome{grid-column:1;grid-row:5}
+  .auth-visual{grid-column:1;grid-row:6;width:100%;min-height:0;max-height:none;aspect-ratio:1/1;margin-top:10px;padding:24px;border:0}
+  .auth-copy>.auth-defects{grid-column:1;grid-row:7}
+  .auth-copy>.auth-note{grid-column:1;grid-row:8}
+  .auth-visual::after{left:20%;right:18%;bottom:13%}
+  .auth-visual img{width:min(80%,300px);height:76%;transform:translateY(4%)}
+  .auth-label.hidden{width:min(205px,calc(100% - 24px));padding:9px 11px;font-size:11px}.auth-label.hidden b{font-size:13px}
+  .auth-marker{width:29px;height:29px}.auth-marker.m1{left:55%;top:33%}.auth-marker.m2{left:34%;top:38%}.auth-marker.m3{left:50%;top:59%}.auth-marker.m4{left:67%;top:46%}
+  .auth-copy{padding:12px 0 30px}
+  .auth-copy .h-big{font-size:30px}
+  .auth-intro{font-size:15px;margin-top:14px}
+  .auth-row{grid-template-columns:72px 1fr 1fr}
+  .auth-row>div{padding:10px 8px;font-size:11.5px}
+  .auth-head>div{font-size:11.5px;letter-spacing:0}
+  .auth-outcome div{padding:11px 10px;font-size:12px}
+  .auth-outcome{gap:18px}.auth-outcome div{padding-left:34px}.auth-outcome::before{display:none}
+  .auth-defect-list{grid-template-columns:1fr}
+  .auth-defect{min-height:80px}
+  .auth-defect p{font-size:13px}
+  .auth-defect p b{font-size:inherit}
+}
+/* TE — 모노 라벨 */
+.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:lowercase;letter-spacing:.08em}
+/* 브랜딩 타이포 — SUIT Heavy 900 */
+h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-serif;font-weight:900}
+
+/* 타이틀 메인카피 — Gmarket Sans Bold */
+.scard .k,.h-hero,.h-big,.mega,.tcard .nm,.ceo-name b,.ceo-lead,.ceo-head,.ceo-msg .ceo-q,.ceo-msg .ceo-sub,.fstep h4,.way .wn,.stat .fig,.val h3,.modal h3{font-family:'Gmarket Sans','Pretendard Variable',Pretendard,sans-serif!important;font-weight:700!important}
+</style>
+<link rel="stylesheet" href="responsive.css?v=r4">
+</head>
+<body>
+
+<header class="nav">
+  <a class="logo" href="index.html">MM LAB<span class="logo-sub">millimeter laboratory</span></a>
+  <nav class="menu" aria-label="주 메뉴">
+    <a href="index.html">홈</a>
+    <a href="index.html#brands">창호</a>
+    <a href="index.html#interior-card">인테리어</a>
+    <a href="brand.html" class="active" aria-current="page">브랜드</a>
+    <a href="cases.html">시공사례</a>
+    <a href="#" onclick="openModal();return false;">상담신청</a>
+  </nav>
+</header>
+
+<nav class="subnav" aria-label="브랜드 소개 섹션">
+  <div class="subnav-in" id="subnav">
+    <a href="#oneday">1DAY</a>
+    <a href="#model">직거래</a>
+    <a href="#flow">과정</a>
+    <a href="#about">스토리</a>
+    <a href="#tier">차이</a>
+    <a href="#faq">FAQ</a>
+    <span class="sp"></span>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="panel hero">
+    <div class="wrap">
+      <p class="eyebrow">MM LAB · Brand</p>
+      <h1 class="h-hero" style="margin-top:18px"><span class="hero-mark">하루 만에</span> 끝내고,<br><span class="grad">거품은 덜어냅니다</span></h1>
+      <p class="sub">본사 정품 창호를 직거래로 — 하루 안에 책임 시공하는 MM LAB.</p>
+      <div class="quotes">
+        <p>가장 싼 게 가장 비싸지는 곳이 창호입니다</p>
+        <p>본사 정품만, 유통 마진 없이 직거래합니다</p>
+        <p>창문 하나로 여름 냉방비와 겨울 난방비가 달라집니다</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1 DAY -->
+  <section class="panel reveal" id="oneday" aria-labelledby="oneday-t">
+    <div class="wrap">
+      <p class="eyebrow">One-Day Clean Construction</p>
+      <div class="mega" style="margin-top:8px"><span>1</span> DAY</div>
+      <h2 class="h-big" id="oneday-t" style="margin-top:18px">창호 교체, 하루면 충분합니다</h2>
+      <p class="lead">며칠씩 걸린다고 생각해 미루셨다면 — 30평대 아파트 기준, 아침 철거부터 저녁 마감까지 <b>단 하루</b>면 끝납니다. 먼지와 소음을 줄인 클린 시공으로 진행합니다.</p>
+      <div class="steps">
+        <div class="step">
+          <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 56 56"><path d="M9 9h30v38H9zM24 9v38M9 28h30"/><path d="m44 17 7 7-7 7M51 24H34"/></svg></span>
+          <small>오전 8시</small><strong>기존 창호 철거 시작</strong>
+        </div>
+        <div class="step">
+          <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 56 56"><path d="M8 8h31v39H8zM23 8v39M8 28h31"/><path d="m43 38 8-8M39 42l4-4M47 34l4 4"/></svg></span>
+          <small>낮</small><strong>신규 창호 설치·고정</strong>
+        </div>
+        <div class="step">
+          <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 56 56"><path d="M12 39h24l5 7H7zM17 39l4-20h12l3 20"/><path d="M27 8v6M44 13l-5 5M50 28h-7"/></svg></span>
+          <small>오후</small><strong>코킹·마감·클린 정리</strong>
+        </div>
+        <div class="step">
+          <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 56 56"><path d="M9 13h38v34H9zM9 22h38M18 8v10M38 8v10"/><path d="m20 34 6 6 11-13"/></svg></span>
+          <small>오후 6~7시</small><strong>당일 완료</strong>
+        </div>
+      </div>
+      <p class="fineprint">※ 기상 상황(우천·강풍 등)이나 현장 여건에 따라 일정은 변경될 수 있으며, 변경 시 담당 매니저가 미리 안내드립니다.</p>
+    </div>
+  </section>
+
+  <!-- 20% 절감 -->
+  <section class="panel reveal" id="save" aria-labelledby="save-t">
+    <div class="wrap">
+      <p class="eyebrow">Direct Trade</p>
+      <div class="mega" style="margin-top:8px">20<span style="font-size:.38em">%</span></div>
+      <h2 class="h-big" id="save-t" style="margin-top:14px">유통 거품을 덜어낸<br>정직한 가격</h2>
+      <p class="lead">대기업 직영공장 완성 제품을 직배송받아 자체 시공팀이 시공합니다.<br>중간 유통 마진과 마케팅비를 줄여, 같은 자재를 약 20% 더 합리적인 가격으로.<br>30평 기준 약 200만 원의 차이 — <b>그 차이면 주방 하나를 새로 꾸밀 수 있습니다.</b></p>
+    </div>
+  </section>
+
+  <!-- 사업모델 비교 -->
+  <section class="panel reveal" id="model" aria-labelledby="model-t">
+    <div class="wrap">
+      <p class="eyebrow">How It Works</p>
+      <h2 class="h-big" id="model-t" style="margin-top:14px">왜 MM LAB이<br>더 합리적일까요?</h2>
+      <p class="lead">창호는 본사 직거래로 직접, 인테리어는 검증된 협력사로.<br>가격 거품을 만드는 단계를 줄였습니다.</p>
+      <div class="cmp">
+        <div class="cmp-row normal">
+          <div class="cmp-label"><span>일반 인테리어</span><small>중간 유통 단계 3곳</small></div>
+          <div class="chain">
+            <span class="ch" data-step="01">
+              <span class="node-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 40h38M8 40V20l11 6v-8l12 7V12h9v28"/><path d="M13 33h5M25 33h5M35 19h5"/></svg></span>
+              <strong>공장</strong><small>본사 제품 출고</small>
+            </span>
+            <span class="ch" data-step="02">
+              <span class="node-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 20h34l-4-9H11zM9 20v20h30V20"/><path d="M15 40V28h10v12M30 27h5M30 32h5"/></svg></span>
+              <strong>대리점·공업사</strong><small>유통 마진 추가</small>
+            </span>
+            <span class="ch" data-step="03">
+              <span class="node-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 8h32v32H8zM8 25h19V8M27 25h13M19 25v15"/><path d="m31 34 3 3 7-8"/></svg></span>
+              <strong>인테리어 업체</strong><small>창호 마진 포함</small>
+            </span>
+            <span class="ch you" data-step="04">
+              <span class="node-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="18" cy="15" r="7"/><path d="M6 40c1-9 5-14 12-14s11 5 12 14M31 11h11v17H31zM34 16h5M34 21h5"/></svg></span>
+              <strong>고객</strong><small>최종 견적 상승</small>
+            </span>
+          </div>
+        </div>
+        <div class="cmp-row mm">
+          <div class="cmp-label"><span>MM LAB</span><small>본사 직거래 · 직시공</small></div>
+          <div class="chain">
+            <span class="ch" data-step="01">
+              <span class="node-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 40h38M8 40V20l11 6v-8l12 7V12h9v28"/><path d="M13 33h5M25 33h5M35 19h5"/></svg></span>
+              <strong>대기업 직영공장</strong><small>본사 정품 직출고</small>
+            </span>
+            <span class="ch hi" data-step="02">
+              <span class="node-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 16h25M26 10l6 6-6 6M41 32H16M22 26l-6 6 6 6"/><path d="M8 29V10M40 38V19"/></svg></span>
+              <strong>MM LAB</strong><small>직거래 · 직시공</small>
+            </span>
+            <span class="ch you" data-step="03">
+              <span class="node-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="18" cy="15" r="7"/><path d="M6 40c1-9 5-14 12-14s11 5 12 14M31 11h11v17H31zM34 16h5M34 21h5"/></svg></span>
+              <strong>고객</strong><small>약 20% 절감</small>
+            </span>
+          </div>
+        </div>
+      </div>
+      <p class="cmp-note">같은 <b>본사 정품</b> 자재라도, 중간 유통 마진과 마케팅비를 덜어내면 — <b>30평 기준 약 200만 원</b>의 차이가 생깁니다.</p>
+      <div class="ways">
+        <div class="way">
+          <span class="way-symbol" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><path d="M10 12h44v40H10z"/><path d="M32 12v40M10 40h44"/><path d="M27 31h-5M42 31h-5"/></svg>
+          </span>
+          <div class="wn">창호만 교체</div>
+          <p>오래된 창만 바꾸고 싶다면. 구축 아파트·노후 창호도 <b>창호만 단독</b>으로 시공합니다.</p>
+          <span class="wtag">구축 · 노후창 · 부분 교체</span>
+        </div>
+        <div class="way hi">
+          <span class="way-symbol" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><path d="M8 30 32 10l24 20"/><path d="M13 27v27h38V27"/><path d="M23 54V34h18v20M32 34v20"/><path d="M23 44h18"/></svg>
+          </span>
+          <div class="wn">인테리어 + 창호</div>
+          <p>전체 리모델링을 한다면, <b>창호만 직거래</b>로 적용해 자재비까지 절감합니다.</p>
+          <span class="wtag">전체 리모델링 · 창호 직거래 절감</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 서비스 흐름 -->
+  <section class="panel reveal" id="flow" aria-labelledby="flow-t">
+    <div class="wrap">
+      <p class="eyebrow">Service Flow</p>
+      <h2 class="h-big" id="flow-t" style="margin-top:14px">상담부터 시공까지,<br>한 흐름으로</h2>
+      <div class="flow-carousel">
+        <button class="flow-arrow flow-prev" type="button" aria-label="이전 진행 단계">‹</button>
+        <div class="flow">
+        <div class="fstep"><i class="flow-mark" aria-hidden="true"></i><div class="no">01</div><div class="flow-label">CONSULTATION</div><h4>상담·문의</h4><p>전화·카톡·폼으로 편하게. 평형과 상황만 알려주세요.</p></div>
+        <div class="fstep"><i class="flow-mark" aria-hidden="true"></i><div class="no">02</div><div class="flow-label">SITE MEASUREMENT</div><h4>현장 실측</h4><p>직접 방문해 정확히 실측하고 모델·견적을 제안합니다.</p></div>
+        <div class="fstep"><i class="flow-mark" aria-hidden="true"></i><div class="no">03</div><div class="flow-label">AUTHENTIC INSTALLATION</div><h4>본사 정품 시공</h4><p>정품 자재로 정밀 시공. 살고 계신 집 그대로 진행합니다.</p></div>
+        <div class="fstep"><i class="flow-mark" aria-hidden="true"></i><div class="no">04</div><div class="flow-label">1DAY INSTALLATION</div><h4>전문 시공</h4><p>자체 시공팀이 1DAY 클린 시공으로 마무리합니다.</p></div>
+        </div>
+        <button class="flow-arrow flow-next" type="button" aria-label="다음 진행 단계">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 대표 인사말 (브랜드 스토리 포함) -->
+  <section class="panel reveal" id="about" aria-labelledby="ceo-t">
+    <div class="wrap">
+      <div class="ceo-grid">
+        <div>
+          <div class="portrait" aria-hidden="true">[ 대표 사진 ]</div>
+          <div class="ceo-name"><b>어반로드</b> 대표</div>
+          <div class="ceo-role">MM LAB · Millimeter Laboratory</div>
+        </div>
+        <div class="ceo-msg">
+          <p class="ceo-eyebrow">어반로드 대표</p>
+          <h2 class="ceo-head" id="ceo-t">15년간, 정품 창호만<br>고집했습니다</h2>
+          <p class="ceo-q">“어려운 시공일수록, 정품과 기본기로 갑니다.”</p>
+          <p>창호 한 짝의 단열 차이가 한 가정의 겨울을 바꾼다는 걸 현장에서 배웠습니다. 그래서 저가 공업사 제품은 다루지 않습니다. KCC · LX하우시스 · 독일 KBE 본사 정품만 직접 골라 시공합니다.</p>
+          <p>창호와 인테리어는 한 번 시공하면 오래 쓰는 일입니다. 그래서 더더욱, 보이지 않는 곳까지 제대로여야 한다고 생각합니다.</p>
+          <p>MM LAB은 화려한 마케팅 대신 제품과 시공의 본질에 집중합니다. 본사 정품만 다루고, 직접 시공하며, 처음부터 끝까지 책임집니다. 가격의 거품은 덜어내되, 품질은 결코 낮추지 않겠습니다.</p>
+          <h3 class="ceo-sub">인테리어 비용, 꼭 비싸야 할까요?</h3>
+          <p>제품이 소비자에게 닿기까지 여러 단계의 유통을 거치고, 단계마다 수수료가 더해집니다. 일부 공업사는 검증되지 않은 제품을 정품처럼 저렴하게 유통하기도 합니다. 정품 대신 검증되지 않은 사재(비정품 부속·자재)를 섞어 단가를 낮추는 경우도 있습니다. 당장은 싸 보여도, 시공 후 연락이 끊기거나 A/S를 받지 못하는 일이 적지 않습니다. MM LAB(운영사 어반로드)은 이 구조를 바꾸기 위해 시작했습니다.</p>
+          <p>작은 차이가 공간의 경험을 바꿉니다. 정직하게 만들고, 정직하게 시공하겠습니다. 고객의 공간을 제 집처럼 여기겠습니다.</p>
+          <div class="sign">— <b>MM LAB · 어반로드</b> 대표 드림</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 등급 체계 -->
+  <section class="panel reveal" id="tier" aria-labelledby="tier-t">
+    <div class="wrap">
+      <p class="eyebrow">Why MM LAB</p>
+      <h2 class="h-big" id="tier-t" style="margin-top:14px">저가 공업사가 아닌,<br>본사 정품 직거래</h2>
+      <p class="lead">예산과 공간에 맞춰도 타협하지 않는 — MM LAB이 다른 네 가지.</p>
+      <div class="vals">
+        <a class="val" id="brand-authentic" href="#genuine" aria-label="본사 정품과 저가 공업사 제품 비교 보기">
+          <div class="val-symbol" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 7 50 14v15c0 12-7.6 22-18 28-10.4-6-18-16-18-28V14Z"/><path d="m23 31 6 6 13-15"/></svg></div>
+          <div class="n">01 · AUTHENTIC</div><h3>본사 정품만 씁니다</h3><p>KCC · LX하우시스 · KBE 본사 정품만 골라 시공합니다.<br><span class="auth-exclusion">저가 공업사 제품은 취급하지 않습니다.</span></p>
+        </a>
+        <div class="val" id="brand-direct">
+          <div class="val-symbol" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="12" cy="32" r="5"/><circle cx="32" cy="32" r="7"/><circle cx="52" cy="32" r="5"/><path d="M17 32h8m14 0h8"/><path d="m43 27 5 5-5 5"/></svg></div>
+          <div class="n">02 · DIRECT TRADE</div><h3>유통 마진을 덜어냅니다</h3><p>본사에서 MM LAB을 거쳐 고객에게 바로. 불필요한 유통 단계를 줄입니다.</p>
+        </div>
+        <div class="val" id="brand-window-first">
+          <div class="val-symbol" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="11" y="10" width="42" height="44" rx="1"/><path d="M32 10v44M11 38h42"/><path d="m27 32 5-5 5 5"/></svg></div>
+          <div class="n">03 · WINDOW FIRST</div><h3>창호만 따로도 됩니다</h3><p>창호 단독 시공도, 인테리어와 함께하는 시공도 자유롭게 선택합니다.</p>
+        </div>
+        <div class="val" id="brand-verified">
+          <div class="val-symbol" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="28" cy="28" r="16"/><path d="m19 29 6 6 12-14M40 40l13 13"/><path d="M47 12h6v6"/></svg></div>
+          <div class="n">04 · VERIFIED</div><h3>책임의 경계가 분명합니다</h3><p>직접 검증한 협력사만 연결하고, 창호부터 마감까지 책임을 구분합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 정식 제작 여부 — 컴팩트 테스트 시안 -->
+  <section class="panel reveal auth-study" id="genuine" aria-labelledby="genuine-t">
+    <div class="wrap">
+      <div class="auth-bridge">
+        <h2>같은 프로파일도 내부 자재와 제작 기준은 다릅니다</h2>
+        <p>본사 승인 제작과 저가 공업사 제품의 차이를 확인해 보세요.</p>
+      </div>
+      <div class="auth-route" aria-label="저가 공업사 유통과정">
+        <div class="auth-route-top">
+          <h3>저가 공업사 유통과정</h3>
+          <p>일부 저가 공업사는 여러 브랜드 창호를 자체 제작합니다. 눈에 보이는 프로파일과 핸들은 정식 브랜드 제품을 사용하더라도, 그 밖의 부품과 승인되지 않은 페어유리 등 사제 자재를 혼용해 단가를 낮추는 경우가 있습니다.</p>
+        </div>
+        <div class="auth-route-flow" aria-hidden="true">
+          <div class="auth-route-step">브랜드 유통공장<br>· 유통사업장</div>
+          <div class="auth-route-step">프로파일<br>· 핸들 구입</div>
+          <div class="auth-route-step">공업사 자체 제작<br>여러 브랜드 취급</div>
+          <div class="auth-route-step warn">사제 부품 혼용 가능<br>제작 단가 절감</div>
+        </div>
+      </div>
+      <div class="auth-card">
+        <div class="auth-visual" aria-label="창호 내부 부품 위치 안내">
+          <img src="assets/viewframe-finished/f-145s.jpg" alt="창호 단면 구성 예시">
+          <button class="auth-marker m1" type="button" aria-label="1 페어유리 내부 백화 설명 보기" data-title="페어유리 내부 백화" data-copy="KS 미인증 저가 페어유리 사용으로 내부 습기 유입 및 백화 등 하자 발생">1</button>
+          <button class="auth-marker m2" type="button" aria-label="2 실리콘 접합 마감 설명 보기" data-title="실리콘 접합 마감" data-copy="유리면과 프로파일(SF)의 실리콘 접합으로 외관 저하 및 청소 불편">2</button>
+          <button class="auth-marker m3" type="button" aria-label="3 프로파일 뒤틀림 설명 보기" data-title="프로파일 뒤틀림" data-copy="규정 보강재 대신 저가 보강재 사용으로 프로파일 뒤틀림 발생">3</button>
+          <button class="auth-marker m4" type="button" aria-label="4 단열 성능 저하 설명 보기" data-title="단열 성능 저하" data-copy="저가 알루미늄 간봉 사용으로 단열 성능 현저히 저하">4</button>
+          <div class="auth-label hidden" id="authHotspotCopy" aria-live="polite"><b>성능을 좌우하는 내부</b><span>초록색 번호를 눌러 하자 사례를 확인하세요.</span></div>
+        </div>
+        <div class="auth-copy">
+          <p class="eyebrow">approved vs workshop</p>
+          <h2 class="h-big" id="genuine-t">저가 공업사 제품과<br>무엇이 다를까요?</h2>
+          <p class="auth-intro">프로파일과 핸들은 같아 보여도, 내부 자재와 제작 기준에서 차이가 납니다.</p>
+          <div class="auth-compare" aria-label="본사 승인 제작과 저가 공업사 제작 비교">
+            <div class="auth-row auth-head"><div>구성</div><div>본사 승인 제작</div><div>저가 공업사 제작</div></div>
+            <div class="auth-row"><div class="auth-part">페어유리</div><div class="auth-approved">승인 유리</div><div class="auth-workshop">비승인 유리 혼용 가능</div></div>
+            <div class="auth-row"><div class="auth-part">보강재</div><div class="auth-approved">규격 보강재</div><div class="auth-workshop">규격 외 사용 가능</div></div>
+            <div class="auth-row"><div class="auth-part">호차·모헤어</div><div class="auth-approved">정식 부자재</div><div class="auth-workshop">사제 부품 혼용 가능</div></div>
+          </div>
+          <div class="auth-outcome">
+            <div class="good">규격 성능 · 품질 기준 · 보증</div>
+            <div class="risk">백화 · 뒤틀림 · 처짐 · 성능 저하 위험</div>
+          </div>
+          <div class="auth-defects">
+            <h3>저가 공업사 제품 사용 시 대표 하자</h3>
+            <div class="auth-defect-list">
+              <div class="auth-defect"><span class="num">01</span><strong>페어유리 내부 백화</strong><p>KS 미인증 저가 페어유리 사용으로 <b>내부 습기 유입 및 백화 등 하자 발생</b></p></div>
+              <div class="auth-defect"><span class="num">02</span><strong>실리콘 접합 마감</strong><p>유리면과 프로파일(SF)의 실리콘 접합으로 <b>외관 저하 및 청소 불편</b></p></div>
+              <div class="auth-defect"><span class="num">03</span><strong>프로파일 뒤틀림</strong><p>규정 보강재 대신 저가 보강재 사용으로 <b>프로파일 뒤틀림 발생</b></p></div>
+              <div class="auth-defect"><span class="num">04</span><strong>단열 성능 저하</strong><p>저가 알루미늄 간봉 사용으로 <b>단열 성능 현저히 저하</b></p></div>
+            </div>
+          </div>
+          <p class="auth-note">※ 일부 저가 공업사에서 비승인 자재를 혼용할 경우를 설명한 비교 시안입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 진행 안내 -->
+  <section class="panel reveal" id="info" aria-labelledby="info-t">
+    <div class="wrap">
+      <p class="eyebrow">Information</p>
+      <h2 class="h-big" id="info-t" style="margin-top:14px">진행 안내</h2>
+      <p class="lead">궁금한 조건을 한눈에 정리했습니다.</p>
+      <dl class="info">
+        <div class="row"><dt><span class="info-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M7 55h50M11 55V25l21-16 21 16v30"/><path d="M24 55V38h16v17M17 29h8M39 29h8"/></svg></span>대상</dt><dd>아파트 · 주택 · 상가<br>창호 교체 / 신축</dd></div>
+        <div class="row"><dt><span class="info-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 7 50 14v15c0 12-7.6 22-18 28-10.4-6-18-16-18-28V14Z"/><path d="m23 31 6 6 13-15"/></svg></span>취급 브랜드</dt><dd>KCC · LX하우시스 · KBE<br>고구려안전방충망 <b>본사 정품</b></dd></div>
+        <div class="row"><dt><span class="info-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M8 31 32 11l24 20M14 27v28h36V27"/><circle cx="25" cy="34" r="5"/><path d="M16 51c1-8 4-12 9-12s8 4 9 12M40 33h7v14h-7z"/></svg></span>거주 시공</dt><dd><b>가능</b><br>살고 계신 집 그대로 시공</dd></div>
+        <div class="row"><dt><span class="info-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 7 50 14v15c0 12-7.6 22-18 28-10.4-6-18-16-18-28V14Z"/><path d="M22 34h20M25 26h4v16M36 26h3v16"/></svg></span>품질 보증</dt><dd>본사 품질 보증<br><b>10년</b></dd></div>
+        <div class="row"><dt><span class="info-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M11 9h42v46H11zM18 19h28M18 27h18"/><path d="m21 45 12-12 7 7-12 12-9 2zM37 36l4-4 7 7-4 4"/></svg></span>상담·견적</dt><dd>현장 실측 포함 <b>무료</b><br>평형·모델별 안내</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="panel reveal" id="faq" aria-labelledby="faq-t">
+    <div class="wrap">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="h-big" id="faq-t" style="margin-top:14px">자주 묻는 질문</h2>
+      <div class="faq" id="faqList">
+        <div class="qa"><button>창호만 따로 시공할 수 있나요?<span class="ic">＋</span></button><div class="ans"><p>네. 인테리어 패키지에 묶이지 않고 창호만 단독으로도, 인테리어와 함께도 진행할 수 있습니다.</p></div></div>
+        <div class="qa"><button>살고 있는 집인데 시공이 되나요?<span class="ic">＋</span></button><div class="ans"><p>가능합니다. 이사 없이 거주 중에도 시공할 수 있도록 일정과 동선을 맞춰 드립니다.</p></div></div>
+        <div class="qa"><button>저가 제품과 정확히 무엇이 다른가요?<span class="ic">＋</span></button><div class="ans"><p>저가 공업사 제품은 다루지 않습니다. KCC · LX하우시스 · KBE 본사 정품만 사용해 단열·기밀·내구 성능과 보증이 다릅니다.</p></div></div>
+        <div class="qa"><button>정말 약 20% 절감되나요?<span class="ic">＋</span></button><div class="ans"><p>본사 직거래로 일반 인테리어 회사가 받는 유통 마진(약 20%)을 덜어냅니다. 30평 기준 약 200만 원 차이가 납니다.</p></div></div>
+        <div class="qa" id="brand-warranty"><button>보증은 어떻게 되나요?<span class="ic">＋</span></button><div class="ans"><p>본사 품질 보증 10년이 적용됩니다. 시공 후에도 책임지고 관리합니다.</p></div></div>
+        <div class="qa"><button>상담에 비용이 드나요?<span class="ic">＋</span></button><div class="ans"><p>현장 실측을 포함한 상담·견적은 무료입니다. 부담 없이 문의해 주세요.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="panel reveal" id="cta" aria-labelledby="cta-t">
+    <div class="wrap">
+      <p class="eyebrow">Start</p>
+      <h2 class="h-big" id="cta-t" style="margin-top:14px">상담 한 번이,<br>10년의 차이를 만듭니다</h2>
+      <div class="trust">
+        <span class="tbadge">KS 인증 정품</span>
+        <span class="tbadge">기밀·단열 시험 성적</span>
+        <span class="tbadge">본사 품질 보증</span>
+        <span class="tbadge">1DAY 클린 시공</span>
+        <span class="tbadge">거주 중 시공 가능</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div><h3>MM LAB</h3><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px">support@mmlab.kr<br>02-0000-0000 (평일 09:00~18:00)</p></div>
+    <div><h4>창호 브랜드</h4><a href="lx-vue.html">LX하우시스</a><a href="kcc.html">KCC</a><a href="kbe.html">독일 시스템창호 KBE</a><a href="kogo.html">고구려안전방충망</a></div>
+    <div><h4>바로가기</h4><a href="index.html">홈</a><a href="cases.html">시공사례</a><a href="#" onclick="openModal();return false;">상담신청</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 MM LAB. All rights reserved. · 대표자 어반로드 · 사업자등록번호 000-00-00000 · 본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.</div>
+</footer>
+
+<!-- MODAL -->
+<div class="ov" id="modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-t">
+    <button class="x" onclick="closeModal()" aria-label="닫기">×</button>
+    <h3 id="modal-t">편하게 남겨주세요</h3>
+    <p class="ms">MM LAB · 영업일 24시간 내 답변</p>
+    <form class="mf" onsubmit="submitForm(event)">
+      <div class="mrow"><div><label for="f-name">이름</label><input id="f-name" name="name" type="text" required placeholder="홍길동" autocomplete="name"></div><div><label for="f-tel">연락처</label><input id="f-tel" name="tel" type="tel" required placeholder="010-0000-0000" autocomplete="tel" inputmode="tel"></div></div>
+      <div><label for="f-brand">관심 브랜드</label><select id="f-brand" name="brand"><option value="">선택</option><option>LX하우시스</option><option>KCC</option><option>독일 시스템창호 KBE</option><option>고구려안전방충망</option><option>잘 모르겠음 / 추천</option></select></div>
+      <div><label for="f-msg">문의 내용</label><textarea id="f-msg" name="message" required placeholder="관심 모델·평형 등을 적어주세요."></textarea></div>
+      <button type="submit" class="msub">상담신청</button>
+    </form>
+  </div>
+</div>
+
+<script src="sitenav.js?v=g44"></script>
+<script>
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* GNB의 섹션 링크가 같은 페이지/다른 페이지 어디서든 정확한 위치로 이동 */
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+function brandHeaderBoundary(){
+  var bottoms=[0],gnb=document.getElementById('mmGnb'),sub=document.querySelector('.subnav');
+  if(gnb)bottoms.push(gnb.getBoundingClientRect().bottom);
+  if(sub)bottoms.push(sub.getBoundingClientRect().bottom);
+  /* 웹폰트와 sticky 탭 정착 후 생기는 16px 차이까지 포함해 실제 여백을 18px로 고정 */
+  return Math.max.apply(null,bottoms)+34;
+}
+function landBrandSection(){
+  var id=decodeURIComponent(location.hash.slice(1));
+  var target=id&&document.getElementById(id);
+  if(!target)return;
+  target.classList.add('in');
+  var revealPanel=target.closest('.reveal');
+  if(revealPanel)revealPanel.classList.add('in');
+  if(target.classList.contains('qa')){
+    var answer=target.querySelector('.ans');
+    target.classList.add('open');
+    if(answer)answer.style.maxHeight=answer.scrollHeight+'px';
+  }
+  var root=document.documentElement,previousBehavior=root.style.scrollBehavior;
+  root.style.scrollBehavior='auto';
+  var top=scrollY+target.getBoundingClientRect().top-brandHeaderBoundary();
+  scrollTo({top:Math.max(0,Math.round(top)),behavior:'auto'});
+  requestAnimationFrame(function(){root.style.scrollBehavior=previousBehavior;});
+}
+function scheduleBrandLanding(){requestAnimationFrame(function(){requestAnimationFrame(landBrandSection);});}
+scheduleBrandLanding();
+addEventListener('load',function(){scheduleBrandLanding();setTimeout(landBrandSection,160);});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(landBrandSection);
+addEventListener('hashchange',scheduleBrandLanding);
+/* 서비스 흐름 — 모바일 가로 슬라이드 */
+(function(){
+  var track=document.querySelector('#flow .flow'),prev=document.querySelector('.flow-prev'),next=document.querySelector('.flow-next');
+  if(!track||!prev||!next)return;
+  function step(){var card=track.firstElementChild;var gap=parseInt(getComputedStyle(track).gap)||12;return card?card.getBoundingClientRect().width+gap:300;}
+  function update(){prev.disabled=track.scrollLeft<=8;next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-4;}
+  prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:reduce?'auto':'smooth'});});
+  next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:reduce?'auto':'smooth'});});
+  track.addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update();
+})();
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}
+/* 섹션 탭 스크롤스파이 */
+(function(){
+  var subLinks=document.querySelectorAll('#subnav a[href^="#"]');
+  if(!('IntersectionObserver' in window))return;
+  var so=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){var id=e.target.id;subLinks.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id);});}
+  });},{rootMargin:'-50% 0px -45% 0px'});
+  ['oneday','model','flow','about','tier','faq'].forEach(function(id){var el=document.getElementById(id);if(el)so.observe(el);});
+})();
+
+/* 창호 단면 하자 위치 안내 — 마우스와 터치 모두 지원 */
+(function(){
+  var markers=document.querySelectorAll('.auth-marker'),panel=document.getElementById('authHotspotCopy');
+  if(!markers.length||!panel)return;
+  var title=panel.querySelector('b'),copy=panel.querySelector('span');
+  function show(marker){
+    markers.forEach(function(item){item.classList.toggle('on',item===marker);item.setAttribute('aria-pressed',String(item===marker));});
+    title.textContent=marker.dataset.title;
+    copy.textContent=marker.dataset.copy;
+    panel.classList.add('show');
+    var visual=marker.closest('.auth-visual');
+    var gap=18,panelW=panel.offsetWidth,panelH=panel.offsetHeight;
+    var placeRight=marker.offsetLeft+marker.offsetWidth+gap+panelW<=visual.clientWidth-12;
+    panel.classList.toggle('tip-right',placeRight);
+    panel.classList.toggle('tip-left',!placeRight);
+    var x=placeRight?marker.offsetLeft+marker.offsetWidth+gap:marker.offsetLeft-panelW-gap;
+    var y=marker.offsetTop+marker.offsetHeight/2-24;
+    x=Math.max(12,Math.min(x,visual.clientWidth-panelW-12));
+    y=Math.max(12,Math.min(y,visual.clientHeight-panelH-12));
+    panel.style.left=x+'px';panel.style.top=y+'px';
+  }
+  function hide(){
+    markers.forEach(function(item){item.classList.remove('on');item.setAttribute('aria-pressed','false');});
+    panel.classList.remove('show','tip-right','tip-left');
+  }
+  markers.forEach(function(marker){
+    marker.setAttribute('aria-pressed','false');
+    marker.addEventListener('click',function(e){e.stopPropagation();});
+    marker.addEventListener('mouseenter',function(){show(marker);});
+    marker.addEventListener('mouseleave',hide);
+    marker.addEventListener('pointerdown',function(e){if(e.pointerType==='touch'){e.preventDefault();show(marker);}});
+    marker.addEventListener('pointerup',function(e){if(e.pointerType==='touch')hide();});
+    marker.addEventListener('pointercancel',hide);
+    marker.addEventListener('focus',function(){show(marker);});
+    marker.addEventListener('blur',hide);
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest('.auth-marker'))hide();});
+})();
+
+/* FAQ 아코디언 */
+document.querySelectorAll('#faqList .qa button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var qa=b.parentElement, ans=qa.querySelector('.ans'), open=qa.classList.contains('open');
+    document.querySelectorAll('#faqList .qa').forEach(function(o){o.classList.remove('open');o.querySelector('.ans').style.maxHeight=null;});
+    if(!open){qa.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
+});
+
+var modal=document.getElementById('modal'),mFocus=null;
+function openModal(){mFocus=document.activeElement;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var f=modal.querySelector('input,select,textarea');if(f)setTimeout(function(){f.focus();},60);}
+function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(mFocus&&mFocus.focus){mFocus.focus();mFocus=null;}}
+modal.addEventListener('click',function(e){if(e.target.id==='modal')closeModal();});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
+function submitForm(e){e.preventDefault();alert('데모입니다. 실제 발송은 추후 연결됩니다.\n\n감사합니다.');closeModal();}
+</script>
+</body>
+</html>
