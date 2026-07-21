@@ -33,15 +33,23 @@ var BRANDS=[
   {id:'kbe'    ,href:site('windows/kbe/')    ,eyebrow:'독일 직수입'   ,name:'KBE'            ,sub:'120년 profine · 88mm 7챔버'},
   {id:'kogo'   ,href:site('screens/kogo/')   ,eyebrow:'안전방충망'    ,name:'고구려안전방충망',sub:'추락 방지 · 미세먼지 차단'}
 ];
-var ROUTE_IDS={
-  'windows/lx':'lx-vue',
-  'windows/lx/euro-system-9/pl':'lx-euro',
-  'windows/lx/euro-system-9/al':'lx-euro-al',
-  'windows/kcc':'kcc',
-  'windows/kbe':'kbe',
-  'screens/kogo':'kogo'
-};
-var pid=ROUTE_IDS[currentRoute()]||(location.pathname.split('/').pop()||'').replace('.html','');
+/* 구체적인 경로를 먼저 검사한다. 앞으로 하위 상세 페이지가 추가돼도
+   같은 브랜드 색상과 CTA 이름을 자동으로 이어받는다. */
+var ROUTE_RULES=[
+  {prefix:'windows/lx/euro-system-9/al',id:'lx-euro-al'},
+  {prefix:'windows/lx/euro-system-9/pl',id:'lx-euro'},
+  {prefix:'windows/lx/viewframe',id:'lx-vue'},
+  {prefix:'windows/lx',id:'lx-vue'},
+  {prefix:'windows/kcc',id:'kcc'},
+  {prefix:'windows/kbe',id:'kbe'},
+  {prefix:'screens/kogo',id:'kogo'}
+];
+function routeMatches(route,prefix){return route===prefix||route.indexOf(prefix+'/')===0;}
+function routeId(route){
+  for(var i=0;i<ROUTE_RULES.length;i++)if(routeMatches(route,ROUTE_RULES[i].prefix))return ROUTE_RULES[i].id;
+  return '';
+}
+var pid=routeId(currentRoute())||(location.pathname.split('/').pop()||'').replace('.html','');
 var page=PAGES[pid]||{name:'MM LAB 창호'};
 
 /* ── 페이지별 창호 프레임 포인트 컬러 (TE 로테이션) ──

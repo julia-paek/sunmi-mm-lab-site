@@ -17,6 +17,9 @@ function routeOf(href){
   return rel.replace(/index\.html$/,'').replace(/^\/+|\/+$/g,'');
 }
 var here=routeOf(location.href);
+function isRouteOrChild(route){
+  return route===''?here==='':here===route||here.indexOf(route+'/')===0;
+}
 
 var css=`
 @font-face{font-family:"Gmarket Sans";src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");font-weight:700;font-display:swap}
@@ -71,7 +74,7 @@ body>header.nav,body>nav.nav,body>nav.gnb,.mnav{display:none!important}
 var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
 
 var BRANDS=[
-  {href:site('windows/lx/'),name:'LX 하우시스',sub:'일반창 · 시스템창',color:'#2F5233',match:['windows/lx','windows/lx/euro-system-9/pl','windows/lx/euro-system-9/al']},
+  {href:site('windows/lx/'),name:'LX 하우시스',sub:'일반창 · 시스템창',color:'#2F5233'},
   {href:site('windows/kcc/'),name:'KCC',sub:'국내 1위',color:'#5C4433'},
   {href:site('windows/kbe/'),name:'KBE',sub:'독일 시스템창',color:'#464B52'},
   {href:site('screens/kogo/'),name:'고구려안전방충망',sub:'안전 · 방범',color:'#8A7A5C'}
@@ -83,21 +86,21 @@ var GROUPS=[
     {href:site('#why'),name:'Why MM LAB',sub:'difference'},
     {href:site('#cases'),name:'대표 시공사례',sub:'portfolio'}
   ]},
-  {id:'windows',label:'창호',href:site('windows/'),active:here.indexOf('windows/')===0||here.indexOf('screens/')===0,items:BRANDS},
-  {id:'interior',label:'인테리어',href:site('interior/'),active:here==='interior',items:[
+  {id:'windows',label:'창호',href:site('windows/'),active:isRouteOrChild('windows')||isRouteOrChild('screens'),items:BRANDS},
+  {id:'interior',label:'인테리어',href:site('interior/'),active:isRouteOrChild('interior'),items:[
     {href:site('interior/'),name:'인테리어 소개',sub:'network'},
     {href:site('interior/#process'),name:'Our Process',sub:'5 steps'},
     {href:site('interior/#partners'),name:'검증된 협력 업체',sub:'partners'},
     {href:site('projects/'),name:'전체 시공사례',sub:'projects'}
   ]},
-  {id:'brand',label:'브랜드 소개',href:site('about/'),active:here==='about',items:[
+  {id:'brand',label:'브랜드 소개',href:site('about/'),active:isRouteOrChild('about'),items:[
     {href:site('about/#about'),name:'대표 인사말',sub:'message'},
     {href:site('about/#model'),name:'Why MM LAB',sub:'reason'},
     {href:site('about/#save'),name:'정품 직거래 구조',sub:'saving'},
     {href:site('about/#genuine'),name:'저가 공업사와의 차이',sub:'compare'},
     {href:site('about/#flow'),name:'상담부터 시공까지',sub:'process'}
   ]},
-  {id:'cases',label:'시공사례',href:site('projects/'),align:'mg-right',active:here==='projects',items:[
+  {id:'cases',label:'시공사례',href:site('projects/'),align:'mg-right',active:isRouteOrChild('projects'),items:[
     {href:site('projects/'),name:'전체 시공사례',sub:'all projects'},
     {href:site('#cases'),name:'대표 사례 미리보기',sub:'featured'},
     {href:site('interior/#partners'),name:'인테리어 현장',sub:'interior'}
@@ -110,7 +113,8 @@ var GROUPS=[
 ];
 
 function itemHtml(item){
-  var isCurrent=(routeOf(item.href)===here||(item.match||[]).indexOf(here)>-1) && item.href.indexOf('#')<0;
+  var itemRoute=routeOf(item.href);
+  var isCurrent=item.href.indexOf('#')<0&&(isRouteOrChild(itemRoute)||(item.match||[]).some(isRouteOrChild));
   return '<a href="'+item.href+'"'+(isCurrent?' class="on"':'')+(item.action==='inquiry'?' data-inquiry="true"':'')+'>'
     +'<i class="mg-sw" style="background:'+(item.color||'#F4F0E6')+'"></i><b>'+item.name+'</b><span>'+item.sub+'</span></a>';
 }
