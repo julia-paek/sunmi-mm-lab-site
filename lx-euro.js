@@ -2,6 +2,12 @@
   var root = document.querySelector("[data-e9-material]");
   if (!root) return;
 
+  var scriptUrl = new URL((document.currentScript && document.currentScript.src) || "lx-euro.js", window.location.href);
+  var siteRoot = new URL(".", scriptUrl);
+  function assetUrl(path) {
+    return new URL(path, siteRoot).href;
+  }
+
   var models = {
     "pls200": {
       name: "E9-PLS200", type: "LIFT & SLIDE · PVC", family: "slide",
@@ -394,7 +400,7 @@
         var featureTitle = card.querySelector("[data-e9-feature-title]");
         var featureCopy = card.querySelector("[data-e9-feature-copy]");
         if (featureImage) {
-          featureImage.src = item.image;
+          featureImage.src = assetUrl(item.image);
           featureImage.alt = group.label + " " + item.title;
         }
         if (featureTitle) featureTitle.textContent = item.title;
@@ -457,7 +463,7 @@
 
       var image = root.querySelector("[data-e9-detail-image]");
       if (image) {
-        image.src = data.image;
+        image.src = assetUrl(data.image);
         image.alt = data.name + " 적용 공간 이미지";
       }
       setText("[data-e9-detail-type]", data.type);
@@ -672,7 +678,7 @@
     var image = root.querySelector("[data-e9-detail-image]");
     var badge = root.querySelector("[data-e9-detail-badge]");
     if (image) {
-      image.src = data.image;
+      image.src = assetUrl(data.image);
       image.alt = data.name + " 제품 이미지";
     }
     [
@@ -707,7 +713,7 @@
         var featureTitle = card.querySelector("[data-e9-feature-title]");
         var featureCopy = card.querySelector("[data-e9-feature-copy]");
         if (featureImage) {
-          featureImage.src = item.image;
+          featureImage.src = assetUrl(item.image);
           featureImage.alt = data.name + " " + item.title;
         }
         if (featureTitle) featureTitle.textContent = item.title;

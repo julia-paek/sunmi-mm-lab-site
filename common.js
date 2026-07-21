@@ -5,6 +5,18 @@
 ═══════════════════════════════════════════════════════════ */
 (function(){
 
+/* 이 스크립트가 있는 폴더를 사이트 루트로 사용한다.
+   파일 미리보기와 최종 커스텀 도메인 모두에서 같은 경로가 동작한다. */
+var SCRIPT_URL=(document.currentScript&&document.currentScript.src)||location.href;
+var ROOT_URL=new URL('.',SCRIPT_URL);
+function site(path){return new URL(String(path||'').replace(/^\/+/,''),ROOT_URL).href;}
+function currentRoute(){
+  var rootPath=decodeURIComponent(ROOT_URL.pathname);
+  var pagePath=decodeURIComponent(location.pathname);
+  var rel=pagePath.indexOf(rootPath)===0?pagePath.slice(rootPath.length):pagePath.replace(/^\/+/, '');
+  return rel.replace(/index\.html$/,'').replace(/^\/+|\/+$/g,'');
+}
+
 /* 페이지별 브랜드 정보 */
 var PAGES={
   'lx-vue' :{name:'LX 뷰프레임'},
@@ -15,13 +27,21 @@ var PAGES={
   'kogo'   :{name:'고구려안전방충망'}
 };
 var BRANDS=[
-  {id:'lx-vue' ,href:'lx-vue.html' ,eyebrow:'LX하우시스 · 일반창',name:'뷰프레임(일반창)'      ,sub:'완성창 · 제작창 · 스마트핸들'},
-  {id:'lx-euro',href:'lx-euro.html',eyebrow:'LX하우시스 · 시스템창',name:'유로시스템9(시스템창)',sub:'PL·AL 개폐방식 · 유럽 하드웨어'},
-  {id:'kcc'    ,href:'kcc.html'    ,eyebrow:'국내 1위'      ,name:'KCC'            ,sub:'KS-WEI 6년 연속 1위'},
-  {id:'kbe'    ,href:'kbe.html'    ,eyebrow:'독일 직수입'   ,name:'KBE'            ,sub:'120년 profine · 88mm 7챔버'},
-  {id:'kogo'   ,href:'kogo.html'   ,eyebrow:'안전방충망'    ,name:'고구려안전방충망',sub:'추락 방지 · 미세먼지 차단'}
+  {id:'lx-vue' ,href:site('windows/lx/') ,eyebrow:'LX하우시스 · 일반창',name:'뷰프레임(일반창)'      ,sub:'완성창 · 제작창 · 스마트핸들'},
+  {id:'lx-euro',href:site('windows/lx/euro-system-9/pl/'),eyebrow:'LX하우시스 · 시스템창',name:'유로시스템9(시스템창)',sub:'PL·AL 개폐방식 · 유럽 하드웨어'},
+  {id:'kcc'    ,href:site('windows/kcc/')    ,eyebrow:'국내 1위'      ,name:'KCC'            ,sub:'KS-WEI 6년 연속 1위'},
+  {id:'kbe'    ,href:site('windows/kbe/')    ,eyebrow:'독일 직수입'   ,name:'KBE'            ,sub:'120년 profine · 88mm 7챔버'},
+  {id:'kogo'   ,href:site('screens/kogo/')   ,eyebrow:'안전방충망'    ,name:'고구려안전방충망',sub:'추락 방지 · 미세먼지 차단'}
 ];
-var pid=(location.pathname.split('/').pop()||'').replace('.html','');
+var ROUTE_IDS={
+  'windows/lx':'lx-vue',
+  'windows/lx/euro-system-9/pl':'lx-euro',
+  'windows/lx/euro-system-9/al':'lx-euro-al',
+  'windows/kcc':'kcc',
+  'windows/kbe':'kbe',
+  'screens/kogo':'kogo'
+};
+var pid=ROUTE_IDS[currentRoute()]||(location.pathname.split('/').pop()||'').replace('.html','');
 var page=PAGES[pid]||{name:'MM LAB 창호'};
 
 /* ── 페이지별 창호 프레임 포인트 컬러 (TE 로테이션) ──
@@ -49,12 +69,12 @@ if(ft){
    +'<div class="footer-certs"><span>K-BPI 창호 1위</span><span>KS 인증</span><span>ISO 9001</span><span>본사 10년 보증</span><span>정품 직거래</span><span>거주 시공 가능</span></div>'
    +'<div class="footer-info-grid">'
    +'<div><h5>MM LAB · Millimeter Laboratory</h5><p>정밀한 자재, 합리적인 가치.<br>본사 정품 창호 직거래의 구조.</p>'
-   +'<p style="margin-top:12px;"><a href="kcc.html">KCC</a> · <a href="lx-vue.html">LX 뷰프레임</a> · <a href="lx-euro.html">유로시스템9</a> · <a href="kbe.html">KBE</a> · <a href="kogo.html">고구려</a></p></div>'
+   +'<p style="margin-top:12px;"><a href="'+site('windows/kcc/')+'">KCC</a> · <a href="'+site('windows/lx/')+'">LX 뷰프레임</a> · <a href="'+site('windows/lx/euro-system-9/pl/')+'">유로시스템9</a> · <a href="'+site('windows/kbe/')+'">KBE</a> · <a href="'+site('screens/kogo/')+'">고구려</a></p></div>'
    +'<div><h5>고객 지원</h5><ul>'
    +'<li><a href="#" onclick="openModal();return false;">상담신청</a></li>'
    +'<li><a href="tel:02-0000-0000">02-0000-0000 (평일 09:00~18:00)</a></li>'
-   +'<li><a href="cases.html">시공사례</a></li>'
-   +'<li><a href="interior.html">인테리어 협력</a></li></ul></div>'
+   +'<li><a href="'+site('projects/')+'">시공사례</a></li>'
+   +'<li><a href="'+site('interior/')+'">인테리어 협력</a></li></ul></div>'
    +'<div><h5>B2B / 도매 문의</h5><ul>'
    +'<li><a href="#" onclick="openModal();return false;">도매·납품 전용 라인</a></li>'
    +'<li><a href="#" onclick="openModal();return false;">협력 인테리어사 등록</a></li>'

@@ -5,6 +5,19 @@
 (function(){
 if(document.getElementById('mmGnb'))return;
 
+/* 스크립트 위치를 기준으로 사이트 루트를 계산한다.
+   도메인이 바뀌거나 중첩 폴더에서 파일로 열어도 메뉴 주소가 유지된다. */
+var SCRIPT_URL=(document.currentScript&&document.currentScript.src)||location.href;
+var ROOT_URL=new URL('.',SCRIPT_URL);
+function site(path){return new URL(String(path||'').replace(/^\/+/,''),ROOT_URL).href;}
+function routeOf(href){
+  var rootPath=decodeURIComponent(ROOT_URL.pathname);
+  var targetPath=decodeURIComponent(new URL(href,ROOT_URL).pathname);
+  var rel=targetPath.indexOf(rootPath)===0?targetPath.slice(rootPath.length):targetPath.replace(/^\/+/, '');
+  return rel.replace(/index\.html$/,'').replace(/^\/+|\/+$/g,'');
+}
+var here=routeOf(location.href);
+
 var css=`
 @font-face{font-family:"Gmarket Sans";src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");font-weight:700;font-display:swap}
 #mmGnb{position:fixed;top:0;left:0;right:0;z-index:1500;height:56px;background:rgba(244,240,230,.94);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid #111;font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif;word-break:keep-all}
@@ -57,48 +70,47 @@ body>header.nav,body>nav.nav,body>nav.gnb,.mnav{display:none!important}
 `;
 var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
 
-var here=(location.pathname.split('/').pop()||'index.html');
 var BRANDS=[
-  {href:'lx-vue.html',name:'LX 하우시스',sub:'일반창 · 시스템창',color:'#2F5233',match:['lx-vue.html','lx-euro.html','lx-euro-al.html']},
-  {href:'kcc.html',name:'KCC',sub:'국내 1위',color:'#5C4433'},
-  {href:'kbe.html',name:'KBE',sub:'독일 시스템창',color:'#464B52'},
-  {href:'kogo.html',name:'고구려안전방충망',sub:'안전 · 방범',color:'#8A7A5C'}
+  {href:site('windows/lx/'),name:'LX 하우시스',sub:'일반창 · 시스템창',color:'#2F5233',match:['windows/lx','windows/lx/euro-system-9/pl','windows/lx/euro-system-9/al']},
+  {href:site('windows/kcc/'),name:'KCC',sub:'국내 1위',color:'#5C4433'},
+  {href:site('windows/kbe/'),name:'KBE',sub:'독일 시스템창',color:'#464B52'},
+  {href:site('screens/kogo/'),name:'고구려안전방충망',sub:'안전 · 방범',color:'#8A7A5C'}
 ];
 var GROUPS=[
-  {id:'home',label:'홈',href:'index.html',align:'mg-left',active:here==='index.html',items:[
-    {href:'index.html',name:'메인',sub:'making space'},
-    {href:'index.html#about',name:'MM LAB 소개',sub:'about'},
-    {href:'index.html#why',name:'Why MM LAB',sub:'difference'},
-    {href:'index.html#cases',name:'대표 시공사례',sub:'portfolio'}
+  {id:'home',label:'홈',href:site(''),align:'mg-left',active:here==='',items:[
+    {href:site(''),name:'메인',sub:'making space'},
+    {href:site('#about'),name:'MM LAB 소개',sub:'about'},
+    {href:site('#why'),name:'Why MM LAB',sub:'difference'},
+    {href:site('#cases'),name:'대표 시공사례',sub:'portfolio'}
   ]},
-  {id:'windows',label:'창호',active:BRANDS.some(function(b){return b.href===here||(b.match||[]).indexOf(here)>-1;}),items:BRANDS},
-  {id:'interior',label:'인테리어',href:'interior.html',active:here==='interior.html',items:[
-    {href:'interior.html',name:'인테리어 소개',sub:'network'},
-    {href:'interior.html#process',name:'Our Process',sub:'5 steps'},
-    {href:'interior.html#partners',name:'검증된 협력 업체',sub:'partners'},
-    {href:'cases.html',name:'전체 시공사례',sub:'projects'}
+  {id:'windows',label:'창호',href:site('windows/'),active:here.indexOf('windows/')===0||here.indexOf('screens/')===0,items:BRANDS},
+  {id:'interior',label:'인테리어',href:site('interior/'),active:here==='interior',items:[
+    {href:site('interior/'),name:'인테리어 소개',sub:'network'},
+    {href:site('interior/#process'),name:'Our Process',sub:'5 steps'},
+    {href:site('interior/#partners'),name:'검증된 협력 업체',sub:'partners'},
+    {href:site('projects/'),name:'전체 시공사례',sub:'projects'}
   ]},
-  {id:'brand',label:'브랜드 소개',href:'brand.html',active:here==='brand.html',items:[
-    {href:'brand.html#about',name:'대표 인사말',sub:'message'},
-    {href:'brand.html#model',name:'Why MM LAB',sub:'reason'},
-    {href:'brand.html#save',name:'정품 직거래 구조',sub:'saving'},
-    {href:'brand.html#genuine',name:'저가 공업사와의 차이',sub:'compare'},
-    {href:'brand.html#flow',name:'상담부터 시공까지',sub:'process'}
+  {id:'brand',label:'브랜드 소개',href:site('about/'),active:here==='about',items:[
+    {href:site('about/#about'),name:'대표 인사말',sub:'message'},
+    {href:site('about/#model'),name:'Why MM LAB',sub:'reason'},
+    {href:site('about/#save'),name:'정품 직거래 구조',sub:'saving'},
+    {href:site('about/#genuine'),name:'저가 공업사와의 차이',sub:'compare'},
+    {href:site('about/#flow'),name:'상담부터 시공까지',sub:'process'}
   ]},
-  {id:'cases',label:'시공사례',href:'cases.html',align:'mg-right',active:here==='cases.html',items:[
-    {href:'cases.html',name:'전체 시공사례',sub:'all projects'},
-    {href:'index.html#cases',name:'대표 사례 미리보기',sub:'featured'},
-    {href:'interior.html#partners',name:'인테리어 현장',sub:'interior'}
+  {id:'cases',label:'시공사례',href:site('projects/'),align:'mg-right',active:here==='projects',items:[
+    {href:site('projects/'),name:'전체 시공사례',sub:'all projects'},
+    {href:site('#cases'),name:'대표 사례 미리보기',sub:'featured'},
+    {href:site('interior/#partners'),name:'인테리어 현장',sub:'interior'}
   ]},
   {id:'consult',label:'상담신청',href:'#',align:'mg-right',cta:true,items:[
     {href:'#',name:'무료 상담 신청',sub:'consult',action:'inquiry'},
     {href:'tel:02-0000-0000',name:'전화 문의',sub:'평일 09:00–18:00'},
-    {href:'brand.html#flow',name:'진행 방식 보기',sub:'how it works'}
+    {href:site('about/#flow'),name:'진행 방식 보기',sub:'how it works'}
   ]}
 ];
 
 function itemHtml(item){
-  var isCurrent=(item.href.split('#')[0]===here||(item.match||[]).indexOf(here)>-1) && item.href.indexOf('#')<0;
+  var isCurrent=(routeOf(item.href)===here||(item.match||[]).indexOf(here)>-1) && item.href.indexOf('#')<0;
   return '<a href="'+item.href+'"'+(isCurrent?' class="on"':'')+(item.action==='inquiry'?' data-inquiry="true"':'')+'>'
     +'<i class="mg-sw" style="background:'+(item.color||'#F4F0E6')+'"></i><b>'+item.name+'</b><span>'+item.sub+'</span></a>';
 }
@@ -115,7 +127,7 @@ function mobileGroupHtml(group){
 }
 
 var html='<header id="mmGnb"><div class="mg-in">'
-  +'<a class="mg-logo" href="index.html">MM LAB <small>millimeter laboratory</small></a>'
+  +'<a class="mg-logo" href="'+site('')+'">MM LAB <small>millimeter laboratory</small></a>'
   +'<nav class="mg-links" aria-label="주 메뉴">'+GROUPS.map(groupHtml).join('')+'</nav>'
   +'<button class="mg-burger" type="button" id="mgBurger" aria-expanded="false" aria-controls="mgMobile">MENU</button>'
   +'</div></header><div class="mg-mobile" id="mgMobile">'+GROUPS.map(mobileGroupHtml).join('')+'</div>';

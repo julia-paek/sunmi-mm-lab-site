@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KCC — 국내 1위 창호의 신뢰 | MM LAB</title>
+<link rel="canonical" href="/windows/kcc/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+<link rel="stylesheet" href="../../styles.css?v=g50">
+<style>
+.kcc-hero{background:#F4F0E6}
+.kcc-visual{background:var(--accent)}
+.color-asa{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:24px}
+.color-chip{aspect-ratio:1;border-radius:0;display:flex;align-items:flex-end;padding:14px;font-size:12px;font-weight:500;color:#FFFFFF;text-shadow:0 1px 2px rgba(0,0,0,0.3)}
+.kcc-blue{color:var(--accent);font-weight:600}
+</style>
+<link rel="stylesheet" href="../../responsive.css?v=r4">
+</head>
+<body>
+
+<nav class="gnb">
+  <div class="gnb-inner">
+    <a href="../../" class="logo">MM LAB <span>Millimeter Laboratory</span></a>
+    <div class="hamburger" onclick="toggleMenu(this)"><span></span><span></span><span></span></div>
+    <div class="gnb-menu" id="gnbMenu">
+      <a href="../../" class="gnb-back" onclick="closeMenu()">홈</a>
+      <a href="../../#interior-card" onclick="closeMenu()">인테리어</a>
+      <a href="../../#brands" onclick="closeMenu()">창호</a>
+      <a href="#" class="gnb-cta" onclick="openModal();closeMenu();return false;">상담신청</a>
+    </div>
+  </div>
+</nav>
+
+<section class="brand-hero kcc-hero">
+  <div class="container">
+    <div class="eyebrow">KCC · KOREA · 국내 1위</div>
+    <h1 class="display">국내 1위의 신뢰.</h1>
+    <p class="subtitle">KS-WEI 창호재 부문 6년 연속 1위.<br>K-BPI 3년 연속 · KS-QEI 5년 연속 1위.</p>
+    <div class="hero-ctas">
+      <a href="#lineup" class="btn btn-primary">제품 라인업 보기 →</a>
+      <a href="#" class="btn btn-ghost" onclick="openModal();return false;">상담신청</a>
+    </div>
+  </div>
+  <div class="hero-visual kcc-visual">
+    <span style="color:#fff;opacity:0.6;">[ KCC SMART WINDOW — 풀스크린 키비주얼 ]</span>
+  </div>
+</section>
+
+<section class="section section-gray" id="lineup">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="eyebrow">LINEUP</div>
+      <h2 class="h2">4대 카테고리, 다양한 선택.</h2>
+      <p class="body-lg">일반창·발코니창·시스템창·AL+PVC 하이브리드까지.<br>공간과 용도에 맞는 정밀한 라인업.</p>
+    </div>
+
+    <div class="tab-bar">
+      <button class="tab active" onclick="switchTab('balcony',this)">발코니창</button>
+      <button class="tab" onclick="switchTab('inner',this)">일반창</button>
+      <button class="tab" onclick="switchTab('system',this)">시스템창</button>
+      <button class="tab" onclick="switchTab('hybrid',this)">AL+PVC</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-balcony">
+      <div class="lineup-carousel">
+      <button class="lc-arrow lc-prev" aria-label="이전 제품" type="button">‹</button>
+      <div class="lc-track">
+        <div class="product-card">
+          <span class="badge">와이드빌 단창</span>
+          <div class="product-name">UBF118</div>
+          <div class="product-sub">일반·다세대 발코니</div>
+          <div class="product-visual">[ UBF118 단면도 ]</div>
+          <div class="spec-list"><strong>창틀 폭</strong> 118mm<br><strong>유리</strong> 5~24mm<br><strong>색상</strong> White / ASA / 인테리어필름</div>
+        </div>
+        <div class="product-card">
+          <span class="badge">와이드빌 이중창</span>
+          <div class="product-name">VBF230</div>
+          <div class="product-sub">일반·다세대 발코니</div>
+          <div class="product-visual">[ VBF230 단면도 ]</div>
+          <div class="spec-list"><strong>창틀 폭</strong> 228mm<br><strong>유리</strong> 5~24mm<br><strong>색상</strong> White / ASA</div>
+        </div>
+        <div class="product-card">
+          <span class="badge">뉴프라임 단창</span>
+          <div class="product-name">VBF140</div>
+          <div class="product-sub">아파트·빌라·주택 발코니</div>
+          <div class="product-visual">[ VBF140 단면도 ]</div>
+          <div class="spec-list"><strong>창틀 폭</strong> 140mm<br><strong>유리</strong> 16~26mm<br><strong>색상</strong> White / ASA</div>
+        </div>
+        <div class="product-card">
+          <span class="badge">프라임 이중창</span>
+          <div class="product-name">VBF242</div>
+          <div class="product-sub">아파트·빌라·주택 발코니</div>
+          <div class="product-visual">[ VBF242 단면도 ]</div>
+          <div class="spec-list"><strong>창틀 폭</strong> 242mm<br><strong>유리</strong> 16~26mm<br><strong>색상</strong> White / ASA</div>
+        </div>
+        <div class="product-card">
+          <span class="badge">프라임 확장형</span>
+          <div class="product-name">VBF251-4PM</div>
+          <div class="product-sub">발코니 확장</div>
+          <div class="product-visual">[ VBF251 단면도 ]</div>
+          <div class="spec-list"><strong>창틀 폭</strong> 251mm<br><strong>유리</strong> 16~28mm<br><strong>색상</strong> ASA</div>
+        </div>
+      </div>
+      <button class="lc-arrow lc-next" aria-label="다음 제품" type="button">›</button>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-inner">
+      <div class="lineup-carousel">
+      <button class="lc-arrow lc-prev" aria-label="이전 제품" type="button">‹</button>
+      <div class="lc-track">
+        <div class="product-card">
+          <span class="badge">프리웨이 (Freeway)</span>
+          <div class="product-name">EBF125 / EBF200</div>
+          <div class="product-sub">거실 바닥선 동일 마감</div>
+          <div class="product-visual">[ Freeway ]</div>
+          <div class="spec-list"><strong>특징</strong> 거실↔발코니 무단차<br><strong>용도</strong> 거실 분합문</div>
+        </div>
+        <div class="product-card">
+          <span class="badge">공틀일체형</span>
+          <div class="product-name">UBF225TM / 205TM / 200TM</div>
+          <div class="product-sub">중대형 미서기</div>
+          <div class="product-visual">[ 공틀일체형 ]</div>
+          <div class="spec-list"><strong>특징</strong> 외관 미려, 구조 안정<br><strong>용도</strong> 거실 분합문</div>
+        </div>
+        <div class="product-card">
+          <span class="badge">학교창 (단/이중)</span>
+          <div class="product-name">USS118-3MA / VSS230-4PM</div>
+          <div class="product-sub">학교·상업 시설</div>
+          <div class="product-visual">[ 학교창 ]</div>
+          <div class="spec-list"><strong>특징</strong> ASA 컬러 다양<br><strong>색상</strong> Grey / Green / Dark Brown</div>
+        </div>
+      </div>
+      <button class="lc-arrow lc-next" aria-label="다음 제품" type="button">›</button>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-system">
+      <div class="lineup-carousel">
+      <button class="lc-arrow lc-prev" aria-label="이전 제품" type="button">‹</button>
+      <div class="lc-track">
+        <div class="product-card">
+          <span class="badge">고단열 터닝도어</span>
+          <div class="product-name">DF140</div>
+          <div class="product-sub">5중 잠금 + 결로 방지</div>
+          <div class="product-visual">[ DF140 ]</div>
+          <div class="spec-list"><strong>유리</strong> 최대 42mm 삼중유리<br><strong>잠금</strong> 5중 시스템</div>
+        </div>
+        <div class="product-card">
+          <span class="badge">광폭 터닝도어</span>
+          <div class="product-name">DF180</div>
+          <div class="product-sub">5-Point 잠금</div>
+          <div class="product-visual">[ DF180 ]</div>
+          <div class="spec-list"><strong>창틀 폭</strong> 180mm<br><strong>강화</strong> 단열·기밀·방음</div>
+        </div>
+        <div class="product-card">
+          <span class="badge">60mm 여닫이</span>
+          <div class="product-name">PJ60</div>
+          <div class="product-sub">부엌·욕실·환기창</div>
+          <div class="product-visual">[ PJ60 ]</div>
+          <div class="spec-list"><strong>타입</strong> Casement / Push-Out / Pull-Down<br><strong>창틀 폭</strong> 60mm</div>
+        </div>
+      </div>
+      <button class="lc-arrow lc-next" aria-label="다음 제품" type="button">›</button>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-hybrid">
+      <div class="lineup-carousel">
+      <button class="lc-arrow lc-prev" aria-label="이전 제품" type="button">‹</button>
+      <div class="lc-track">
+        <div class="product-card">
+          <span class="badge">AL+PVC 하이브리드</span>
+          <div class="product-name">160mm 시리즈</div>
+          <div class="product-sub">알루미늄 + PVC 결합</div>
+          <div class="product-visual">[ AL+PVC 160 ]</div>
+          <div class="spec-list"><strong>외부</strong> 알루미늄 (내후성↑)<br><strong>내부</strong> PVC (단열↑)</div>
+        </div>
+        <div class="product-card">
+          <span class="badge">AL+PVC 하이브리드</span>
+          <div class="product-name">180mm 시리즈</div>
+          <div class="product-sub">고급 하이브리드</div>
+          <div class="product-visual">[ AL+PVC 180 ]</div>
+          <div class="spec-list"><strong>특징</strong> 외관 알루미늄, 내부 PVC<br><strong>용도</strong> 프리미엄 주거</div>
+        </div>
+      </div>
+      <button class="lc-arrow lc-next" aria-label="다음 제품" type="button">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="eyebrow">BRAND</div>
+      <h2 class="h2">대한민국 창호의 표준.</h2>
+      <p class="body-lg">㈜케이씨씨는 1958년 설립 이래 대한민국 건축자재 산업을 이끌어왔습니다.<br>창호 부문에서 KS·KOLAS 인증을 모두 보유한 국내 1위 브랜드입니다.</p>
+    </div>
+    <div class="stats-row reveal">
+      <div class="stat"><div class="stat-num">6년</div><div class="stat-label">KS-WEI 1위 연속</div></div>
+      <div class="stat"><div class="stat-num">3년</div><div class="stat-label">K-BPI 1위 연속</div></div>
+      <div class="stat"><div class="stat-num">5년</div><div class="stat-label">KS-QEI 1위 연속</div></div>
+      <div class="stat"><div class="stat-num">1958</div><div class="stat-label">설립</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="eyebrow">FEATURES</div>
+      <h2 class="h2">KCC만의 차별점.</h2>
+    </div>
+    <div class="lineup-carousel mobile-card-carousel">
+      <button class="lc-arrow lc-prev" aria-label="이전 차별점" type="button">‹</button>
+      <div class="lc-track mobile-card-track grid-4">
+      <div class="feature-card reveal">
+        <h4>미세먼지 차단 방충망</h4>
+        <p>정전기 부착 방식으로 0.4mm 미세 입자까지 차단. KF80 수준의 공기 청정 기능.</p>
+      </div>
+      <div class="feature-card reveal">
+        <h4>ASA 컬러 시스템</h4>
+        <p>외부용 ASA 수지로 변색·균열 저항. 7가지 색상으로 외관까지 완성.</p>
+      </div>
+      <div class="feature-card reveal">
+        <h4>Ag코팅 단열</h4>
+        <p>은(Ag) 코팅 유리로 단열성능 UP, 에너지 절약. 여름·겨울 모두 효과.</p>
+      </div>
+      <div class="feature-card reveal">
+        <h4>틈새바람 차단 부자재</h4>
+        <p>무프레임 정룰스토퍼, 히든 안전스토퍼·윈드클로저로 기밀성 강화.</p>
+      </div>
+      </div>
+      <button class="lc-arrow lc-next" aria-label="다음 차별점" type="button">›</button>
+    </div>
+  </div>
+</section>
+
+<section class="section section-gray">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="eyebrow">ASA COLOR</div>
+      <h2 class="h2">외관도 컬러로 완성.</h2>
+      <p class="body-lg">ASA 수지 외부 컬러 시스템 — 변색·균열에 강한 7가지 색상.</p>
+    </div>
+    <div class="color-asa">
+      <div class="color-chip" style="background:#F5F5F7;color:#1F3822;text-shadow:none;">White</div>
+      <div class="color-chip" style="background:#B5B5BC;">Frosty Gray</div>
+      <div class="color-chip" style="background:#5A5A60;">Charcoal Gray</div>
+      <div class="color-chip" style="background:#1D1D1F;">Black</div>
+      <div class="color-chip" style="background:#8B6F47;">Brown</div>
+      <div class="color-chip" style="background:#A88863;">Light Brown</div>
+      <div class="color-chip" style="background:#5C3F22;">Dark Brown</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="eyebrow">CERTIFICATION</div>
+      <h2 class="h2">검증된 품질.</h2>
+    </div>
+    <div class="lineup-carousel mobile-card-carousel">
+      <button class="lc-arrow lc-prev" aria-label="이전 품질 인증" type="button">‹</button>
+      <div class="lc-track mobile-card-track grid-4">
+      <div class="feature-card"><h4>KS F 5602</h4><p>합성수지 창호용 형재</p></div>
+      <div class="feature-card"><h4>KS F 3117</h4><p>창세트</p></div>
+      <div class="feature-card"><h4>ISO 9001</h4><p>품질경영시스템</p></div>
+      <div class="feature-card"><h4>ISO 14001</h4><p>환경경영시스템</p></div>
+      </div>
+      <button class="lc-arrow lc-next" aria-label="다음 품질 인증" type="button">›</button>
+    </div>
+  </div>
+</section>
+
+<div id="mm-related"></div>
+
+
+
+<div id="mm-cta"></div>
+
+
+
+<div id="mm-footer"></div>
+
+<div style="display:none"></div>
+
+
+
+
+<script src="../../common.js?v=g53"></script>
+<script src="../../sitenav.js?v=g45"></script>
+<script>
+function switchTab(name, btn){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  window.dispatchEvent(new Event('resize')); // 새로 보이는 캐러셀 화살표 상태 갱신
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>실제 시공 사례 — MM LAB</title>
+<link rel="canonical" href="/projects/">
+<meta name="description" content="MM LAB 본사 정품 창호 시공 사례 갤러리. KBE · KCC · LX하우시스 실제 현장.">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+<style>
+/* ═══════════ MM LAB — 시공사례 갤러리 (apple-canvas) ═══════════ */
+:root{
+  --bg:#F4F0E6; --bg-alt:#EAE4D6; --ink:#6E7C64; --headline:#1F3822; --muted:#8A9683;
+  --hairline:#D9D1C1; --line-strong:#111111;
+  --accent:#2F5233; --accent-press:#1F3822;
+  --ease:cubic-bezier(0.4,0,0.2,1); --ease-soft:cubic-bezier(0.16,1,0.3,1);
+  --nav-h:56px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;font-size:18px;-webkit-font-smoothing:antialiased;overflow-x:clip;word-break:keep-all;line-break:strict;overflow-wrap:break-word}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:50px;padding:14px 28px;border-radius:0;background:var(--accent);color:#fff;font-weight:600;font-size:16px;transition:transform .25s var(--ease),background .25s var(--ease)}
+.btn:hover{background:var(--accent-press);transform:translateY(-2px)}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(244,240,230,.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hairline);z-index:900}
+.nav .logo{font-weight:700;letter-spacing:.14em;font-size:17px;color:var(--headline)}
+.nav .logo .logo-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:400;font-size:13px;letter-spacing:.02em;text-transform:lowercase;color:#4F7355;margin-left:12px;white-space:nowrap}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:14px;color:var(--accent);transition:color .2s var(--ease)}
+.menu a:hover,.menu a.active{color:var(--headline)}
+.menu a.active{font-weight:600}
+@media(max-width:900px){.nav{padding:0 14px}.menu{gap:13px}.menu a{font-size:12px;white-space:nowrap}.nav .logo{font-size:14px;letter-spacing:.1em}.nav .logo .logo-sub{display:none}}
+
+/* header */
+.head{padding:calc(var(--nav-h) + 80px) 0 30px;text-align:center}
+.head h1{font-size:clamp(40px,6vw,76px);font-weight:700;letter-spacing:-.02em;color:var(--headline);margin-top:14px}
+.head p{font-size:18px;color:var(--muted);margin-top:18px}
+.head .count{font-weight:600;color:var(--ink)}
+
+/* filter */
+.filter{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:34px 0 8px}
+.fbtn{padding:9px 20px;border-radius:0;border:1px solid var(--line-strong);font-size:14px;font-weight:500;color:var(--ink);background:var(--bg);transition:all .2s var(--ease)}
+.fbtn:hover{border-color:#1F3822}
+.fbtn.on{background:#1F3822;color:#fff;border-color:#1F3822}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;padding:48px 0 40px}
+@media(max-width:740px){.gallery{grid-template-columns:1fr;gap:18px}}
+.gcard{cursor:pointer;opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease-soft),transform .8s var(--ease-soft)}
+.gcard.in{opacity:1;transform:none}
+.gcard.hide{display:none}
+.gmedia{aspect-ratio:4/3;border-radius:0;overflow:hidden;background:#e7e7e9 var(--img) center/cover no-repeat}
+.gmedia i{display:block;width:100%;height:100%;background-image:var(--img);background-size:cover;background-position:center;transition:transform .6s var(--ease-soft)}
+.gcard:hover .gmedia i{transform:scale(1.05)}
+.gbadge{display:inline-block;margin-top:14px;font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--accent);text-transform:uppercase}
+.gtitle{font-size:18px;font-weight:600;color:var(--headline);margin-top:4px}
+.gsub{font-size:14px;color:var(--muted);margin-top:2px}
+.empty{text-align:center;color:var(--muted);padding:60px 0;font-size:16px;display:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:1100;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:28px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+.lb.open{opacity:1;pointer-events:auto}
+.lb img{max-width:min(1100px,92vw);max-height:78vh;border-radius:0;object-fit:contain}
+.lb-cap{color:#fff;text-align:center;margin-top:20px;max-width:680px}
+.lb-cap .t{font-size:19px;font-weight:600}
+.lb-cap .s{font-size:14px;color:#a1a1a6;margin-top:4px}
+.lb-x{position:absolute;top:22px;right:22px;width:44px;height:44px;border-radius:0;background:rgba(80,80,84,.7);color:#fff;font-size:24px;font-weight:300;display:flex;align-items:center;justify-content:center;transition:background .2s var(--ease)}
+.lb-x:hover{background:rgba(120,120,124,.9)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:0;background:rgba(80,80,84,.55);color:#fff;font-size:26px;font-weight:300;display:flex;align-items:center;justify-content:center;transition:background .2s var(--ease)}
+.lb-nav:hover{background:rgba(120,120,124,.85)}
+.lb-prev{left:20px}.lb-next{right:20px}
+@media(max-width:740px){.lb-nav{width:44px;height:44px;font-size:22px}}
+
+/* floating + footer */
+.float{position:fixed;right:26px;bottom:26px;background:var(--accent);color:#fff;padding:16px 26px;border-radius:0;z-index:850;box-shadow:0 14px 30px rgba(17,17,17,.42);font-weight:600;font-size:15px;transition:transform .25s var(--ease)}
+.float:hover{transform:translateY(-3px)}
+@media(max-width:900px){.float{right:16px;bottom:16px;padding:14px 20px;font-size:14px}}
+.footer{background:var(--bg-alt);color:var(--ink);border-top:1px solid var(--line-strong);padding:72px 0 44px;margin-top:40px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.footer h3{font-size:20px;letter-spacing:.14em;margin-bottom:14px;color:var(--headline)}
+.footer h4{font-size:15px;font-weight:600;margin-bottom:14px;color:var(--headline)}
+.footer p,.footer a{color:var(--ink);line-height:2;font-size:14px;display:block;transition:color .2s var(--ease)}
+.footer a:hover{color:var(--headline)}
+.footer-bottom{margin-top:48px;padding-top:28px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.9;font-family:'JetBrains Mono',ui-monospace,monospace}
+@media(max-width:740px){.footer-grid{grid-template-columns:1fr 1fr}}
+
+/* modal */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1200;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);display:flex;align-items:center;justify-content:center;padding:24px}
+.ov.open{opacity:1;pointer-events:auto}
+.modal{background:#fff;border-radius:0;max-width:460px;width:100%;padding:38px 30px 30px;position:relative;transform:translateY(20px) scale(.98);transition:transform .3s var(--ease-soft);max-height:90vh;overflow-y:auto}
+.ov.open .modal{transform:none}
+.modal .x{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:0;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--ink)}
+.modal h3{font-size:23px;font-weight:700;margin-bottom:8px}
+.modal .ms{font-size:14px;color:var(--muted);margin-bottom:22px}
+.mf{display:flex;flex-direction:column;gap:12px}
+.mf label{font-size:13px;font-weight:500;margin-bottom:4px;display:block}
+.mf input,.mf select,.mf textarea{width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:0;font-size:15px;font-family:inherit;background:#fbfbfd;color:var(--ink);transition:border-color .2s var(--ease)}
+.mf input:focus,.mf select:focus,.mf textarea:focus{outline:none;border-color:var(--accent);background:#fff}
+.mf textarea{resize:vertical;min-height:80px}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.msub{width:100%;padding:14px;background:var(--accent);color:#fff;border-radius:0;font-size:15px;font-weight:600;margin-top:6px;transition:background .2s var(--ease)}
+.msub:hover{background:var(--accent-press)}
+@media(max-width:480px){.mrow{grid-template-columns:1fr}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.gcard{opacity:1!important;transform:none!important}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+/* TE — 모노 라벨 */
+.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:lowercase;letter-spacing:.08em}
+/* 브랜딩 타이포 — SUIT Heavy 900 */
+h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-serif;font-weight:900}
+
+/* 타이틀 메인카피 — Gmarket Sans Bold */
+.head h1,.gtitle,.lb-cap .t,.modal h3{font-family:'Gmarket Sans','Pretendard Variable',Pretendard,sans-serif!important;font-weight:700!important}
+</style>
+<link rel="stylesheet" href="../responsive.css?v=r4">
+</head>
+<body>
+
+<header class="nav">
+  <a class="logo" href="../">MM LAB<span class="logo-sub">millimeter laboratory</span></a>
+  <nav class="menu" aria-label="주 메뉴">
+    <a href="../">홈</a>
+    <a href="../#brands">창호</a>
+    <a href="../#interior-card">인테리어</a>
+    <a href="../#why">브랜드</a>
+    <a href="../projects/" class="active" aria-current="page">시공사례</a>
+    <a href="#" onclick="openModal();return false;">상담신청</a>
+  </nav>
+</header>
+
+<main>
+  <section class="head">
+    <div class="wrap">
+      <p class="eyebrow">Projects</p>
+      <h1>실제 시공 사례</h1>
+      <p>사진 한 장이 백 마디 설명보다 정확합니다. — 총 <span class="count" id="count">0</span>건</p>
+      <div class="filter" id="filter" role="group" aria-label="브랜드 필터"></div>
+    </div>
+  </section>
+
+  <section class="wrap" aria-label="시공사례 갤러리">
+    <div class="gallery" id="gallery"></div>
+    <p class="empty" id="empty">해당 브랜드의 시공사례가 아직 없습니다.</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><h3>MM LAB</h3><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px">support@mmlab.kr<br>02-0000-0000 (평일 09:00~18:00)</p></div>
+      <div><h4>창호 브랜드</h4><a href="../windows/lx/">LX하우시스</a><a href="../windows/kcc/">KCC</a><a href="../windows/kbe/">독일 시스템창호 KBE</a><a href="../screens/kogo/">고구려안전방충망</a></div>
+      <div><h4>바로가기</h4><a href="../">홈</a><a href="../#cases">메인 시공사례</a><a href="#" onclick="openModal();return false;">상담신청</a></div>
+    </div>
+    <div class="footer-bottom">© 2026 MM LAB. All rights reserved. · 대표자 어반로드 · 사업자등록번호 000-00-00000 · 본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.</div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-modal="true" aria-label="시공사례 사진">
+  <button class="lb-x" onclick="closeLb()" aria-label="닫기">×</button>
+  <button class="lb-nav lb-prev" onclick="stepLb(-1)" aria-label="이전 사진">‹</button>
+  <img id="lbImg" alt="">
+  <div class="lb-cap"><div class="t" id="lbT"></div><div class="s" id="lbS"></div></div>
+  <button class="lb-nav lb-next" onclick="stepLb(1)" aria-label="다음 사진">›</button>
+</div>
+
+<!-- MODAL -->
+<div class="ov" id="modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-t">
+    <button class="x" onclick="closeModal()" aria-label="닫기">×</button>
+    <h3 id="modal-t">편하게 남겨주세요</h3>
+    <p class="ms">MM LAB · 영업일 24시간 내 답변</p>
+    <form class="mf" onsubmit="submitForm(event)">
+      <div class="mrow"><div><label for="f-name">이름</label><input id="f-name" name="name" type="text" required placeholder="홍길동" autocomplete="name"></div><div><label for="f-tel">연락처</label><input id="f-tel" name="tel" type="tel" required placeholder="010-0000-0000" autocomplete="tel" inputmode="tel"></div></div>
+      <div><label for="f-brand">관심 브랜드</label><select id="f-brand" name="brand"><option value="">선택</option><option>LX하우시스</option><option>KCC</option><option>독일 시스템창호 KBE</option><option>고구려안전방충망</option><option>잘 모르겠음 / 추천</option></select></div>
+      <div><label for="f-msg">문의 내용</label><textarea id="f-msg" name="message" required placeholder="관심 모델·평형 등을 적어주세요."></textarea></div>
+      <button type="submit" class="msub">상담신청</button>
+    </form>
+  </div>
+</div>
+
+<script src="../sitenav.js?v=g45"></script>
+<script>
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+/* cases 테이블 매핑 (id·brand·status·price·purchasable = 커머스 확장 대비 필드) */
+var CASES = [
+  {id:'case-1', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE 88mm 시스템창호 / 거실 전면', location:'서울 · 양천구 · 신정 래미안', image:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1600&auto=format&fit=crop'},
+  {id:'case-2', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 타운하우스', location:'경기 · 김포 · 라피아노 1차', image:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600&auto=format&fit=crop'},
+  {id:'case-3', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE / 패시브하우스 적용', location:'경기 · 용인 · W 타운하우스', image:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600&auto=format&fit=crop'},
+  {id:'case-4', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 타운하우스', location:'경기 · 김포 · 라피아노 2차', image:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop'},
+  {id:'case-5', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 공공시설', location:'충남 · 아산 · 중앙도서관', image:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop'},
+  {id:'case-6', brand:'KCC', status:'published', price:null, purchasable:false, title:'KCC 이중창 / 아파트 발코니', location:'서울 · 송파 · 잠실 (예시)', image:'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&auto=format&fit=crop'},
+  {id:'case-7', brand:'KCC', status:'published', price:null, purchasable:false, title:'KCC 시스템창 / 주방·거실', location:'경기 · 성남 · 분당 (예시)', image:'https://images.unsplash.com/photo-1600121848594-d8644e57abab?q=80&w=1600&auto=format&fit=crop'},
+  {id:'case-8', brand:'LX', status:'published', price:null, purchasable:false, title:'LX 뷰프레임(일반창) / 전면 발코니', location:'서울 · 마포 · 공덕 (예시)', image:'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600&auto=format&fit=crop'},
+  {id:'case-9', brand:'LX', status:'published', price:null, purchasable:false, title:'LX 유로시스템9(시스템창) / 단독주택', location:'경기 · 광주 · 오포 (예시)', image:'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?q=80&w=1600&auto=format&fit=crop'},
+  {id:'case-10', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE 88mm / 카페 파사드', location:'서울 · 성동 · 성수 (예시)', image:'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?q=80&w=1600&auto=format&fit=crop'}
+];
+
+var BRANDS = ['전체','KBE','KCC','LX'];
+var curFilter='전체';
+var gallery=document.getElementById('gallery'),filterBox=document.getElementById('filter'),emptyEl=document.getElementById('empty');
+document.getElementById('count').textContent=CASES.length;
+
+function visibleList(){return CASES.filter(function(c){return curFilter==='전체'||c.brand===curFilter;});}
+
+function renderGallery(){
+  gallery.innerHTML=CASES.map(function(c,i){
+    return '<a href="#" class="gcard" data-i="'+i+'" data-brand="'+esc(c.brand)+'" aria-label="'+esc(c.title)+' 크게 보기">'
+      +'<div class="gmedia"><i style="--img:url(\''+c.image+'\')"></i></div>'
+      +'<span class="gbadge">'+esc(c.brand)+'</span>'
+      +'<div class="gtitle">'+esc(c.title)+'</div>'
+      +'<div class="gsub">'+esc(c.location)+'</div></a>';
+  }).join('');
+  // reveal + click
+  var cards=gallery.querySelectorAll('.gcard');
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+    cards.forEach(function(el){io.observe(el);});
+  } else { cards.forEach(function(el){el.classList.add('in');}); }
+  cards.forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();openLb(+el.dataset.i);});});
+  applyFilter();
+}
+
+function renderFilter(){
+  filterBox.innerHTML=BRANDS.map(function(b){return '<button class="fbtn'+(b==='전체'?' on':'')+'" data-b="'+b+'">'+b+'</button>';}).join('');
+  filterBox.querySelectorAll('.fbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      curFilter=btn.dataset.b;
+      filterBox.querySelectorAll('.fbtn').forEach(function(x){x.classList.toggle('on',x===btn);});
+      applyFilter();
+    });
+  });
+}
+function applyFilter(){
+  var shown=0;
+  gallery.querySelectorAll('.gcard').forEach(function(el){
+    var ok=curFilter==='전체'||el.dataset.brand===curFilter;
+    el.classList.toggle('hide',!ok); if(ok)shown++;
+  });
+  emptyEl.style.display=shown?'none':'block';
+}
+
+/* lightbox */
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbT=document.getElementById('lbT'),lbS=document.getElementById('lbS');
+var lbIdx=0,lbFocus=null;
+function openLb(i){lbIdx=i;lbFocus=document.activeElement;setLb();lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus();}
+function setLb(){var c=CASES[lbIdx];lbImg.src=c.image;lbImg.alt=c.title;lbT.textContent=c.title;lbS.textContent=c.brand+' · '+c.location;}
+function stepLb(d){
+  // 현재 필터 내에서 순환
+  var list=visibleList(); if(!list.length)return;
+  var ids=list.map(function(c){return CASES.indexOf(c);});
+  var pos=ids.indexOf(lbIdx); if(pos<0)pos=0;
+  pos=(pos+d+ids.length)%ids.length; lbIdx=ids[pos]; setLb();
+}
+function closeLb(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lbFocus&&lbFocus.focus){lbFocus.focus();lbFocus=null;}}
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+addEventListener('keydown',function(e){
+  if(lb.classList.contains('open')){if(e.key==='Escape')closeLb();else if(e.key==='ArrowRight')stepLb(1);else if(e.key==='ArrowLeft')stepLb(-1);}
+});
+
+/* modal */
+var modal=document.getElementById('modal'),mFocus=null;
+function openModal(){mFocus=document.activeElement;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var f=modal.querySelector('input,select,textarea');if(f)setTimeout(function(){f.focus();},60);}
+function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(mFocus&&mFocus.focus){mFocus.focus();mFocus=null;}}
+modal.addEventListener('click',function(e){if(e.target.id==='modal')closeModal();});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
+function submitForm(e){e.preventDefault();alert('데모입니다. 실제 발송은 추후 연결됩니다.\n\n감사합니다.');closeModal();}
+
+renderFilter();renderGallery();
+</script>
+</body>
+</html>
