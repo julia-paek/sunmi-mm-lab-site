@@ -74,7 +74,7 @@
     },
     "als200": {
       name: "E9-ALS200", type: "LIFT & SLIDE · ALUMINIUM", family: "slide",
-      image: "assets/euro9/products/als200.jpg",
+      image: "assets/euro9/products/als200-catalog.jpg",
       summary: "대형 개구부와 넓은 조망을 위한 알루미늄 Lift & Slide 시스템창입니다. 내부 단열폼과 PU 복합재를 적용해 단열 성능을 보완했습니다.",
       grade: "2등급", uvalue: "0.924 W/㎡K", glass: "24 · 42.5 · 43 · 46.5 · 47 · 51mm",
       feature: "슬림 프레임 · PU 복합 단열재", use: "추천 공간: 대형 거실, 테라스, 고층 조망창",
@@ -83,7 +83,7 @@
     },
     "als245": {
       name: "E9-ALS245", type: "LIFT & SLIDE · ALUMINIUM · PHI", family: "slide",
-      image: "assets/euro9/products/als245.jpg",
+      image: "assets/euro9/products/als245-catalog.jpg",
       summary: "독일 Pural 특수 단열블록과 3중 압착 구조를 적용한 PHI 인증 Lift & Slide 시스템창입니다.",
       grade: "1등급", uvalue: "0.731 W/㎡K", glass: "24 · 26 · 42.5 · 43 · 51mm",
       feature: "PHI 인증 · 3중 압착 구조", use: "추천 공간: 패시브 주택, 대형 거실, 프리미엄 테라스",
@@ -92,7 +92,7 @@
     },
     "aps210": {
       name: "E9-APS210", type: "PARALLEL SLIDE · ALUMINIUM", family: "slide",
-      image: "assets/euro9/products/aps210.jpg",
+      image: "assets/euro9/products/aps210-catalog.jpg",
       summary: "창짝이 앞으로 나온 뒤 옆으로 이동하는 Parallel Slide 방식입니다. 슬림한 입면과 이중 실링 구조를 함께 갖췄습니다.",
       grade: "3등급", uvalue: "1.372 W/㎡K", glass: "24 · 42.5 · 43mm",
       feature: "평행 슬라이드 · 이중 실링", use: "추천 공간: 거실, 주방, 상부 고정창 구성",
@@ -101,7 +101,7 @@
     },
     "als283d": {
       name: "E9-ALS283D", type: "LIFT & SLIDE · PVC + ALUMINIUM", family: "slide",
-      image: "assets/euro9/products/als283d.jpg",
+      image: "assets/euro9/products/als283d-catalog.jpg",
       summary: "실내측 PVC와 실외측 알루미늄을 결합한 복합창입니다. PVC의 단열성과 알루미늄의 외부 내구성·컬러 선택성을 함께 고려했습니다.",
       grade: "1등급", uvalue: "0.847 W/㎡K", glass: "내창 22·24 / 외창 22·24·23.76·27.76mm",
       feature: "내부 PVC · 외부 AL 복합 구조", use: "추천 공간: 고급 주택 거실, 외부 마감 연계 창호",
@@ -111,7 +111,7 @@
     },
     "att80": {
       name: "E9-ATT80", type: "TILT & TURN · ALUMINIUM", family: "tilt",
-      image: "assets/euro9/products/att80.jpg",
+      image: "assets/euro9/products/att80-catalog.jpg",
       summary: "자사 단열블록과 감압 프로파일 옵션으로 단열과 수밀 성능을 강화한 Tilt & Turn 시스템창입니다.",
       grade: "1등급", uvalue: "0.884 W/㎡K", glass: "24 · 43 · 46.5 · 47mm",
       feature: "단열블록 · 감압 프로파일 옵션", use: "추천 공간: 침실, 해안·고풍압 지역 창호",
@@ -120,7 +120,7 @@
     },
     "att90": {
       name: "E9-ATT90", type: "TILT & TURN · ALUMINIUM", family: "tilt",
-      image: "assets/euro9/products/att90.jpg",
+      image: "assets/euro9/products/att90-catalog.jpg",
       summary: "슬림 프레임에 풍압감압 시스템을 적용해 바람과 빗물 유입을 줄이는 Tilt & Turn 시스템창입니다.",
       grade: "2등급", uvalue: "1.103 W/㎡K", glass: "24 · 43mm",
       feature: "슬림 프레임 · 풍압감압 시스템", use: "추천 공간: 고층 주거, 주방, 침실",
@@ -129,7 +129,7 @@
     },
     "att100": {
       name: "E9-ATT100", type: "TILT & TURN · ALUMINIUM · PHI", family: "tilt",
-      image: "assets/euro9/products/att100.jpg",
+      image: "assets/euro9/products/att100-catalog.jpg",
       summary: "Pural 특수 단열블록과 3중 실링 구조를 적용한 PHI 인증 Tilt & Turn 시스템창입니다.",
       grade: "1등급", uvalue: "0.885 W/㎡K", glass: "24 · 43mm",
       feature: "PHI 인증 · 3중 실링", use: "추천 공간: 고단열 주택, 침실, 서재",
@@ -138,7 +138,7 @@
     },
     "ash80": {
       name: "E9-ASH80", type: "SIDE HUNG · ALUMINIUM", family: "hung",
-      image: "assets/euro9/products/ash80-ath80.jpg",
+      image: "assets/euro9/products/ash80-catalog.jpg",
       summary: "옆으로 열리는 폭이 좁은 환기창입니다. 단열블록을 적용해 알루미늄 프레임의 단열 성능을 보완했습니다.",
       grade: "2등급", uvalue: "0.965 W/㎡K", glass: "24 · 43 · 46.5 · 47mm",
       feature: "측면 개방 · 단열블록", use: "추천 공간: 거실 보조창, 계단실, 세로 환기창",
@@ -147,7 +147,7 @@
     },
     "ath80": {
       name: "E9-ATH80", type: "TOP HUNG · ALUMINIUM", family: "hung",
-      image: "assets/euro9/products/ash80-ath80.jpg",
+      image: "assets/euro9/products/ath80-catalog.jpg",
       summary: "상부 축을 기준으로 바깥쪽이 열리는 환기창입니다. 실내 공간을 크게 침범하지 않아 주방과 높은 위치의 창에 적합합니다.",
       grade: "2등급", uvalue: "0.983 W/㎡K", glass: "24 · 43 · 46.5 · 47mm",
       feature: "상부 개방 · 단열블록", use: "추천 공간: 주방, 높은 환기창, 상부 채광창",
@@ -156,7 +156,7 @@
     },
     "ash90": {
       name: "E9-ASH90", type: "SIDE HUNG · ALUMINIUM", family: "hung",
-      image: "assets/euro9/products/ash90-ath90.jpg",
+      image: "assets/euro9/products/ash90-catalog.jpg",
       summary: "슬림 프레임과 단열폼을 적용한 측면 여닫이창입니다. 좁고 긴 입면에서 환기와 조망을 함께 확보합니다.",
       grade: "2등급", uvalue: "1.003 W/㎡K", glass: "24 · 43mm",
       feature: "슬림 프레임 · 단열폼", use: "추천 공간: 계단실, 복도, 세로형 환기창",
@@ -165,7 +165,7 @@
     },
     "ath90": {
       name: "E9-ATH90", type: "TOP HUNG · ALUMINIUM", family: "hung",
-      image: "assets/euro9/products/ash90-ath90.jpg",
+      image: "assets/euro9/products/ath90-catalog.jpg",
       summary: "얇은 프레임과 하드웨어를 적용한 상부 여닫이창입니다. 가로로 긴 개구부에 정돈된 입면을 만듭니다.",
       grade: "2등급", uvalue: "1.003 W/㎡K", glass: "24 · 43mm",
       feature: "슬림 프레임 · 상부 개방", use: "추천 공간: 주방, 가로형 환기창, 높은 창",
@@ -174,7 +174,7 @@
     },
     "adr80": {
       name: "E9-ADR80", type: "SYSTEM DOOR · ALUMINIUM", family: "door",
-      image: "assets/euro9/products/adr80.jpg",
+      image: "assets/euro9/products/adr80-catalog.jpg",
       summary: "단열블록과 하부 기밀재를 적용한 80mm급 알루미늄 시스템 도어입니다. With sill과 No sill 구성을 현장 조건에 맞춰 선택합니다.",
       grade: "2등급", uvalue: "0.988 W/㎡K", glass: "24 · 43 · 46.5 · 47mm",
       feature: "하부 기밀재 · 문턱 구성 선택", use: "추천 공간: 주거 테라스, 상업 공간 출입구",
@@ -183,7 +183,7 @@
     },
     "adr100": {
       name: "E9-ADR100", type: "SYSTEM DOOR · ALUMINIUM", family: "door",
-      image: "assets/euro9/products/adr100.jpg",
+      image: "assets/euro9/products/adr100-catalog.jpg",
       summary: "Pural 특수 단열블록과 고품질 하드웨어를 적용한 100mm급 알루미늄 시스템 도어입니다.",
       grade: "2등급", uvalue: "0.909 W/㎡K", glass: "24 · 26 · 43 · 51mm",
       feature: "특수 단열블록 · 고품질 하드웨어", use: "추천 공간: 주택 주출입구, 테라스, 상업 공간",
@@ -192,7 +192,7 @@
     },
     "afd68": {
       name: "E9-AFD68", type: "FOLDING DOOR · ALUMINIUM", family: "door",
-      image: "assets/euro9/products/afd68.jpg",
+      image: "assets/euro9/products/afd68-catalog.jpg",
       summary: "여러 장의 창짝을 한쪽 또는 양쪽으로 접어 큰 개방폭을 만드는 알루미늄 폴딩도어입니다.",
       grade: "3등급", uvalue: "1.596 W/㎡K", glass: "16 · 22 · 24mm",
       feature: "1Way · 2Way · 경첩도어 조합", use: "추천 공간: 카페, 테라스, 실내외 확장 공간",
@@ -249,33 +249,33 @@
     slide: {
       label: "Lift & Slide / Parallel Slide",
       items: [
-        { image: "assets/euro9/products/als200.jpg", title: "슬림 프레임과 복합 단열 구조", copy: "노출부 도장 마감과 PU복합재·내부 단열폼으로 슬림한 디자인과 단열 성능을 함께 확보합니다." },
-        { image: "assets/euro9/products/als245.jpg", title: "Pural 단열블록과 3중 압착", copy: "독일 Pural 특수 단열블록과 3중 압착구조를 적용한 PHI 인증 Lift & Slide 창호입니다." },
-        { image: "assets/euro9/products/aps210.jpg", title: "이중 실링과 자유로운 입면", copy: "슬림 프레임, 이중 실링 구조와 상부 고정창 조합으로 다양한 입면을 구성할 수 있습니다." }
+        { image: "assets/euro9/products/als200-catalog.jpg", title: "슬림 프레임과 복합 단열 구조", copy: "노출부 도장 마감과 PU복합재·내부 단열폼으로 슬림한 디자인과 단열 성능을 함께 확보합니다." },
+        { image: "assets/euro9/products/als245-catalog.jpg", title: "Pural 단열블록과 3중 압착", copy: "독일 Pural 특수 단열블록과 3중 압착구조를 적용한 PHI 인증 Lift & Slide 창호입니다." },
+        { image: "assets/euro9/products/aps210-catalog.jpg", title: "이중 실링과 자유로운 입면", copy: "슬림 프레임, 이중 실링 구조와 상부 고정창 조합으로 다양한 입면을 구성할 수 있습니다." }
       ]
     },
     tilt: {
       label: "Tilt & Turn",
       items: [
-        { image: "assets/euro9/products/att80.jpg", title: "단열블록과 감압 프로파일", copy: "자사 단열블록과 감압 프로파일 옵션으로 해안·고풍압 지역의 수밀 성능을 강화합니다." },
-        { image: "assets/euro9/products/att90.jpg", title: "슬림 프레임과 풍압감압 시스템", copy: "얇은 프레임과 풍압감압 시스템으로 조망과 밀폐 성능을 함께 확보합니다." },
-        { image: "assets/euro9/products/att100.jpg", title: "Pural 단열블록과 3중 실링", copy: "특수 단열블록과 3중 실링을 적용해 밀폐력을 높인 PHI 인증 시스템창입니다." }
+        { image: "assets/euro9/products/att80-catalog.jpg", title: "단열블록과 감압 프로파일", copy: "자사 단열블록과 감압 프로파일 옵션으로 해안·고풍압 지역의 수밀 성능을 강화합니다." },
+        { image: "assets/euro9/products/att90-catalog.jpg", title: "슬림 프레임과 풍압감압 시스템", copy: "얇은 프레임과 풍압감압 시스템으로 조망과 밀폐 성능을 함께 확보합니다." },
+        { image: "assets/euro9/products/att100-catalog.jpg", title: "Pural 단열블록과 3중 실링", copy: "특수 단열블록과 3중 실링을 적용해 밀폐력을 높인 PHI 인증 시스템창입니다." }
       ]
     },
     hung: {
       label: "Side Hung / Top Hung",
       items: [
-        { image: "assets/euro9/products/ash80-ath80.jpg", title: "단열블록 적용 여닫이 창호", copy: "자사 단열블록을 적용해 알루미늄 여닫이 창호의 단열 성능을 강화합니다." },
-        { image: "assets/euro9/products/ash90-ath90.jpg", title: "슬림 프레임과 단열폼", copy: "광폭 폴리아미드와 단열폼을 적용하면서 얇은 프레임으로 탁 트인 전망을 제공합니다." },
-        { image: "assets/euro9/products/ash80-ath80.jpg", title: "프리미엄 개폐 하드웨어", copy: "Roto·Fapim 계열 하드웨어로 부드러운 개폐감과 내구성, 디자인 완성도를 높였습니다." }
+        { image: "assets/euro9/products/ash80-catalog.jpg", title: "단열블록 적용 여닫이 창호", copy: "자사 단열블록을 적용해 알루미늄 여닫이 창호의 단열 성능을 강화합니다." },
+        { image: "assets/euro9/products/ash90-catalog.jpg", title: "슬림 프레임과 단열폼", copy: "광폭 폴리아미드와 단열폼을 적용하면서 얇은 프레임으로 탁 트인 전망을 제공합니다." },
+        { image: "assets/euro9/products/ath80-catalog.jpg", title: "프리미엄 개폐 하드웨어", copy: "Roto·Fapim 계열 하드웨어로 부드러운 개폐감과 내구성, 디자인 완성도를 높였습니다." }
       ]
     },
     door: {
       label: "Door / Folding Door",
       items: [
-        { image: "assets/euro9/products/adr80.jpg", title: "With sill / No sill 선택", copy: "단열블록과 하부 기밀재를 적용하고 현장에 따라 문턱 구성을 선택할 수 있습니다." },
-        { image: "assets/euro9/products/adr100.jpg", title: "Pural 단열블록과 Dr.Hahn 하드웨어", copy: "특수 단열블록과 독일 Dr.Hahn 하드웨어로 단열성과 내구성을 높였습니다." },
-        { image: "assets/euro9/products/afd68.jpg", title: "1Way·2Way 폴딩 구성", copy: "한 방향, 양개형, 경첩도어 조합 등 공간에 맞는 다양한 폴딩 방식을 선택할 수 있습니다." }
+        { image: "assets/euro9/products/adr80-catalog.jpg", title: "With sill / No sill 선택", copy: "단열블록과 하부 기밀재를 적용하고 현장에 따라 문턱 구성을 선택할 수 있습니다." },
+        { image: "assets/euro9/products/adr100-catalog.jpg", title: "Pural 단열블록과 Dr.Hahn 하드웨어", copy: "특수 단열블록과 독일 Dr.Hahn 하드웨어로 단열성과 내구성을 높였습니다." },
+        { image: "assets/euro9/products/afd68-catalog.jpg", title: "1Way·2Way 폴딩 구성", copy: "한 방향, 양개형, 경첩도어 조합 등 공간에 맞는 다양한 폴딩 방식을 선택할 수 있습니다." }
       ]
     }
   };
@@ -334,6 +334,195 @@
     function setText(selector, value) {
       var node = root.querySelector(selector);
       if (node) node.textContent = value;
+    }
+
+    if (explorerMaterial === "al" && plBubble && plBubble.classList.contains("e9-al-detail-layer")) {
+      var alFamilyModels = {
+        slide: ["als200", "als245", "aps210", "als283d"],
+        tilt: ["att80", "att90", "att100"],
+        hung: ["ash80", "ath80", "ash90", "ath90"],
+        door: ["adr80", "adr100", "afd68"]
+      };
+      var alFamilyLabels = {
+        slide: "슬라이드 시스템",
+        tilt: "틸트 앤 턴",
+        hung: "사이드·탑 헝",
+        door: "도어·폴딩도어"
+      };
+      var alFamilyOrder = ["slide", "tilt", "hung", "door"];
+      var alModelTabs = root.querySelector("[data-e9-al-model-tabs]");
+      var alModelCount = root.querySelector("[data-e9-al-model-count]");
+      var alModelPrev = root.querySelector("[data-e9-al-model-prev]");
+      var alModelNext = root.querySelector("[data-e9-al-model-next]");
+      var alCloseButtons = Array.prototype.slice.call(root.querySelectorAll("[data-e9-al-close]"));
+      var alCurrentFamily = "";
+      var alCurrentModel = "";
+      var alLastTrigger = null;
+      var alHoverModelQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+      function updateAlFamilyRailArrows() {
+        if (!plRail || !plPrev || !plNext) return;
+        var maxScroll = Math.max(0, plRail.scrollWidth - plRail.clientWidth);
+        plPrev.disabled = plRail.scrollLeft <= 2;
+        plNext.disabled = plRail.scrollLeft >= maxScroll - 2;
+      }
+
+      function scrollAlFamilyRail(direction) {
+        if (!plRail) return;
+        plRail.scrollBy({
+          left: direction * Math.max(plRail.clientWidth * .82, 320),
+          behavior: reducedMotion ? "auto" : "smooth"
+        });
+      }
+
+      function renderAlModelTabs(familyName) {
+        if (!alModelTabs) return;
+        alModelTabs.textContent = "";
+        alFamilyModels[familyName].forEach(function (modelId) {
+          var button = document.createElement("button");
+          button.type = "button";
+          button.textContent = models[modelId].name;
+          button.setAttribute("data-e9-al-model", modelId);
+          button.setAttribute("aria-pressed", "false");
+          button.addEventListener("mouseenter", function () {
+            if (!alHoverModelQuery.matches) return;
+            setAlModel(modelId, false);
+          });
+          button.addEventListener("click", function () {
+            setAlModel(modelId, true);
+          });
+          alModelTabs.appendChild(button);
+        });
+      }
+
+      function setAlModel(modelId, moveFocus) {
+        var familyModels = alFamilyModels[alCurrentFamily] || [];
+        var modelIndex = familyModels.indexOf(modelId);
+        if (modelIndex < 0 || !models[modelId]) return;
+        alCurrentModel = modelId;
+        setPlModel(modelId, { revealJumpButton: false, updateExplorerArrows: false });
+        Array.prototype.slice.call(alModelTabs.querySelectorAll("[data-e9-al-model]")).forEach(function (button) {
+          var active = button.getAttribute("data-e9-al-model") === modelId;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+          if (active && moveFocus) button.focus({ preventScroll: true });
+        });
+        if (alModelCount) alModelCount.textContent = (modelIndex + 1) + " / " + familyModels.length;
+        if (alModelPrev) alModelPrev.disabled = modelIndex === 0;
+        if (alModelNext) alModelNext.disabled = modelIndex === familyModels.length - 1;
+        var layerScroller = plBubble.querySelector(".e9-al-model-tabs");
+        var activeTab = layerScroller && layerScroller.querySelector(".is-active");
+        if (layerScroller && activeTab) {
+          activeTab.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "nearest", inline: "center" });
+        }
+      }
+
+      function setAlFamily(familyName) {
+        var info = plMethodInfo[familyName];
+        if (!info || !alFamilyModels[familyName]) return;
+        alCurrentFamily = familyName;
+        plFamily = familyName;
+        plCards.forEach(function (card) {
+          var active = card.getAttribute("data-e9-pl-family") === familyName;
+          card.classList.toggle("is-active", active);
+          card.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+        plDiagrams.forEach(function (diagram) {
+          var active = diagram.getAttribute("data-e9-pl-diagram") === familyName;
+          diagram.hidden = !active;
+          diagram.classList.toggle("is-active", active);
+        });
+        setText("[data-e9-al-layer-family]", alFamilyLabels[familyName]);
+        setText("[data-e9-pl-method-name]", info.name);
+        setText("[data-e9-pl-method-copy]", info.copy);
+        setPlFamilyFeatures(familyName);
+        renderAlModelTabs(familyName);
+        setAlModel(alFamilyModels[familyName][0], false);
+      }
+
+      function openAlLayer(familyName, trigger) {
+        if (trigger) alLastTrigger = trigger;
+        setAlFamily(familyName);
+        plBubble.scrollTop = 0;
+        plBubble.setAttribute("aria-hidden", "false");
+        document.documentElement.classList.add("e9-al-layer-open");
+        document.body.classList.add("e9-al-layer-open");
+        window.requestAnimationFrame(function () {
+          var closeButton = plBubble.querySelector("[data-e9-al-close]");
+          if (closeButton) closeButton.focus({ preventScroll: true });
+        });
+      }
+
+      function closeAlLayer() {
+        plBubble.setAttribute("aria-hidden", "true");
+        document.documentElement.classList.remove("e9-al-layer-open");
+        document.body.classList.remove("e9-al-layer-open");
+        plCards.forEach(function (card) {
+          card.classList.remove("is-active");
+          card.setAttribute("aria-pressed", "false");
+        });
+        if (alLastTrigger) alLastTrigger.focus({ preventScroll: true });
+      }
+
+      function changeAlModel(direction) {
+        var familyModels = alFamilyModels[alCurrentFamily] || [];
+        var currentIndex = familyModels.indexOf(alCurrentModel);
+        var nextIndex = Math.max(0, Math.min(familyModels.length - 1, currentIndex + direction));
+        if (nextIndex !== currentIndex) setAlModel(familyModels[nextIndex], true);
+      }
+
+      plCards.forEach(function (card) {
+        card.addEventListener("click", function () {
+          openAlLayer(card.getAttribute("data-e9-pl-family"), card);
+        });
+      });
+      alCloseButtons.forEach(function (button) {
+        button.addEventListener("click", closeAlLayer);
+      });
+      if (alModelPrev) alModelPrev.addEventListener("click", function () { changeAlModel(-1); });
+      if (alModelNext) alModelNext.addEventListener("click", function () { changeAlModel(1); });
+      if (plPrev) plPrev.addEventListener("click", function () { scrollAlFamilyRail(-1); });
+      if (plNext) plNext.addEventListener("click", function () { scrollAlFamilyRail(1); });
+      if (plRail) plRail.addEventListener("scroll", updateAlFamilyRailArrows, { passive: true });
+      window.addEventListener("resize", updateAlFamilyRailArrows, { passive: true });
+      document.addEventListener("keydown", function (event) {
+        if (plBubble.getAttribute("aria-hidden") === "true") return;
+        if (event.key === "Escape") {
+          event.preventDefault();
+          closeAlLayer();
+          return;
+        }
+        if (event.key !== "Tab") return;
+        var focusable = Array.prototype.slice.call(plBubble.querySelectorAll("button:not([disabled]), summary, a[href]"))
+          .filter(function (item) { return item.offsetParent !== null; });
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      });
+
+      var alMotionItems = root.querySelectorAll(".e9-motion");
+      if (reducedMotion || !("IntersectionObserver" in window)) {
+        alMotionItems.forEach(function (item) { item.classList.add("is-inview"); });
+      } else {
+        var alObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-inview");
+            alObserver.unobserve(entry.target);
+          });
+        }, { threshold: .12, rootMargin: "0px 0px -7% 0px" });
+        alMotionItems.forEach(function (item) { alObserver.observe(item); });
+      }
+
+      updateAlFamilyRailArrows();
+      return;
     }
 
     function updatePlPointer() {
@@ -458,7 +647,7 @@
       });
       window.requestAnimationFrame(function () {
         if (options.revealJumpButton !== false) revealPlJumpButton(modelId);
-        updatePlArrows();
+        if (options.updateExplorerArrows !== false) updatePlArrows();
       });
 
       var image = root.querySelector("[data-e9-detail-image]");

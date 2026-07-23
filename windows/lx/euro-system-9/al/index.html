@@ -9,22 +9,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../../../styles.css?v=g50">
 <link rel="stylesheet" href="../../../../responsive.css?v=r4">
-<link rel="stylesheet" href="../../../../lx-euro-al.css?v=e957">
+<link rel="stylesheet" href="../../../../lx-euro-al.css?v=g2026072320">
 </head>
 <body class="e9-page" data-e9-material="al" data-e9-default-family="slide">
-<nav class="gnb">
-  <div class="gnb-inner">
-    <a href="../../../../" class="logo">MM LAB <span>Millimeter Laboratory</span></a>
-    <div class="hamburger" onclick="toggleMenu(this)"><span></span><span></span><span></span></div>
-    <div class="gnb-menu" id="gnbMenu">
-      <a href="../../../../windows/lx/" class="gnb-back" onclick="closeMenu()">LX하우시스</a>
-      <a href="#opening-methods" onclick="closeMenu()">개폐 방식</a>
-      <a href="#model-performance" onclick="closeMenu()">모델 성능</a>
-      <a href="../../../../windows/lx/euro-system-9/pl/" onclick="closeMenu()">PL 시스템창</a>
-      <a href="#" class="gnb-cta" onclick="openModal();closeMenu();return false;">상담신청</a>
-    </div>
-  </div>
-</nav>
 
 <main>
   <section class="e9-hero" aria-labelledby="e9-title">
@@ -41,33 +28,20 @@
   <section class="section e9-pl-explorer" id="opening-methods">
     <div class="container">
       <div class="e9-pl-lineup-head e9-motion">
-        <div><div class="e9-overline">PRODUCT LINEUP</div><h2>선택한 공간의 모델.</h2></div>
+        <div>
+          <div class="e9-overline">HOW IT OPENS</div>
+          <h2>어떤 방식으로 열까요?</h2>
+          <p>개폐방식을 선택하면 해당 제품군의 모델과 성능을 한 화면에서 확인할 수 있습니다.</p>
+        </div>
       </div>
 
-      <nav class="e9-pl-model-nav e9-motion" aria-label="AL 시스템창 모델 바로가기">
-        <button class="is-active" type="button" data-e9-pl-jump-model="als200" data-family="slide" aria-pressed="true">E9-ALS200</button>
-        <button type="button" data-e9-pl-jump-model="als245" data-family="slide" aria-pressed="false">E9-ALS245</button>
-        <button type="button" data-e9-pl-jump-model="aps210" data-family="slide" aria-pressed="false">E9-APS210</button>
-        <button type="button" data-e9-pl-jump-model="als283d" data-family="slide" aria-pressed="false">E9-ALS283D</button>
-        <button type="button" data-e9-pl-jump-model="att80" data-family="tilt" aria-pressed="false">E9-ATT80</button>
-        <button type="button" data-e9-pl-jump-model="att90" data-family="tilt" aria-pressed="false">E9-ATT90</button>
-        <button type="button" data-e9-pl-jump-model="att100" data-family="tilt" aria-pressed="false">E9-ATT100</button>
-        <button type="button" data-e9-pl-jump-model="ash80" data-family="hung" aria-pressed="false">E9-ASH80</button>
-        <button type="button" data-e9-pl-jump-model="ath80" data-family="hung" aria-pressed="false">E9-ATH80</button>
-        <button type="button" data-e9-pl-jump-model="ash90" data-family="hung" aria-pressed="false">E9-ASH90</button>
-        <button type="button" data-e9-pl-jump-model="ath90" data-family="hung" aria-pressed="false">E9-ATH90</button>
-        <button type="button" data-e9-pl-jump-model="adr80" data-family="door" aria-pressed="false">E9-ADR80</button>
-        <button type="button" data-e9-pl-jump-model="adr100" data-family="door" aria-pressed="false">E9-ADR100</button>
-        <button type="button" data-e9-pl-jump-model="afd68" data-family="door" aria-pressed="false">E9-AFD68</button>
-      </nav>
-
       <div class="e9-pl-slider e9-motion">
-        <div class="e9-pl-arrows" aria-label="개폐 방식 및 모델 목록 이동">
-          <button type="button" data-e9-pl-prev aria-label="이전 AL 모델" disabled>‹</button>
-          <button type="button" data-e9-pl-next aria-label="다음 AL 모델">›</button>
+        <div class="e9-pl-arrows" aria-label="개폐방식 목록 이동">
+          <button type="button" data-e9-pl-prev aria-label="이전 개폐방식" disabled>‹</button>
+          <button type="button" data-e9-pl-next aria-label="다음 개폐방식">›</button>
         </div>
         <div class="e9-pl-rail" data-e9-pl-rail role="group" aria-label="AL 시스템창 4개 개폐 방식군">
-          <button class="e9-pl-card is-active" type="button" data-e9-pl-family="slide" aria-pressed="true">
+          <button class="e9-pl-card" type="button" data-e9-pl-family="slide" aria-pressed="false">
             <img src="../../../../assets/euro9/lift-slide-al.jpg" alt="AL Lift and Slide 시스템창 적용 공간" loading="lazy">
             <span><span><small>LIFT · SLIDE / PARALLEL</small><strong>E9-ALS200 · ALS245 · APS210 · ALS283D</strong></span><em>슬라이드 시스템</em></span>
           </button>
@@ -86,7 +60,25 @@
         </div>
       </div>
 
-      <article class="e9-pl-bubble e9-motion" id="model-performance" aria-live="polite" aria-hidden="true">
+      <article class="e9-pl-bubble e9-al-detail-layer" id="model-performance" role="dialog" aria-modal="true" aria-labelledby="e9-al-layer-title" aria-hidden="true">
+        <header class="e9-al-layer-head">
+          <button class="e9-al-layer-close" type="button" data-e9-al-close aria-label="개폐방식 선택 화면으로 돌아가기">← <span>개폐방식</span></button>
+          <div>
+            <small>EURO SYSTEM 9 · AL</small>
+            <strong id="e9-al-layer-title" data-e9-al-layer-family>슬라이드 시스템</strong>
+          </div>
+          <button class="e9-al-layer-x" type="button" data-e9-al-close aria-label="상세 화면 닫기">×</button>
+        </header>
+
+        <nav class="e9-al-model-tabs" data-e9-al-model-tabs aria-label="선택한 개폐방식의 모델"></nav>
+        <div class="e9-al-model-controls" aria-label="모델 이동">
+          <span data-e9-al-model-count>1 / 4</span>
+          <div>
+            <button type="button" data-e9-al-model-prev aria-label="이전 모델">‹</button>
+            <button type="button" data-e9-al-model-next aria-label="다음 모델">›</button>
+          </div>
+        </div>
+
         <div class="e9-pl-method-summary">
           <div class="e9-pl-method-copy">
             <div class="e9-pl-method-heading"><div><div class="e9-overline">HOW IT OPENS</div><h3 data-e9-pl-method-name>Lift &amp; Slide / Parallel Slide</h3></div></div>
@@ -142,17 +134,18 @@
         <section class="e9-pl-features" aria-labelledby="e9-al-feature-title">
           <h3 class="e9-visually-hidden" id="e9-al-feature-title"><span data-e9-feature-family>Lift &amp; Slide / Parallel Slide</span> 제품군의 구조·하드웨어·마감 특징</h3>
           <div class="e9-feature-grid" data-e9-feature-grid>
-            <article class="e9-feature-card" data-e9-feature-card><img data-e9-feature-image src="../../../../assets/euro9/products/als200.jpg" alt="ALS200 슬림 프레임과 복합 단열 구조" loading="lazy"><div><small>01</small><h4 data-e9-feature-title>슬림 프레임과 복합 단열 구조</h4><p data-e9-feature-copy>노출부 도장 마감과 PU복합재·내부 단열폼으로 슬림한 디자인과 단열 성능을 함께 확보합니다.</p></div></article>
-            <article class="e9-feature-card" data-e9-feature-card><img data-e9-feature-image src="../../../../assets/euro9/products/als245.jpg" alt="ALS245 Pural 단열블록과 3중 압착" loading="lazy"><div><small>02</small><h4 data-e9-feature-title>Pural 단열블록과 3중 압착</h4><p data-e9-feature-copy>독일 Pural 특수 단열블록과 3중 압착구조를 적용한 PHI 인증 Lift &amp; Slide 창호입니다.</p></div></article>
-            <article class="e9-feature-card" data-e9-feature-card><img data-e9-feature-image src="../../../../assets/euro9/products/aps210.jpg" alt="APS210 이중 실링과 자유로운 입면" loading="lazy"><div><small>03</small><h4 data-e9-feature-title>이중 실링과 자유로운 입면</h4><p data-e9-feature-copy>슬림 프레임, 이중 실링 구조와 상부 고정창 조합으로 다양한 입면을 구성할 수 있습니다.</p></div></article>
+            <article class="e9-feature-card" data-e9-feature-card><img data-e9-feature-image src="../../../../assets/euro9/products/als200-catalog.jpg" alt="ALS200 슬림 프레임과 복합 단열 구조" loading="lazy"><div><small>01</small><h4 data-e9-feature-title>슬림 프레임과 복합 단열 구조</h4><p data-e9-feature-copy>노출부 도장 마감과 PU복합재·내부 단열폼으로 슬림한 디자인과 단열 성능을 함께 확보합니다.</p></div></article>
+            <article class="e9-feature-card" data-e9-feature-card><img data-e9-feature-image src="../../../../assets/euro9/products/als245-catalog.jpg" alt="ALS245 Pural 단열블록과 3중 압착" loading="lazy"><div><small>02</small><h4 data-e9-feature-title>Pural 단열블록과 3중 압착</h4><p data-e9-feature-copy>독일 Pural 특수 단열블록과 3중 압착구조를 적용한 PHI 인증 Lift &amp; Slide 창호입니다.</p></div></article>
+            <article class="e9-feature-card" data-e9-feature-card><img data-e9-feature-image src="../../../../assets/euro9/products/aps210-catalog.jpg" alt="APS210 이중 실링과 자유로운 입면" loading="lazy"><div><small>03</small><h4 data-e9-feature-title>이중 실링과 자유로운 입면</h4><p data-e9-feature-copy>슬림 프레임, 이중 실링 구조와 상부 고정창 조합으로 다양한 입면을 구성할 수 있습니다.</p></div></article>
           </div>
         </section>
 
         <section class="e9-pl-performance" aria-labelledby="e9-al-performance-title">
           <div class="e9-pl-performance-copy">
-            <div class="e9-detail-type" data-e9-detail-type>LIFT &amp; SLIDE · ALUMINIUM</div>
-            <h3 id="e9-al-performance-title">핵심 성능</h3>
+            <div class="e9-detail-type" data-e9-detail-type hidden>LIFT &amp; SLIDE · ALUMINIUM</div>
+            <h3 class="e9-visually-hidden" id="e9-al-performance-title" data-e9-detail-name>E9-ALS200</h3>
             <p data-e9-detail-summary>대형 개구부와 넓은 조망을 위한 알루미늄 Lift &amp; Slide 시스템창입니다. 내부 단열폼과 PU 복합재를 적용해 단열 성능을 보완했습니다.</p>
+            <p class="e9-detail-use" data-e9-detail-use>추천 공간: 대형 거실, 테라스, 고층 조망창</p>
           </div>
           <div class="e9-pl-performance-specs">
             <div class="e9-spec-grid" aria-label="선택한 AL 모델 핵심 성능">
@@ -164,6 +157,7 @@
             <p class="e9-pl-performance-note" data-e9-detail-note>47mm(5PLAONE + 16아르곤 + 5일반 + 16아르곤 + 5PLAONE) 기준 · 유리 사양에 따라 소비효율등급이 달라질 수 있습니다.</p>
           </div>
         </section>
+
       </article>
     </div>
   </section>
@@ -172,6 +166,6 @@
 
 <script src="../../../../common.js?v=g54"></script>
 <script src="../../../../sitenav.js?v=g46"></script>
-<script src="../../../../lx-euro.js?v=e945"></script>
+<script src="../../../../lx-euro.js?v=g2026072321"></script>
 </body>
 </html>
