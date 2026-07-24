@@ -322,7 +322,12 @@
     };
     var plRail = root.querySelector("[data-e9-pl-rail]");
     var plCards = Array.prototype.slice.call(root.querySelectorAll("[data-e9-pl-family]"));
-    var plJumpButtons = Array.prototype.slice.call(root.querySelectorAll("[data-e9-pl-jump-model]"));
+    var plDefaultModels = {
+      slide: "pls200",
+      tilt: "ptt85",
+      turn: "ptu200",
+      door: "ptd200"
+    };
     var plDiagrams = Array.prototype.slice.call(root.querySelectorAll("[data-e9-pl-diagram]"));
     var plBubble = root.querySelector(".e9-pl-bubble");
     var plPrev = root.querySelector("[data-e9-pl-prev]");
@@ -540,12 +545,12 @@
 
     function updatePlArrows() {
       if (!plPrev || !plNext) return;
-      var activeIndex = plJumpButtons.findIndex(function (button) {
-        return button.classList.contains("is-active");
+      var activeIndex = plCards.findIndex(function (card) {
+        return card.classList.contains("is-active");
       });
       if (activeIndex < 0) activeIndex = 0;
       plPrev.disabled = activeIndex <= 0;
-      plNext.disabled = activeIndex >= plJumpButtons.length - 1;
+      plNext.disabled = activeIndex >= plCards.length - 1;
     }
 
     function plUsesHover() {
@@ -620,33 +625,11 @@
       setText("[data-e9-benefit-caption]", data.name + "의 핵심 장점");
     }
 
-    function revealPlJumpButton(modelId) {
-      var button = plJumpButtons.filter(function (item) {
-        return item.getAttribute("data-e9-pl-jump-model") === modelId;
-      })[0];
-      if (!button) return;
-      var nav = button.parentElement;
-      if (!nav || nav.scrollWidth <= nav.clientWidth + 2) return;
-      var navRect = nav.getBoundingClientRect();
-      var buttonRect = button.getBoundingClientRect();
-      var targetLeft = nav.scrollLeft + buttonRect.left - navRect.left - (nav.clientWidth - buttonRect.width) / 2;
-      nav.scrollTo({
-        left: Math.max(0, targetLeft),
-        behavior: reducedMotion ? "auto" : "smooth"
-      });
-    }
-
     function setPlModel(modelId, options) {
       options = options || {};
       var data = models[modelId];
       if (!data) return;
-      plJumpButtons.forEach(function (button) {
-        var active = button.getAttribute("data-e9-pl-jump-model") === modelId;
-        button.classList.toggle("is-active", active);
-        button.setAttribute("aria-pressed", active ? "true" : "false");
-      });
       window.requestAnimationFrame(function () {
-        if (options.revealJumpButton !== false) revealPlJumpButton(modelId);
         if (options.updateExplorerArrows !== false) updatePlArrows();
       });
 
@@ -687,10 +670,7 @@
         setText("[data-e9-pl-method-copy]", info.copy);
       }
       setPlFamilyFeatures(plFamily);
-      var firstModelButton = plJumpButtons.filter(function (button) {
-        return button.getAttribute("data-family") === plFamily;
-      })[0];
-      var selectedModel = preferredModelId || (firstModelButton && firstModelButton.getAttribute("data-e9-pl-jump-model"));
+      var selectedModel = preferredModelId || plDefaultModels[plFamily];
       if (selectedModel) setPlModel(selectedModel, options);
       window.requestAnimationFrame(function () {
         updatePlPointer();
@@ -726,29 +706,6 @@
         showPlBubble(card);
       });
     });
-    plJumpButtons.forEach(function (button) {
-      function activateJump(options) {
-        options = options || {};
-        var family = button.getAttribute("data-family");
-        var modelId = button.getAttribute("data-e9-pl-jump-model");
-        var familyCard = plCards.filter(function (card) {
-          return card.getAttribute("data-e9-pl-family") === family;
-        })[0];
-        setPlFamily(family, familyCard, modelId, {
-          revealJumpButton: options.revealJumpButton !== false
-        });
-        showPlBubble(familyCard);
-        revealPlCard(familyCard);
-      }
-      button.addEventListener("mouseenter", function () {
-        if (plUsesHover()) activateJump({ revealJumpButton: false });
-      });
-      button.addEventListener("mouseleave", schedulePlBubbleHide);
-      button.addEventListener("focus", activateJump);
-      button.addEventListener("blur", schedulePlBubbleHide);
-      button.addEventListener("click", activateJump);
-    });
-
     if (plBubble) {
       plBubble.addEventListener("mouseenter", cancelPlBubbleHide);
       plBubble.addEventListener("mouseleave", schedulePlBubbleHide);
@@ -757,33 +714,27 @@
     }
     root.addEventListener("pointermove", function (event) {
       if (!plUsesHover()) return;
-      var interactive = event.target.closest(".e9-pl-card, .e9-pl-model-nav button, .e9-pl-bubble");
+      var interactive = event.target.closest(".e9-pl-card, .e9-pl-bubble");
       if (interactive) cancelPlBubbleHide();
       else schedulePlBubbleHide();
     }, { passive: true });
     root.addEventListener("pointerleave", schedulePlBubbleHide);
     root.addEventListener("click", function (event) {
       if (!plUsesHover()) return;
-      if (!event.target.closest(".e9-pl-card, .e9-pl-model-nav button, .e9-pl-bubble, .e9-pl-arrows")) hidePlBubble();
+      if (!event.target.closest(".e9-pl-card, .e9-pl-bubble, .e9-pl-arrows")) hidePlBubble();
     });
 
     function scrollPlRail(direction) {
-      if (!plRail || !plJumpButtons.length) return;
-      var currentIndex = plJumpButtons.findIndex(function (button) {
-        return button.classList.contains("is-active");
+      if (!plRail || !plCards.length) return;
+      var currentIndex = plCards.findIndex(function (card) {
+        return card.classList.contains("is-active");
       });
-      if (currentIndex < 0) currentIndex = direction > 0 ? -1 : plJumpButtons.length;
-      var nextIndex = Math.max(0, Math.min(plJumpButtons.length - 1, currentIndex + direction));
-      var targetButton = plJumpButtons[nextIndex];
-      if (!targetButton || nextIndex === currentIndex) return;
+      if (currentIndex < 0) currentIndex = direction > 0 ? -1 : plCards.length;
+      var nextIndex = Math.max(0, Math.min(plCards.length - 1, currentIndex + direction));
+      var targetCard = plCards[nextIndex];
+      if (!targetCard || nextIndex === currentIndex) return;
 
-      var family = targetButton.getAttribute("data-family");
-      var modelId = targetButton.getAttribute("data-e9-pl-jump-model");
-      var targetCard = plCards.filter(function (card) {
-        return card.getAttribute("data-e9-pl-family") === family;
-      })[0];
-
-      setPlFamily(family, targetCard, modelId);
+      setPlFamily(targetCard.getAttribute("data-e9-pl-family"), targetCard);
       showPlBubble(targetCard);
 
       revealPlCard(targetCard);
@@ -799,7 +750,7 @@
       updatePlArrows();
       updatePlPointer();
       if (!plUsesHover()) showPlBubble(activePlCard);
-      else if (!root.querySelector(".e9-pl-card:hover, .e9-pl-model-nav button:hover") && !(plBubble && plBubble.matches(":hover"))) hidePlBubble();
+      else if (!root.querySelector(".e9-pl-card:hover") && !(plBubble && plBubble.matches(":hover"))) hidePlBubble();
     }, { passive: true });
 
     var plMotionItems = root.querySelectorAll(".e9-motion");
