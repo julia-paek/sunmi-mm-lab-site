@@ -341,20 +341,29 @@
       if (node) node.textContent = value;
     }
 
-    if (explorerMaterial === "al" && plBubble && plBubble.classList.contains("e9-al-detail-layer")) {
-      var alFamilyModels = {
+    if (plBubble && plBubble.classList.contains("e9-al-detail-layer")) {
+      var alFamilyModels = explorerMaterial === "al" ? {
         slide: ["als200", "als245", "aps210", "als283d"],
         tilt: ["att80", "att90", "att100"],
         hung: ["ash80", "ath80", "ash90", "ath90"],
         door: ["adr80", "adr100", "afd68"]
+      } : {
+        slide: ["pls200", "pls250n"],
+        tilt: ["ptt85", "ptt85-phi", "ptt200"],
+        turn: ["ptu200"],
+        door: ["ptd200"]
       };
-      var alFamilyLabels = {
+      var alFamilyLabels = explorerMaterial === "al" ? {
         slide: "슬라이드 시스템",
         tilt: "틸트 앤 턴",
         hung: "사이드·탑 헝",
         door: "도어·폴딩도어"
+      } : {
+        slide: "리프트 앤 슬라이드",
+        tilt: "틸트 앤 턴",
+        turn: "턴 온리",
+        door: "시스템 도어"
       };
-      var alFamilyOrder = ["slide", "tilt", "hung", "door"];
       var alModelTabs = root.querySelector("[data-e9-al-model-tabs]");
       var alModelCount = root.querySelector("[data-e9-al-model-count]");
       var alModelPrev = root.querySelector("[data-e9-al-model-prev]");
