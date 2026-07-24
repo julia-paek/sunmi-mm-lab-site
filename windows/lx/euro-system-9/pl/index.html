@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../../../styles.css?v=g50">
 <link rel="stylesheet" href="../../../../responsive.css?v=r4">
-<link rel="stylesheet" href="../../../../lx-euro-al.css?v=e957">
+<link rel="stylesheet" href="../../../../lx-euro-al.css?v=e958">
 </head>
 <body class="e9-page" data-e9-material="pl" data-e9-default-family="slide">
 <nav class="gnb">
@@ -50,7 +50,7 @@
           <button type="button" data-e9-pl-next aria-label="다음 개폐 방식">›</button>
         </div>
         <div class="e9-pl-rail" data-e9-pl-rail role="group" aria-label="PL 시스템창 4개 개폐 방식">
-          <button class="e9-pl-card is-active" type="button" data-e9-pl-family="slide" aria-pressed="true">
+          <button class="e9-pl-card" type="button" data-e9-pl-family="slide" aria-pressed="false">
             <img src="../../../../assets/euro9/lift-slide-pl.jpg" alt="거실에 적용된 PL Lift and Slide 시스템창" loading="lazy">
             <span><span><small>LIFT · SLIDE</small><strong>E9-PLS200 · E9-PLS250N</strong></span><em>리프트 앤 슬라이드</em></span>
           </button>
@@ -69,7 +69,25 @@
         </div>
       </div>
 
-      <article class="e9-pl-bubble e9-motion" id="model-performance" aria-live="polite" aria-hidden="true">
+      <article class="e9-pl-bubble e9-al-detail-layer" id="model-performance" role="dialog" aria-modal="true" aria-labelledby="e9-pl-layer-title" aria-hidden="true">
+        <header class="e9-al-layer-head">
+          <button class="e9-al-layer-close" type="button" data-e9-al-close aria-label="개폐방식 선택 화면으로 돌아가기">← <span>개폐방식</span></button>
+          <div>
+            <small>EURO SYSTEM 9 · PL</small>
+            <strong id="e9-pl-layer-title" data-e9-al-layer-family>리프트 앤 슬라이드</strong>
+          </div>
+          <button class="e9-al-layer-x" type="button" data-e9-al-close aria-label="상세 화면 닫기">×</button>
+        </header>
+
+        <nav class="e9-al-model-tabs" data-e9-al-model-tabs aria-label="선택한 개폐방식의 모델"></nav>
+        <div class="e9-al-model-controls" aria-label="모델 이동">
+          <span data-e9-al-model-count>1 / 2</span>
+          <div>
+            <button type="button" data-e9-al-model-prev aria-label="이전 모델">‹</button>
+            <button type="button" data-e9-al-model-next aria-label="다음 모델">›</button>
+          </div>
+        </div>
+
         <div class="e9-pl-method-summary">
           <div class="e9-pl-method-copy">
             <div class="e9-pl-method-heading">
@@ -189,6 +207,6 @@
 
 <script src="../../../../common.js?v=g54"></script>
 <script src="../../../../sitenav.js?v=g46"></script>
-<script src="../../../../lx-euro.js?v=e946"></script>
+<script src="../../../../lx-euro.js?v=e947"></script>
 </body>
 </html>
