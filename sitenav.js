@@ -10,6 +10,12 @@ if(document.getElementById('mmGnb'))return;
 var SCRIPT_URL=(document.currentScript&&document.currentScript.src)||location.href;
 var ROOT_URL=new URL('.',SCRIPT_URL);
 function site(path){return new URL(String(path||'').replace(/^\/+/,''),ROOT_URL).href;}
+function ensureBrandIcon(rel,href){
+  if(document.querySelector('link[rel="'+rel+'"]'))return;
+  var link=document.createElement('link');link.rel=rel;link.href=site(href);document.head.appendChild(link);
+}
+ensureBrandIcon('icon','assets/brand/favicon.ico?v=b1');
+ensureBrandIcon('apple-touch-icon','assets/brand/apple-touch-icon.png?v=b1');
 function routeOf(href){
   var rootPath=decodeURIComponent(ROOT_URL.pathname);
   var targetPath=decodeURIComponent(new URL(href,ROOT_URL).pathname);
@@ -26,8 +32,8 @@ var css=`
 #mmGnb{position:fixed;top:0;left:0;right:0;z-index:1500;height:56px;background:rgba(244,240,230,.94);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid #111;font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif;word-break:keep-all}
 #mmGnb *,.mg-mobile *{box-sizing:border-box}
 .mg-in{max-width:1200px;margin:0 auto;height:56px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.mg-logo{font-family:"Gmarket Sans","SUIT Variable",Pretendard,sans-serif;font-weight:700;font-size:16px;letter-spacing:.06em;color:#1F3822;text-decoration:none;display:flex;align-items:baseline;gap:9px;white-space:nowrap}
-.mg-logo small{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:9.5px;letter-spacing:.06em;color:#6E7C64;font-weight:500}
+.mg-logo{display:flex;align-items:center;text-decoration:none;white-space:nowrap;flex:none}
+.mg-logo img{display:block;width:auto;height:27px}
 .mg-links{display:flex;align-items:center;gap:22px}
 .mg-drop{position:relative;display:flex}
 .mg-drop>.mg-top{font-size:13.5px;font-weight:500;color:#2F5233;text-decoration:none;background:none;border:0;border-bottom:2px solid transparent;cursor:pointer;font-family:inherit;padding:17px 0 15px;transition:color .2s;white-space:nowrap;line-height:1.5}
@@ -67,8 +73,8 @@ var css=`
 .mg-mpanel a:hover{color:#1F3822}
 .mg-mpanel .mg-sw{width:9px;height:9px}
 .mg-mpanel span{display:none}
-@media(max-width:860px){#mmGnb{background:#F4F0E6;backdrop-filter:none;-webkit-backdrop-filter:none}.mg-in{padding:0 20px}.mg-links{display:none!important}.mg-burger{display:inline-flex}.mg-logo small{display:inline;font-size:8px;letter-spacing:.05em}}
-@media(max-width:480px){.mg-in{padding:0 16px;gap:10px}.mg-logo{font-size:15px;gap:7px}.mg-logo small{font-size:7.5px}.mg-burger{padding:7px 11px}.mg-mobile{width:min(230px,64vw);padding-left:12px;padding-right:12px}}
+@media(max-width:860px){#mmGnb{background:#F4F0E6;backdrop-filter:none;-webkit-backdrop-filter:none}.mg-in{padding:0 20px}.mg-links{display:none!important}.mg-burger{display:inline-flex}.mg-logo img{height:26px}}
+@media(max-width:480px){.mg-in{padding:0 16px;gap:10px}.mg-logo img{height:24px}.mg-burger{padding:7px 11px}.mg-mobile{width:min(230px,64vw);padding-left:12px;padding-right:12px}}
 body>header.nav,body>nav.nav,body>nav.gnb,.mnav{display:none!important}
 `;
 var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
@@ -131,7 +137,7 @@ function mobileGroupHtml(group){
 }
 
 var html='<header id="mmGnb"><div class="mg-in">'
-  +'<a class="mg-logo" href="'+site('')+'">MM LAB <small>millimeter laboratory</small></a>'
+  +'<a class="mg-logo" href="'+site('')+'" aria-label="MM LAB 홈"><img src="'+site('assets/brand/mm-lab-lockup-horizontal-green.png?v=b1')+'" width="1489" height="393" alt="MM LAB"></a>'
   +'<nav class="mg-links" aria-label="주 메뉴">'+GROUPS.map(groupHtml).join('')+'</nav>'
   +'<button class="mg-burger" type="button" id="mgBurger" aria-expanded="false" aria-controls="mgMobile">MENU</button>'
   +'</div></header><div class="mg-mobile" id="mgMobile">'+GROUPS.map(mobileGroupHtml).join('')+'</div>';

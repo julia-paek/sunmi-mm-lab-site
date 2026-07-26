@@ -68,21 +68,34 @@ section[id],main [id]{scroll-margin-top:calc(var(--nav-h) + 70px)}
 .scard .l{font-size:14px;font-weight:700;color:var(--ink);margin-top:12px}
 .scard .d{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5}
 .panel.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:var(--nav-h)}
+.brand-hero-lockup{display:block;width:clamp(94px,9vw,124px);height:auto;margin:0 auto 30px}
 .h-hero{font-size:clamp(48px,9vw,116px);font-weight:700;letter-spacing:-.03em;line-height:1.02;color:var(--headline)}
 .hero-mark{position:relative;z-index:0;display:inline-block;white-space:nowrap}
 .hero-mark::after{content:"";position:absolute;z-index:-1;left:-.02em;right:-.02em;bottom:.04em;height:.12em;background:rgba(143,165,132,.48);transform:rotate(-.7deg);transform-origin:left center}
 .h-big{font-size:clamp(34px,5.5vw,76px);font-weight:700;letter-spacing:-.03em;line-height:1.08;color:var(--headline)}
+.tier-copy-mobile{display:none}
 .sub{font-size:clamp(18px,2.2vw,24px);color:var(--muted);margin-top:26px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.6}
 .grad{color:var(--accent)}
 .scrollcue{margin-top:52px;font-size:12px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
 .scrollcue::after{content:"";display:block;width:1px;height:40px;margin:14px auto 0;background:linear-gradient(var(--muted),transparent);animation:cue 1.8s var(--ease) infinite}
-@media(max-width:600px){.panel.hero{min-height:clamp(500px,70svh,620px);padding-top:calc(var(--nav-h) + 24px);padding-bottom:32px}.scrollcue{margin-top:28px}}
+@media(max-width:600px){.panel.hero{min-height:clamp(500px,70svh,620px);padding-top:calc(var(--nav-h) + 24px);padding-bottom:32px}.brand-hero-lockup{width:82px;margin-bottom:22px}.scrollcue{margin-top:28px}}
 @keyframes cue{0%{opacity:.2;transform:scaleY(.4)}50%{opacity:1;transform:scaleY(1)}100%{opacity:.2;transform:scaleY(.4)}}
 
 /* mega numbers */
 .mega{font-size:clamp(110px,21vw,300px);font-weight:800;line-height:.9;letter-spacing:-.05em;color:var(--headline)}
 .mega span{color:var(--accent)}
-.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);max-width:920px;margin:48px auto 0}
+#oneday .mega{margin-top:30px}
+@media(max-width:600px){#oneday .mega{margin-top:22px}}
+.saving-rate{display:flex;align-items:baseline;justify-content:center;gap:clamp(8px,1.5vw,22px);white-space:nowrap}
+.saving-rate .saving-primary{color:var(--headline)}
+.saving-rate .saving-unit{margin-left:.03em;color:var(--accent);font-size:.38em;letter-spacing:-.03em}
+.saving-rate .saving-divider{color:var(--muted);font-size:.24em;font-weight:500;letter-spacing:0;transform:translateY(-.12em)}
+.saving-rate .saving-upper{color:var(--accent);font-size:.4em;letter-spacing:-.04em}
+.saving-rate .saving-upper-unit{margin-left:.04em;font-size:.5em;letter-spacing:-.02em}
+#save .saving-rate{margin-top:30px}
+@media(max-width:600px){#save .saving-rate{margin-top:22px}}
+@media(max-width:600px){#tier-t{font-size:clamp(30px,9vw,36px);line-height:1.06}.tier-copy-desktop{display:none}.tier-copy-mobile{display:inline}}
+.steps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);max-width:1040px;margin:48px auto 0}
 .steps::before{content:"";position:absolute;top:34px;left:11%;right:11%;height:1px;background:var(--line-strong)}
 .step{position:relative;z-index:1;display:flex;min-width:0;flex-direction:column;align-items:center;padding:0 18px;font-size:15px;color:var(--ink);text-align:center}
 .step:not(:last-child)::after{content:'→';position:absolute;top:23px;right:-10px;width:20px;background:var(--bg);color:var(--muted);font-size:14px}
@@ -95,6 +108,7 @@ section[id],main [id]{scroll-margin-top:calc(var(--nav-h) + 70px)}
   .steps::before,.step:not(:last-child)::after{display:none}
   .step{min-height:168px;padding:18px 12px;border-top:1px solid var(--line-strong)}
   .step:nth-child(odd){border-right:1px solid var(--line-strong)}
+  .step:last-child{grid-column:1/-1;border-right:0}
 }
 .fineprint{font-size:13px;color:#9a9aa0;margin:24px auto 0;line-height:1.6;max-width:640px}
 
@@ -251,6 +265,64 @@ section[id],main [id]{scroll-margin-top:calc(var(--nav-h) + 70px)}
   .way .wn{font-size:18px}
   .way p{font-size:13px;line-height:1.55}
   .way .wtag{font-size:13px}
+}
+
+/* 핵심 사업모델 구역 — 딥그린 반전 섹션, 일반 유통 비교판만 크림색 */
+#model{position:relative;background:#1F3822;color:#F4F0E6;border-top:1px solid #2F5233;border-bottom:1px solid #2F5233}
+#model .eyebrow{color:#DCE3B1}
+#model .h-big{color:#F4F0E6}
+#model > .wrap > .lead{color:#B8C5B3}
+#model .cmp{gap:30px}
+#model .cmp-row{padding:clamp(18px,2.5vw,28px);border:1px solid rgba(244,240,230,.28)}
+#model .cmp-row.normal{background:#F4F0E6;border-color:#F4F0E6}
+#model .cmp-row.normal .cmp-label{color:#1F3822}
+#model .cmp-row.normal .cmp-label small{color:#8A7A5C}
+#model .cmp-row.normal .chain{border-color:rgba(47,82,51,.55)}
+#model .cmp-row.normal .ch{border-color:rgba(47,82,51,.42);color:#1F3822}
+#model .cmp-row.normal .ch::before,
+#model .cmp-row.normal .node-icon{color:#82917D}
+#model .cmp-row.normal .ch strong{color:#1F3822}
+#model .cmp-row.normal .ch small{color:#6E7C64}
+#model .cmp-row.normal .ch:not(:last-child)::after{background:#F4F0E6;color:#2F5233}
+#model .cmp-row.normal .ch:hover{background:#E9E5D9}
+#model .cmp-row.normal .ch.you{box-shadow:inset 0 -4px 0 #2F5233}
+#model .cmp-row.normal .ch.you small{color:#2F5233}
+#model .cmp-row.mm{background:#F4F0E6;border-color:#F4F0E6;box-shadow:8px 8px 0 rgba(220,227,177,.2)}
+#model .cmp-row.mm .cmp-label{color:#1F3822}
+#model .cmp-row.mm .cmp-label small{color:#2F5233}
+#model .cmp-row.mm .chain{border-color:rgba(47,82,51,.55)}
+#model .cmp-row.mm .ch{border-color:rgba(47,82,51,.42);color:#1F3822}
+#model .cmp-row.mm .ch::before,
+#model .cmp-row.mm .node-icon{color:#82917D}
+#model .cmp-row.mm .ch strong{color:#1F3822}
+#model .cmp-row.mm .ch small{color:#6E7C64}
+#model .cmp-row.mm .ch:not(:last-child)::after{background:#F4F0E6;color:#2F5233}
+#model .cmp-row.mm .ch:hover:not(.hi){background:#E9E5D9}
+#model .cmp-row.mm .ch.hi{background:#2F5233;color:#fff;border-color:#2F5233}
+#model .cmp-row.mm .ch.hi::before,
+#model .cmp-row.mm .ch.hi .node-icon,
+#model .cmp-row.mm .ch.hi strong{color:#fff}
+#model .cmp-row.mm .ch.hi small{color:rgba(255,255,255,.88)}
+#model .cmp-row.mm .ch.you{box-shadow:inset 0 -4px 0 #2F5233}
+#model .cmp-row.mm .ch.you small{color:#2F5233}
+#model .cmp-note{color:#B8C5B3}
+#model .cmp-note::before{background:#DCE3B1}
+#model .cmp-note b{color:#DCE3B1}
+#model .ways{padding-top:38px;padding-bottom:38px;border-top:1px solid rgba(244,240,230,.28);border-bottom:1px solid rgba(244,240,230,.28)}
+#model .ways::before{background:rgba(244,240,230,.28)}
+#model .way-symbol{border-color:#DCE3B1;background:#F4F0E6;color:#2F5233}
+#model .way:hover .way-symbol{background:#fff;box-shadow:0 8px 0 rgba(220,227,177,.18)}
+#model .way .wn{color:#F4F0E6}
+#model .way p{color:#B8C5B3}
+#model .way p b{color:#F4F0E6}
+#model .way .wtag{color:#DCE3B1}
+@media(max-width:700px){
+  #model .cmp-row{padding:18px 14px}
+  #model .cmp-row.mm{box-shadow:5px 5px 0 rgba(220,227,177,.2)}
+  #model .ways{grid-template-columns:1fr;gap:28px;padding:30px 0}
+  #model .ways::before{display:none}
+  #model .way{padding:18px 16px}
+  #model .way + .way{padding-top:34px;border-top:1px solid rgba(244,240,230,.28)}
 }
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 /* hero quotes (감성 카피) */
@@ -456,6 +528,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   <!-- HERO -->
   <section class="panel hero">
     <div class="wrap">
+      <img class="brand-hero-lockup" src="../assets/brand/mm-lab-lockup-stacked-green.png?v=b1" width="983" height="991" alt="MM LAB">
       <p class="eyebrow">MM LAB · Brand</p>
       <h1 class="h-hero" style="margin-top:18px"><span class="hero-mark">하루 만에</span> 끝내고,<br><span class="grad">거품은 덜어냅니다</span></h1>
       <p class="sub">본사 정품 창호를 직거래로 — 하루 안에 책임 시공하는 MM LAB.</p>
@@ -471,13 +544,17 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   <section class="panel reveal" id="oneday" aria-labelledby="oneday-t">
     <div class="wrap">
       <p class="eyebrow">One-Day Clean Construction</p>
-      <div class="mega" style="margin-top:8px"><span>1</span> DAY</div>
+      <div class="mega"><span>1</span> DAY</div>
       <h2 class="h-big" id="oneday-t" style="margin-top:18px">창호 교체, 하루면 충분합니다</h2>
-      <p class="lead">며칠씩 걸린다고 생각해 미루셨다면 — 30평대 아파트 기준, 아침 철거부터 저녁 마감까지 <b>단 하루</b>면 끝납니다. 먼지와 소음을 줄인 클린 시공으로 진행합니다.</p>
+      <p class="lead">며칠씩 걸린다고 생각해 미루셨다면 — 모든 평형 아파트 기준, 아침 철거부터 저녁 마감까지 <b>단 하루</b>면 끝납니다. 먼지와 소음을 줄인 클린 시공으로 진행합니다.</p>
       <div class="steps">
         <div class="step">
           <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 56 56"><path d="M9 9h30v38H9zM24 9v38M9 28h30"/><path d="m44 17 7 7-7 7M51 24H34"/></svg></span>
-          <small>오전 8시</small><strong>기존 창호 철거 시작</strong>
+          <small>오전 8시</small><strong>보양 및 철거 시작</strong>
+        </div>
+        <div class="step">
+          <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 56 56"><path d="M10 37h28v10H10zM15 27h20v10H15z"/><path d="M46 43V12m0 0-6 7m6-7 6 7"/></svg></span>
+          <small>오전 9시</small><strong>양중 시작</strong>
         </div>
         <div class="step">
           <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 56 56"><path d="M8 8h31v39H8zM23 8v39M8 28h31"/><path d="m43 38 8-8M39 42l4-4M47 34l4 4"/></svg></span>
@@ -492,7 +569,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
           <small>오후 6~7시</small><strong>당일 완료</strong>
         </div>
       </div>
-      <p class="fineprint">※ 기상 상황(우천·강풍 등)이나 현장 여건에 따라 일정은 변경될 수 있으며, 변경 시 담당 매니저가 미리 안내드립니다.</p>
+      <p class="fineprint">※ 단, 천재지변이나 많은 강수량으로 인해 골조에 물기가 많은 경우 코킹 작업은 불가합니다.<br>※ 기상 상황(우천·강풍 등)이나 현장 여건에 따라 일정은 변경될 수 있으며, 변경 시 담당 매니저가 미리 안내드립니다.</p>
     </div>
   </section>
 
@@ -500,9 +577,13 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   <section class="panel reveal" id="save" aria-labelledby="save-t">
     <div class="wrap">
       <p class="eyebrow">Direct Trade</p>
-      <div class="mega" style="margin-top:8px">20<span style="font-size:.38em">%</span></div>
+      <div class="mega saving-rate" aria-label="20퍼센트에서 30퍼센트">
+        <span class="saving-primary">20<small class="saving-unit">%</small></span>
+        <span class="saving-divider" aria-hidden="true">~</span>
+        <span class="saving-upper">30<small class="saving-upper-unit">%</small></span>
+      </div>
       <h2 class="h-big" id="save-t" style="margin-top:14px">유통 거품을 덜어낸<br>정직한 가격</h2>
-      <p class="lead">대기업 직영공장 완성 제품을 직배송받아 자체 시공팀이 시공합니다.<br>중간 유통 마진과 마케팅비를 줄여, 같은 자재를 약 20% 더 합리적인 가격으로.<br>30평 기준 약 200만 원의 차이 — <b>그 차이면 주방 하나를 새로 꾸밀 수 있습니다.</b></p>
+      <p class="lead">대기업 직영공장 완성 제품을 직배송받아 자체 시공팀이 시공합니다.<br>중간 유통 마진과 마케팅비를 줄여, 같은 자재를 약 20~30% 더 합리적인 가격으로.<br>30평 기준 약 200만 원의 차이 — <b>그 차이면 주방 하나를 새로 꾸밀 수 있습니다.</b></p>
     </div>
   </section>
 
@@ -547,7 +628,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
             </span>
             <span class="ch you" data-step="03">
               <span class="node-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="18" cy="15" r="7"/><path d="M6 40c1-9 5-14 12-14s11 5 12 14M31 11h11v17H31zM34 16h5M34 21h5"/></svg></span>
-              <strong>고객</strong><small>약 20% 절감</small>
+              <strong>고객</strong><small>약 20~30% 절감</small>
             </span>
           </div>
         </div>
@@ -621,7 +702,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   <section class="panel reveal" id="tier" aria-labelledby="tier-t">
     <div class="wrap">
       <p class="eyebrow">Why MM LAB</p>
-      <h2 class="h-big" id="tier-t" style="margin-top:14px">저가 공업사가 아닌,<br>본사 정품 직거래</h2>
+      <h2 class="h-big" id="tier-t" style="margin-top:14px"><span class="tier-copy-desktop">저가 공업사 제품은 쓰지 않습니다<br>본사 정품으로만 시공합니다</span><span class="tier-copy-mobile">본사 정품만 시공</span></h2>
       <p class="lead">예산과 공간에 맞춰도 타협하지 않는 — MM LAB이 다른 네 가지.</p>
       <div class="vals">
         <a class="val" id="brand-authentic" href="#genuine" aria-label="본사 정품과 저가 공업사 제품 비교 보기">
@@ -752,7 +833,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
 
 <footer class="footer">
   <div class="footer-grid">
-    <div><h3>MM LAB</h3><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px">support@mmlab.kr<br>02-0000-0000 (평일 09:00~18:00)</p></div>
+    <div><a href="../" aria-label="MM LAB 홈" style="display:inline-block;line-height:0;margin-bottom:14px"><img src="../assets/brand/mm-lab-lockup-horizontal-green.png?v=b1" width="1489" height="393" alt="MM LAB" style="display:block;width:148px;height:auto"></a><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px">support@mmlab.kr<br>02-0000-0000 (평일 09:00~18:00)</p></div>
     <div><h4>창호 브랜드</h4><a href="../windows/lx/">LX하우시스</a><a href="../windows/kcc/">KCC</a><a href="../windows/kbe/">독일 시스템창호 KBE</a><a href="../screens/kogo/">고구려안전방충망</a></div>
     <div><h4>바로가기</h4><a href="../">홈</a><a href="../projects/">시공사례</a><a href="#" onclick="openModal();return false;">상담신청</a></div>
   </div>
@@ -774,7 +855,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   </div>
 </div>
 
-<script src="../sitenav.js?v=g46"></script>
+<script src="../sitenav.js?v=g47"></script>
 <script>
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* GNB의 섹션 링크가 같은 페이지/다른 페이지 어디서든 정확한 위치로 이동 */

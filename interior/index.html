@@ -77,6 +77,24 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .saving-highlight{background:linear-gradient(transparent 57%,rgba(210,236,92,.72) 57%,rgba(210,236,92,.72) 91%,transparent 91%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .08em}
 .system-note p{font-size:14px;color:var(--muted);line-height:1.72;margin-top:10px}
 .system-note p b{color:var(--headline);font-weight:700}
+.partner-criteria{margin-top:34px;padding-top:32px;border-top:1px solid var(--line)}
+.criteria-head{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(0,1.35fr);gap:48px;align-items:end}
+.criteria-head .criteria-kicker{font:700 11px 'JetBrains Mono',ui-monospace,monospace;color:var(--accent);letter-spacing:.09em;text-transform:uppercase}
+.criteria-head h3{font-family:'Gmarket Sans','Pretendard Variable',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:700;letter-spacing:-.03em;line-height:1.28;color:var(--headline);margin-top:10px}
+.criteria-head p{font-size:14px;color:var(--muted);line-height:1.75}
+.criteria-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:26px;border:1px solid var(--line)}
+.criterion{min-width:0;min-height:190px;padding:24px 22px 26px;border-right:1px solid var(--line)}
+.criterion:last-child{border-right:0}
+.criterion .criterion-no{font:700 10px 'JetBrains Mono',ui-monospace,monospace;color:var(--accent);letter-spacing:.1em}
+.criterion h4{font-family:'Gmarket Sans','Pretendard Variable',sans-serif;font-size:18px;font-weight:700;line-height:1.35;letter-spacing:-.02em;color:var(--headline);margin-top:28px}
+.criterion p{font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;word-break:keep-all}
+@media(max-width:900px){
+  .criteria-head{grid-template-columns:1fr;gap:14px;align-items:start}
+  .criteria-grid{grid-template-columns:1fr 1fr}
+  .criterion{min-height:170px;border-bottom:1px solid var(--line)}
+  .criterion:nth-child(2n){border-right:0}
+  .criterion:nth-child(n+3){border-bottom:0}
+}
 @media(max-width:900px){.system-map{height:330px}.system-node.start{left:9%}.system-node.result{left:91%}.node-circle{width:72px;height:72px}.system-node.start .node-circle,.system-node.result .node-circle{width:94px;height:94px}.system-node>b{font-size:13px}.system-notes{gap:46px}.system-note h3{font-size:20px}.system-note p{font-size:13px}}
 @media(max-width:700px){
   .network-reasons{margin-top:46px;padding:0 16px}.reason-head{margin-bottom:18px}.reason-head p{font-size:13px;line-height:1.65;margin-top:13px}
@@ -93,6 +111,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   .system-note{min-width:0;padding:15px 13px 16px;overflow:hidden}.system-note+.system-note{border-left:1px solid var(--line)}
   .system-note .reason-no{font-size:0;white-space:normal}.system-note .reason-no::after{content:attr(data-mobile);font:700 8px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.06em}
   .system-note h3{font-size:15px;line-height:1.35;margin-top:7px;word-break:keep-all;overflow-wrap:anywhere}.system-note p{font-size:11.5px;line-height:1.58;margin-top:7px;word-break:keep-all;overflow-wrap:anywhere}
+  .partner-criteria{margin-top:26px;padding-top:26px}.criteria-head h3{font-size:23px}.criteria-head p{font-size:13px;line-height:1.7}
+  .criteria-grid{grid-template-columns:1fr;margin-top:20px}
+  .criterion{min-height:0;padding:20px 18px 22px;border-right:0;border-bottom:1px solid var(--line)}
+  .criterion:nth-child(n+3){border-bottom:1px solid var(--line)}.criterion:last-child{border-bottom:0}
+  .criterion h4{font-size:17px;margin-top:16px}.criterion p{font-size:12.5px;line-height:1.65}
 }
 @media(max-width:380px){.system-map{height:360px}.system-node>b{font-size:10px}.system-note{padding:13px 10px}.system-note h3{font-size:14px}.system-note p{font-size:11px}}
 
@@ -114,9 +137,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .fnode .no{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:500;color:var(--muted);letter-spacing:.1em;margin-top:22px}
 .fnode h3{font-size:19px;font-weight:700;letter-spacing:-.02em;margin-top:8px;color:var(--headline)}
 .fnode p{font-size:14px;color:var(--muted);margin-top:13px;line-height:1.65;max-width:180px}
-.process-arrow{display:none;position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:1px solid var(--headline);background:rgba(250,248,242,.94);color:var(--headline);font-size:22px;z-index:2}
-.process-arrow:hover{background:var(--headline);color:#fff}.process-arrow:disabled{opacity:0;pointer-events:none}
-.process-prev{left:4px}.process-next{right:4px}
 @media(max-width:900px){.fnode{padding:30px 20px}.fnode p{font-size:13px}}
 @media(max-width:760px){
   .process{margin-top:48px;padding:0 20px}
@@ -125,9 +145,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   .process-carousel{margin:0 -6px}
   .flow{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;border:0;padding:6px 6px 16px;scrollbar-width:none;-ms-overflow-style:none}
   .flow::-webkit-scrollbar{display:none}
-  .fnode{flex:0 0 78%;min-height:226px;padding:27px 21px 25px;scroll-snap-align:start;border:1px solid var(--line);background:rgba(255,255,255,.28)}
+  .fnode{flex:0 0 clamp(200px,68vw,230px);min-height:188px;padding:20px 17px 18px;scroll-snap-align:start;border:1px solid var(--line);background:rgba(255,255,255,.28)}
   .fnode:last-child{border-right:1px solid var(--line)}
-  .process-arrow{display:block}
+  .step-num{font-size:42px}
+  .step-mark{top:24px;right:18px}
+  .fnode .no{margin-top:16px}
+  .fnode h3{font-size:17px;margin-top:6px}
+  .fnode p{font-size:12.5px;line-height:1.55;margin-top:9px}
 }
 .note-band{max-width:1184px;margin:42px auto 0;padding:22px 26px;background:rgba(255,255,255,.36);border:1px solid var(--line);border-radius:0;font-size:14px;color:var(--ink);line-height:1.7;display:flex;align-items:center;justify-content:space-between;gap:26px;text-align:left}
 .note-band b{color:var(--headline)}
@@ -190,6 +214,15 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .proj-cover{display:block;border-radius:0;overflow:hidden;aspect-ratio:4/3;background:#e7e7e9;position:relative}
 .proj-cover i{display:block;width:100%;height:100%;background-image:var(--img);background-size:cover;background-position:center;transition:transform .5s var(--ease-soft)}
 .proj:hover .proj-cover i{transform:scale(1.05)}
+.proj-cover.compare-cover{display:grid;grid-template-columns:1fr 1fr;background:#1F3822}
+.compare-shot{position:relative;min-width:0;overflow:hidden}
+.compare-shot+.compare-shot{border-left:1px solid #F4F0E6}
+.compare-shot i{position:absolute;inset:0}
+.compare-before i{background-position:center 52%;filter:saturate(.78) brightness(.84)}
+.compare-after i{background-position:center}
+.compare-label{position:absolute;left:9px;bottom:9px;z-index:2;padding:5px 7px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;font-weight:700;line-height:1;letter-spacing:.08em}
+.compare-before .compare-label{background:#F4F0E6;color:#1F3822}
+.compare-after .compare-label{background:#1F3822;color:#F4F0E6}
 .proj-cover .badge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:500;padding:5px 11px;border-radius:0;backdrop-filter:blur(6px)}
 .proj-cover .badge::before{content:"";display:inline-block;width:13px;height:11px;margin-right:5px;vertical-align:-1px;border:1.5px solid #fff;border-radius:0;background:rgba(255,255,255,.25)}
 .proj-meta{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-top:14px}
@@ -206,13 +239,24 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .lb{position:fixed;inset:0;z-index:1600;background:rgba(0,0,0,.93);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:28px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
 .lb.open{opacity:1;pointer-events:auto}
 .lb img{max-width:min(1000px,86vw);max-height:70vh;border-radius:0;object-fit:contain}
+.lb.has-photo-sets>img{max-height:56vh}
+.lb-tabs{display:flex;gap:10px;width:min(440px,86vw);margin:0 0 14px}
+.lb-tabs[hidden],.lb-thumbs[hidden]{display:none}
+.lb-tab{flex:1;height:44px;border:1px solid rgba(244,240,230,.58);background:transparent;color:#f4f0e6;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:700;letter-spacing:.08em;transition:background .18s,color .18s,border-color .18s}
+.lb-tab:hover{border-color:#f4f0e6}
+.lb-tab.active{background:#f4f0e6;color:#1f3822}
+.lb-tab .count{margin-left:6px;font-size:10px;opacity:.72}
+.lb-thumbs{display:flex;gap:8px;width:min(1000px,86vw);margin-top:12px;padding:0 0 4px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:rgba(244,240,230,.55) transparent}
+.lb-thumb{flex:0 0 68px;height:52px;padding:0;border:1px solid transparent;background:#262626;opacity:.56;overflow:hidden}
+.lb-thumb.active{border-color:#f4f0e6;opacity:1}
+.lb-thumb img{display:block;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover}
 .lb-cap{color:#fff;text-align:center;margin-top:18px}
 .lb-cap .t{font-size:18px;font-weight:600}.lb-cap .s{font-size:14px;color:#a1a1a6;margin-top:4px}
 .lb-x{position:absolute;top:74px;right:22px;width:44px;height:44px;border-radius:0;background:rgba(80,80,84,.82);color:#fff;font-size:24px;font-weight:300;display:flex;align-items:center;justify-content:center;z-index:2}
 .lb-x:hover{background:rgba(120,120,124,.9)}
 .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:0;background:rgba(80,80,84,.55);color:#fff;font-size:26px;font-weight:300;display:flex;align-items:center;justify-content:center}
 .lb-nav:hover{background:rgba(120,120,124,.85)}.lb-prev{left:20px}.lb-next{right:20px}
-@media(max-width:740px){.lb img{max-width:84vw;max-height:66vh}.lb-x{top:70px;right:14px}.lb-nav{width:44px;height:44px;font-size:22px}}
+@media(max-width:740px){.lb{padding:20px 14px}.lb img{max-width:84vw;max-height:66vh}.lb.has-photo-sets>img{max-height:48vh}.lb-tabs,.lb-thumbs{width:84vw}.lb-tab{height:40px}.lb-thumb{flex-basis:58px;height:46px}.lb-x{top:70px;right:14px}.lb-nav{width:44px;height:44px;font-size:22px}}
 
 /* footer */
 .footer{background:var(--bg-alt);color:var(--ink);border-top:1px solid var(--line-strong);padding:64px 0 44px}
@@ -299,15 +343,26 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
         <div class="system-node result"><div class="node-circle"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="m16 24 6 6 11-13"/></svg></div><span>RESULT</span><b>하나의 시공 일정</b></div>
       </div>
       <div class="system-notes">
-        <article class="system-note"><span class="reason-no" data-mobile="01 · PARTNERS">01 · PROVEN PARTNERS</span><h3>거래로 검증된 지역 파트너</h3><p>각 상권에서 실제 프로젝트를 함께 진행하며 <b>실력과 책임감을 확인한 인테리어 업체</b>를 연결합니다.</p></article>
+        <article class="system-note"><span class="reason-no" data-mobile="01 · PARTNERS">01 · PROVEN PARTNERS</span><h3>검증된 지역 파트너 네트워크</h3><p>오랜 거래 이력과 현장 경험을 바탕으로 <b>실력뿐 아니라 자재, 사후관리, 사람의 태도까지 확인한 업체</b>만 연결합니다.</p></article>
         <article class="system-note"><span class="reason-no" data-mobile="02 · SAVING">02 · WINDOW SAVING</span><h3><span class="saving-highlight">창호 비용 20–30% 절감</span></h3><p>인테리어는 검증된 파트너가, 창호는 MM LAB이 직접 진행해 <b>토탈 시공사 일괄 계약보다 창호 비용을 절감</b>합니다.</p></article>
       </div>
+      <section class="partner-criteria" aria-labelledby="criteria-t">
+        <div class="criteria-head">
+          <div><span class="criteria-kicker">MM LAB Partner Standard</span><h3 id="criteria-t">실력과 신뢰,<br>모두 검증된 업체만 함께합니다</h3></div>
+          <p>가격이나 경력만으로 협력사를 정하지 않습니다. 오랜 시간 함께 일하며 확인한 신뢰와 정직함, 시공 이후의 책임, 고객을 대하는 태도까지 MM LAB의 기준으로 살핍니다.</p>
+        </div>
+        <div class="criteria-grid">
+          <article class="criterion"><span class="criterion-no">01 · TRUST</span><h4>10년 이상 함께 쌓은 신뢰</h4><p>10년 이상 여러 현장을 함께하며 실력과 약속을 지키는 책임감을 확인한 파트너를 우선합니다.</p></article>
+          <article class="criterion"><span class="criterion-no">02 · HONEST MATERIALS</span><h4>좋은 자재를 속임없이</h4><p>견적과 약속에 맞는 검증된 자재를 사용하며, 고객을 속이거나 품질을 타협하지 않습니다.</p></article>
+          <article class="criterion"><span class="criterion-no">03 · AFTER CARE</span><h4>철저한 사후관리 시스템</h4><p>시공이 끝난 뒤 발생한 문제도 피하지 않고, 신속하고 책임 있게 대응하는 업체를 선택합니다.</p></article>
+          <article class="criterion"><span class="criterion-no">04 · HUMANITY</span><h4>친절과 배려가 몸에 밴 사람</h4><p>기술만큼 소통과 배려를 중요하게 여기며, 고객과 현장을 존중하는 기본적인 인성을 확인합니다.</p></article>
+        </div>
+      </section>
     </div>
     <div class="process reveal" id="process">
       <div class="process-head"><h2>Our Process</h2></div>
       <p class="process-sub">How we work · five clear steps</p>
       <div class="process-carousel">
-        <button class="process-arrow process-prev" type="button" aria-label="이전 단계">‹</button>
         <div class="flow">
         <div class="fnode"><i class="step-mark" aria-hidden="true"></i><div class="step-num">01</div><div class="txt"><div class="no">CONSULTATION</div><h3>상담·문의</h3><p>원하는 공간과 예산, 일정을 편하게 들려주세요.</p></div></div>
         <div class="fnode"><i class="step-mark" aria-hidden="true"></i><div class="step-num">02</div><div class="txt"><div class="no">SITE PLANNING</div><h3>실측 &amp; 작업계획</h3><p>현장을 정확히 측정하고 공간에 맞는 설계를 제안합니다.</p></div></div>
@@ -315,7 +370,6 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
         <div class="fnode"><i class="step-mark" aria-hidden="true"></i><div class="step-num">04</div><div class="txt"><div class="no">INSTALLATION</div><h3>시공</h3><p>창호는 본사 직시공, 인테리어는 협력사가 진행합니다.</p></div></div>
         <div class="fnode"><i class="step-mark" aria-hidden="true"></i><div class="step-num">05</div><div class="txt"><div class="no">AFTER CARE</div><h3>검수 &amp; 사후관리</h3><p>마지막까지 꼼꼼히 검수하고 A/S까지 책임집니다.</p></div></div>
         </div>
-        <button class="process-arrow process-next" type="button" aria-label="다음 단계">›</button>
       </div>
     </div>
     <div class="note-band"><span><b>창호는 본사 직거래로 직접 시공</b>합니다. 인테리어와 함께 진행하면 <b class="save">창호 비용을 약 20% 절감</b>할 수 있어요.</span><a href="../about/#model">창호 직거래 자세히 →</a></div>
@@ -340,7 +394,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
 
 <footer class="footer">
   <div class="footer-grid">
-    <div><h3>MM LAB</h3><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px">support@mmlab.kr<br>02-0000-0000 (평일 09:00~18:00)</p></div>
+    <div><a href="../" aria-label="MM LAB 홈" style="display:inline-block;line-height:0;margin-bottom:14px"><img src="../assets/brand/mm-lab-lockup-horizontal-green.png?v=b1" width="1489" height="393" alt="MM LAB" style="display:block;width:148px;height:auto"></a><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px">support@mmlab.kr<br>02-0000-0000 (평일 09:00~18:00)</p></div>
     <div><h4>바로가기</h4><a href="../">홈</a><a href="../#brands">창호</a><a href="../projects/">시공사례</a></div>
     <div><h4>협력 문의</h4><a href="#" onclick="openModal();return false;">협력 인테리어사 등록</a><a href="#" onclick="openModal();return false;">상담신청</a></div>
   </div>
@@ -351,7 +405,12 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
 <div class="lb" id="lb" aria-hidden="true" role="dialog" aria-modal="true" aria-label="현장 사진">
   <button class="lb-x" onclick="closeLb()" aria-label="닫기">×</button>
   <button class="lb-nav lb-prev" onclick="stepLb(-1)" aria-label="이전 사진">‹</button>
+  <div class="lb-tabs" id="lbTabs" role="tablist" aria-label="사진 구분" hidden>
+    <button class="lb-tab active" type="button" role="tab" data-set="after" aria-selected="true">AFTER <span class="count" id="lbAfterCount"></span></button>
+    <button class="lb-tab" type="button" role="tab" data-set="before" aria-selected="false">BEFORE <span class="count" id="lbBeforeCount"></span></button>
+  </div>
   <img id="lbImg" alt="">
+  <div class="lb-thumbs" id="lbThumbs" aria-label="사진 목록" hidden></div>
   <div class="lb-cap"><div class="t" id="lbT"></div><div class="s" id="lbS"></div></div>
   <button class="lb-nav lb-next" onclick="stepLb(1)" aria-label="다음 사진">›</button>
 </div>
@@ -370,21 +429,10 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   </div>
 </div>
 
-<script src="../sitenav.js?v=g46"></script>
+<script src="../sitenav.js?v=g47"></script>
 <script>
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-
-/* OUR PROCESS — 모바일 가로 슬라이드 */
-(function(){
-  var track=document.querySelector('.flow'),prev=document.querySelector('.process-prev'),next=document.querySelector('.process-next');
-  if(!track||!prev||!next)return;
-  function step(){var card=track.firstElementChild;var gap=parseInt(getComputedStyle(track).gap)||12;return card?card.getBoundingClientRect().width+gap:300;}
-  function update(){prev.disabled=track.scrollLeft<=8;next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-4;}
-  prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:reduce?'auto':'smooth'});});
-  next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:reduce?'auto':'smooth'});});
-  track.addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update();
-})();
 
 /* ─────────────────────────────────────────────────────────────
    협력 인테리어 업체 → 현장(project) → 사진(photos)
@@ -397,6 +445,14 @@ function jw(folder,base,n){ /* 지우 현장 사진 경로 생성 헬퍼 */
   for(var i=1;i<=n;i++){var s=(i<10?'0':'')+i;arr.push({id:base+'_'+s, image:'../assets/interior/jiwoo/'+folder+'/'+base+'_'+s+'.jpg'});}
   return arr;
 }
+function sd(stage,n){ /* 상도건영 40평형 BEFORE/AFTER */
+  var arr=[];
+  for(var i=1;i<=n;i++){
+    var s=(i<10?'0':'')+i,base='../assets/interior/jiwoo/sangdo-geonyeong-40/'+stage+'/';
+    arr.push({id:'sangdo-'+stage+'-'+s,image:base+stage+'-'+s+'.jpg',thumb:base+'thumbs/'+stage+'-'+s+'.jpg'});
+  }
+  return arr;
+}
 var PARTNERS=[
   {id:'jiwoo', short:'지우', name:'지우인테리어디자인', tagline:'아파트 전체 리모델링 — 실제 시공 현장', specialty:['아파트','전체 리모델링'], status:'active',
    socials:[
@@ -404,6 +460,7 @@ var PARTNERS=[
      {type:'naver',label:'시공 블로그 보기',href:'https://blog.naver.com/jiwooint83'}
    ],
    projects:[
+     {id:'jw-sangdo', name:'상도건영 40평형', photos:sd('after',12), beforePhotos:sd('before',17), beforeCover:'../assets/interior/jiwoo/sangdo-geonyeong-40/before/before-05.jpg', afterCover:'../assets/interior/jiwoo/sangdo-geonyeong-40/after/after-02.jpg'},
      {id:'jw-gwanak', name:'관악드림타운 30평형', photos:jw('gwanak','KakaoTalk_20260622_172435157',7)},
      {id:'jw-gileum', name:'길음 경남아너스빌 32평형', photos:jw('gileum','KakaoTalk_20260622_172443870',7)},
      {id:'jw-daebang', name:'대방 대림 59평형', photos:jw('daebang','KakaoTalk_20260622_172426216',7)}
@@ -433,10 +490,13 @@ document.getElementById('list').innerHTML=PARTNERS.map(function(p,pi){
     body='<div class="project-carousel">'
       +'<button class="pc-arrow pc-prev" type="button" aria-label="이전 시공사례">‹</button>'
       +'<div class="pgrid">'+p.projects.map(function(pr,ji){
-      var cover=pr.photos[0].image;
-      return '<button class="proj" data-p="'+pi+'" data-j="'+ji+'" aria-label="'+esc(pr.name)+' 사진 '+pr.photos.length+'장 보기">'
-        +'<span class="proj-cover"><i style="--img:url(\''+cover+'\')"></i><span class="badge">'+pr.photos.length+'</span></span>'
-        +'<span class="proj-meta"><span class="proj-name">'+esc(pr.name)+'</span><span class="proj-go">사진 보기</span></span>'
+      var cover=pr.cover||pr.photos[0].image,hasBefore=pr.beforePhotos&&pr.beforePhotos.length,total=pr.photos.length+(hasBefore?pr.beforePhotos.length:0);
+      var coverHtml=hasBefore
+        ?'<span class="proj-cover compare-cover"><span class="compare-shot compare-before"><i style="--img:url(\''+(pr.beforeCover||pr.beforePhotos[0].image)+'\')"></i><span class="compare-label">BEFORE</span></span><span class="compare-shot compare-after"><i style="--img:url(\''+(pr.afterCover||cover)+'\')"></i><span class="compare-label">AFTER</span></span></span>'
+        :'<span class="proj-cover"><i style="--img:url(\''+cover+'\')"></i><span class="badge">'+pr.photos.length+'</span></span>';
+      return '<button class="proj" data-p="'+pi+'" data-j="'+ji+'" aria-label="'+esc(pr.name)+' 사진 '+total+'장 보기">'
+        +coverHtml
+        +'<span class="proj-meta"><span class="proj-name">'+esc(pr.name)+'</span><span class="proj-go">'+(hasBefore?'변화 보기':'사진 보기')+'</span></span>'
         +'</button>';
     }).join('')+'</div>'
       +'<button class="pc-arrow pc-next" type="button" aria-label="다음 시공사례">›</button>'
@@ -515,15 +575,34 @@ if('IntersectionObserver' in window){
 
 /* lightbox — 클릭한 현장의 사진만 좌우로 */
 var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbT=document.getElementById('lbT'),lbS=document.getElementById('lbS');
-var curPhotos=[],curName='',lbI=0,lbFocus=null;
+var lbTabs=document.getElementById('lbTabs'),lbThumbs=document.getElementById('lbThumbs'),lbAfterCount=document.getElementById('lbAfterCount'),lbBeforeCount=document.getElementById('lbBeforeCount');
+var curPhotos=[],curSets={after:[],before:[]},curMode='after',curName='',lbI=0,lbFocus=null;
 document.getElementById('list').addEventListener('click',function(e){
   var b=e.target.closest('.proj'); if(!b)return;
   var p=PARTNERS[+b.dataset.p], pr=p.projects[+b.dataset.j];
-  curPhotos=pr.photos; curName=p.name+' · '+pr.name; openLb(0);
+  curSets={after:pr.photos||[],before:pr.beforePhotos||[]};curMode='after';curPhotos=curSets.after;curName=p.name+' · '+pr.name;prepareLbSets();openLb(0);
 });
-function setLb(){lbImg.src=curPhotos[lbI].image;lbImg.alt=curName;lbT.textContent=curName;lbS.textContent=(lbI+1)+' / '+curPhotos.length;}
+function prepareLbSets(){
+  var hasBefore=curSets.before.length>0;
+  lb.classList.toggle('has-photo-sets',hasBefore);lbTabs.hidden=!hasBefore;lbThumbs.hidden=!hasBefore;
+  if(hasBefore){lbAfterCount.textContent=curSets.after.length;lbBeforeCount.textContent=curSets.before.length;renderLbThumbs();updateLbTabs();}
+  else{lbThumbs.innerHTML='';}
+}
+function updateLbTabs(){
+  lbTabs.querySelectorAll('.lb-tab').forEach(function(tab){var on=tab.dataset.set===curMode;tab.classList.toggle('active',on);tab.setAttribute('aria-selected',on?'true':'false');});
+}
+function renderLbThumbs(){
+  lbThumbs.innerHTML=curPhotos.map(function(photo,i){return '<button class="lb-thumb'+(i===lbI?' active':'')+'" type="button" data-i="'+i+'" aria-label="'+(i+1)+'번 사진 보기"><img src="'+(photo.thumb||photo.image)+'" alt="" loading="lazy"></button>';}).join('');
+}
+function setLb(){
+  var photo=curPhotos[lbI];lbImg.src=photo.image;lbImg.alt=curName+' '+(curMode==='before'?'시공 전':'시공 후');lbT.textContent=curName;
+  lbS.textContent=(curSets.before.length?(curMode==='before'?'BEFORE':'AFTER')+' · ':'')+(lbI+1)+' / '+curPhotos.length;
+  if(!lbThumbs.hidden){lbThumbs.querySelectorAll('.lb-thumb').forEach(function(thumb,i){thumb.classList.toggle('active',i===lbI);});var active=lbThumbs.querySelector('.lb-thumb.active');if(active)active.scrollIntoView({block:'nearest',inline:'nearest'});}
+}
 function openLb(i){lbI=i;lbFocus=document.activeElement;setLb();lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus();}
 function stepLb(d){lbI=(lbI+d+curPhotos.length)%curPhotos.length;setLb();}
+lbTabs.addEventListener('click',function(e){var tab=e.target.closest('.lb-tab');if(!tab||tab.dataset.set===curMode)return;curMode=tab.dataset.set;curPhotos=curSets[curMode];lbI=0;updateLbTabs();renderLbThumbs();setLb();});
+lbThumbs.addEventListener('click',function(e){var thumb=e.target.closest('.lb-thumb');if(!thumb)return;lbI=+thumb.dataset.i;setLb();});
 function closeLb(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lbFocus&&lbFocus.focus){lbFocus.focus();lbFocus=null;}}
 lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
 addEventListener('keydown',function(e){if(lb.classList.contains('open')){if(e.key==='Escape')closeLb();else if(e.key==='ArrowRight')stepLb(1);else if(e.key==='ArrowLeft')stepLb(-1);}});

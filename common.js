@@ -76,7 +76,7 @@ if(ft){
   ft.outerHTML='<footer class="footer-full">'
    +'<div class="footer-certs"><span>K-BPI 창호 1위</span><span>KS 인증</span><span>ISO 9001</span><span>본사 10년 보증</span><span>정품 직거래</span><span>거주 시공 가능</span></div>'
    +'<div class="footer-info-grid">'
-   +'<div><h5>MM LAB · Millimeter Laboratory</h5><p>정밀한 자재, 합리적인 가치.<br>본사 정품 창호 직거래의 구조.</p>'
+   +'<div><a href="'+site('')+'" aria-label="MM LAB 홈"><img src="'+site('assets/brand/mm-lab-lockup-horizontal-green.png?v=b1')+'" width="1489" height="393" alt="MM LAB" style="display:block;width:148px;max-width:100%;height:auto;margin-bottom:14px;"></a><p>정밀한 자재, 합리적인 가치.<br>본사 정품 창호 직거래의 구조.</p>'
    +'<p style="margin-top:12px;"><a href="'+site('windows/kcc/')+'">KCC</a> · <a href="'+site('windows/lx/')+'">LX 뷰프레임</a> · <a href="'+site('windows/lx/euro-system-9/pl/')+'">유로시스템9</a> · <a href="'+site('windows/kbe/')+'">KBE</a> · <a href="'+site('screens/kogo/')+'">고구려</a></p></div>'
    +'<div><h5>고객 지원</h5><ul>'
    +'<li><a href="#" onclick="openModal();return false;">상담신청</a></li>'
