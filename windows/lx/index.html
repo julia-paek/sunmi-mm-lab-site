@@ -254,6 +254,7 @@
 .family-thumb .ft-copy{min-width:0}
 .family-thumb small{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.08em;color:#6E7C64;text-transform:uppercase}
 .family-thumb strong{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:3px;font-size:16px;line-height:1.35}
+.family-thumb .ft-sub{display:block;margin-top:2px;color:#6E7C64;font-size:11px;font-weight:500;line-height:1.35}
 .family-operation-note{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin-top:16px;padding:12px 0;color:#6E7C64;font-size:11px;line-height:1.5;white-space:nowrap}
 .family-operation-note strong{color:#1F3822;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
 .family-operation-lines{display:inline-flex;align-items:center;gap:5px}
@@ -275,6 +276,7 @@
   .family-thumb .ft-img{width:48px;aspect-ratio:1/1}
   .family-thumb small{font-size:13px;letter-spacing:.04em}
   .family-thumb strong{font-size:13px}
+  .family-thumb .ft-sub{margin-top:1px;font-size:10px}
   .family-thumbs .family-thumb:last-child{border-bottom:0}
   .family-operation-note{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;justify-content:stretch;gap:8px;margin-top:4px;padding:10px 0;font-size:10px;white-space:normal;word-break:keep-all}
   .family-operation-note strong{white-space:nowrap}
@@ -537,11 +539,11 @@
           <div class="family-thumbs" aria-label="뷰프레임 세부 제품">
             <button class="family-thumb" type="button" onclick="go('v-finished')">
               <span class="ft-img"><img src="../../assets/lx-vue-finished-official.jpg" alt="LX Z:IN 뷰프레임 완성창 적용 공간" loading="lazy"></span>
-              <span class="ft-copy"><small>Finished</small><strong>완성창</strong></span>
+              <span class="ft-copy"><small>Finished</small><strong>완성창</strong><span class="ft-sub">뷰프레임</span></span>
             </button>
             <button class="family-thumb" type="button" onclick="go('v-custom')">
               <span class="ft-img"><img src="../../assets/lx-vue-custom-official.jpg" alt="LX Z:IN 뷰프레임 제작창 적용 공간" loading="lazy"></span>
-              <span class="ft-copy"><small>Custom</small><strong>제작창</strong></span>
+              <span class="ft-copy"><small>Custom</small><strong>제작창</strong><span class="ft-sub">뷰프레임S</span></span>
             </button>
           </div>
         </div>

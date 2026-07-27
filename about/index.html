@@ -73,7 +73,6 @@ section[id],main [id]{scroll-margin-top:calc(var(--nav-h) + 70px)}
 .hero-mark{position:relative;z-index:0;display:inline-block;white-space:nowrap}
 .hero-mark::after{content:"";position:absolute;z-index:-1;left:-.02em;right:-.02em;bottom:.04em;height:.12em;background:rgba(143,165,132,.48);transform:rotate(-.7deg);transform-origin:left center}
 .h-big{font-size:clamp(34px,5.5vw,76px);font-weight:700;letter-spacing:-.03em;line-height:1.08;color:var(--headline)}
-.tier-copy-mobile{display:none}
 .sub{font-size:clamp(18px,2.2vw,24px);color:var(--muted);margin-top:26px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.6}
 .grad{color:var(--accent)}
 .scrollcue{margin-top:52px;font-size:12px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
@@ -94,7 +93,7 @@ section[id],main [id]{scroll-margin-top:calc(var(--nav-h) + 70px)}
 .saving-rate .saving-upper-unit{margin-left:.04em;font-size:.5em;letter-spacing:-.02em}
 #save .saving-rate{margin-top:30px}
 @media(max-width:600px){#save .saving-rate{margin-top:22px}}
-@media(max-width:600px){#tier-t{font-size:clamp(30px,9vw,36px);line-height:1.06}.tier-copy-desktop{display:none}.tier-copy-mobile{display:inline}}
+@media(max-width:600px){#tier-t{font-size:clamp(22px,6vw,28px);line-height:1.12}}
 .steps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);max-width:1040px;margin:48px auto 0}
 .steps::before{content:"";position:absolute;top:34px;left:11%;right:11%;height:1px;background:var(--line-strong)}
 .step{position:relative;z-index:1;display:flex;min-width:0;flex-direction:column;align-items:center;padding:0 18px;font-size:15px;color:var(--ink);text-align:center}
@@ -701,8 +700,8 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   <!-- 등급 체계 -->
   <section class="panel reveal" id="tier" aria-labelledby="tier-t">
     <div class="wrap">
-      <p class="eyebrow">Why MM LAB</p>
-      <h2 class="h-big" id="tier-t" style="margin-top:14px"><span class="tier-copy-desktop">저가 공업사 제품은 쓰지 않습니다<br>본사 정품으로만 시공합니다</span><span class="tier-copy-mobile">본사 정품만 시공</span></h2>
+      <p class="eyebrow">Why MM LAB ?</p>
+      <h2 class="h-big" id="tier-t" style="margin-top:14px">저가 공업사 제품은 쓰지 않습니다<br>본사 정품으로만 시공합니다</h2>
       <p class="lead">예산과 공간에 맞춰도 타협하지 않는 — MM LAB이 다른 네 가지.</p>
       <div class="vals">
         <a class="val" id="brand-authentic" href="#genuine" aria-label="본사 정품과 저가 공업사 제품 비교 보기">
@@ -747,7 +746,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
       <div class="auth-card">
         <div class="auth-visual" aria-label="창호 내부 부품 위치 안내">
           <img src="../assets/viewframe-finished/f-145s.jpg" alt="창호 단면 구성 예시">
-          <button class="auth-marker m1" type="button" aria-label="1 페어유리 내부 백화 설명 보기" data-title="페어유리 내부 백화" data-copy="KS 미인증 저가 페어유리 사용으로 내부 습기 유입 및 백화 등 하자 발생">1</button>
+          <button class="auth-marker m1" type="button" aria-label="1 내부 백화현상 설명 보기" data-title="내부 백화현상" data-copy="KS 미인증 저가 페어유리 사용으로 내부 습기 유입 및 백화현상 등 하자 발생">1</button>
           <button class="auth-marker m2" type="button" aria-label="2 실리콘 접합 마감 설명 보기" data-title="실리콘 접합 마감" data-copy="유리면과 프로파일(SF)의 실리콘 접합으로 외관 저하 및 청소 불편">2</button>
           <button class="auth-marker m3" type="button" aria-label="3 프로파일 뒤틀림 설명 보기" data-title="프로파일 뒤틀림" data-copy="규정 보강재 대신 저가 보강재 사용으로 프로파일 뒤틀림 발생">3</button>
           <button class="auth-marker m4" type="button" aria-label="4 단열 성능 저하 설명 보기" data-title="단열 성능 저하" data-copy="저가 알루미늄 간봉 사용으로 단열 성능 현저히 저하">4</button>
@@ -765,12 +764,12 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
           </div>
           <div class="auth-outcome">
             <div class="good">규격 성능 · 품질 기준 · 보증</div>
-            <div class="risk">백화 · 뒤틀림 · 처짐 · 성능 저하 위험</div>
+            <div class="risk">유리백화현상 · 뒤틀림 · 처짐 · 성능 저하 위험</div>
           </div>
           <div class="auth-defects">
             <h3>저가 공업사 제품 사용 시 대표 하자</h3>
             <div class="auth-defect-list">
-              <div class="auth-defect"><span class="num">01</span><strong>페어유리 내부 백화</strong><p>KS 미인증 저가 페어유리 사용으로 <b>내부 습기 유입 및 백화 등 하자 발생</b></p></div>
+              <div class="auth-defect"><span class="num">01</span><strong>내부 백화현상</strong><p>KS 미인증 저가 페어유리 사용으로 <b>내부 습기 유입 및 백화현상 등 하자 발생</b></p></div>
               <div class="auth-defect"><span class="num">02</span><strong>실리콘 접합 마감</strong><p>유리면과 프로파일(SF)의 실리콘 접합으로 <b>외관 저하 및 청소 불편</b></p></div>
               <div class="auth-defect"><span class="num">03</span><strong>프로파일 뒤틀림</strong><p>규정 보강재 대신 저가 보강재 사용으로 <b>프로파일 뒤틀림 발생</b></p></div>
               <div class="auth-defect"><span class="num">04</span><strong>단열 성능 저하</strong><p>저가 알루미늄 간봉 사용으로 <b>단열 성능 현저히 저하</b></p></div>
