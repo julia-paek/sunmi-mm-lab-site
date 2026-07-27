@@ -14,8 +14,8 @@ function ensureBrandIcon(rel,href){
   if(document.querySelector('link[rel="'+rel+'"]'))return;
   var link=document.createElement('link');link.rel=rel;link.href=site(href);document.head.appendChild(link);
 }
-ensureBrandIcon('icon','assets/brand/favicon.ico?v=b1');
-ensureBrandIcon('apple-touch-icon','assets/brand/apple-touch-icon.png?v=b1');
+ensureBrandIcon('icon','assets/brand/favicon.ico?v=b2');
+ensureBrandIcon('apple-touch-icon','assets/brand/apple-touch-icon.png?v=b2');
 function routeOf(href){
   var rootPath=decodeURIComponent(ROOT_URL.pathname);
   var targetPath=decodeURIComponent(new URL(href,ROOT_URL).pathname);
