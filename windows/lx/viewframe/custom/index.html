@@ -82,11 +82,15 @@ button{font:inherit;border-radius:0}
 .location-product-image{display:flex;align-items:center;justify-content:center;min-height:176px;background:radial-gradient(circle,rgba(47,82,51,.07),transparent 62%)}.location-product-image img{display:block;width:100%;height:176px;object-fit:contain;mix-blend-mode:multiply}
 .location-meta small{display:block;font:500 10px "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--sage)}.location-meta strong{display:block;margin-top:8px;font-size:clamp(26px,2.6vw,38px);line-height:1;color:var(--green);white-space:nowrap}.location-meta span{display:block;margin-top:9px;font-size:13px;line-height:1.45;color:var(--sage)}
 .location-models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.location-models button{display:block;min-width:0;padding:9px;border:1px solid #C7CEC2;background:#fff;color:var(--green);text-align:left;cursor:pointer}.location-models button:hover,.location-models button:focus-visible,.location-models button.is-active{border-color:var(--lx);background:#EEF1EB}.location-thumb{display:flex;align-items:center;justify-content:center;height:72px;background:#F7F6F2;overflow:hidden}.location-thumb img{width:100%;height:68px;object-fit:contain;mix-blend-mode:multiply}.location-models strong{display:block;margin-top:8px;font-size:16px;white-space:nowrap}
-.option-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.option-card{min-height:200px;padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
-.option-card .num{font:500 12px "JetBrains Mono",monospace;color:var(--sage)}
-.option-card strong{display:block;margin-top:42px;font-family:"Gmarket Sans","SUIT Variable",sans-serif;font-size:18px;line-height:1.35;color:var(--green);word-break:keep-all}
-.option-card p{margin:12px 0 0;color:var(--sage);font-size:13px;line-height:1.6;word-break:keep-all}
+.option-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.option-card{min-width:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+.option-visual{height:clamp(190px,18vw,260px);margin:0;border-bottom:1px solid var(--line);overflow:hidden;background:#ECEAE2}
+.option-visual img{display:block;width:100%;height:100%;object-fit:cover}
+.option-card:nth-child(1) .option-visual img,.option-card:nth-child(2) .option-visual img{object-position:center 54%}
+.option-copy{min-height:174px;padding:19px 20px 22px}
+.option-card .num{font:500 11px "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--sage)}
+.option-card strong{display:block;margin-top:15px;font-family:"Gmarket Sans","SUIT Variable",sans-serif;font-size:18px;line-height:1.35;color:var(--green);word-break:keep-all}
+.option-card p{margin:10px 0 0;color:var(--sage);font-size:13px;line-height:1.6;word-break:keep-all}
 .source-note{margin:18px 0 0;color:#879180;font-size:11px;line-height:1.6}
 @media(max-width:900px){
   .section-head{display:block}.section-desc{margin-top:14px}
@@ -103,7 +107,7 @@ button{font:inherit;border-radius:0}
   .model-arrows{left:8px;right:8px}.model-arrows button{width:38px;height:54px}.product-card{flex:0 0 min(78vw,310px)}.product-card img{height:166px}
   .detail-copy h3{font-size:34px}.detail-desc{font-size:14px}
   .fit-hotspot{width:28px;height:28px;box-shadow:0 0 0 6px rgba(47,82,51,.12)}.fit-hotspot::before{inset:9px}.fit-hotspot::after{top:36px;max-width:145px;padding:5px 7px;font-size:9px}
-  .option-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.option-card{flex:0 0 78vw;scroll-snap-align:start}
+  .option-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.option-card{flex:0 0 min(82vw,330px);scroll-snap-align:start}.option-visual{height:230px}.option-copy{min-height:164px}
 }
 @media(prefers-reduced-motion:reduce){.product-card img,.detail-visual img{transition:none}}
 </style>
@@ -113,7 +117,7 @@ button{font:inherit;border-radius:0}
   <div class="vfs-wrap">
     <nav class="vfs-crumb" aria-label="현재 위치"><a href="../../">LX 하우시스 · 창호</a><span>›</span><strong>제작창 · 뷰프레임S</strong></nav>
     <section class="vfs-hero" aria-labelledby="vfsTitle">
-      <img src="../../../../assets/viewframe-s/partition-room.webp?v=g2026073005" alt="거실과 발코니 사이에 적용된 뷰프레임S 제작창">
+      <img src="../../../../assets/viewframe-s/partition-room.webp?v=g2026073019" alt="거실과 발코니 사이에 적용된 뷰프레임S 제작창">
       <div class="vfs-hero-copy">
         <div class="eyebrow">LX Z:IN · VIEW FRAME S · CUSTOM</div>
         <h1 id="vfsTitle">공간에 맞춰,<br>창을 제작합니다.</h1>
@@ -130,16 +134,16 @@ button{font:inherit;border-radius:0}
       <div class="model-slider">
         <div class="model-arrows" aria-label="제품 목록 이동"><button type="button" id="modelPrev" aria-label="이전 제품" disabled>‹</button><button type="button" id="modelNext" aria-label="다음 제품">›</button></div>
         <div class="product-rail" id="productRail" role="group" aria-label="뷰프레임S 제작창 6개 모델">
-          <button class="product-card is-active" type="button" data-model="f140s" data-family="balcony"><img src="../../../../assets/viewframe-s/f-140s-room.webp?v=g2026073005" alt="발코니에 적용된 F-140S"><span class="product-meta"><span><small>BALCONY · SINGLE</small><strong>F-140S</strong></span><em>발코니 단창</em></span></button>
-          <button class="product-card" type="button" data-model="f250s" data-family="balcony"><img src="../../../../assets/viewframe-s/f-250s-room.webp?v=g2026073005" alt="발코니에 적용된 F-250S"><span class="product-meta"><span><small>BALCONY · DOUBLE</small><strong>F-250S</strong></span><em>발코니 이중창</em></span></button>
-          <button class="product-card" type="button" data-model="f130is" data-family="general"><img src="../../../../assets/viewframe-s/general-room-card.webp?v=g2026073005" alt="실내에 적용된 F-130IS"><span class="product-meta"><span><small>GENERAL · SINGLE</small><strong>F-130IS</strong></span><em>일반창 단창</em></span></button>
-          <button class="product-card" type="button" data-model="f250is" data-family="general"><img src="../../../../assets/viewframe-s/general-room-card.webp?v=g2026073005" alt="실내에 적용된 F-250IS"><span class="product-meta"><span><small>GENERAL · DOUBLE</small><strong>F-250IS</strong></span><em>일반창 이중창</em></span></button>
-          <button class="product-card" type="button" data-model="f230ws" data-family="partition"><img src="../../../../assets/viewframe-s/partition-room-card.webp?v=g2026073005" alt="거실 분합문으로 적용된 F-230WS"><span class="product-meta"><span><small>WIDE · PARTITION</small><strong>F-230WS</strong></span><em>실내 분합문</em></span></button>
-          <button class="product-card" type="button" data-model="ftd140s" data-family="door"><img src="../../../../assets/viewframe-s/turn-door-room-card.webp?v=g2026073005" alt="다용도실에 적용된 F-TD140S"><span class="product-meta"><span><small>TURN · DOOR</small><strong>F-TD140S</strong></span><em>여닫이 도어</em></span></button>
+          <button class="product-card is-active" type="button" data-model="f140s" data-family="balcony"><img src="../../../../assets/viewframe-s/f-140s-room.webp?v=g2026073019" alt="발코니에 적용된 F-140S"><span class="product-meta"><span><small>BALCONY · SINGLE</small><strong>F-140S</strong></span><em>발코니 단창</em></span></button>
+          <button class="product-card" type="button" data-model="f250s" data-family="balcony"><img src="../../../../assets/viewframe-s/f-250s-room.webp?v=g2026073019" alt="발코니에 적용된 F-250S"><span class="product-meta"><span><small>BALCONY · DOUBLE</small><strong>F-250S</strong></span><em>발코니 이중창</em></span></button>
+          <button class="product-card" type="button" data-model="f130is" data-family="general"><img src="../../../../assets/viewframe-s/general-room-card.webp?v=g2026073019" alt="실내에 적용된 F-130IS"><span class="product-meta"><span><small>GENERAL · SINGLE</small><strong>F-130IS</strong></span><em>일반창 단창</em></span></button>
+          <button class="product-card" type="button" data-model="f250is" data-family="general"><img src="../../../../assets/viewframe-s/general-room-card.webp?v=g2026073019" alt="실내에 적용된 F-250IS"><span class="product-meta"><span><small>GENERAL · DOUBLE</small><strong>F-250IS</strong></span><em>일반창 이중창</em></span></button>
+          <button class="product-card" type="button" data-model="f230ws" data-family="partition"><img src="../../../../assets/viewframe-s/partition-room-card.webp?v=g2026073019" alt="거실 분합문으로 적용된 F-230WS"><span class="product-meta"><span><small>WIDE · PARTITION</small><strong>F-230WS</strong></span><em>실내 분합문</em></span></button>
+          <button class="product-card" type="button" data-model="ftd140s" data-family="door"><img src="../../../../assets/viewframe-s/turn-door-room-card.webp?v=g2026073019" alt="다용도실에 적용된 F-TD140S"><span class="product-meta"><span><small>TURN · DOOR</small><strong>F-TD140S</strong></span><em>여닫이 도어</em></span></button>
         </div>
       </div>
       <article class="detail-stage" id="detailStage" aria-live="polite">
-        <div class="detail-visual" id="detailVisual" data-caption="F-140S · 제품 구조"><img id="detailImage" src="../../../../assets/viewframe-s/f-140s.webp?v=g2026073005" alt="F-140S 제품 구조"></div>
+        <div class="detail-visual" id="detailVisual" data-caption="F-140S · 제품 구조"><img id="detailImage" src="../../../../assets/viewframe-s/f-140s.webp?v=g2026073019" alt="F-140S 제품 구조"></div>
         <div class="detail-copy">
           <div class="detail-summary"><div class="eyebrow" id="detailType">BALCONY WINDOW · SINGLE</div><h3 id="detailName">F-140S</h3><div class="detail-kind" id="detailKind">발코니 단창</div><p class="detail-desc" id="detailDesc">아파트와 주택의 발코니에 적용하는 단창형 제작창입니다.</p></div>
           <div class="spec-list">
@@ -161,7 +165,7 @@ button{font:inherit;border-radius:0}
       <div class="location-grid">
         <div class="floorplan">
           <div class="plan-wrap">
-            <img class="plan-art" src="../../../../assets/viewframe-finished/home-floorplan-clean-v12.png?v=g2026073005" alt="아파트 공간별 뷰프레임S 제작창 적용 위치 안내도">
+            <img class="plan-art" src="../../../../assets/viewframe-finished/home-floorplan-clean-v12.png?v=g2026073019" alt="아파트 공간별 뷰프레임S 제작창 적용 위치 안내도">
             <button class="fit-hotspot" type="button" data-area="rear" aria-label="후면 발코니&#10;F-140S · F-130IS"></button>
             <button class="fit-hotspot is-active" type="button" data-area="rear-expanded" aria-label="후면 확장 발코니&#10;F-250S · F-250IS"></button>
             <button class="fit-hotspot" type="button" data-area="partition" aria-label="실내 분합문&#10;F-230WS"></button>
@@ -175,7 +179,7 @@ button{font:inherit;border-radius:0}
           <h3 id="fitTitle">후면 확장 발코니</h3>
           <p id="fitDesc">단열과 차음을 높인 이중창 중 공간에 맞는 제품을 비교해보세요.</p>
           <div class="location-stage" id="locationStage">
-            <div class="location-product-image"><img id="fitImage" src="../../../../assets/viewframe-s/f-250s.webp?v=g2026073005" alt="F-250S 제품 구조"></div>
+            <div class="location-product-image"><img id="fitImage" src="../../../../assets/viewframe-s/f-250s.webp?v=g2026073019" alt="F-250S 제품 구조"></div>
             <div class="location-meta"><small id="fitType">BALCONY WINDOW · DOUBLE</small><strong id="fitName">F-250S</strong><span id="fitKind">발코니 이중창</span></div>
           </div>
           <div class="location-models" id="fitModels"></div>
@@ -191,11 +195,22 @@ button{font:inherit;border-radius:0}
         <p class="section-desc">모델과 시공 조건에 따라 적용 여부가 달라질 수 있습니다.</p>
       </div>
       <div class="option-grid">
-        <article class="option-card"><div class="num">01</div><strong>Non실리콘 유리마감</strong><p>실리콘 노출을 줄여 유리 가장자리를 단정하게 마감합니다.</p></article>
-        <article class="option-card"><div class="num">02</div><strong>히든 안전스토퍼</strong><p>내부 노출을 줄이고 창틀 파손을 방지하도록 구성합니다.</p></article>
-        <article class="option-card"><div class="num">03</div><strong>플랫 스토퍼</strong><p>창짝 안쪽에 숨겨지는 형태로 마감합니다.</p></article>
-        <article class="option-card"><div class="num">04</div><strong>히든 윈드블로커</strong><p>창짝 사이 틈새로 들어오는 외풍을 줄입니다.</p></article>
-        <article class="option-card"><div class="num">05</div><strong>플랫 방충배수캡</strong><p>벌레 유입을 줄이고 배수구를 깔끔하게 정돈합니다.</p></article>
+        <article class="option-card">
+          <figure class="option-visual"><img src="../../../../assets/viewframe-s/options/option-01.webp?v=g2026073019" alt="창짝 하부의 플랫 방충배수캡" loading="lazy" decoding="async"></figure>
+          <div class="option-copy"><div class="num">01</div><strong>플랫 방충배수캡</strong><p>벌레 유입을 줄여주는 플랫 방충배수캡입니다.</p></div>
+        </article>
+        <article class="option-card">
+          <figure class="option-visual"><img src="../../../../assets/viewframe-s/options/option-02.webp?v=g2026073019" alt="창틀에 적용된 플랫 스트라이커" loading="lazy" decoding="async"></figure>
+          <div class="option-copy"><div class="num">02</div><strong>플랫 스트라이커</strong><p>심플한 디자인의 플랫 스트라이커입니다.</p></div>
+        </article>
+        <article class="option-card">
+          <figure class="option-visual"><img src="../../../../assets/viewframe-s/options/option-03.webp?v=g2026073019" alt="내부에서 보이지 않는 히든 안전스토퍼" loading="lazy" decoding="async"></figure>
+          <div class="option-copy"><div class="num">03</div><strong>히든 안전스토퍼</strong><p>내부에서 보이지 않고 핸들 파손을 방지합니다.</p></div>
+        </article>
+        <article class="option-card">
+          <figure class="option-visual"><img src="../../../../assets/viewframe-s/options/option-05.webp?v=g2026073019" alt="창짝 하부의 플랫 디자인 마감재" loading="lazy" decoding="async"></figure>
+          <div class="option-copy"><div class="num">05</div><strong>플랫 디자인 마감재</strong><p>창짝 하부 틈새를 막아주는 플랫 디자인 마감재입니다.</p></div>
+        </article>
       </div>
       <p class="source-note">제품 이미지와 사양은 LX하우시스 창호 카탈로그를 기준으로 구성했으며, 실제 적용 가능 여부는 현장과 선택 옵션에 따라 달라질 수 있습니다.</p>
     </div>
@@ -210,7 +225,7 @@ button{font:inherit;border-radius:0}
 <script src="../../../../sitenav.js?v=g48"></script>
 <script>
 const ASSET='../../../../assets/viewframe-s/';
-const VERSION='?v=g2026073005';
+const VERSION='?v=g2026073019';
 const PRODUCTS={
   f140s:{name:'F-140S',family:'balcony',type:'BALCONY WINDOW · SINGLE',kind:'발코니 단창',glass:'24 · 26 · 28mm',feature:'단창 구조 · 발코니 적용',image:'f-140s.webp',desc:'아파트와 주택의 발코니에 적용하는 단창형 제작창입니다.'},
   f250s:{name:'F-250S',family:'balcony',type:'BALCONY WINDOW · DOUBLE',kind:'발코니 이중창',glass:'24 · 26 · 28mm',feature:'이중 구조 · 단열 강화',image:'f-250s.webp',desc:'두 겹 창 구조로 구성하는 발코니 이중창형 제작창입니다.'},

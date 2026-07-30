@@ -214,8 +214,8 @@
 .vc-family-model-button:hover,.vc-family-model-button:focus-visible{border-color:#2F5233;transform:translateY(-1px)}
 .vc-family-model-button.is-active{border-color:#2F5233;background:#2F5233;color:#fff}
 .vc-selected.is-visible::before{display:block}
-.vc-area-hotspot{z-index:5;width:26px;height:26px;box-shadow:0 0 0 4px rgba(47,82,51,.12)}.vc-area-hotspot::before{inset:8px}.vc-area-hotspot:hover,.vc-area-hotspot:focus-visible,.vc-area-hotspot.is-active{box-shadow:0 0 0 6px rgba(47,82,51,.15)}.vc-area-hung{left:42.4%;top:17.2%}.vc-area-partition{left:31%;top:47%}.vc-area-general{left:39.6%;top:69.4%}.vc-area-door{left:55%;top:59.5%}
-.vf-plan-wrap:has(.vc-area-hotspot:hover) .vc-area-hotspot.is-active:not(:hover),.vf-plan-wrap:has(.vc-area-hotspot:focus-visible) .vc-area-hotspot.is-active:not(:focus-visible){box-shadow:0 0 0 4px rgba(47,82,51,.12)}
+.vc-area-hotspot{z-index:5;width:32px;height:32px;box-shadow:0 0 0 7px rgba(47,82,51,.11)}.vc-area-hotspot::before{inset:10px}.vc-area-hotspot:hover,.vc-area-hotspot:focus-visible,.vc-area-hotspot.is-active{box-shadow:0 0 0 10px rgba(47,82,51,.16)}.vc-area-hung{left:42.4%;top:17.2%}.vc-area-partition{left:31%;top:47%}.vc-area-general{left:39.6%;top:69.4%}.vc-area-door{left:55%;top:59.5%}
+.vf-plan-wrap:has(.vc-area-hotspot:hover) .vc-area-hotspot.is-active:not(:hover),.vf-plan-wrap:has(.vc-area-hotspot:focus-visible) .vc-area-hotspot.is-active:not(:focus-visible){box-shadow:0 0 0 7px rgba(47,82,51,.11)}
 .vc-area-hung::after{left:0;transform:translate(0,-4px)}.vc-area-hung:hover::after,.vc-area-hung:focus-visible::after,.vc-area-hung.is-active::after{transform:translate(0,0)}
 .vc-area-partition::after{left:0;transform:translate(0,-4px)}.vc-area-partition:hover::after,.vc-area-partition:focus-visible::after,.vc-area-partition.is-active::after{transform:translate(0,0)}
 .vc-selected{--vf-connector-x:180px}.vc-structure,.vc-location-structure,.vc-thumb-structure{background-color:#F7F6F2;background-image:url('../../assets/viewframe-custom-lineup-v1.png');background-repeat:no-repeat;background-size:300% auto;transition:background-position .4s cubic-bezier(.16,1,.3,1)}
@@ -230,7 +230,9 @@
 .crumb .cur{font-weight:700;color:#1F3822;padding:2px 4px}
 .view{display:none}
 .view.on{display:block;animation:viewPop .24s cubic-bezier(.16,1,.3,1)}
-.custom-inline-head{text-align:center;max-width:760px;margin:0 auto;padding:0 20px clamp(34px,5vw,62px);scroll-margin-top:76px}
+/* 완성창 상세에서는 발코니창(외창) 다음에 일반창(내창)을 이어서 함께 표시 */
+#v-finished.on + #v-custom{display:block;animation:viewPop .24s cubic-bezier(.16,1,.3,1)}
+.custom-inline-head{text-align:center;max-width:760px;margin:0 auto;padding:clamp(72px,9vw,116px) 20px clamp(42px,6vw,72px);scroll-margin-top:76px}
 .custom-inline-head .eyebrow{margin-bottom:12px;color:#2F5233}
 .custom-inline-head .h2{margin-bottom:14px}
 .custom-inline-head .body-lg{color:#6E7C64}
@@ -403,7 +405,7 @@
 .vf-specs b{display:block;font-size:13px;color:#1F3822}
 .vf-selected-visual::after{content:attr(data-caption);position:absolute;z-index:2;left:12px;bottom:11px;padding:6px 8px;background:rgba(31,56,34,.9);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.08em;color:#fff}
 .vf-location{margin-top:70px;padding-top:22px;border-top:1px solid #2F5233}
-.vf-location-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:20px}.vf-location-head h3{font-size:clamp(28px,3.2vw,42px);color:#1F3822;letter-spacing:-.035em}.vf-location-head p{max-width:520px;font-size:14px;line-height:1.6;color:#6E7C64;text-align:right}
+.vf-location-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:20px}.vf-location-head h3{font-family:"Gmarket Sans","SUIT Variable",Pretendard,sans-serif;font-size:clamp(27px,2.6vw,34px);font-weight:700;line-height:1.15;color:#1F3822;letter-spacing:-.035em}.vf-location-head p{max-width:520px;font-size:14px;line-height:1.6;color:#6E7C64;text-align:right}
 .vf-location-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);min-height:580px;background:#fff;border:1px solid #C8D0C2}
 .vf-floorplan{position:relative;display:flex;align-items:center;justify-content:center;min-height:580px;padding:0;border-right:1px solid #C8D0C2;background:#fff;overflow:hidden}
 .vf-plan-wrap{position:relative;width:100%;max-width:none;background:#fff}
@@ -419,13 +421,22 @@
 .vf-hotspot--rear-expanded{left:10.4%;top:39.5%}.vf-hotspot--rear{left:26.9%;top:28.4%}.vf-hotspot--front{left:46%;top:71.7%}.vf-hotspot--front-expanded{left:65.7%;top:55.8%}.vf-hotspot--bezelless{left:88.9%;top:45.4%}
 .vf-hotspot--rear-expanded::after{left:-8px;max-width:none;white-space:nowrap;transform:translate(0,-4px)}.vf-hotspot--rear-expanded:hover::after,.vf-hotspot--rear-expanded:focus-visible::after,.vf-hotspot--rear-expanded.is-active::after{transform:translate(0,0)}
 .vf-hotspot--bezelless::after{left:auto;right:-8px;max-width:none;white-space:nowrap;transform:translate(0,-4px)}.vf-hotspot--bezelless:hover::after,.vf-hotspot--bezelless:focus-visible::after,.vf-hotspot--bezelless.is-active::after{transform:translate(0,0)}
-.vf-location-copy{display:flex;min-width:0;flex-direction:column;justify-content:center;padding:clamp(26px,3.5vw,48px)}.vf-location-copy .eyebrow{margin-bottom:10px}.vf-location-copy h4{font-size:clamp(29px,3vw,42px);line-height:1.08;color:#1F3822}.vf-location-copy>p{max-width:480px;margin-top:12px;font-size:14px;line-height:1.65;color:#6E7C64;word-break:keep-all}
+.vf-location-copy{display:flex;min-width:0;flex-direction:column;justify-content:center;padding:clamp(26px,3.5vw,48px)}.vf-location-copy .eyebrow{margin-bottom:10px}.vf-location-copy h4{font-family:"Gmarket Sans","SUIT Variable",Pretendard,sans-serif;font-size:clamp(28px,2.5vw,36px);font-weight:700;line-height:1.1;color:#1F3822}.vf-location-copy>p{max-width:480px;margin-top:12px;font-size:14px;line-height:1.65;color:#6E7C64;word-break:keep-all}
 .vf-location-stage{display:grid;grid-template-columns:minmax(150px,.95fr) minmax(130px,.65fr);align-items:center;gap:16px;min-height:210px;margin-top:22px;padding:16px;border:1px solid #B8C3B3;background:#F7F6F2;overflow:hidden}
 .vf-location-stage.is-updating{animation:vfProductIn .36s cubic-bezier(.16,1,.3,1)}
 @keyframes vfProductIn{from{opacity:.35;transform:translateY(7px) scale(.985)}to{opacity:1;transform:none}}
-.vf-location-product-image{display:flex;align-items:center;justify-content:center;min-height:176px;background:radial-gradient(circle,rgba(47,82,51,.07),transparent 62%)}.vf-location-product-image img{display:block;width:100%;height:176px;object-fit:contain;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.vf-location-product-image{display:flex;align-items:center;justify-content:center;min-height:176px;background:radial-gradient(circle,rgba(47,82,51,.07),transparent 62%)}.vf-location-product-image img{display:block;width:min(100%,170px);height:176px;object-fit:contain;transition:transform .45s cubic-bezier(.16,1,.3,1)}
 .vf-location-product-meta{min-width:0}.vf-location-product-meta small{display:block;font:500 10px 'JetBrains Mono',monospace;letter-spacing:.08em;color:#6E7C64}.vf-location-product-meta strong{display:block;margin-top:8px;font-size:clamp(26px,2.6vw,38px);line-height:1;color:#1F3822;letter-spacing:-.04em;white-space:nowrap}.vf-location-product-meta span{display:block;margin-top:9px;font-size:13px;line-height:1.45;color:#6E7C64}
-.vf-location-models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.vf-location-models button{display:block;min-width:0;padding:9px;border:1px solid #C7CEC2;background:#fff;color:#1F3822;text-align:left;cursor:pointer;transition:border-color .2s,background .2s,transform .25s}.vf-location-models button:hover,.vf-location-models button:focus-visible{border-color:#2F5233;transform:translateY(-2px)}.vf-location-models button.is-active{border-color:#2F5233;background:#EEF1EB}.vf-location-thumb{display:flex;align-items:center;justify-content:center;height:72px;background:#F7F6F2;overflow:hidden}.vf-location-thumb img{width:100%;height:68px;object-fit:contain;transition:transform .4s cubic-bezier(.16,1,.3,1)}.vf-location-models button:hover img{transform:scale(1.06)}.vf-location-models button small{display:none}.vf-location-models button strong{display:block;margin-top:8px;font-size:16px;color:#1F3822;white-space:nowrap}
+.vf-location-models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.vf-location-models button{display:block;min-width:0;padding:9px;border:1px solid #C7CEC2;background:#fff;color:#1F3822;text-align:left;cursor:pointer;transition:border-color .2s,background .2s,transform .25s}.vf-location-models button:hover,.vf-location-models button:focus-visible{border-color:#2F5233;transform:translateY(-2px)}.vf-location-models button.is-active{border-color:#2F5233;background:#EEF1EB}.vf-location-thumb{display:flex;align-items:center;justify-content:center;height:72px;background:#F7F6F2;overflow:hidden}.vf-location-thumb img{width:min(100%,78px);height:68px;object-fit:contain;transition:transform .4s cubic-bezier(.16,1,.3,1)}.vf-location-models button:hover img{transform:scale(1.06)}.vf-location-models button small{display:none}.vf-location-models button strong{display:block;margin-top:8px;font-size:16px;color:#1F3822;white-space:nowrap}
+/* 완성창 하단 — 카탈로그 핸들·내부 컬러 시트 */
+.vf-finish-options{margin-top:82px;padding-top:28px;border-top:1px solid #2F5233}
+.vf-finish-options-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.7fr);align-items:end;gap:34px;margin-bottom:28px}
+.vf-finish-options-head .eyebrow{margin-bottom:8px}.vf-finish-options-head h3{font-family:"Gmarket Sans","SUIT Variable",Pretendard,sans-serif;font-size:clamp(30px,3.2vw,44px);line-height:1.08;letter-spacing:-.04em;color:#1F3822}.vf-finish-options-head p{font-size:14px;line-height:1.65;color:#6E7C64;text-align:right;word-break:keep-all}
+.vf-handle-banner{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;min-height:210px;padding:26px 32px;border:1px solid #BFC9BA;background:#fff}.vf-handle-banner-copy h4{font-family:"Gmarket Sans","SUIT Variable",Pretendard,sans-serif;font-size:clamp(26px,2.6vw,36px);line-height:1.1;color:#1F3822}.vf-handle-banner-copy p{max-width:570px;margin-top:12px;font-size:14px;line-height:1.65;color:#6E7C64;word-break:keep-all}.vf-handle-banner img{display:block;width:100%;height:170px;object-fit:contain}
+.vf-handle-family{display:grid;grid-template-columns:250px minmax(0,1fr);border-left:1px solid #BFC9BA;border-right:1px solid #BFC9BA;border-bottom:1px solid #BFC9BA;background:#fff}.vf-handle-family-copy{padding:26px 25px;border-right:1px solid #BFC9BA}.vf-handle-family-copy small{font:500 10px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.11em;color:#6E7C64}.vf-handle-family-copy h5{margin-top:7px;font-family:"Gmarket Sans","SUIT Variable",Pretendard,sans-serif;font-size:22px;line-height:1.25;color:#1F3822}.vf-handle-family-copy p{margin-top:11px;font-size:12.5px;line-height:1.7;color:#6E7C64;word-break:keep-all}.vf-handle-colors{display:flex;gap:15px;margin-top:18px}.vf-handle-color{display:flex;align-items:center;gap:6px;font-size:10px;color:#6E7C64}.vf-handle-color::before{content:"";width:18px;height:18px;border:1px solid #C5CABB;border-radius:50%;background:var(--chip)}
+.vf-handle-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:0}.vf-handle-grid.is-three{grid-template-columns:repeat(3,minmax(0,1fr))}.vf-handle-card{min-width:0;padding:14px 8px 13px;border-right:1px solid #E0E4DB;text-align:center}.vf-handle-card:last-child{border-right:0}.vf-handle-media{display:flex;align-items:center;justify-content:center;height:124px;gap:2px;background:#FAFAF7;overflow:hidden}.vf-handle-media img{display:block;max-width:52%;height:108px;object-fit:contain}.vf-handle-card:not(.is-pair) .vf-handle-media img{max-width:80%;height:112px}.vf-handle-card strong{display:block;margin-top:10px;font-size:12px;line-height:1.3;color:#1F3822;word-break:keep-all}.vf-handle-card span{display:block;margin-top:3px;font:500 9px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.06em;color:#8A9484}
+.vf-catalog-note{margin:14px 0 0;font-size:10.5px;line-height:1.65;color:#879180}
+.vf-sheet-panel{margin-top:74px;padding-top:28px;border-top:1px solid #2F5233}.vf-sheet-head{display:grid;grid-template-columns:250px 1fr;align-items:end;gap:34px;margin-bottom:22px}.vf-sheet-head h4{font-family:"Gmarket Sans","SUIT Variable",Pretendard,sans-serif;font-size:clamp(27px,2.7vw,36px);line-height:1.1;color:#1F3822}.vf-sheet-head p{font-size:14px;line-height:1.65;color:#6E7C64;word-break:keep-all}.vf-sheet-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid #BFC9BA;border-left:1px solid #BFC9BA}.vf-sheet-card{display:flex;min-width:0;align-items:center;gap:13px;padding:17px;border-right:1px solid #BFC9BA;border-bottom:1px solid #BFC9BA;background:#fff}.vf-sheet-swatch{flex:0 0 62px;width:62px;height:62px;border:1px solid #CCD1C7;border-radius:50%;object-fit:cover}.vf-sheet-card strong{display:block;font-size:12px;line-height:1.3;color:#1F3822;word-break:keep-all}.vf-sheet-card span{display:block;margin-top:3px;font-size:10px;line-height:1.3;color:#6E7C64}.vf-sheet-card code{display:block;margin-top:2px;font:500 9px 'JetBrains Mono',ui-monospace,monospace;color:#8A9484}
 @media(max-width:760px){
   .vf-finished{margin-top:24px}
   .vf-story{height:clamp(520px,68svh,620px);display:block;overflow:hidden;background:#111}
@@ -464,14 +475,23 @@
   .vf-location-copy{padding:26px 18px 30px}.vf-location-stage{grid-template-columns:1fr 120px;min-height:184px;padding:12px}.vf-location-product-image{min-height:150px}.vf-location-product-image img{height:150px}.vf-location-models{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 7px;scrollbar-width:none}.vf-location-models::-webkit-scrollbar{display:none}.vf-location-models button{flex:0 0 116px;scroll-snap-align:start}.vf-hotspot{width:28px;height:28px;box-shadow:0 0 0 6px rgba(47,82,51,.12)}.vf-hotspot::before{inset:9px}.vf-hotspot::after{top:36px;max-width:145px;padding:5px 7px;font-size:9px;box-shadow:3px 4px 0 rgba(47,82,51,.08)}
 }
 @media(max-width:480px){.vf-story{height:clamp(450px,67svh,500px)}}
+@media(max-width:900px){
+  .vf-finish-options-head{grid-template-columns:1fr}.vf-finish-options-head p{text-align:left}
+  .vf-handle-family{grid-template-columns:1fr}.vf-handle-family-copy{border-right:0;border-bottom:1px solid #BFC9BA}.vf-handle-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.vf-handle-grid.is-three{grid-template-columns:repeat(3,minmax(0,1fr))}.vf-handle-card{border-bottom:1px solid #E0E4DB}.vf-handle-card:nth-child(4n){border-right:0}.vf-handle-card:nth-last-child(-n+3){border-bottom:0}.vf-sheet-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.vf-sheet-head{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .vf-finish-options{margin-top:58px;padding-top:22px}.vf-finish-options-head{gap:12px;margin-bottom:20px}.vf-finish-options-head h3{font-size:34px}.vf-handle-banner{grid-template-columns:1fr 120px;min-height:170px;padding:20px 18px}.vf-handle-banner-copy p{font-size:12.5px}.vf-handle-banner img{height:120px}
+  .vf-handle-family-copy{padding:22px 18px}.vf-handle-grid,.vf-handle-grid.is-three{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.vf-handle-grid::-webkit-scrollbar{display:none}.vf-handle-card{flex:0 0 132px;border-right:1px solid #E0E4DB!important;border-bottom:0!important;scroll-snap-align:start}.vf-handle-media{height:116px}.vf-handle-media img{height:100px}.vf-handle-card:not(.is-pair) .vf-handle-media img{height:104px}
+  .vf-sheet-panel{margin-top:54px;padding-top:22px}.vf-sheet-head{gap:10px}.vf-sheet-head p{font-size:13px}.vf-sheet-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vf-sheet-card{display:block;padding:15px 12px;text-align:center}.vf-sheet-swatch{width:72px;height:72px;margin:0 auto 10px}.vf-catalog-note{font-size:9.5px}
+}
 @media(max-width:760px){
   .vc-detail-models{width:100%;gap:5px;margin:0 0 18px;padding:0 0 12px;overflow:visible;scroll-snap-type:none}
   .vc-detail-models::before{display:none}
   .vc-family-model-button{flex:0 0 calc((100% - 10px)/3);min-width:0;height:46px;padding:4px 3px;flex-direction:column;gap:1px;line-height:1.05}
   .vc-family-model-button b{font-size:10px}
   .vc-family-model-button span{max-width:100%;font-size:9px;line-height:1.1;white-space:normal;word-break:keep-all;text-align:center}
-  .vc-area-hotspot{width:24px;height:24px;box-shadow:0 0 0 4px rgba(47,82,51,.12)}
-  .vc-area-hotspot::before{inset:7px}
+  .vc-area-hotspot{width:28px;height:28px;box-shadow:0 0 0 6px rgba(47,82,51,.12)}
+  .vc-area-hotspot::before{inset:9px}
 }
 @media(prefers-reduced-motion:reduce){.vf-scene,.vf-scene img,.vf-model img{transition:none!important}}
 /* 완성창 공통 배경 선언보다 제작창 8개 구조 이미지를 우선 표시 */
@@ -577,8 +597,8 @@
     <div class="view" id="v-finished">
       <div class="vhead vhead--back-leading">
         <div class="eyebrow">VIEW FRAME · BALCONY</div>
-        <h2 class="h2">다섯 가지 프레임,<br>한눈에.</h2>
-        <p class="body-lg">공간과 성능에 맞는 발코니창을 비교해보세요.</p>
+        <h2 class="h2" id="vfCompareTitle">발코니창(외창)</h2>
+        <p class="body-lg">다섯 가지 프레임을 한눈에 비교하고, 공간과 성능에 맞는 발코니창을 선택해보세요.</p>
       </div>
       <div class="vf-finished">
         <section class="vf-story" id="vfStory" aria-label="일반형과 고급형 발코니창 공간 비교">
@@ -597,7 +617,7 @@
 
         <section class="vf-compare" aria-labelledby="vfCompareTitle">
           <div class="vf-compare-head">
-            <div><div class="eyebrow">PRODUCT LINEUP</div><h3 id="vfCompareTitle">발코니창(외창)</h3></div>
+            <div><div class="eyebrow">PRODUCT LINEUP</div></div>
           </div>
           <div class="vf-model-slider">
             <div class="vf-model-arrows" aria-label="제품 목록 이동"><button type="button" data-vf-dir="-1" aria-label="이전 제품" disabled>‹</button><button type="button" data-vf-dir="1" aria-label="다음 제품">›</button></div>
@@ -653,7 +673,7 @@
     <div class="view" id="v-custom">
       <div class="custom-inline-head" id="customInlineStart">
         <div class="eyebrow">VIEW FRAME · CUSTOM</div>
-        <h2 class="h2">일반창(내창)</h2>
+        <h2 class="h2" id="vcLineupTitle">일반창(내창)</h2>
         <p class="body-lg">실내창부터 분합문과 여닫이창까지, 공간에 맞춰 제작하는 제품을 이어서 살펴보세요.</p>
       </div>
       <section class="custom-hero" aria-labelledby="customHeroTitle">
@@ -677,7 +697,7 @@
         </article>
       </section>
       <section class="vc-lineup vf-compare" aria-labelledby="vcLineupTitle">
-        <div class="vf-compare-head"><div><div class="eyebrow">PRODUCT LINEUP</div><h3 id="vcLineupTitle">일반창(내창)</h3></div></div>
+        <div class="vf-compare-head"><div><div class="eyebrow">PRODUCT LINEUP</div></div></div>
         <div class="vf-model-slider">
           <div class="vf-model-arrows" aria-label="제작창 제품 목록 이동"><button type="button" data-vc-dir="-1" aria-label="이전 제품">‹</button><button type="button" data-vc-dir="1" aria-label="다음 제품">›</button></div>
           <div class="vf-model-rail vc-model-rail" id="vcModelRail" role="group" aria-label="제작창 8개 모델">
@@ -702,6 +722,74 @@
         <div class="vf-location-grid">
           <div class="vf-floorplan vc-location-plan"><div class="vf-plan-wrap" id="vcPlanWrap"><img class="vf-plan-art" src="../../assets/viewframe-finished/home-floorplan-clean-v12.png" alt="아파트 공간별 제작창 적용 위치 안내도"><button class="vf-hotspot vc-area-hotspot vc-area-hung" type="button" data-vc-family="hung" aria-label="세탁실·계단실&#10;F-SH60 · F-TH60"></button><button class="vf-hotspot vc-area-hotspot vc-area-partition" type="button" data-vc-family="partition" aria-label="실내 분합문&#10;F-230WF · F-230W"></button><button class="vf-hotspot vc-area-hotspot vc-area-general is-active" type="button" data-vc-family="general" aria-label="실내창&#10;F-130I · F-250I · F-270I"></button><button class="vf-hotspot vc-area-hotspot vc-area-door" type="button" data-vc-family="door" aria-label="실내 도어&#10;F-TD140"></button></div></div>
           <div class="vf-location-copy"><div class="eyebrow">SELECTED AREA</div><h4 id="vcLocationName">거실·방 실내창</h4><p id="vcLocationDesc">단창과 이중창 중 공간에 필요한 성능을 선택할 수 있습니다.</p><div class="vf-location-stage"><div class="vf-location-product-image"><img id="vcLocationImage" src="../../assets/viewframe-custom-f-130i-matched-v4.png" alt="F-130I 제품 구조"></div><div class="vf-location-product-meta"><small id="vcLocationType">GENERAL · SINGLE</small><strong id="vcLocationModel">F-130I</strong><span id="vcLocationKind">일반창 단창</span></div></div><div class="vf-location-models" id="vcLocationModels"></div></div>
+        </div>
+      </section>
+
+      <section class="vf-finish-options" aria-labelledby="vfFinishOptionsTitle">
+        <div class="vf-finish-options-head">
+          <div><div class="eyebrow">HANDLE · INTERIOR SHEET</div><h3 id="vfFinishOptionsTitle">핸들과 컬러를 고르세요.</h3></div>
+          <p>공간의 분위기와 사용 방식에 맞춰 핸들 라인과 내부 컬러 시트를 선택할 수 있습니다.</p>
+        </div>
+
+        <div class="vf-handle-banner">
+          <div class="vf-handle-banner-copy"><div class="eyebrow">ANTIBACTERIAL HANDLE</div><h4>항균 성능 핸들</h4><p>디자인과 소재가 다른 세 가지 핸들 라인으로 창의 사용감과 분위기를 완성합니다.</p></div>
+          <img src="../../assets/viewframe-finished/handles/handle-family.webp?v=g2026073101" alt="프리마, 스퀘마, 아노다이징 핸들 비교" loading="lazy">
+        </div>
+
+        <article class="vf-handle-family">
+          <div class="vf-handle-family-copy"><small>01 · PRIMA</small><h5>프리마 라인</h5><p>이탈리아어로 ‘최고’를 뜻하는 프리마는 전체 실버 색상의 다이캐스팅 금속 재질을 적용해 심플한 디자인에 고급스러움을 강조한 핸들 라인입니다.</p></div>
+          <div class="vf-handle-grid" aria-label="프리마 핸들 종류">
+            <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/prima-large.webp?v=g2026073101" alt="프리마 대형핸들" loading="lazy"></div><strong>대형핸들</strong></div>
+            <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/prima-small.webp?v=g2026073101" alt="프리마 소형핸들" loading="lazy"></div><strong>소형핸들</strong></div>
+            <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/prima-grip.webp?v=g2026073101" alt="프리마 Grip 핸들" loading="lazy"></div><strong>Grip</strong></div>
+            <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/prima-pocket.webp?v=g2026073101" alt="프리마 Pocket 핸들" loading="lazy"></div><strong>Pocket</strong></div>
+            <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/prima-crescent.webp?v=g2026073101" alt="프리마 Crescent 핸들" loading="lazy"></div><strong>Crescent</strong></div>
+            <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/prima-door.webp?v=g2026073101" alt="프리마 Door 핸들" loading="lazy"></div><strong>Door</strong></div>
+            <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/prima-smart.webp?v=g2026073101" alt="프리마 스마트핸들" loading="lazy"></div><strong>스마트핸들</strong></div>
+          </div>
+        </article>
+
+        <article class="vf-handle-family">
+          <div class="vf-handle-family-copy"><small>02 · SQUAMA</small><h5>스퀘마 라인</h5><p>라틴어로 물고기를 뜻하는 ‘스퀘마’는 재운과 행복을 가져다준다는 의미를 담았습니다. 유선형 디자인과 컬러 옵션, 편의성을 강화한 핸들 라인입니다.</p><div class="vf-handle-colors"><span class="vf-handle-color" style="--chip:#9A7A48">Gold</span><span class="vf-handle-color" style="--chip:#AEB2B4">Silver</span></div></div>
+          <div class="vf-handle-grid" aria-label="스퀘마 핸들 종류">
+            <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/squama-manual-gold.webp?v=g2026073101" alt="골드 스퀘마 수동핸들" loading="lazy"><img src="../../assets/viewframe-finished/handles/squama-manual-silver.webp?v=g2026073101" alt="실버 스퀘마 수동핸들" loading="lazy"></div><strong>수동핸들</strong><span>GOLD · SILVER</span></div>
+            <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/squama-large-gold.webp?v=g2026073101" alt="골드 스퀘마 대형핸들" loading="lazy"><img src="../../assets/viewframe-finished/handles/squama-large-silver.webp?v=g2026073101" alt="실버 스퀘마 대형핸들" loading="lazy"></div><strong>대형핸들</strong><span>GOLD · SILVER</span></div>
+            <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/squama-small-gold.webp?v=g2026073101" alt="골드 스퀘마 소형핸들" loading="lazy"><img src="../../assets/viewframe-finished/handles/squama-small-silver.webp?v=g2026073101" alt="실버 스퀘마 소형핸들" loading="lazy"></div><strong>소형핸들</strong><span>GOLD · SILVER</span></div>
+            <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/squama-grip-gold.webp?v=g2026073101" alt="골드 스퀘마 Grip 핸들" loading="lazy"><img src="../../assets/viewframe-finished/handles/squama-grip-silver.webp?v=g2026073101" alt="실버 스퀘마 Grip 핸들" loading="lazy"></div><strong>Grip</strong><span>GOLD · SILVER</span></div>
+            <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/squama-pocket-gold.webp?v=g2026073101" alt="골드 스퀘마 Pocket 핸들" loading="lazy"><img src="../../assets/viewframe-finished/handles/squama-pocket-silver.webp?v=g2026073101" alt="실버 스퀘마 Pocket 핸들" loading="lazy"></div><strong>Pocket</strong><span>GOLD · SILVER</span></div>
+            <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/squama-crescent-gold.webp?v=g2026073101" alt="골드 스퀘마 Crescent 핸들" loading="lazy"><img src="../../assets/viewframe-finished/handles/squama-crescent-silver.webp?v=g2026073101" alt="실버 스퀘마 Crescent 핸들" loading="lazy"></div><strong>Crescent</strong><span>GOLD · SILVER</span></div>
+            <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/squama-door-gold.webp?v=g2026073101" alt="골드 스퀘마 Door 핸들" loading="lazy"><img src="../../assets/viewframe-finished/handles/squama-door-silver.webp?v=g2026073101" alt="실버 스퀘마 Door 핸들" loading="lazy"></div><strong>Door</strong><span>GOLD · SILVER</span></div>
+          </div>
+        </article>
+
+        <article class="vf-handle-family">
+          <div class="vf-handle-family-copy"><small>03 · ANODIZING</small><h5>아노다이징 라인</h5><p>알루미늄 소재로 제작해 내구성을 높였으며, 세련된 광택을 내는 표면처리 기술을 적용한 최고급 핸들 라인입니다.</p></div>
+          <div class="vf-handle-grid is-three" aria-label="아노다이징 핸들 종류">
+            <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/anodizing-large.webp?v=g2026073101" alt="아노다이징 대형핸들" loading="lazy"></div><strong>대형핸들</strong></div>
+            <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/anodizing-small.webp?v=g2026073101" alt="아노다이징 소형핸들" loading="lazy"></div><strong>소형핸들</strong></div>
+            <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../assets/viewframe-finished/handles/anodizing-lock.webp?v=g2026073101" alt="아노다이징 꺾임핸들" loading="lazy"></div><strong>꺾임핸들</strong></div>
+          </div>
+        </article>
+        <p class="vf-catalog-note">※ 항균 테스트 기준 ISO 22196:2011 준용. 선택 가능한 핸들 종류와 색상은 모델 사양에 따라 달라질 수 있습니다.</p>
+
+        <div class="vf-sheet-panel">
+          <div class="vf-sheet-head"><div><div class="eyebrow">INTERIOR COLOR SHEET</div><h4>내부 컬러 시트</h4></div><p>트렌디한 화이트톤 컬러와 텍스처가 풍부한 우드컬러로 조화로운 인테리어를 연출할 수 있습니다.</p></div>
+          <div class="vf-sheet-grid" aria-label="내부 컬러 시트 13종">
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/off-white.webp?v=g2026073101" alt="오프 화이트 컬러 시트" loading="lazy"><div><strong>오프 화이트</strong><span>Off White</span><code>WAU65</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/pure-white.webp?v=g2026073101" alt="퓨어 화이트 컬러 시트" loading="lazy"><div><strong>퓨어 화이트</strong><span>Pure White</span><code>WAP97</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/snow-white.webp?v=g2026073101" alt="스노우 화이트 컬러 시트" loading="lazy"><div><strong>스노우 화이트</strong><span>Snow White</span><code>WAQ76</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/cream-white.webp?v=g2026073101" alt="크림 화이트 컬러 시트" loading="lazy"><div><strong>크림 화이트</strong><span>Cream White</span><code>WAR89</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/mono-white.webp?v=g2026073101" alt="모노 화이트 컬러 시트" loading="lazy"><div><strong>모노 화이트</strong><span>Mono White</span><code>WAU51</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/creamy.webp?v=g2026073101" alt="크리미 컬러 시트" loading="lazy"><div><strong>크리미</strong><span>Creamy</span><code>NQ904</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/wash-beige.webp?v=g2026073101" alt="워시 베이지 컬러 시트" loading="lazy"><div><strong>워시 베이지</strong><span>Wash Beige</span><code>AJI04</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/light-beige.webp?v=g2026073101" alt="라이트 베이지 컬러 시트" loading="lazy"><div><strong>라이트 베이지</strong><span>Light Beige</span><code>NCBS2</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/crema.webp?v=g2026073101" alt="크레마 컬러 시트" loading="lazy"><div><strong>크레마</strong><span>Crema</span><code>NQ903</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/natural-oak.webp?v=g2026073101" alt="내추럴 오크 컬러 시트" loading="lazy"><div><strong>내추럴 오크</strong><span>Natural Oak</span><code>NQ901</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/modern-gray.webp?v=g2026073101" alt="모던 그레이 컬러 시트" loading="lazy"><div><strong>모던 그레이</strong><span>Modern Gray</span><code>KAFM8</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/modern-black.webp?v=g2026073101" alt="모던 블랙 컬러 시트" loading="lazy"><div><strong>모던 블랙</strong><span>Modern Black</span><code>KDB86</code></div></div>
+            <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../assets/viewframe-finished/sheets/urban-gray.webp?v=g2026073101" alt="어반 그레이 컬러 시트" loading="lazy"><div><strong>어반 그레이</strong><span>Urban Gray</span><code>KAEC4</code></div></div>
+          </div>
+          <p class="vf-catalog-note">※ 내부 컬러 시트는 모델별 선택 가능 사양이 다를 수 있으며, 화면과 실제 색상에는 차이가 있을 수 있습니다.</p>
         </div>
       </section>
     </div>
