@@ -113,7 +113,7 @@ var GROUPS=[
   ]},
   {id:'consult',label:'상담신청',href:'#',align:'mg-right',cta:true,items:[
     {href:'#',name:'무료 상담 신청',sub:'consult',action:'inquiry'},
-    {href:'tel:02-0000-0000',name:'전화 문의',sub:'평일 09:00–18:00'},
+    {href:'tel:02-6012-0033',name:'전화 문의',sub:'평일 09:00–18:00'},
     {href:site('about/#flow'),name:'진행 방식 보기',sub:'how it works'}
   ]}
 ];

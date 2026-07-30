@@ -144,11 +144,12 @@ section[id]{scroll-margin-top:78px}
 .nb{white-space:nowrap}
 .ev-visual{margin-top:auto;height:150px;display:grid;place-items:center;font-weight:700;letter-spacing:-.03em}
 .ev-visual span{font-family:'Gmarket Sans','SUIT Variable',sans-serif;font-weight:700;font-size:clamp(34px,3.6vw,46px);line-height:1;color:var(--headline)}
+.ev-visual .ev-quality-copy{font-size:clamp(25px,2.4vw,32px);line-height:1.08;letter-spacing:-.02em;text-align:center}
 .ev-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:0;background:rgba(255,255,255,.92);border:1px solid var(--hairline);box-shadow:0 8px 22px rgba(0,0,0,.10);color:var(--ink);font-size:21px;font-weight:300;display:flex;align-items:center;justify-content:center;z-index:5;transition:background .25s var(--ease),color .25s var(--ease),opacity .25s var(--ease)}
 .ev-arrow:hover{background:var(--headline);color:#fff;border-color:var(--headline)}
 .ev-arrow:disabled{opacity:0;pointer-events:none}
 .ev-prev{left:14px}.ev-next{right:14px}
-@media(max-width:900px){.ev-card{flex:0 0 286px;max-width:286px;min-height:0}.ev-body{padding:22px 22px 0;gap:6px}.ev-desc{font-size:14px;line-height:1.58;margin-top:4px}.ev-visual{height:88px}.ev-visual span{font-size:34px}.ev-arrow{width:42px;height:42px;font-size:19px}.ev-title{font-size:22px}}
+@media(max-width:900px){.ev-card{flex:0 0 286px;max-width:286px;min-height:0}.ev-body{padding:22px 22px 0;gap:6px}.ev-desc{font-size:14px;line-height:1.58;margin-top:4px}.ev-visual{height:88px}.ev-visual span{font-size:34px}.ev-visual .ev-quality-copy{font-size:25px}.ev-arrow{width:42px;height:42px;font-size:19px}.ev-title{font-size:22px}}
 
 /* cases — Apple Arcade 스타일 와이드 카드 자동 캐러셀 */
 .cs-wrap{position:relative}
@@ -158,6 +159,20 @@ section[id]{scroll-margin-top:78px}
 .cs-card{flex:0 0 440px;max-width:440px;scroll-snap-align:center;display:block}
 .cs-media{aspect-ratio:16/9;border-radius:0;overflow:hidden;background-size:cover;background-position:center;transition:transform .5s var(--ease-soft)}
 .cs-card:hover .cs-media{transform:scale(1.02)}
+.cs-media.cs-compare{display:grid;grid-template-columns:1fr 1fr;background:#1F3822}
+.cs-compare-shot{position:relative;min-width:0;overflow:hidden}
+.cs-compare-shot+.cs-compare-shot{border-left:1px solid #F4F0E6}
+.cs-compare-shot i{position:absolute;inset:0;background-image:var(--img);background-size:cover;background-position:center}
+.cs-compare-before i{filter:saturate(.78) brightness(.84)}
+.cs-compare-label{position:absolute;left:10px;top:10px;padding:5px 8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.08em;line-height:1}
+.cs-compare-before .cs-compare-label{background:#F4F0E6;color:#1F3822}
+.cs-compare-after .cs-compare-label{background:#1F3822;color:#F4F0E6}
+.cs-media.cs-video{display:grid;grid-template-columns:42% 58%;background:#1F3822}
+.cs-video img{width:100%;height:100%;object-fit:cover;object-position:center}
+.cs-video-copy{display:flex;flex-direction:column;justify-content:center;padding:22px;color:#F4F0E6}
+.cs-video-copy small{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.12em}
+.cs-video-copy b{font-family:'Gmarket Sans','Pretendard Variable',sans-serif;font-size:34px;line-height:1;font-weight:700;margin-top:7px}
+.cs-video-copy span{font-size:12px;color:#C9D2C5;margin-top:auto;padding-top:15px;border-top:1px solid rgba(244,240,230,.35)}
 .cs-title{margin-top:14px;font-size:17px;font-weight:600;color:var(--headline)}
 .cs-sub{font-size:14px;color:var(--muted);margin-top:2px}
 @media(max-width:900px){.cs-card{flex:0 0 320px;max-width:320px}.cs-title{font-size:15px}}
@@ -445,7 +460,7 @@ body{counter-reset:mmsec}
     <div class="about-stats">
       <div class="ast"><div class="fig"><span data-count="1200">0</span><span class="u">+</span></div><div class="lab">누적 시공 세대<small>전국 아파트·주택·상가</small></div></div>
       <div class="ast"><div class="fig"><span data-count="4">0</span><span class="u">+</span></div><div class="lab">본사 정품 브랜드<small>KCC·LX·KBE·고구려</small></div></div>
-      <div class="ast"><div class="fig"><span data-count="10">0</span><span class="u">년</span></div><div class="lab">본사 품질 보증<small>거주 시공 가능</small></div></div>
+      <div class="ast"><div class="fig"><span data-count="10">0</span><span class="u">년</span></div><div class="lab">본사 품질 보증<small>LX하우시스 본사제품 기준</small></div></div>
     </div>
   </div>
 </section>
@@ -473,32 +488,32 @@ body{counter-reset:mmsec}
           <div class="ev-title">유통 마진 20% 절감,<br><span style="white-space:nowrap">30평 기준 약 200만 원</span></div>
           <p class="ev-desc">본사 직거래로 불필요한 유통 단계를 줄여, 같은 자재를 더 합리적으로 제안합니다.</p>
         </div>
-        <div class="ev-visual" aria-hidden="true"><span>20%</span></div>
+        <div class="ev-visual" aria-hidden="true"><span class="ev-quality-copy">HIGH QUALITY<br>LOW PRICE</span></div>
       </a>
 
       <a class="ev-card" href="about/#model" aria-label="창호 단독 시공과 본사 직거래 방식 자세히 보기">
         <div class="ev-body">
           <div class="ev-sub">WINDOW FIRST</div>
           <div class="ev-title">창호만 따로<br>시공할 수 있어요</div>
-          <p class="ev-desc">창호만 단독으로도, 인테리어와 함께도 원하는 방식으로 진행합니다.</p>
+          <p class="ev-desc">창호만 단독으로도, 인테리어와 함께도 원하는 방식으로 진행합니다.<br>거주 중에도 시공할 수 있습니다.</p>
         </div>
         <div class="ev-visual" aria-hidden="true"><span>창호 단독</span></div>
       </a>
 
-      <a class="ev-card" href="about/#brand-verified" aria-label="검증된 협력사 안내 자세히 보기">
+      <a class="ev-card" href="interior/" aria-label="검증된 협력사 인테리어 안내 보기">
         <div class="ev-body">
           <div class="ev-sub">VERIFIED NETWORK</div>
           <div class="ev-title">검증된 협력사와<br>연결해 드려요</div>
           <p class="ev-desc">직접 검증한 협력사와 연결해 책임 범위를 명확히 합니다.</p>
         </div>
-        <div class="ev-visual" aria-hidden="true"><span>함께</span></div>
+        <div class="ev-visual" aria-hidden="true"><span>네트워크</span></div>
       </a>
 
       <a class="ev-card" href="about/#brand-warranty" aria-label="본사 품질 보증 안내 자세히 보기">
         <div class="ev-body">
           <div class="ev-sub">WARRANTY</div>
           <div class="ev-title">본사 품질 보증<br>10년</div>
-          <p class="ev-desc">본사 품질 보증 10년. 거주 중에도 시공할 수 있습니다.</p>
+          <p class="ev-desc">LX하우시스 본사 품질 보증 10년.</p>
         </div>
         <div class="ev-visual" aria-hidden="true"><span>10년</span></div>
       </a>
@@ -559,21 +574,22 @@ body{counter-reset:mmsec}
 <footer class="footer" id="contact">
   <div class="wrap">
     <div class="footer-grid">
-      <div><a href="./" aria-label="MM LAB 홈" style="display:inline-block;line-height:0;margin-bottom:14px"><img src="assets/brand/mm-lab-lockup-horizontal-green.png?v=b1" width="1489" height="393" alt="MM LAB" style="display:block;width:148px;height:auto"></a><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px">support@mmlab.kr<br>02-0000-0000 (평일 09:00~18:00)</p></div>
+      <div><a href="./" aria-label="MM LAB 홈" style="display:inline-block;line-height:0;margin-bottom:14px"><img src="assets/brand/mm-lab-lockup-horizontal-green.png?v=b1" width="1489" height="393" alt="MM LAB" style="display:block;width:148px;height:auto"></a><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px"><a href="mailto:ksw.mmlab@gmail.com">ksw.mmlab@gmail.com</a><br><a href="tel:02-6012-0033">02-6012-0033</a> (평일 09:00~18:00)</p></div>
       <div><h4>창호 브랜드</h4><a href="windows/lx/">LX하우시스</a><a href="windows/kcc/">KCC</a><a href="windows/kbe/">독일 시스템창호 KBE</a><a href="screens/kogo/">고구려안전방충망</a></div>
       <div><h4>인테리어</h4><a href="#">주거 인테리어</a><a href="#">부분 리모델링</a><a href="#">A/S 안내</a><a href="#">거주 시공</a></div>
       <div><h4>B2B / 도매</h4><a href="#" onclick="openModal();return false;">도매·납품 문의</a><a href="#" onclick="openModal();return false;">협력 인테리어사 등록</a><a href="#" onclick="openModal();return false;">대량 견적</a></div>
     </div>
     <div class="footer-bottom">
       © 2026 MM LAB. All rights reserved.<br>
-      대표자 어반로드 · 사업자등록번호 000-00-00000 · 통신판매업 신고 제2026-서울-00000호<br>
-      서울특별시 ○○구 ○○로 00 · 본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.
+      상호 어반로드(urbanroad) · 대표자 김완섭 · 사업자등록번호 336-38-00713 · 통신판매업 신고번호 제2020-서울용산-1116호<br>
+      사업장 서울특별시 용산구 이촌로14길 16, 1층 상가 101호(이촌동) · 업태 건설업·소매업 · 종목 창호·중문·전자상거래<br>
+      본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.
     </div>
   </div>
 </footer>
 
 <div class="mcta">
-  <div class="mcta-info"><span>consult</span><b>무료 상담 · 현장 실측</b></div>
+  <div class="mcta-info"><span>consult</span><b>무료 상담</b></div>
   <a href="#" class="quote" onclick="openModal();return false;">상담신청</a>
 </div>
 
@@ -610,7 +626,7 @@ body{counter-reset:mmsec}
   </div>
 </div>
 
-<script src="sitenav.js?v=g47"></script>
+<script src="sitenav.js?v=g48"></script>
 <script>
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -705,11 +721,11 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp
 
 /* cases 테이블 매핑 — 시공사례 (id·status·price·purchasable = 커머스 확장 대비 필드) */
 var CASES = [
-  {id:'case-1', status:'published', price:null, purchasable:false, title:'KBE 88mm 시스템창호 / 거실 전면', location:'서울 · 양천구 · 신정 래미안', image:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1400&auto=format&fit=crop'},
-  {id:'case-2', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 타운하우스', location:'경기 · 김포 · 라피아노 1차', image:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1400&auto=format&fit=crop'},
-  {id:'case-3', status:'published', price:null, purchasable:false, title:'KBE / 패시브하우스 적용', location:'경기 · 용인 · W 타운하우스', image:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1400&auto=format&fit=crop'},
-  {id:'case-4', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 타운하우스', location:'경기 · 김포 · 라피아노 2차', image:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop'},
-  {id:'case-5', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 공공시설', location:'충남 · 아산 · 중앙도서관', image:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1400&auto=format&fit=crop'}
+  {id:'sangdo-geonyeong-40', status:'published', price:null, purchasable:false, title:'상도건영 40평형 창호 시공', location:'서울 · 동작구 · BEFORE & AFTER', image:'assets/projects/sangdo-geonyeong-40/after/01.webp', beforeImage:'assets/projects/sangdo-geonyeong-40/before/03.webp', afterImage:'assets/projects/sangdo-geonyeong-40/after/01.webp'},
+  {id:'hydraulic-winch-lifting', type:'video', status:'published', price:null, purchasable:false, title:'차량 유압 윈치 양중', location:'대형 창호 자재 반입 과정', image:'assets/projects/hydraulic-winch-lifting/poster.webp?v=g2026073001'},
+  {id:'gwanak-dreamtown-30', status:'published', price:null, purchasable:false, title:'관악드림타운 30평형 창호 시공', location:'서울 · 관악구 · 관악드림타운', image:'assets/projects/gwanak-dreamtown-30/01.webp'},
+  {id:'gireum-gyeongnam-honorsville-32', status:'published', price:null, purchasable:false, title:'길음 경남아너스빌 32평형 창호 시공', location:'서울 · 성북구 · 길음 경남아너스빌', image:'assets/projects/gireum-gyeongnam-honorsville-32/01.webp'},
+  {id:'daebang-daerim-59', status:'published', price:null, purchasable:false, title:'대방대림 59평형 창호 시공', location:'서울 · 동작구 · 대방대림', image:'assets/projects/daebang-daerim-59/01.webp'}
 ];
 
 /* 창호 브랜드 — 브랜드 시트 (id·status·price·purchasable = 커머스 확장 대비 필드) */
@@ -736,7 +752,14 @@ var COMING = [
 ];
 
 function renderCases(){var t=document.getElementById('ctrack');if(!t)return;
-  t.innerHTML=CASES.map(function(c){return '<a href="#" class="cs-card" aria-label="'+esc(c.title)+'"><div class="cs-media" style="background-image:url(\''+c.image+'\')"></div><div class="cs-title">'+esc(c.title)+'</div><div class="cs-sub">'+esc(c.location)+'</div></a>';}).join('');}
+  t.innerHTML=CASES.map(function(c){
+    var media=c.type==='video'
+      ? '<div class="cs-media cs-video"><img src="'+c.image+'" alt=""><span class="cs-video-copy"><small>PROCESS</small><b>VIDEO</b><span>영상 보기</span></span></div>'
+      : c.beforeImage
+      ? '<div class="cs-media cs-compare"><span class="cs-compare-shot cs-compare-before"><i style="--img:url(\''+c.beforeImage+'\')"></i><b class="cs-compare-label">BEFORE</b></span><span class="cs-compare-shot cs-compare-after"><i style="--img:url(\''+c.afterImage+'\')"></i><b class="cs-compare-label">AFTER</b></span></div>'
+      : '<div class="cs-media" style="background-image:url(\''+c.image+'\')"></div>';
+    return '<a href="projects/#'+c.id+'" class="cs-card" aria-label="'+esc(c.title)+(c.type==='video'?' 영상 보기':' 사진 보기')+'">'+media+'<div class="cs-title">'+esc(c.title)+'</div><div class="cs-sub">'+esc(c.location)+'</div></a>';
+  }).join('');}
 function renderBrands(){var t=document.getElementById('track');if(!t)return;
   t.innerHTML=BRANDS.map(function(b){return '<a href="'+b.href+'" class="brand"><div class="tag">'+esc(b.tag)+'</div><div class="bn">'+esc(b.name)+'</div><div class="bs">'+esc(b.sub)+'</div><div class="bm">'+b.meta+'</div><div class="bc">더 알아보기</div></a>';}).join('');}
 function renderComing(){var t=document.getElementById('ptrack');if(!t)return;

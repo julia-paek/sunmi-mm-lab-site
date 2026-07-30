@@ -80,7 +80,8 @@ if(ft){
    +'<p style="margin-top:12px;"><a href="'+site('windows/kcc/')+'">KCC</a> · <a href="'+site('windows/lx/')+'">LX 뷰프레임</a> · <a href="'+site('windows/lx/euro-system-9/pl/')+'">유로시스템9</a> · <a href="'+site('windows/kbe/')+'">KBE</a> · <a href="'+site('screens/kogo/')+'">고구려</a></p></div>'
    +'<div><h5>고객 지원</h5><ul>'
    +'<li><a href="#" onclick="openModal();return false;">상담신청</a></li>'
-   +'<li><a href="tel:02-0000-0000">02-0000-0000 (평일 09:00~18:00)</a></li>'
+   +'<li><a href="mailto:ksw.mmlab@gmail.com">ksw.mmlab@gmail.com</a></li>'
+   +'<li><a href="tel:02-6012-0033">02-6012-0033 (평일 09:00~18:00)</a></li>'
    +'<li><a href="'+site('projects/')+'">시공사례</a></li>'
    +'<li><a href="'+site('interior/')+'">인테리어 협력</a></li></ul></div>'
    +'<div><h5>B2B / 도매 문의</h5><ul>'
@@ -88,7 +89,7 @@ if(ft){
    +'<li><a href="#" onclick="openModal();return false;">협력 인테리어사 등록</a></li>'
    +'<li><a href="#" onclick="openModal();return false;">대량 견적 문의</a></li></ul></div>'
    +'</div>'
-   +'<div class="footer-business">© 2026 MM LAB (Millimeter Laboratory) · 사업자등록번호 000-00-00000 · 통신판매업 신고 제2026-서울-00000호<br>대표자 어반로드 · 서울특별시 ○○구 ○○로 00 · support@mmlab.kr<br><span style="color:#A1A1A6;">본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.</span></div>'
+   +'<div class="footer-business">© 2026 MM LAB (Millimeter Laboratory). All rights reserved.<br>상호 어반로드(urbanroad) · 대표자 김완섭 · 사업자등록번호 336-38-00713 · 통신판매업 신고번호 제2020-서울용산-1116호<br>사업장 서울특별시 용산구 이촌로14길 16, 1층 상가 101호(이촌동) · 업태 건설업·소매업 · 종목 창호·중문·전자상거래<br><span style="color:#A1A1A6;">본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.</span></div>'
    +'</footer>';
 }
 

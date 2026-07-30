@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>실제 시공 사례 — MM LAB</title>
 <link rel="canonical" href="/projects/">
-<meta name="description" content="MM LAB 본사 정품 창호 시공 사례 갤러리. KBE · KCC · LX하우시스 실제 현장.">
+<meta name="description" content="MM LAB 창호 시공 사례 갤러리. 아파트 현장의 창호 시공 사진과 비포·애프터 기록.">
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -58,9 +58,25 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .gcard{cursor:pointer;opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease-soft),transform .8s var(--ease-soft)}
 .gcard.in{opacity:1;transform:none}
 .gcard.hide{display:none}
-.gmedia{aspect-ratio:4/3;border-radius:0;overflow:hidden;background:#e7e7e9 var(--img) center/cover no-repeat}
+.gmedia{position:relative;aspect-ratio:4/3;border-radius:0;overflow:hidden;background:#e7e7e9 var(--img) center/cover no-repeat}
 .gmedia i{display:block;width:100%;height:100%;background-image:var(--img);background-size:cover;background-position:center;transition:transform .6s var(--ease-soft)}
 .gcard:hover .gmedia i{transform:scale(1.05)}
+.gmedia.gcompare{display:grid;grid-template-columns:1fr 1fr;background:#1F3822}
+.gcompare-shot{position:relative;min-width:0;overflow:hidden}
+.gcompare-shot+.gcompare-shot{border-left:1px solid #F4F0E6}
+.gcompare-shot i{position:absolute;inset:0;width:100%;height:100%;background-image:var(--img);background-size:cover;background-position:center}
+.gcompare-before i{filter:saturate(.78) brightness(.84)}
+.gcompare-label{position:absolute;left:10px;top:10px;padding:5px 8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.08em;line-height:1;z-index:1}
+.gcompare-before .gcompare-label{background:#F4F0E6;color:#1F3822}
+.gcompare-after .gcompare-label{background:#1F3822;color:#F4F0E6}
+.gmedia.gvideo{display:grid;grid-template-columns:46% 54%;background:#1F3822}
+.gvideo-poster{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s var(--ease-soft)}
+.gcard:hover .gvideo-poster{transform:scale(1.035)}
+.gvideo-copy{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:24px;background:#1F3822;color:#F4F0E6}
+.gvideo-copy small{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.12em}
+.gvideo-copy b{font-family:'Gmarket Sans','Pretendard Variable',sans-serif;font-size:clamp(27px,3vw,40px);line-height:1;font-weight:700;margin-top:8px}
+.gvideo-copy em{font-style:normal;font-size:12px;color:#C9D2C5;margin-top:auto;padding-top:18px;border-top:1px solid rgba(244,240,230,.35)}
+.gcount{position:absolute;left:12px;bottom:12px;padding:6px 9px;background:rgba(31,56,34,.9);color:#fff;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.05em;line-height:1;z-index:1}
 .gbadge{display:inline-block;margin-top:14px;font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--accent);text-transform:uppercase}
 .gtitle{font-size:18px;font-weight:600;color:var(--headline);margin-top:4px}
 .gsub{font-size:14px;color:var(--muted);margin-top:2px}
@@ -70,6 +86,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .lb{position:fixed;inset:0;z-index:1600;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:28px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
 .lb.open{opacity:1;pointer-events:auto}
 .lb img{max-width:min(1100px,92vw);max-height:78vh;border-radius:0;object-fit:contain}
+.lb-tabs{display:none;width:min(560px,92vw);grid-template-columns:1fr 1fr;margin:0 0 12px;border:1px solid rgba(244,240,230,.7);background:#111}
+.lb-tabs.show{display:grid}
+.lb-tab{min-height:46px;padding:10px 16px;color:#F4F0E6;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:700;letter-spacing:.06em;border-right:1px solid rgba(244,240,230,.7)}
+.lb-tab:last-child{border-right:0}
+.lb-tab.on{background:#F4F0E6;color:#1F3822}
+.lb-tab span{margin-left:7px;font-weight:400;opacity:.72}
 .lb-cap{color:#fff;text-align:center;margin-top:20px;max-width:680px}
 .lb-cap .t{font-size:19px;font-weight:600}
 .lb-cap .s{font-size:14px;color:#a1a1a6;margin-top:4px}
@@ -78,7 +100,21 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:0;background:rgba(80,80,84,.55);color:#fff;font-size:26px;font-weight:300;display:flex;align-items:center;justify-content:center;transition:background .2s var(--ease)}
 .lb-nav:hover{background:rgba(120,120,124,.85)}
 .lb-prev{left:20px}.lb-next{right:20px}
-@media(max-width:740px){.lb-nav{width:44px;height:44px;font-size:22px}}
+@media(max-width:740px){.lb{padding:18px 12px}.lb-nav{width:44px;height:44px;font-size:22px}.lb-tabs{width:calc(100vw - 24px);margin-bottom:10px}.lb-tab{min-height:44px;padding:9px 12px}.lb img{max-width:calc(100vw - 24px);max-height:68vh}}
+
+/* process video */
+.vlb{position:fixed;inset:0;z-index:1650;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+.vlb.open{opacity:1;pointer-events:auto}
+.vlb-panel{position:relative;width:min(880px,96vw);max-height:92vh;display:grid;grid-template-columns:minmax(300px,480px) 1fr;background:#F4F0E6;border:1px solid rgba(244,240,230,.7);overflow:auto}
+.vlb-media{background:#111;display:flex;align-items:center;justify-content:center;min-height:0}
+.vlb video{display:block;width:100%;height:min(82vh,760px);background:#111;object-fit:contain}
+.vlb-copy{display:flex;flex-direction:column;padding:42px 30px 30px;color:#6E7C64}
+.vlb-copy .eyebrow{font-size:11px}
+.vlb-copy h2{font-family:'Gmarket Sans','Pretendard Variable',sans-serif;font-size:clamp(27px,3vw,38px);line-height:1.18;color:#1F3822;margin-top:12px}
+.vlb-copy p{font-size:15px;line-height:1.7;margin-top:18px}
+.vlb-steps{margin-top:auto;padding-top:26px;border-top:1px solid #B9B19F;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;line-height:1.9;color:#2F5233}
+.vlb-close{position:absolute;top:12px;right:12px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:#F4F0E6;border:1px solid #1F3822;color:#1F3822;font-size:23px;z-index:2}
+@media(max-width:700px){.vlb{padding:12px}.vlb-panel{width:100%;grid-template-columns:1fr;max-height:94vh}.vlb video{height:min(62vh,620px)}.vlb-copy{padding:24px 20px 22px}.vlb-copy h2{font-size:25px}.vlb-copy p{margin-top:10px}.vlb-steps{margin-top:18px;padding-top:16px}.gvideo-copy{padding:18px}.gvideo-copy b{font-size:28px}}
 
 /* floating + footer */
 .float{position:fixed;right:26px;bottom:26px;background:var(--accent);color:#fff;padding:16px 26px;border-radius:0;z-index:850;box-shadow:0 14px 30px rgba(17,17,17,.42);font-weight:600;font-size:15px;transition:transform .25s var(--ease)}
@@ -143,24 +179,24 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
       <p class="eyebrow">Projects</p>
       <h1>실제 시공 사례</h1>
       <p>사진 한 장이 백 마디 설명보다 정확합니다. — 총 <span class="count" id="count">0</span>건</p>
-      <div class="filter" id="filter" role="group" aria-label="브랜드 필터"></div>
+      <div class="filter" id="filter" role="group" aria-label="시공사례 유형 필터"></div>
     </div>
   </section>
 
   <section class="wrap" aria-label="시공사례 갤러리">
     <div class="gallery" id="gallery"></div>
-    <p class="empty" id="empty">해당 브랜드의 시공사례가 아직 없습니다.</p>
+    <p class="empty" id="empty">해당 유형의 시공사례가 아직 없습니다.</p>
   </section>
 </main>
 
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div><a href="../" aria-label="MM LAB 홈" style="display:inline-block;line-height:0;margin-bottom:14px"><img src="../assets/brand/mm-lab-lockup-horizontal-green.png?v=b1" width="1489" height="393" alt="MM LAB" style="display:block;width:148px;height:auto"></a><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px">support@mmlab.kr<br>02-0000-0000 (평일 09:00~18:00)</p></div>
+      <div><a href="../" aria-label="MM LAB 홈" style="display:inline-block;line-height:0;margin-bottom:14px"><img src="../assets/brand/mm-lab-lockup-horizontal-green.png?v=b1" width="1489" height="393" alt="MM LAB" style="display:block;width:148px;height:auto"></a><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px"><a href="mailto:ksw.mmlab@gmail.com">ksw.mmlab@gmail.com</a><br><a href="tel:02-6012-0033">02-6012-0033</a> (평일 09:00~18:00)</p></div>
       <div><h4>창호 브랜드</h4><a href="../windows/lx/">LX하우시스</a><a href="../windows/kcc/">KCC</a><a href="../windows/kbe/">독일 시스템창호 KBE</a><a href="../screens/kogo/">고구려안전방충망</a></div>
       <div><h4>바로가기</h4><a href="../">홈</a><a href="../#cases">메인 시공사례</a><a href="#" onclick="openModal();return false;">상담신청</a></div>
     </div>
-    <div class="footer-bottom">© 2026 MM LAB. All rights reserved. · 대표자 어반로드 · 사업자등록번호 000-00-00000 · 본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.</div>
+    <div class="footer-bottom">© 2026 MM LAB. All rights reserved.<br>상호 어반로드(urbanroad) · 대표자 김완섭 · 사업자등록번호 336-38-00713 · 통신판매업 신고번호 제2020-서울용산-1116호<br>사업장 서울특별시 용산구 이촌로14길 16, 1층 상가 101호(이촌동) · 업태 건설업·소매업 · 종목 창호·중문·전자상거래<br>본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.</div>
   </div>
 </footer>
 
@@ -168,9 +204,29 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
 <div class="lb" id="lb" aria-hidden="true" role="dialog" aria-modal="true" aria-label="시공사례 사진">
   <button class="lb-x" onclick="closeLb()" aria-label="닫기">×</button>
   <button class="lb-nav lb-prev" onclick="stepLb(-1)" aria-label="이전 사진">‹</button>
+  <div class="lb-tabs" id="lbTabs" role="tablist" aria-label="시공 전후 사진">
+    <button class="lb-tab on" type="button" data-mode="AFTER" role="tab" aria-selected="true">AFTER <span id="lbAfterCount"></span></button>
+    <button class="lb-tab" type="button" data-mode="BEFORE" role="tab" aria-selected="false">BEFORE <span id="lbBeforeCount"></span></button>
+  </div>
   <img id="lbImg" alt="">
   <div class="lb-cap"><div class="t" id="lbT"></div><div class="s" id="lbS"></div></div>
   <button class="lb-nav lb-next" onclick="stepLb(1)" aria-label="다음 사진">›</button>
+</div>
+
+<!-- PROCESS VIDEO -->
+<div class="vlb" id="videoLb" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+  <div class="vlb-panel">
+    <button class="vlb-close" type="button" onclick="closeVideo()" aria-label="영상 닫기">×</button>
+    <div class="vlb-media">
+      <video id="processVideo" controls playsinline preload="metadata" poster="../assets/projects/hydraulic-winch-lifting/poster.webp?v=g2026073001"></video>
+    </div>
+    <div class="vlb-copy">
+      <span class="eyebrow">process · video</span>
+      <h2 id="videoTitle">차량 유압 윈치 양중</h2>
+      <p id="videoDesc">대형 창호 자재를 차량 유압 윈치로 안전하게 반입하는 과정입니다.</p>
+      <div class="vlb-steps">장비 설치 → 자재 고정<br>유압 양중 → 층 내부 인입</div>
+    </div>
+  </div>
 </div>
 
 <!-- MODAL -->
@@ -188,26 +244,31 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   </div>
 </div>
 
-<script src="../sitenav.js?v=g47"></script>
+<script src="../sitenav.js?v=g48"></script>
 <script>
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
 /* cases 테이블 매핑 (id·brand·status·price·purchasable = 커머스 확장 대비 필드) */
 var CASES = [
-  {id:'case-1', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE 88mm 시스템창호 / 거실 전면', location:'서울 · 양천구 · 신정 래미안', image:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1600&auto=format&fit=crop'},
-  {id:'case-2', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 타운하우스', location:'경기 · 김포 · 라피아노 1차', image:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600&auto=format&fit=crop'},
-  {id:'case-3', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE / 패시브하우스 적용', location:'경기 · 용인 · W 타운하우스', image:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600&auto=format&fit=crop'},
-  {id:'case-4', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 타운하우스', location:'경기 · 김포 · 라피아노 2차', image:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop'},
-  {id:'case-5', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE 시스템창호 / 공공시설', location:'충남 · 아산 · 중앙도서관', image:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop'},
-  {id:'case-6', brand:'KCC', status:'published', price:null, purchasable:false, title:'KCC 이중창 / 아파트 발코니', location:'서울 · 송파 · 잠실 (예시)', image:'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&auto=format&fit=crop'},
-  {id:'case-7', brand:'KCC', status:'published', price:null, purchasable:false, title:'KCC 시스템창 / 주방·거실', location:'경기 · 성남 · 분당 (예시)', image:'https://images.unsplash.com/photo-1600121848594-d8644e57abab?q=80&w=1600&auto=format&fit=crop'},
-  {id:'case-8', brand:'LX', status:'published', price:null, purchasable:false, title:'LX 뷰프레임(일반창) / 전면 발코니', location:'서울 · 마포 · 공덕 (예시)', image:'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600&auto=format&fit=crop'},
-  {id:'case-9', brand:'LX', status:'published', price:null, purchasable:false, title:'LX 유로시스템9(시스템창) / 단독주택', location:'경기 · 광주 · 오포 (예시)', image:'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?q=80&w=1600&auto=format&fit=crop'},
-  {id:'case-10', brand:'KBE', status:'published', price:null, purchasable:false, title:'KBE 88mm / 카페 파사드', location:'서울 · 성동 · 성수 (예시)', image:'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?q=80&w=1600&auto=format&fit=crop'}
+  {id:'sangdo-geonyeong-40', brand:'BEFORE · AFTER', status:'published', price:null, purchasable:false, title:'상도건영 40평형 창호 시공', location:'서울 · 동작구 · 상도건영', image:'../assets/projects/sangdo-geonyeong-40/after/01.webp', beforeCover:'../assets/projects/sangdo-geonyeong-40/before/03.webp', afterCover:'../assets/projects/sangdo-geonyeong-40/after/01.webp', images:[
+    {src:'../assets/projects/sangdo-geonyeong-40/after/01.webp',label:'AFTER',area:'거실'},{src:'../assets/projects/sangdo-geonyeong-40/after/02.webp',label:'AFTER',area:'수납공간'},{src:'../assets/projects/sangdo-geonyeong-40/after/03.webp',label:'AFTER',area:'방 1'},{src:'../assets/projects/sangdo-geonyeong-40/after/04.webp',label:'AFTER',area:'방 2'},{src:'../assets/projects/sangdo-geonyeong-40/after/05.webp',label:'AFTER',area:'방 3'},{src:'../assets/projects/sangdo-geonyeong-40/after/06.webp',label:'AFTER',area:'주방 측면'},{src:'../assets/projects/sangdo-geonyeong-40/after/07.webp',label:'AFTER',area:'주방 정면'},
+    {src:'../assets/projects/sangdo-geonyeong-40/before/03.webp',label:'BEFORE',area:'거실'},{src:'../assets/projects/sangdo-geonyeong-40/before/13.webp',label:'BEFORE',area:'수납공간'},{src:'../assets/projects/sangdo-geonyeong-40/before/12.webp',label:'BEFORE',area:'방 1'},{src:'../assets/projects/sangdo-geonyeong-40/before/10.webp',label:'BEFORE',area:'방 2'},{src:'../assets/projects/sangdo-geonyeong-40/before/11.webp',label:'BEFORE',area:'방 3'},{src:'../assets/projects/sangdo-geonyeong-40/before/06.webp',label:'BEFORE',area:'주방 측면'},{src:'../assets/projects/sangdo-geonyeong-40/before/07.webp',label:'BEFORE',area:'주방 정면'},
+    {src:'../assets/projects/sangdo-geonyeong-40/before/01.webp',label:'BEFORE',area:'철거 전 기록'},{src:'../assets/projects/sangdo-geonyeong-40/before/02.webp',label:'BEFORE',area:'철거 전 기록'},{src:'../assets/projects/sangdo-geonyeong-40/before/04.webp',label:'BEFORE',area:'철거 전 기록'},{src:'../assets/projects/sangdo-geonyeong-40/before/05.webp',label:'BEFORE',area:'철거 전 기록'},{src:'../assets/projects/sangdo-geonyeong-40/before/08.webp',label:'BEFORE',area:'철거 전 기록'},{src:'../assets/projects/sangdo-geonyeong-40/before/09.webp',label:'BEFORE',area:'철거 전 기록'},{src:'../assets/projects/sangdo-geonyeong-40/before/14.webp',label:'BEFORE',area:'철거 전 기록'},{src:'../assets/projects/sangdo-geonyeong-40/before/15.webp',label:'BEFORE',area:'철거 전 기록'}
+  ]},
+  {id:'hydraulic-winch-lifting', type:'video', brand:'시공 과정', status:'published', price:null, purchasable:false, title:'차량 유압 윈치 양중', location:'대형 창호 자재 반입 과정', image:'../assets/projects/hydraulic-winch-lifting/poster.webp?v=g2026073001', video:'../assets/projects/hydraulic-winch-lifting/winch-lifting.mp4?v=g2026073001'},
+  {id:'gwanak-dreamtown-30', brand:'창호시공', status:'published', price:null, purchasable:false, title:'관악드림타운 30평형 창호 시공', location:'서울 · 관악구 · 관악드림타운', image:'../assets/projects/gwanak-dreamtown-30/01.webp', images:[
+    {src:'../assets/projects/gwanak-dreamtown-30/01.webp',label:'창호시공'},{src:'../assets/projects/gwanak-dreamtown-30/02.webp',label:'창호시공'},{src:'../assets/projects/gwanak-dreamtown-30/03.webp',label:'창호시공'},{src:'../assets/projects/gwanak-dreamtown-30/04.webp',label:'창호시공'},{src:'../assets/projects/gwanak-dreamtown-30/05.webp',label:'창호시공'}
+  ]},
+  {id:'gireum-gyeongnam-honorsville-32', brand:'창호시공', status:'published', price:null, purchasable:false, title:'길음 경남아너스빌 32평형 창호 시공', location:'서울 · 성북구 · 길음 경남아너스빌', image:'../assets/projects/gireum-gyeongnam-honorsville-32/01.webp', images:[
+    {src:'../assets/projects/gireum-gyeongnam-honorsville-32/01.webp',label:'창호시공'},{src:'../assets/projects/gireum-gyeongnam-honorsville-32/02.webp',label:'창호시공'},{src:'../assets/projects/gireum-gyeongnam-honorsville-32/03.webp',label:'창호시공'},{src:'../assets/projects/gireum-gyeongnam-honorsville-32/04.webp',label:'창호시공'},{src:'../assets/projects/gireum-gyeongnam-honorsville-32/05.webp',label:'창호시공'}
+  ]},
+  {id:'daebang-daerim-59', brand:'창호시공', status:'published', price:null, purchasable:false, title:'대방대림 59평형 창호 시공', location:'서울 · 동작구 · 대방대림', image:'../assets/projects/daebang-daerim-59/01.webp', images:[
+    {src:'../assets/projects/daebang-daerim-59/01.webp',label:'창호시공'},{src:'../assets/projects/daebang-daerim-59/02.webp',label:'창호시공'},{src:'../assets/projects/daebang-daerim-59/03.webp',label:'창호시공'},{src:'../assets/projects/daebang-daerim-59/04.webp',label:'창호시공'},{src:'../assets/projects/daebang-daerim-59/05.webp',label:'창호시공'},{src:'../assets/projects/daebang-daerim-59/06.webp',label:'창호시공'}
+  ]}
 ];
 
-var BRANDS = ['전체','KBE','KCC','LX'];
+var BRANDS = ['전체','창호시공','BEFORE · AFTER','시공 과정'];
 var curFilter='전체';
 var gallery=document.getElementById('gallery'),filterBox=document.getElementById('filter'),emptyEl=document.getElementById('empty');
 document.getElementById('count').textContent=CASES.length;
@@ -216,8 +277,14 @@ function visibleList(){return CASES.filter(function(c){return curFilter==='전�
 
 function renderGallery(){
   gallery.innerHTML=CASES.map(function(c,i){
-    return '<a href="#" class="gcard" data-i="'+i+'" data-brand="'+esc(c.brand)+'" aria-label="'+esc(c.title)+' 크게 보기">'
-      +'<div class="gmedia"><i style="--img:url(\''+c.image+'\')"></i></div>'
+    var media=c.type==='video'
+      ? '<div class="gmedia gvideo"><img class="gvideo-poster" src="'+c.image+'" alt=""><span class="gvideo-copy"><small>PROCESS</small><b>VIDEO</b><em>영상 보기</em></span></div>'
+      : c.beforeCover
+      ? '<div class="gmedia gcompare"><span class="gcompare-shot gcompare-before"><i style="--img:url(\''+c.beforeCover+'\')"></i><b class="gcompare-label">BEFORE</b></span><span class="gcompare-shot gcompare-after"><i style="--img:url(\''+c.afterCover+'\')"></i><b class="gcompare-label">AFTER</b></span><span class="gcount">'+c.images.length+' PHOTOS</span></div>'
+      : '<div class="gmedia"><i style="--img:url(\''+c.image+'\')"></i><span class="gcount">'+c.images.length+' PHOTOS</span></div>';
+    var aria=c.type==='video'?esc(c.title)+' 영상 보기':esc(c.title)+' 사진 '+c.images.length+'장 보기';
+    return '<a href="#" id="'+esc(c.id)+'" class="gcard" data-i="'+i+'" data-brand="'+esc(c.brand)+'" aria-label="'+aria+'">'
+      +media
       +'<span class="gbadge">'+esc(c.brand)+'</span>'
       +'<div class="gtitle">'+esc(c.title)+'</div>'
       +'<div class="gsub">'+esc(c.location)+'</div></a>';
@@ -228,7 +295,7 @@ function renderGallery(){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
     cards.forEach(function(el){io.observe(el);});
   } else { cards.forEach(function(el){el.classList.add('in');}); }
-  cards.forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();openLb(+el.dataset.i);});});
+  cards.forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();var i=+el.dataset.i;CASES[i].type==='video'?openVideo(i):openLb(i);});});
   applyFilter();
 }
 
@@ -253,21 +320,57 @@ function applyFilter(){
 
 /* lightbox */
 var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbT=document.getElementById('lbT'),lbS=document.getElementById('lbS');
-var lbIdx=0,lbFocus=null;
-function openLb(i){lbIdx=i;lbFocus=document.activeElement;setLb();lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus();}
-function setLb(){var c=CASES[lbIdx];lbImg.src=c.image;lbImg.alt=c.title;lbT.textContent=c.title;lbS.textContent=c.brand+' · '+c.location;}
-function stepLb(d){
-  // 현재 필터 내에서 순환
-  var list=visibleList(); if(!list.length)return;
-  var ids=list.map(function(c){return CASES.indexOf(c);});
-  var pos=ids.indexOf(lbIdx); if(pos<0)pos=0;
-  pos=(pos+d+ids.length)%ids.length; lbIdx=ids[pos]; setLb();
+var lbTabs=document.getElementById('lbTabs'),lbAfterCount=document.getElementById('lbAfterCount'),lbBeforeCount=document.getElementById('lbBeforeCount');
+var lbIdx=0,lbPhoto=0,lbMode='ALL',lbFocus=null;
+function splitPhotos(c){
+  var all=c.images||[{src:c.image,label:c.brand}];
+  return {all:all,after:all.filter(function(p){return p.label==='AFTER';}),before:all.filter(function(p){return p.label==='BEFORE';})};
 }
+function currentPhotos(){var sets=splitPhotos(CASES[lbIdx]);return lbMode==='AFTER'?sets.after:lbMode==='BEFORE'?sets.before:sets.all;}
+function updateLbTabs(){
+  var sets=splitPhotos(CASES[lbIdx]),hasCompare=sets.after.length&&sets.before.length;
+  lbTabs.classList.toggle('show',!!hasCompare);
+  lbAfterCount.textContent=sets.after.length;
+  lbBeforeCount.textContent=sets.before.length;
+  lbTabs.querySelectorAll('.lb-tab').forEach(function(btn){var on=btn.dataset.mode===lbMode;btn.classList.toggle('on',on);btn.setAttribute('aria-selected',String(on));});
+}
+function openLb(i){lbIdx=i;lbPhoto=0;lbFocus=document.activeElement;var sets=splitPhotos(CASES[lbIdx]);lbMode=sets.after.length&&sets.before.length?'AFTER':'ALL';updateLbTabs();setLb();lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus();}
+function setLb(){var c=CASES[lbIdx],photos=currentPhotos(),p=photos[lbPhoto];lbImg.src=p.src;lbImg.alt=c.title+' '+(p.area||p.label)+' '+p.label+' '+(lbPhoto+1)+'번째 사진';lbT.textContent=c.title;lbS.textContent=(p.area?p.area+' · ':'')+p.label+' · '+c.location+' · '+(lbPhoto+1)+' / '+photos.length;}
+function stepLb(d){
+  var photos=currentPhotos();
+  lbPhoto=(lbPhoto+d+photos.length)%photos.length;setLb();
+}
+lbTabs.querySelectorAll('.lb-tab').forEach(function(btn){btn.addEventListener('click',function(){lbMode=btn.dataset.mode;var photos=currentPhotos();lbPhoto=Math.min(lbPhoto,photos.length-1);updateLbTabs();setLb();});});
 function closeLb(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lbFocus&&lbFocus.focus){lbFocus.focus();lbFocus=null;}}
 lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
 addEventListener('keydown',function(e){
   if(lb.classList.contains('open')){if(e.key==='Escape')closeLb();else if(e.key==='ArrowRight')stepLb(1);else if(e.key==='ArrowLeft')stepLb(-1);}
 });
+
+/* process video */
+var videoLb=document.getElementById('videoLb'),processVideo=document.getElementById('processVideo'),videoTitle=document.getElementById('videoTitle'),videoDesc=document.getElementById('videoDesc'),videoFocus=null;
+function openVideo(i){
+  var c=CASES[i];
+  videoFocus=document.activeElement;
+  videoTitle.textContent=c.title;
+  videoDesc.textContent='대형 창호 자재를 차량 유압 윈치로 안전하게 반입하는 과정입니다.';
+  processVideo.poster=c.image;
+  processVideo.src=c.video;
+  videoLb.classList.add('open');
+  videoLb.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  videoLb.querySelector('.vlb-close').focus();
+}
+function closeVideo(){
+  processVideo.pause();
+  try{processVideo.currentTime=0;}catch(e){}
+  videoLb.classList.remove('open');
+  videoLb.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(videoFocus&&videoFocus.focus){videoFocus.focus();videoFocus=null;}
+}
+videoLb.addEventListener('click',function(e){if(e.target===videoLb)closeVideo();});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&videoLb.classList.contains('open'))closeVideo();});
 
 /* modal */
 var modal=document.getElementById('modal'),mFocus=null;
@@ -278,6 +381,9 @@ addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.cont
 function submitForm(e){e.preventDefault();alert('데모입니다. 실제 발송은 추후 연결됩니다.\n\n감사합니다.');closeModal();}
 
 renderFilter();renderGallery();
+var requestedCaseId=location.hash.slice(1);
+var requestedCaseIndex=CASES.findIndex(function(c){return c.id===requestedCaseId;});
+if(requestedCaseIndex>=0)setTimeout(function(){CASES[requestedCaseIndex].type==='video'?openVideo(requestedCaseIndex):openLb(requestedCaseIndex);},0);
 </script>
 </body>
 </html>
