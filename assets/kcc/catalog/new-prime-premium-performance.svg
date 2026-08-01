@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 190" role="img" aria-labelledby="title desc">
+  <title id="title">KCC 뉴프라임 프리미엄 성능 프레임</title>
+  <desc id="desc">다중 실링과 보조 프로파일이 적용된 두 개의 프레임 단면</desc>
+  <g fill="none" stroke="#4f4b45" stroke-linecap="square" stroke-linejoin="miter">
+    <path stroke-width="5" d="M42 22h36v35h19v88H26V57h16zM70 22h36v35h19v88H80"/>
+    <path stroke-width="3" d="M31 66h61v20H43v43h32V89h45M48 27v30M72 27v30M89 27v30M106 62v63M31 112h44M80 112h40"/>
+    <path stroke-width="5" d="M176 22h36v35h19v88h-71V57h16zM204 22h36v35h19v88h-45"/>
+    <path stroke-width="3" d="M165 66h61v20h-49v43h32V89h45M182 27v30M206 27v30M223 27v30M240 62v63M165 112h44M214 112h40"/>
+  </g>
+  <g fill="none" stroke="#c64d46" stroke-width="4">
+    <path d="M44 59h30v18H44zM82 59h22v18H82zM45 130v20h58v-20"/>
+    <path d="M178 59h30v18h-30zM216 59h22v18h-22zM179 130v20h58v-20"/>
+  </g>
+  <g fill="#5c4433">
+    <circle cx="54" cy="95" r="4"/><circle cx="70" cy="95" r="4"/><circle cx="91" cy="95" r="4"/><circle cx="107" cy="95" r="4"/>
+    <circle cx="188" cy="95" r="4"/><circle cx="204" cy="95" r="4"/><circle cx="225" cy="95" r="4"/><circle cx="241" cy="95" r="4"/>
+  </g>
+  <path d="M18 166h114M152 166h114" stroke="#bfb5a7" stroke-width="1"/>
+  <text x="75" y="181" fill="#6e7c64" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" letter-spacing="1.5">MULTI SEAL</text>
+  <text x="209" y="181" fill="#6e7c64" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" letter-spacing="1.5">AUX PROFILE</text>
+</svg>

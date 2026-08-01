@@ -3,288 +3,321 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KBE — 독일 정통 시스템 창호 | MM LAB</title>
+<title>독일 시스템창호 KBE · KÖMMERLING | MM LAB</title>
+<meta name="description" content="KBE 88mm 7챔버 시스템과 KÖMMERLING Add-On 블라인드·컬러 커스텀을 비교해보세요.">
 <link rel="canonical" href="/windows/kbe/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
-<link rel="stylesheet" href="../../styles.css?v=g50">
+<link rel="stylesheet" href="../../styles.css?v=g53">
 <style>
-.kbe-hero{background:#F4F0E6}
-.kbe-visual{background:var(--accent);color:#F5F5F7}
-.more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media (max-width:1024px){.more-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:640px){.more-grid{grid-template-columns:1fr}}
-.more-card{background:#FFFFFF;border:1px solid #E8E8ED;border-radius:0;padding:28px 24px;transition:transform 0.3s,border-color 0.2s}
-.more-card:hover{transform:translateY(-4px);border-color:#1F3822}
-.more-card .more-tag{font-size:11px;color:var(--accent);font-weight:600;letter-spacing:0.04em}
-.more-card h4{font-size:18px;font-weight:700;margin:8px 0 10px;letter-spacing:-0.01em}
-.more-card p{font-size:14px;color:#6E7C64;line-height:1.55}
-.spec-large{background:#1D1D1F;color:#F5F5F7;border-radius:0;padding:48px 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px}
-.spec-large .item .num{font-size:36px;font-weight:700;letter-spacing:-0.02em;color:#F5F5F7}
-.spec-large .item .label{font-size:13px;color:#A1A1A6;margin-top:8px;letter-spacing:0.02em}
-.global-list{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px}
-@media (max-width:768px){.global-list{grid-template-columns:repeat(2,1fr)}}
-.global-item{padding:16px;background:#FAFAFA;border-radius:0;text-align:center}
-.global-item .flag{font-size:24px}
-.global-item .city{font-size:13px;font-weight:600;margin-top:6px}
-.global-item .stat{font-size:11px;color:#6E7C64;margin-top:2px}
-.project-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
-@media (max-width:640px){.project-list{grid-template-columns:1fr}}
-.project-item{padding:20px 24px;background:#FAFAFA;border-radius:0;display:flex;justify-content:space-between;align-items:center}
-.project-item .name{font-weight:600;font-size:15px}
-.project-item .type{font-size:12px;color:#6E7C64}
+:root{--kbe:#464B52;--kbe-deep:#292D32;--kbe-soft:#D8DADE;--km:#171814;--brass:#C4A46C;--cream:#F4F0E6;--ink:#1F3822;--sage:#6E7C64;--line:#AEB5AA}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink)}
+.german-page{overflow:hidden;padding-top:56px}
+.gw-wrap{width:min(1200px,calc(100% - 48px));margin:0 auto}
+.gw-eyebrow{font:600 11px/1.2 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:lowercase}
+.gw-title{font-family:'Gmarket Sans','SUIT Variable',sans-serif;font-weight:700;letter-spacing:-.055em;word-break:keep-all}
+.gw-copy{color:var(--sage);line-height:1.75;word-break:keep-all}
+.gw-btn{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:0 20px;border:1px solid currentColor;color:inherit;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s,color .2s}
+.gw-btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.gw-btn-dark:hover{background:#2F5233}
+.gw-btn-light{background:rgba(244,240,230,.08);color:#fff;border-color:rgba(255,255,255,.7)}
+.gw-btn-light:hover{background:#fff;color:var(--km)}
+
+.gw-hero{position:relative;height:580px;min-height:520px;background:#111;border-bottom:1px solid #111;overflow:hidden}
+.gw-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.gw-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,14,13,.82) 0%,rgba(12,14,13,.46) 48%,rgba(12,14,13,.08) 78%),linear-gradient(0deg,rgba(12,14,13,.64),transparent 58%)}
+.gw-hero-copy{position:absolute;z-index:2;left:max(24px,calc((100% - 1200px)/2 + 24px));right:24px;bottom:52px;max-width:720px;color:#fff}
+.gw-hero-copy .gw-eyebrow{color:rgba(255,255,255,.74);margin-bottom:18px}
+.gw-hero h1{margin:0;font-size:clamp(48px,5.8vw,68px);line-height:1;color:#fff}
+.gw-hero p{max-width:760px;margin:24px 0 0;color:rgba(255,255,255,.82);font-size:clamp(16px,1.6vw,20px);line-height:1.65;word-break:keep-all}
+.gw-hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.gw-hero-index{position:absolute;right:max(24px,calc((100% - 1200px)/2 + 24px));bottom:28px;z-index:2;display:flex;gap:18px;color:rgba(255,255,255,.68);font:600 10px 'JetBrains Mono',monospace;letter-spacing:.12em}
+
+.gw-intro{padding:112px 0}
+.gw-heading{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.7fr);align-items:end;gap:54px;margin-bottom:46px}
+.gw-heading .gw-eyebrow{color:var(--kbe);margin-bottom:14px}
+.gw-heading h2{margin:0;font-size:clamp(42px,5.4vw,68px);line-height:1.04}
+.gw-heading p{margin:0;font-size:16px}
+.gw-brand-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink)}
+.gw-brand-card{position:relative;min-height:560px;overflow:hidden;color:#fff;text-decoration:none;background:var(--kbe)}
+.gw-brand-card+ .gw-brand-card{border-left:1px solid var(--ink)}
+.gw-brand-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.gw-brand-card:hover img{transform:scale(1.025)}
+.gw-brand-card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,11,10,.8),rgba(10,11,10,.04) 68%)}
+.gw-brand-card.kbe-card{background:#E5E6E8}
+.gw-brand-card.kbe-card img{object-fit:contain;padding:48px 34px 132px;filter:drop-shadow(0 22px 34px rgba(44,48,53,.16))}
+.gw-brand-card.kbe-card::after{background:linear-gradient(0deg,rgba(41,45,50,.95),rgba(41,45,50,0) 58%)}
+.gw-brand-card-copy{position:absolute;z-index:2;left:32px;right:32px;bottom:30px}
+.gw-brand-card-copy .gw-eyebrow{color:rgba(255,255,255,.66);margin-bottom:10px}
+.gw-brand-card-copy h3{margin:0 0 10px;font:700 clamp(30px,3vw,43px)/1.05 'Gmarket Sans','SUIT Variable',sans-serif;letter-spacing:-.045em;color:#fff;word-break:keep-all;overflow-wrap:break-word}
+.gw-brand-card-copy p{margin:0;max-width:480px;color:rgba(255,255,255,.74);font-size:14px;line-height:1.6}
+
+.gw-kbe{padding:112px 0;background:#ECECEC;border-block:1px solid var(--kbe)}
+.gw-kbe-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(360px,1.1fr);gap:74px;align-items:center}
+.gw-kbe-profile{height:560px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--kbe);padding:42px}
+.gw-kbe-profile img{display:block;max-width:100%;max-height:100%;object-fit:contain}
+.gw-kbe-copy .gw-eyebrow{color:var(--kbe);margin-bottom:18px}
+.gw-kbe-copy h2{margin:0;font-size:clamp(46px,5.8vw,72px);line-height:1.02}
+.gw-kbe-copy>p{margin:24px 0 0;font-size:17px}
+.gw-metrics{display:grid;grid-template-columns:repeat(4,1fr);margin-top:76px;border:1px solid var(--kbe)}
+.gw-metric{min-height:170px;padding:26px 24px;background:#fff}
+.gw-metric+ .gw-metric{border-left:1px solid var(--kbe)}
+.gw-metric b{display:block;font:700 clamp(34px,4vw,54px)/1 'Gmarket Sans','SUIT Variable',sans-serif;letter-spacing:-.05em;color:var(--kbe)}
+.gw-metric span{display:block;margin-top:16px;color:var(--sage);font-size:13px;line-height:1.5}
+.gw-proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:18px;border:1px solid var(--kbe)}
+.gw-proof{min-width:0;background:#fff}
+.gw-proof+ .gw-proof{border-left:1px solid var(--kbe)}
+.gw-proof img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:center}
+.gw-proof:nth-child(2) img{background:#ECEBE7}
+.gw-proof-copy{padding:18px 20px 22px}
+.gw-proof-copy .gw-eyebrow{color:var(--kbe);font-size:9px}
+.gw-proof-copy strong{display:block;margin-top:8px;font-size:16px;line-height:1.45}
+
+.gw-km{background:var(--km);color:#F4F0E6;padding:118px 0;border-bottom:1px solid #000}
+.gw-km-feature{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(390px,.95fr);min-height:680px;border:1px solid rgba(196,164,108,.68)}
+.gw-km-image{position:relative;overflow:hidden}
+.gw-km-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gw-km-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(42px,6vw,82px);border-left:1px solid rgba(196,164,108,.68)}
+.gw-km-copy .gw-eyebrow{color:var(--brass);margin-bottom:18px}
+.gw-km-copy h2{margin:0;color:#fff;font-size:clamp(44px,5vw,68px);line-height:1.03}
+.gw-km-copy>p{margin:24px 0 0;color:#B7B8B2;font-size:17px}
+.gw-km-points{display:grid;grid-template-columns:repeat(3,1fr);margin-top:48px;border-top:1px solid rgba(196,164,108,.45)}
+.gw-km-point{padding:20px 16px 0 0}
+.gw-km-point+ .gw-km-point{padding-left:16px;border-left:1px solid rgba(196,164,108,.45)}
+.gw-km-point b{display:block;color:#fff;font-size:14px}
+.gw-km-point span{display:block;margin-top:7px;color:#8F918B;font-size:12px;line-height:1.5}
+
+.gw-addon{padding:112px 0}
+.gw-addon-head{max-width:840px;margin-bottom:48px}
+.gw-addon-head .gw-eyebrow{color:var(--kbe);margin-bottom:14px}
+.gw-addon-head h2{margin:0;font-size:clamp(42px,5.2vw,66px);line-height:1.06}
+.gw-addon-head p{margin:20px 0 0;font-size:16px}
+.gw-addon-grid{display:grid;grid-template-columns:1.08fr .92fr;border:1px solid var(--ink)}
+.gw-addon-main{display:flex;align-items:center;justify-content:center;min-height:620px;background:#fff;padding:36px}
+.gw-addon-main img{display:block;width:100%;height:100%;max-height:548px;object-fit:contain}
+.gw-addon-side{display:grid;grid-template-rows:1fr 1fr;border-left:1px solid var(--ink)}
+.gw-addon-item{display:grid;grid-template-columns:44% 1fr;min-height:310px}
+.gw-addon-item+ .gw-addon-item{border-top:1px solid var(--ink)}
+.gw-addon-item img{width:100%;height:100%;object-fit:cover}
+.gw-addon-item-copy{display:flex;flex-direction:column;justify-content:center;padding:26px}
+.gw-addon-item-copy .gw-eyebrow{color:var(--kbe);font-size:9px}
+.gw-addon-item-copy h3{margin:9px 0 10px;font:700 24px/1.12 'Gmarket Sans','SUIT Variable',sans-serif;letter-spacing:-.035em}
+.gw-addon-item-copy p{margin:0;font-size:13px;line-height:1.65;color:var(--sage)}
+
+.gw-color{padding:112px 0;background:#EAE6DC;border-block:1px solid #8E826E}
+.gw-color-layout{display:grid;grid-template-columns:minmax(320px,.72fr) minmax(0,1.28fr);gap:54px;align-items:center}
+.gw-color-copy .gw-eyebrow{color:#7D6640;margin-bottom:14px}
+.gw-color-copy h2{margin:0;font-size:clamp(42px,5.2vw,66px);line-height:1.05}
+.gw-color-copy p{margin:22px 0 0;font-size:16px}
+.gw-color-note{margin-top:28px;padding-top:18px;border-top:1px solid #B7AB99;color:#817A6D;font-size:12px;line-height:1.65}
+.gw-color-visual{display:grid;grid-template-columns:1.25fr .75fr;gap:12px;height:560px}
+.gw-color-visual img{display:block;width:100%;height:100%;object-fit:cover;border:1px solid #8E826E}
+
+.gw-compare{padding:112px 0}
+.gw-compare .gw-heading{margin-bottom:40px}
+.gw-table{border:1px solid var(--ink)}
+.gw-row{display:grid;grid-template-columns:190px 1fr 1fr}
+.gw-row+ .gw-row{border-top:1px solid var(--line)}
+.gw-row>div{padding:22px 24px;line-height:1.6;word-break:keep-all}
+.gw-row>div+div{border-left:1px solid var(--line)}
+.gw-row.head{background:var(--ink);color:#fff;font-weight:700}
+.gw-row.head>div+div{border-left-color:rgba(255,255,255,.35)}
+.gw-row .label{font:600 11px 'JetBrains Mono',monospace;letter-spacing:.08em;color:var(--sage)}
+.gw-row.head .label{color:#fff}
+.gw-row strong{font-size:16px}
+.gw-row span{color:var(--sage);font-size:14px}
+
+.gw-cta{padding:100px 0;background:var(--kbe-deep);color:#fff;text-align:center}
+.gw-cta .gw-eyebrow{color:#B8BCC2;margin-bottom:16px}
+.gw-cta h2{max-width:920px;margin:0 auto;color:#fff;font-size:clamp(40px,5.4vw,68px);line-height:1.08}
+.gw-cta p{margin:20px auto 0;max-width:680px;color:#B8BCC2;font-size:16px;line-height:1.7}
+.gw-cta .gw-btn{margin-top:30px}
+
+@media(max-width:900px){
+  .gw-heading{grid-template-columns:1fr;gap:18px}.gw-heading p{max-width:650px}
+  .gw-kbe-head{grid-template-columns:1fr;gap:44px}.gw-kbe-profile{height:480px}
+  .gw-metrics{grid-template-columns:repeat(2,1fr)}.gw-metric:nth-child(3){border-left:0;border-top:1px solid var(--kbe)}.gw-metric:nth-child(4){border-top:1px solid var(--kbe)}
+  .gw-proof-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:0;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .gw-proof-grid::-webkit-scrollbar{display:none}
+  .gw-proof{flex:0 0 min(80vw,620px);scroll-snap-align:start;scroll-snap-stop:always}
+  .gw-proof:first-child{grid-column:auto}.gw-proof+ .gw-proof{border-left:1px solid var(--kbe);border-top:0}
+  .gw-km-feature{grid-template-columns:1fr;min-height:0}.gw-km-image{height:600px}.gw-km-copy{border-left:0;border-top:1px solid rgba(196,164,108,.68)}
+  .gw-addon-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:0;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .gw-addon-grid::-webkit-scrollbar{display:none}
+  .gw-addon-main,.gw-addon-item{flex:0 0 min(78vw,640px);scroll-snap-align:start;scroll-snap-stop:always}
+  .gw-addon-main{min-height:520px}
+  .gw-addon-side{display:contents}
+  .gw-addon-item{grid-template-columns:48% 1fr;min-height:520px;border-left:1px solid var(--ink)}
+  .gw-addon-item+ .gw-addon-item{border-top:0;border-left:1px solid var(--ink)}
+  .gw-color-layout{grid-template-columns:1fr}.gw-color-copy{max-width:720px}
+}
+
+@media(max-width:640px){
+  .german-page{padding-top:56px}.gw-wrap{width:calc(100% - 28px)}
+  .gw-hero{height:540px;min-height:0}.gw-hero video{object-position:center}.gw-hero::after{background:linear-gradient(0deg,rgba(12,14,13,.9) 0%,rgba(12,14,13,.48) 62%,rgba(12,14,13,.12) 100%)}
+  .gw-hero-copy{left:22px;right:22px;bottom:38px}.gw-hero-copy .gw-eyebrow{font-size:9px;margin-bottom:13px}.gw-hero h1{font-size:38px;line-height:1.04}.gw-hero p{font-size:14px;line-height:1.58;margin-top:15px}.gw-hero p br{display:none}.gw-hero-actions{margin-top:18px}.gw-btn{min-height:44px;padding:0 15px;font-size:13px}.gw-hero-index{display:none}
+  .gw-intro,.gw-kbe,.gw-km,.gw-addon,.gw-color,.gw-compare{padding:74px 0}.gw-heading{margin-bottom:28px}.gw-heading h2,.gw-addon-head h2,.gw-color-copy h2{font-size:36px}.gw-heading p,.gw-addon-head p,.gw-color-copy p{font-size:14px}
+  .gw-brand-grid{grid-template-columns:1fr}.gw-brand-card{min-height:430px}.gw-brand-card+ .gw-brand-card{border-left:0;border-top:1px solid var(--ink)}.gw-brand-card.kbe-card img{padding:36px 28px 116px}.gw-brand-card-copy{left:22px;right:22px;bottom:22px}.gw-brand-card-copy h3{font-size:30px}
+  .gw-kbe-head{gap:32px}.gw-kbe-profile{height:360px;padding:24px}.gw-kbe-copy h2,.gw-km-copy h2{font-size:40px}.gw-kbe-copy>p,.gw-km-copy>p{font-size:14px}.gw-metrics{margin-top:40px}.gw-metric{min-height:138px;padding:20px 18px}.gw-metric b{font-size:34px}.gw-metric span{font-size:12px}
+  .gw-km-feature{display:block}.gw-km-image{height:440px}.gw-km-copy{padding:32px 24px 36px}.gw-km-points{grid-template-columns:1fr;margin-top:32px}.gw-km-point{padding:16px 0}.gw-km-point+ .gw-km-point{padding-left:0;border-left:0;border-top:1px solid rgba(196,164,108,.32)}
+  .gw-addon-head{margin-bottom:30px}.gw-addon-main,.gw-addon-item{flex-basis:calc(100vw - 56px);height:min(560px,132vw);min-height:0}.gw-addon-main{padding:20px}.gw-addon-main img{height:100%;max-height:none}.gw-addon-item{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto}.gw-addon-item img{height:100%;min-height:0}.gw-addon-item-copy{padding:22px 20px 24px}
+  .gw-color-layout{gap:30px}.gw-color-visual{grid-template-columns:1fr;height:auto}.gw-color-visual img{height:330px}.gw-color-visual img+img{height:260px}
+  .gw-table{display:grid;grid-template-columns:1fr 1fr}.gw-row{display:contents}.gw-row>div{padding:18px 14px;border-top:1px solid var(--line)}.gw-row>div:first-child{grid-column:1/-1;background:#E6E1D5;padding:11px 14px}.gw-row>div+div{border-left:0}.gw-row>div:nth-child(3){border-left:1px solid var(--line)}.gw-row.head>div{border-top:0;background:var(--ink)}.gw-row.head>div:first-child{display:none}.gw-row.head>div:nth-child(2),.gw-row.head>div:nth-child(3){padding:16px 14px}.gw-row strong{font-size:14px}.gw-row span{font-size:12px}
+  .gw-cta{padding:74px 20px}.gw-cta h2{font-size:36px}.gw-cta p{font-size:14px}
+}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.gw-brand-card img{transition:none}}
 </style>
 <link rel="stylesheet" href="../../responsive.css?v=r4">
 </head>
 <body>
+<main class="german-page">
+  <section class="gw-hero" aria-labelledby="germanHeroTitle">
+    <video id="germanHeroVideo" autoplay muted loop playsinline preload="metadata" aria-label="독일 시스템창호 영상">
+      <source src="../../assets/kbe-german/german-system-hero.mp4?v=g2026080102" type="video/mp4">
+    </video>
+    <div class="gw-hero-copy">
+      <div class="gw-eyebrow">german system windows · kbe + kömmerling</div>
+      <h1 class="gw-title" id="germanHeroTitle">공간의 기준을 바꾸는<br>독일 시스템창호.</h1>
+      <p>단열과 기밀이라는 기본에서, 차양과 컬러라는 취향까지.<br>KBE와 KÖMMERLING으로 완성하는 더 나은 창의 기준.</p>
+      <div class="gw-hero-actions">
+        <a class="gw-btn gw-btn-light" href="#brands">두 브랜드 보기</a>
+        <a class="gw-btn gw-btn-light" href="#" onclick="openModal();return false;">상담신청</a>
+      </div>
+    </div>
+    <div class="gw-hero-index"><span>01 · KBE</span><span>02 · KÖMMERLING</span></div>
+  </section>
 
-<nav class="gnb">
-  <div class="gnb-inner">
-    <a href="../../" class="logo">MM LAB <span>Millimeter Laboratory</span></a>
-    <div class="hamburger" onclick="toggleMenu(this)"><span></span><span></span><span></span></div>
-    <div class="gnb-menu" id="gnbMenu">
-      <a href="../../" class="gnb-back" onclick="closeMenu()">홈</a>
-      <a href="../../#interior-card" onclick="closeMenu()">인테리어</a>
-      <a href="../../#brands" onclick="closeMenu()">창호</a>
-      <a href="#" class="gnb-cta" onclick="openModal();closeMenu();return false;">상담신청</a>
+  <section class="gw-intro" id="brands">
+    <div class="gw-wrap">
+      <div class="gw-heading reveal">
+        <div><div class="gw-eyebrow">two german standards</div><h2 class="gw-title">성능과 취향에 맞춰<br>고르는 두 가지 기준.</h2></div>
+        <p class="gw-copy">KBE는 단열·기밀·차음의 탄탄한 기본을, KÖMMERLING은 Add-On 블라인드와 컬러 커스텀을 더합니다.</p>
+      </div>
+      <div class="gw-brand-grid reveal">
+        <a class="gw-brand-card kbe-card" href="#kbe">
+          <img src="../../assets/kbe-german/kbe-profile.webp?v=g2026080102" alt="KBE 88mm 7챔버 프로파일 단면">
+          <div class="gw-brand-card-copy"><div class="gw-eyebrow">01 · kbe 88 system</div><h3>독일 시스템창호의 기준</h3><p>검증된 88mm 7챔버 시스템으로 단열·기밀·차음의 기본을 탄탄하게 완성합니다.</p></div>
+        </a>
+        <a class="gw-brand-card" href="#koemmerling">
+          <img src="../../assets/kbe-german/koemmerling-hero.webp?v=g2026080102" alt="Add-On 블라인드가 적용된 KÖMMERLING 시스템창호">
+          <div class="gw-brand-card-copy"><div class="gw-eyebrow">02 · kömmerling custom</div><h3>성능 위에 취향을 더한 하이엔드</h3><p>블라인드를 품고 원하는 컬러로 완성되는 프리미엄 시스템창호입니다.</p></div>
+        </a>
+      </div>
     </div>
-  </div>
-</nav>
+  </section>
 
-<section class="brand-hero kbe-hero">
-  <div class="container">
-    <div class="eyebrow">KBE · PROFINE · GERMANY · 1897</div>
-    <h1 class="display">독일 정통,<br>120년의 시스템 창호.</h1>
-    <p class="subtitle">profine 그룹 — 22개국 3,000명, 연 45만톤의 글로벌 기업.<br>독일 베를린 직수입 KBE 88mm 7챔버 프로파일.</p>
-    <div class="hero-ctas">
-      <a href="#specs" class="btn btn-primary">88mm 성능 보기 →</a>
-      <a href="#" class="btn btn-ghost" onclick="openModal();return false;">상담신청</a>
+  <section class="gw-kbe" id="kbe">
+    <div class="gw-wrap">
+      <div class="gw-kbe-head">
+        <figure class="gw-kbe-profile reveal"><img src="../../assets/kbe-german/kbe-profile.webp?v=g2026080102" alt="KBE 88mm 시스템창호의 7챔버 프로파일"></figure>
+        <div class="gw-kbe-copy reveal">
+          <div class="gw-eyebrow">kbe · profine · germany</div>
+          <h2 class="gw-title">독일 기술로 완성한<br>창호의 기본.</h2>
+          <p class="gw-copy">독일에서 직수입한 88mm 프로파일에 7챔버 구조와 3중 가스켓을 적용했습니다. 강철 보강재와 유럽산 하드웨어가 구조의 안정성과 일상의 사용감을 함께 지탱합니다.</p>
+        </div>
+      </div>
+      <div class="gw-metrics reveal" aria-label="KBE 핵심 사양">
+        <div class="gw-metric"><b>88<small>mm</small></b><span>고성능 프레임 깊이</span></div>
+        <div class="gw-metric"><b>7</b><span>단열을 높이는 챔버 구조</span></div>
+        <div class="gw-metric"><b>3</b><span>외풍과 수분을 막는 가스켓</span></div>
+        <div class="gw-metric"><b>45<small>dB</small></b><span>최대 차음 성능</span></div>
+      </div>
+      <div class="gw-proof-grid reveal">
+        <article class="gw-proof"><img src="../../assets/kbe-german/kbe-factory.webp?v=g2026080104" alt="독일 KBE 프로파일 생산 시설"><div class="gw-proof-copy"><div class="gw-eyebrow">german production</div><strong>독일 생산 기반의 프로파일</strong></div></article>
+        <article class="gw-proof"><img src="../../assets/kbe-german/kbe-automation-studio.png?v=g2026080104" alt="시스템창호 자동화 제작 설비"><div class="gw-proof-copy"><div class="gw-eyebrow">automated line</div><strong>정밀도를 높이는 자동화 제작</strong></div></article>
+        <article class="gw-proof"><img src="../../assets/kbe-german/kbe-production.webp?v=g2026080104" alt="완성된 KBE 시스템창호 제작품"><div class="gw-proof-copy"><div class="gw-eyebrow">quality control</div><strong>제작부터 출고까지 이어지는 품질 관리</strong></div></article>
+      </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="hero-visual kbe-visual"><span style="opacity:0.6;">[ KBE 88mm SYSTEM — 풀스크린 키비주얼 ]</span></div>
-  </div>
-</section>
+  </section>
 
-<section class="section section-gray">
-  <div class="container">
-    <div class="section-header centered reveal">
-      <div class="eyebrow">PROFINE FEATURES</div>
-      <h2 class="h2">7 More.</h2>
-      <p class="body-lg">profine이 정의하는 7가지 더 좋은 가치.</p>
+  <section class="gw-km" id="koemmerling">
+    <div class="gw-wrap">
+      <div class="gw-km-feature reveal">
+        <div class="gw-km-image"><img src="../../assets/kbe-german/koemmerling-blind.webp?v=g2026080102" alt="KÖMMERLING 블라인드 시스템창호 정면"></div>
+        <div class="gw-km-copy">
+          <div class="gw-eyebrow">kömmerling · premium custom</div>
+          <h2 class="gw-title">블라인드를 품고,<br>컬러로 완성합니다.</h2>
+          <p class="gw-copy">단열과 기밀의 기본 위에 Add-On 블라인드와 컬러 도장을 더해 건축과 인테리어의 완성도를 높입니다.</p>
+          <div class="gw-km-points">
+            <div class="gw-km-point"><b>Integrated Blind</b><span>유리 보호공간 안에 배치한 차양</span></div>
+            <div class="gw-km-point"><b>Color Coating</b><span>공간에 맞춘 컬러 커스텀</span></div>
+            <div class="gw-km-point"><b>Refined Detail</b><span>프레임과 하드웨어의 정교한 마감</span></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="lineup-carousel">
-      <button class="lc-arrow lc-prev" aria-label="이전 항목" type="button">‹</button>
-      <div class="lc-track">
-      <div class="more-card reveal">
-        <div class="more-tag">01 · MORE QUALITY</div>
-        <h4>품질의 기준</h4>
-        <p>베를린 직수입, 88mm 7챔버, 그린라인 인증. 친환경 칼슘·아연 안정제 사용.</p>
-      </div>
-      <div class="more-card reveal">
-        <div class="more-tag">02 · MORE VALUE</div>
-        <h4>가치의 지속</h4>
-        <p>친환경 자재와 내구성이 제품의 가치를 오래 유지합니다.</p>
-      </div>
-      <div class="more-card reveal">
-        <div class="more-tag">03 · MORE STABILITY</div>
-        <h4>견고한 안정성</h4>
-        <p>유리 하중·풍하중을 견디는 강철 보강재가 챔버 내부에 탑재되어 있습니다.</p>
-      </div>
-      <div class="more-card reveal">
-        <div class="more-tag">04 · MORE SEALED</div>
-        <h4>완벽한 밀폐</h4>
-        <p>3중 가스켓이 외부 비바람을 차단, 최적의 단열 효과를 제공합니다.</p>
-      </div>
-      <div class="more-card reveal">
-        <div class="more-tag">05 · MORE SOUND</div>
-        <h4>탁월한 방음</h4>
-        <p>48.76mm 4중유리에 차음접합 필름을 적용한 최고의 방음 시스템.</p>
-      </div>
-      <div class="more-card reveal">
-        <div class="more-tag">06 · MORE CLEAN</div>
-        <h4>관리의 편의</h4>
-        <p>프로파일 표면 사이의 청소가 용이. 레일 오염 침착 방지.</p>
-      </div>
-      <div class="more-card reveal">
-        <div class="more-tag">07 · MORE DESIGN</div>
-        <h4>커튼월 룩</h4>
-        <p>외부 알루미늄 커버(2.5T)로 PVC 외부 변형 방지 + 고급 디자인 연출.</p>
-      </div>
-      <div class="more-card reveal">
-        <div class="more-tag">+ · PASSIVE HOUSE</div>
-        <h4>패시브하우스 적합</h4>
-        <p>연간 약 100만원 난방비 절감. KBE 88mm로 패시브하우스 구현 가능.</p>
-      </div>
-      </div>
-      <button class="lc-arrow lc-next" aria-label="다음 항목" type="button">›</button>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-header centered">
-      <div class="eyebrow">BRAND</div>
-      <h2 class="h2">PEOPLE · PASSION · PROFILES.</h2>
-      <p class="body-lg">profine 그룹은 1897년 Karl Kommerling이 설립한 세계 최대 시스템 창호 기업입니다.<br>KBE · KÖMMERLING · TROCAL 세 브랜드를 보유, 23개 글로벌 생산공장에서 70여 국가에 공급합니다.</p>
-    </div>
-    <div class="stats-row reveal">
-      <div class="stat"><div class="stat-num">120년</div><div class="stat-label">역사 (1897~)</div></div>
-      <div class="stat"><div class="stat-num">22개국</div><div class="stat-label">생산·공급</div></div>
-      <div class="stat"><div class="stat-num">3,000명</div><div class="stat-label">글로벌 직원</div></div>
-      <div class="stat"><div class="stat-num">45만톤</div><div class="stat-label">연 프로파일 생산</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-gray">
-  <div class="container">
-    <div class="section-header centered reveal">
-      <div class="eyebrow">GLOBAL PRESENCE</div>
-      <h2 class="h2">5대 본사 생산기지.</h2>
-      <p class="body-lg">독일 본사 외 유럽 전역에 직영 생산공장. 한국은 ㈜우신윈시스템이 직수입 공급.</p>
-    </div>
-    <div class="global-list">
-      <div class="global-item"><div class="city">Berlin</div><div class="stat">직원 400 · 11.3만톤</div></div>
-      <div class="global-item"><div class="city">Pirmasens</div><div class="stat">직원 1,100 · 15만톤</div></div>
-      <div class="global-item"><div class="city">Voskresensk</div><div class="stat">직원 390 · 7.5만톤</div></div>
-      <div class="global-item"><div class="city">Marmoutier</div><div class="stat">직원 100 · 1.6만톤</div></div>
-      <div class="global-item"><div class="city">Madrid</div><div class="stat">직원 110 · 1만톤</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="specs">
-  <div class="container">
-    <div class="section-header centered reveal">
-      <div class="eyebrow">KBE 88mm SYSTEM</div>
-      <h2 class="h2">88mm 7챔버,<br>독일의 단열 기준.</h2>
-      <p class="body-lg">베를린 압출공장에서 직수입되는 고급 PVC 88mm 프레임과 7챔버 프로파일.<br>친환경 안정제 칼슘·아연을 사용해 납 성분이 들어가지 않은 유럽 그린라인 인증 제품입니다.</p>
-    </div>
-    <div class="spec-large reveal">
-      <div class="item"><div class="num">0.95</div><div class="label">Uf 열관류율 (W/㎡K)</div></div>
-      <div class="item"><div class="num">0.72</div><div class="label">Uw 최소 (W/㎡K)</div></div>
-      <div class="item"><div class="num">45 dB</div><div class="label">차음 성능</div></div>
-      <div class="item"><div class="num">88mm</div><div class="label">프레임 + 7챔버</div></div>
-      <div class="item"><div class="num">47mm</div><div class="label">3중유리</div></div>
-      <div class="item"><div class="num">10년</div><div class="label">본사 개런티</div></div>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <div class="section-header centered reveal">
-      <div class="eyebrow">OPENING METHOD</div>
-      <h2 class="h2">Tilt &amp; Slide 패럴방식.</h2>
-      <p class="body-lg">독일의 정통 시스템 — 환기·개폐·잠금이 하나의 동작으로.</p>
-    </div>
-    <div class="lineup-carousel mobile-card-carousel">
-      <button class="lc-arrow lc-prev" aria-label="이전 개폐 단계" type="button">‹</button>
-      <div class="lc-track mobile-card-track grid-3">
-      <div class="feature-card reveal">
-        <h4>TILT (핸들 위로)</h4>
-        <p>4면 8mm 돌출 — 우천 시에도 안전한 사방환기. 방범 잠금 동시 작동.</p>
+  <section class="gw-addon" id="addon">
+    <div class="gw-wrap">
+      <header class="gw-addon-head reveal">
+        <div class="gw-eyebrow">add-on blind system</div>
+        <h2 class="gw-title">차양과 관리까지<br>창 안에 설계했습니다.</h2>
+        <p class="gw-copy">블라인드를 유리 보호공간 안에 배치해 오염과 손상을 줄입니다. 필요할 때 보호 유리를 열어 블라인드에 접근할 수 있습니다.</p>
+      </header>
+      <div class="gw-addon-grid reveal">
+        <figure class="gw-addon-main"><img src="../../assets/kbe-german/addon-section.webp?v=g2026080102" alt="Add-On 블라인드가 포함된 시스템창호 단면 구조"></figure>
+        <div class="gw-addon-side">
+          <article class="gw-addon-item"><img src="../../assets/kbe-german/addon-access.webp?v=g2026080102" alt="보호 유리를 열어 블라인드에 접근하는 모습"><div class="gw-addon-item-copy"><div class="gw-eyebrow">01 · access</div><h3>열어서 관리하는 구조</h3><p>보호 유리를 열고 블라인드에 접근해 점검과 관리를 진행할 수 있습니다.</p></div></article>
+          <article class="gw-addon-item"><img src="../../assets/kbe-german/addon-service.webp?v=g2026080102" alt="Add-On 블라인드를 점검하는 모습"><div class="gw-addon-item-copy"><div class="gw-eyebrow">02 · control</div><h3>공간에 맞춘 조작 방식</h3><p>수동 조작과 리모컨 방식을 선택할 수 있으며, 적용 사양은 현장 조건에 맞춰 안내합니다.</p></div></article>
+        </div>
       </div>
-      <div class="feature-card reveal">
-        <h4>OPEN (핸들 45도)</h4>
-        <p>슬라이딩 + 유압장치로 미세한 힘에도 부드럽게 닫힘.</p>
-      </div>
-      <div class="feature-card reveal">
-        <h4>LOCK (핸들 아래)</h4>
-        <p>3중 가스켓 압착 — 기밀·수밀·차음·진입방지 모두 완성.</p>
-      </div>
-      </div>
-      <button class="lc-arrow lc-next" aria-label="다음 개폐 단계" type="button">›</button>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section section-gray">
-  <div class="container">
-    <div class="section-header centered reveal">
-      <div class="eyebrow">PREMIUM HARDWARE</div>
-      <h2 class="h2">유럽 정통 부자재.</h2>
-    </div>
-    <div class="lineup-carousel mobile-card-carousel">
-      <button class="lc-arrow lc-prev" aria-label="이전 하드웨어" type="button">‹</button>
-      <div class="lc-track mobile-card-track grid-3">
-      <div class="feature-card reveal">
-        <h4>WINKHAUS</h4>
-        <p>유럽 최대 하드웨어 공급업체. PVC·Wood·Al·Steel 창호 모두 호환.</p>
+  <section class="gw-color" id="color">
+    <div class="gw-wrap gw-color-layout">
+      <div class="gw-color-copy reveal">
+        <div class="gw-eyebrow">color studio</div>
+        <h2 class="gw-title">화이트를 넘어,<br>공간의 색으로.</h2>
+        <p class="gw-copy">UV 경화형 PVC 컬러 코팅으로 건축 외관과 인테리어 콘셉트에 맞는 색을 선택할 수 있습니다.</p>
+        <div class="gw-color-note">실제 적용 색상과 무늬, 실내·외 도장 범위, 제작 기간과 보증 조건은 상담 후 확정됩니다.</div>
       </div>
-      <div class="feature-card reveal">
-        <h4>HOPPE Secusan 핸들</h4>
-        <p>은이온 특수 코팅 — 세균 99% 차단 (독일 DGHM 인증).</p>
+      <div class="gw-color-visual reveal">
+        <img src="../../assets/kbe-german/koemmerling-colors.webp?v=g2026080102" alt="KÖMMERLING 컬러 코팅 샘플 전체">
+        <img src="../../assets/kbe-german/koemmerling-colors-detail.webp?v=g2026080102" alt="KÖMMERLING 컬러 코팅 샘플 디테일">
       </div>
-      <div class="feature-card reveal">
-        <h4>OnLevel SKY FORCE</h4>
-        <p>프레임 노출 없는 유리 난간대 시스템. 독일 ABP 건축자재 인증.</p>
+    </div>
+  </section>
+
+  <section class="gw-compare" id="compare">
+    <div class="gw-wrap">
+      <div class="gw-heading reveal">
+        <div><div class="gw-eyebrow">choose your standard</div><h2 class="gw-title">어떤 창이<br>우리 공간에 맞을까요?</h2></div>
+        <p class="gw-copy">두 브랜드 모두 독일 시스템창호의 기본 성능을 갖추고 있습니다. 우선순위에 따라 선택 기준이 달라집니다.</p>
       </div>
+      <div class="gw-table reveal" role="table" aria-label="KBE와 KÖMMERLING 비교">
+        <div class="gw-row head" role="row"><div class="label" role="columnheader">구분</div><div role="columnheader">KBE</div><div role="columnheader">KÖMMERLING</div></div>
+        <div class="gw-row" role="row"><div class="label" role="rowheader">POSITION</div><div><strong>독일 시스템창호의 기준</strong></div><div><strong>하이엔드 커스텀 시스템창호</strong></div></div>
+        <div class="gw-row" role="row"><div class="label" role="rowheader">CORE</div><div><span>88mm · 7챔버 · 3중 가스켓</span></div><div><span>88mm · 7챔버 기반의 고성능 구조</span></div></div>
+        <div class="gw-row" role="row"><div class="label" role="rowheader">VALUE</div><div><span>단열 · 기밀 · 차음 · 신뢰성</span></div><div><span>성능 · 차양 · 디자인 · 맞춤성</span></div></div>
+        <div class="gw-row" role="row"><div class="label" role="rowheader">BEST FOR</div><div><span>성능과 안정적인 제작 품질을 우선하는 공간</span></div><div><span>차양과 색채까지 설계하는 고급 주택·인테리어</span></div></div>
       </div>
-      <button class="lc-arrow lc-next" aria-label="다음 하드웨어" type="button">›</button>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-header centered reveal">
-      <div class="eyebrow">CASE STUDY</div>
-      <h2 class="h2">국내 시공 실적.</h2>
-      <p class="body-lg">대한민국 프리미엄 단지와 공공시설에 KBE가 적용되었습니다.</p>
+  <section class="gw-cta">
+    <div class="gw-wrap reveal">
+      <div class="gw-eyebrow">german window consultation</div>
+      <h2 class="gw-title">성능과 취향에 맞는<br>독일 시스템창호를 제안합니다.</h2>
+      <p>현장 조건과 개폐 방식, 블라인드·컬러 옵션을 함께 확인해 가장 알맞은 구성을 안내해드립니다.</p>
+      <a class="gw-btn gw-btn-light" href="#" onclick="openModal();return false;">상담신청</a>
     </div>
-    <div class="lineup-carousel mobile-card-carousel">
-      <button class="lc-arrow lc-prev" aria-label="이전 시공 실적" type="button">‹</button>
-      <div class="lc-track mobile-card-track project-list">
-      <div class="project-item"><div><div class="name">삼성 래미안 신정 APT</div><div class="type">서울 · 아파트</div></div></div>
-      <div class="project-item"><div><div class="name">용인 W 타운하우스</div><div class="type">경기 · 타운하우스</div></div></div>
-      <div class="project-item"><div><div class="name">태영 김포 라피아노 1차 · 2차</div><div class="type">경기 · 타운하우스</div></div></div>
-      <div class="project-item"><div><div class="name">아산 중앙도서관 · 보건소</div><div class="type">충남 · 공공시설</div></div></div>
-      </div>
-      <button class="lc-arrow lc-next" aria-label="다음 시공 실적" type="button">›</button>
-    </div>
-  </div>
-</section>
-
-<section class="section section-gray">
-  <div class="container">
-    <div class="section-header centered reveal">
-      <div class="eyebrow">CERTIFICATION</div>
-      <h2 class="h2">검증된 글로벌 인증.</h2>
-    </div>
-    <div class="lineup-carousel mobile-card-carousel">
-      <button class="lc-arrow lc-prev" aria-label="이전 인증" type="button">‹</button>
-      <div class="lc-track mobile-card-track grid-4">
-      <div class="feature-card"><h4>유럽 그린라인</h4><p>친환경 PVC 인증</p></div>
-      <div class="feature-card"><h4>독일 RAL · IFT</h4><p>창호 품질 시험</p></div>
-      <div class="feature-card"><h4>독일 ABP</h4><p>건축자재 인증</p></div>
-      <div class="feature-card"><h4>한국 KOLAS</h4><p>국제 시험기관 인증</p></div>
-      </div>
-      <button class="lc-arrow lc-next" aria-label="다음 인증" type="button">›</button>
-    </div>
-  </div>
-</section>
-
-<div id="mm-related"></div>
-
-
-
-<div id="mm-cta"></div>
-
-
+  </section>
+</main>
 
 <div id="mm-footer"></div>
-
-<div style="display:none"></div>
-
-
-
-
-<script src="../../common.js?v=g60"></script>
-<script src="../../sitenav.js?v=g48"></script>
+<script src="../../common.js?v=g61"></script>
+<script src="../../sitenav.js?v=g50"></script>
 <script>
+(function(){
+  var video=document.getElementById('germanHeroVideo');
+  if(video){video.muted=true;var play=video.play();if(play&&play.catch)play.catch(function(){});}
+})();
 </script>
 </body>
 </html>

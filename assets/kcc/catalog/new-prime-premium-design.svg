@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 190" role="img" aria-labelledby="title desc">
+  <title id="title">KCC 뉴프라임 프리미엄 실내 마감 구조</title>
+  <desc id="desc">실내 측 프레임 노출과 트랙을 정돈한 단면 구조</desc>
+  <g fill="none" stroke="#4f4b45" stroke-linecap="square" stroke-linejoin="miter">
+    <path stroke-width="5" d="M42 31h44v34h43v32H98v54H33V65h9zM86 48h55v24h37v28h-51M98 151h82v-38h64V73h-66"/>
+    <path stroke-width="3" d="M38 73h45v18H49v43h44V98h70M53 37v28M77 37v28M108 71v21M37 115h56M109 106v36h63v-22h68M184 80h53"/>
+    <path stroke-width="2" d="M198 56h46v17M198 56v24"/>
+  </g>
+  <path fill="none" stroke="#c64d46" stroke-width="5" d="M45 66h37v18H51v58h49v-48h72v18h19V86h53"/>
+  <g fill="#5c4433">
+    <circle cx="63" cy="102" r="4"/><circle cx="82" cy="102" r="4"/><circle cx="120" cy="103" r="4"/><circle cx="146" cy="103" r="4"/>
+  </g>
+  <path d="M225 119h42m-11-9 11 9-11 9" fill="none" stroke="#5c4433" stroke-width="2"/>
+  <text x="246" y="103" fill="#5c4433" font-family="Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle">INSIDE</text>
+  <path d="M18 166h264" stroke="#bfb5a7" stroke-width="1"/>
+  <text x="150" y="181" fill="#6e7c64" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" letter-spacing="1.5">CLEAN INTERIOR FINISH</text>
+</svg>

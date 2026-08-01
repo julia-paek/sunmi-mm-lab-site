@@ -82,7 +82,7 @@ var st=document.createElement('style');st.textContent=css;document.head.appendCh
 var BRANDS=[
   {href:site('windows/lx/'),name:'LX 하우시스',sub:'일반창 · 시스템창',color:'#2F5233'},
   {href:site('windows/kcc/'),name:'KCC',sub:'국내 1위',color:'#5C4433'},
-  {href:site('windows/kbe/'),name:'KBE',sub:'독일 시스템창',color:'#464B52'},
+  {href:site('windows/kbe/'),name:'독일시스템창호',sub:'KBE, KÖMMERLING',color:'#464B52'},
   {href:site('screens/kogo/'),name:'고구려안전방충망',sub:'안전 · 방범',color:'#8A7A5C'}
 ];
 var GROUPS=[
