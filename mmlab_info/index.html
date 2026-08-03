@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>MM LAB 홈페이지 작업 인수인계 · mmlab_info</title>
+<style>
+:root{--forest:#17361f;--forest-deep:#0f2616;--paper:#f4f1e8;--white:#fff;--line:#aeb9b0;--muted:#68766b;--brass:#987a45;--blue:#252944;--soft:#e4e9e4;--ink:#172019}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"SUIT Variable","Pretendard",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.72;word-break:keep-all}
+a{color:inherit}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}
+.rail{position:sticky;top:0;height:100vh;padding:34px 28px;background:var(--forest-deep);color:#fff;overflow:auto}
+.rail-mark{display:flex;align-items:center;gap:11px;font-size:20px;font-weight:800;letter-spacing:-.04em}
+.rail-mark::before{content:"";width:26px;height:26px;background:linear-gradient(135deg,#fff 0 45%,#7f9984 45% 100%);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+.rail-status{margin-top:28px;padding:18px;border:1px solid rgba(255,255,255,.3)}
+.rail-status small{display:block;color:#9fb0a1;font:700 10px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase}
+.rail-status strong{display:block;margin-top:8px;font-size:18px}
+.rail-status span{display:block;margin-top:5px;color:#bdc9be;font-size:12px;line-height:1.55}
+.rail nav{margin-top:30px;border-top:1px solid rgba(255,255,255,.22)}
+.rail nav a{display:block;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.16);color:#cad4cb;text-decoration:none;font-size:13px}
+.rail nav a:hover,.rail nav a:focus-visible{color:#fff}
+.rail-meta{margin-top:28px;color:#93a395;font:600 10px/1.75 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}
+.content{min-width:0}
+.hero{padding:76px clamp(28px,6vw,92px) 68px;background:var(--forest);color:#fff;border-bottom:1px solid var(--forest-deep)}
+.hero .eyebrow,.eyebrow{font:700 10px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase}
+.hero .eyebrow{color:#aebdaf}
+.hero h1{max-width:900px;margin:18px 0 0;font-size:clamp(42px,6vw,78px);line-height:1.03;letter-spacing:-.065em}
+.hero p{max-width:780px;margin:24px 0 0;color:#c1cdc2;font-size:clamp(15px,1.7vw,19px)}
+.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);max-width:900px;margin-top:40px;border:1px solid rgba(255,255,255,.4)}
+.hero-stat{padding:20px}
+.hero-stat+.hero-stat{border-left:1px solid rgba(255,255,255,.32)}
+.hero-stat b{display:block;font-size:17px}
+.hero-stat span{display:block;margin-top:5px;color:#aebdaf;font-size:11px}
+main{padding:0 clamp(28px,6vw,92px) 110px}
+section{max-width:1120px;padding:76px 0;border-bottom:1px solid var(--line)}
+section:last-child{border-bottom:0}
+.section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.62fr);gap:42px;align-items:end;margin-bottom:32px}
+.section-head h2{margin:10px 0 0;color:var(--forest);font-size:clamp(32px,4.3vw,52px);line-height:1.08;letter-spacing:-.055em}
+.section-head p{margin:0;color:var(--muted);font-size:14px}
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--forest);background:var(--white)}
+.card{padding:28px}
+.card+.card{border-left:1px solid var(--forest)}
+.card h3{margin:0;color:var(--forest);font-size:22px;letter-spacing:-.035em}
+.card p{margin:12px 0 0;color:var(--muted);font-size:14px}
+.card.is-wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(220px,.62fr) minmax(0,1.38fr);gap:28px;background:var(--forest);color:#fff}
+.card.is-wide h3{color:#fff;font-size:28px}
+.card.is-wide p{color:#bdc9be}
+.card.is-wide ul{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;margin:0;padding-left:18px;color:#d3dcd4;font-size:13px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--forest);background:#fff}
+.fact{padding:22px}
+.fact+.fact{border-left:1px solid var(--forest)}
+.fact b{display:block;color:var(--forest);font-size:16px}
+.fact span{display:block;margin-top:6px;color:var(--muted);font-size:12px}
+.table{border:1px solid var(--forest);background:#fff}
+.row{display:grid;grid-template-columns:190px 1fr}
+.row+.row{border-top:1px solid var(--line)}
+.row>div{padding:17px 20px}
+.row>div+div{border-left:1px solid var(--line)}
+.row .label{background:var(--soft);color:var(--muted);font:700 10px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}
+.row strong{color:var(--forest)}
+.row span{color:var(--muted);font-size:13px}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:step}
+.step{position:relative;min-height:144px;padding:25px 20px 20px;border:1px solid var(--forest);background:#fff;counter-increment:step}
+.step::before{content:counter(step,decimal-leading-zero);display:block;margin-bottom:18px;color:var(--brass);font:800 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em}
+.step b{display:block;color:var(--forest)}
+.step span{display:block;margin-top:8px;color:var(--muted);font-size:12px}
+.note{margin-top:18px;padding:18px 20px;border-left:4px solid var(--brass);background:#ebe5d7;color:#5f5a50;font-size:13px}
+.boundary{margin-top:24px;padding:26px;background:var(--forest);color:#fff}
+.boundary strong{display:block;font-size:19px}
+.boundary p{margin:10px 0 0;color:#bdc9be;font-size:13px}
+.transcript{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--forest);background:#fff}
+.transcript-card{padding:28px}
+.transcript-card+.transcript-card{border-left:1px solid var(--forest)}
+.transcript-card h3{margin:0;color:var(--forest);font-size:24px;letter-spacing:-.04em}
+.transcript-card ol{margin:20px 0 0;padding-left:22px;color:var(--muted);font-size:13px}
+.transcript-card li+li{margin-top:9px}
+.transcript-card small{display:block;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);color:#7b756a;line-height:1.65}
+.memo-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.memo-links a{padding:9px 11px;border:1px solid var(--line);text-decoration:none;font-size:11px;font-weight:700}
+.check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.check{padding:22px;border:1px solid var(--line);background:#fff}
+.check h3{margin:0;color:var(--forest);font-size:17px}
+.check ul{margin:14px 0 0;padding-left:19px;color:var(--muted);font-size:13px}
+.path{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;overflow-wrap:anywhere}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{padding:11px 14px;border:1px solid var(--forest);background:#fff;color:var(--forest);text-decoration:none;font-size:12px;font-weight:800}
+.links a:hover,.links a:focus-visible{background:var(--forest);color:#fff}
+.open-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.open-card{padding:22px;border:1px solid var(--forest);background:#fff}
+.open-card h3{margin:0 0 14px;color:var(--forest);font-size:17px}
+.open-card a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);color:var(--muted);text-decoration:none;font-size:12px;font-weight:700}
+.open-card a::after{content:"↗";flex:0 0 auto;color:var(--brass);font-size:15px}
+.open-card a:hover,.open-card a:focus-visible{color:var(--forest)}
+.open-note{margin:0;padding:10px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+.model-shell{border:1px solid var(--forest);background:#fff}
+.model-core{display:grid;grid-template-columns:minmax(230px,.68fr) minmax(0,1.32fr);gap:34px;padding:34px;background:var(--forest);color:#fff}
+.model-core h3{margin:0;font-size:clamp(27px,3.4vw,42px);line-height:1.08;letter-spacing:-.055em}
+.model-core h3 span{display:block;margin-top:10px;color:#b9c6ba;font:700 11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.11em;text-transform:uppercase}
+.model-core p{margin:0;color:#d0d9d1;font-size:14px}
+.service-paths{display:grid;grid-template-columns:1fr 1fr}
+.service-path{padding:28px}
+.service-path+.service-path{border-left:1px solid var(--forest)}
+.service-path .num{color:var(--brass);font:800 11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em}
+.service-path h3{margin:10px 0 0;color:var(--forest);font-size:24px;letter-spacing:-.04em}
+.service-path p{margin:10px 0 0;color:var(--muted);font-size:13px}
+.service-path strong{color:var(--forest)}
+.value-strip{display:grid;grid-template-columns:minmax(220px,.62fr) minmax(0,1.38fr);border-top:1px solid var(--forest);background:#ebe5d7}
+.value-mark{padding:28px;background:var(--brass);color:#fff}
+.value-mark b{display:block;font-size:clamp(28px,4vw,48px);line-height:1;letter-spacing:-.055em}
+.value-mark span{display:block;margin-top:10px;font:700 10px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.11em}
+.value-copy{padding:28px}
+.value-copy h3{margin:0;color:var(--forest);font-size:23px;letter-spacing:-.04em}
+.value-copy p{margin:10px 0 0;color:#5f5a50;font-size:13px}
+.model-disclaimer{margin:0;padding:14px 20px;border-top:1px solid #cbbfa7;color:#756d60;font-size:11px}
+.next-build{border:1px solid var(--blue);background:#fff}
+.next-banner{display:grid;grid-template-columns:minmax(210px,.55fr) minmax(0,1.45fr);gap:30px;padding:30px;background:var(--blue);color:#fff}
+.next-route{align-self:start;padding:18px;border:1px solid rgba(255,255,255,.38);font:800 clamp(22px,3vw,34px)/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.04em}
+.next-route small{display:block;margin-bottom:10px;color:#abb0c8;font:700 9px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;text-transform:uppercase}
+.next-banner h3{margin:0;font-size:clamp(26px,3.2vw,40px);line-height:1.08;letter-spacing:-.05em}
+.next-banner p{margin:13px 0 0;color:#c9cce0;font-size:13px}
+.dev-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.dev-card{padding:26px}
+.dev-card+.dev-card{border-left:1px solid var(--blue)}
+.dev-card .tag{color:#777d9d;font:800 10px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em}
+.dev-card h3{margin:9px 0 0;color:var(--blue);font-size:20px;letter-spacing:-.035em}
+.dev-card ul{margin:13px 0 0;padding-left:18px;color:var(--muted);font-size:12px}
+.system-map{border-top:1px solid var(--blue);background:#edf0f7}
+.system-row{display:grid;grid-template-columns:minmax(90px,.55fr) 28px minmax(150px,1fr) 28px minmax(170px,1.2fr);align-items:stretch}
+.system-row+.system-row{border-top:1px solid #b7bdd0}
+.system-row span{display:flex;align-items:center;padding:16px;color:#535a76;font-size:12px}
+.system-row .actor{background:#dce1ee;color:var(--blue);font-weight:800}
+.system-row .arrow{justify-content:center;padding:0;color:#8d7690;font-size:18px}
+.system-row .result{color:var(--blue);font-weight:800}
+.scope-lock{padding:18px 22px;border-top:1px solid var(--blue);background:#fff6df;color:#675d47;font-size:12px}
+.scope-lock strong{color:#473c26}
+.print-note{color:var(--muted);font-size:11px}
+@media(max-width:980px){.layout{grid-template-columns:1fr}.rail{position:relative;height:auto}.rail nav{display:grid;grid-template-columns:repeat(3,1fr)}.rail nav a{padding-right:12px}.rail-meta{display:none}.hero-grid{grid-template-columns:1fr}.hero-stat+.hero-stat{border-left:0;border-top:1px solid rgba(255,255,255,.32)}.section-head{grid-template-columns:1fr}.transcript{grid-template-columns:1fr}.transcript-card+.transcript-card{border-left:0;border-top:1px solid var(--forest)}.model-core,.next-banner{grid-template-columns:1fr}}
+@media(max-width:680px){.rail{padding:26px 20px}.rail nav{grid-template-columns:1fr}.hero{padding:54px 20px 48px}.hero h1{font-size:42px}main{padding:0 14px 70px}section{padding:58px 0}.section-head h2{font-size:34px}.card-grid,.facts,.flow,.check-grid,.open-grid,.service-paths,.value-strip,.dev-grid{grid-template-columns:1fr}.card+.card,.fact+.fact,.service-path+.service-path,.dev-card+.dev-card{border-left:0;border-top:1px solid var(--forest)}.card.is-wide{grid-template-columns:1fr}.card.is-wide ul{grid-template-columns:1fr}.row{grid-template-columns:1fr}.row>div+div{border-left:0;border-top:1px solid var(--line)}.row .label{padding:9px 16px}.transcript-card{padding:22px}.model-core,.service-path,.value-copy,.value-mark,.next-banner,.dev-card{padding:22px}.system-row{grid-template-columns:1fr}.system-row span{min-height:44px}.system-row .arrow{transform:rotate(90deg);min-height:26px}}
+@media print{.layout{display:block}.rail{position:relative;height:auto;break-after:page}.rail nav{display:none}.hero{padding:48px 0}.content,main{padding-left:0;padding-right:0}section{break-inside:avoid}.memo img{max-height:500px}a{text-decoration:none}.print-note{display:none}}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="rail">
+    <div class="rail-mark">MM LAB</div>
+    <div class="rail-status"><small>handoff status</small><strong>배포·인수인계 준비 완료</strong><span>2026-08-03 09:58 KST 기준<br>작업 소스와 공개 소스 내용 동일</span></div>
+    <nav aria-label="작업설명서 목차">
+      <a href="#start">시작하기</a><a href="#structure">패키지 구조</a><a href="#open">바로 열기</a><a href="#recent">최근 변경</a><a href="#model">핵심 사업 구조</a><a href="#next-build">추가 개발</a><a href="#memo">수기 메모</a><a href="#rules">작업 규칙</a><a href="#qa">검수 기준</a><a href="#deploy">Git·배포</a><a href="#links">주요 주소</a>
+    </nav>
+    <div class="rail-meta">WORK: site-structure<br>e4f331beab63<br><br>LIVE: main<br>30eb037f1adf<br><br>DOMAIN<br>sunmi.works</div>
+  </aside>
+
+  <div class="content">
+    <header class="hero">
+      <div class="eyebrow">MM LAB WEBSITE · COMPLETE HANDOFF</div>
+      <h1>이 파일부터 읽고,<br>그대로 이어서 작업하세요.</h1>
+      <p>현재 홈페이지 소스, 전체 Git 이력, 원본 카탈로그, 최근 요청 이미지와 작업 기준을 한 패키지에 모았습니다. 기존 사이트를 덮어쓰지 말고 별도 작업 브랜치에서 수정합니다.</p>
+      <div class="hero-grid"><div class="hero-stat"><b>전체 사이트 소스</b><span>HTML · CSS · JS · ASSETS</span></div><div class="hero-stat"><b>Git 전체 이력</b><span>ALL BRANCHES BUNDLE</span></div><div class="hero-stat"><b>카탈로그 원본</b><span>KBE · KÖMMERLING ADD-ON</span></div></div>
+    </header>
+
+    <main>
+      <section id="start">
+        <div class="section-head"><div><div class="eyebrow">01 · current state</div><h2>현재 상태에서<br>바로 시작할 수 있습니다.</h2></div><p>소스는 커밋·푸시·공개 배포까지 끝났습니다. 새 작업은 공개 브랜치가 아니라 작업 브랜치에서 시작합니다.</p></div>
+        <div class="facts"><div class="fact"><b>site-structure</b><span>작업 기준 · e4f331beab63</span></div><div class="fact"><b>main</b><span>공개 배포 · 30eb037f1adf</span></div><div class="fact"><b>sunmi.works</b><span>GitHub Pages · HTTPS 적용</span></div></div>
+        <div class="note">두 브랜치는 커밋 번호는 다르지만 이 패키지를 만든 시점의 실제 파일 내용은 같습니다. CNAME·DNS·Pages 설정은 정상 작동 중이며 임의로 바꾸지 않습니다.</div>
+      </section>
+
+      <section id="structure">
+        <div class="section-head"><div><div class="eyebrow">02 · package map</div><h2>필요한 자료를<br>용도별로 나눴습니다.</h2></div><p>단순 ZIP이 아니라 소스 수정, Git 복원, 디자인 확인과 카탈로그 검증까지 가능한 구조입니다.</p></div>
+        <div class="table">
+          <div class="row"><div class="label">01 SOURCE</div><div><strong>01_사이트_전체소스</strong> <span>· 바로 열고 수정하는 현재 홈페이지 전체</span></div></div>
+          <div class="row"><div class="label">02 GIT</div><div><strong>02_Git_작업이력</strong> <span>· 전체 브랜치와 커밋을 복원하는 bundle</span></div></div>
+          <div class="row"><div class="label">03 CATALOG</div><div><strong>03_관련_원본자료</strong> <span>· KBE와 KÖMMERLING Add-On 원본 카탈로그</span></div></div>
+          <div class="row"><div class="label">04 REFERENCES</div><div><strong>04_작업_참고이미지</strong> <span>· 화면 요청과 수기 메모 사진</span></div></div>
+          <div class="row"><div class="label">05 CHECKLIST</div><div><strong>05_작업현황_및_검수체크리스트.md</strong> <span>· 변경 내역과 QA 기준</span></div></div>
+        </div>
+      </section>
+
+      <section id="open">
+        <div class="section-head"><div><div class="eyebrow">03 · open now</div><h2>필요한 화면과 문서를<br>여기서 바로 여세요.</h2></div><p>웹 공개용 링크만 연결했습니다. 전체 제작소스, 원본 카탈로그와 참고이미지는 별도로 전달되는 ZIP의 최상단 01번 폴더와 자료 폴더에서 확인합니다.</p></div>
+        <div class="open-grid">
+          <article class="open-card"><h3>현재 사이트 화면</h3><a href="https://sunmi.works/" target="_blank" rel="noopener">홈 화면 열기</a><a href="https://sunmi.works/windows/kbe/" target="_blank" rel="noopener">독일 시스템창호 열기</a><a href="https://sunmi.works/windows/kcc/" target="_blank" rel="noopener">KCC 창호 열기</a><a href="https://sunmi.works/screens/kogo/" target="_blank" rel="noopener">고려안전방충망 열기</a><a href="https://sunmi.works/windows/lx/" target="_blank" rel="noopener">LX 창호 열기</a></article>
+          <article class="open-card"><h3>작업 문서</h3><a href="handoff-readme.md">먼저 읽어주세요</a><a href="checklist.md">작업 현황·체크리스트</a><a href="https://github.com/julia-paek/sunmi-mm-lab-site/blob/site-structure/AGENTS.md" target="_blank" rel="noopener">AGENTS.md 열기</a><a href="https://github.com/julia-paek/sunmi-mm-lab-site/blob/site-structure/ROUTES.md" target="_blank" rel="noopener">ROUTES.md 열기</a></article>
+          <article class="open-card"><h3>GitHub·전달자료</h3><a href="https://github.com/julia-paek/sunmi-mm-lab-site" target="_blank" rel="noopener">홈페이지 GitHub 열기</a><a href="https://github.com/julia-paek/sunmi-mm-lab-site/tree/site-structure" target="_blank" rel="noopener">작업 브랜치 열기</a><p class="open-note">전체 제작소스는 전달 ZIP을 풀면 최상단의 <strong>01_홈페이지_전체제작소스</strong> 폴더에서 바로 확인할 수 있습니다.</p><p class="open-note">카탈로그·참고사진·Git bundle은 공개 페이지에 올리지 않고 전달 ZIP에만 포함합니다.</p></article>
+        </div>
+      </section>
+
+      <section id="recent">
+        <div class="section-head"><div><div class="eyebrow">04 · recent work</div><h2>최근 작업의 의도를<br>유지해야 합니다.</h2></div><p>보이는 결과뿐 아니라 왜 그렇게 구성했는지 이해한 뒤 수정합니다.</p></div>
+        <div class="card-grid">
+          <article class="card"><h3>독일 시스템창호</h3><p>KBE와 KÖMMERLING을 별도 기본 제품으로 나누지 않습니다. 공통 profine 시스템과 개폐 방식을 먼저 설명하고, KBE OnLevel과 KÖMMERLING Add-On을 선택 옵션으로 구분합니다.</p></article>
+          <article class="card"><h3>KCC 창호</h3><p>PC에서는 세 개 태그 옆에 작은 YouTube 광고 썸네일을 배치합니다. 모바일은 기존 세로 흐름을 유지하고 문구는 반드시 ‘KCC 광고’로 씁니다.</p></article>
+          <article class="card"><h3>고려안전방충망</h3><p>제품 3개의 전체 모서리가 보여야 합니다. 확대 크롭을 피하고 투명 배경 v2 이미지를 contain 방식으로 사용합니다.</p></article>
+          <article class="card"><h3>LX · PL</h3><p>LX 히어로 클릭 선택 표시는 제거했고 자동 장면 전환은 유지합니다. PL 상단 중복 탭은 없애고 카드 선택 후 AL 방식의 모달로 상세를 엽니다.</p></article>
+          <article class="card is-wide"><div><h3>LX하우시스는 가장 많이 사용하는 주력 브랜드입니다.</h3><p>사용 빈도가 높은 만큼 제품군과 모델, 소재, 개폐 방식, 유리와 마감 옵션이 많아 전체 구조가 가장 복잡합니다. 모델 번호를 먼저 나열하면 고객이 선택하기 어렵기 때문에 큰 분류부터 단계적으로 안내합니다.</p></div><ul><li>1차 분류: 뷰프레임 일반창 / 유로시스템9 시스템창</li><li>뷰프레임: 완성창 / 제작창</li><li>유로시스템9: PL(PVC) / AL(알루미늄)</li><li>공간 분류: 발코니창 / 실내창 / 분합문 / 도어 / 여닫이창</li><li>성능·사양: 단창·이중창, 유리 두께, 단열·차음</li><li>선택 옵션: 핸들, 내부 컬러 시트, 외부 ASA, 개폐 방식</li><li>설명 순서: 공간과 용도 → 제품군 → 모델 → 세부 옵션</li><li>중복 탭과 모델 선택 표시를 겹쳐 사용하지 않음</li></ul></article>
+        </div>
+      </section>
+
+      <section id="model">
+        <div class="section-head"><div><div class="eyebrow">05 · why MM LAB</div><h2>창호 전문성과 인테리어를<br>필요한 만큼 연결합니다.</h2></div><p>MM LAB이 직접 책임지는 창호 시공과, 별도 전문회사가 담당하는 인테리어를 명확히 나누면서 한 프로젝트로 연결하는 것이 가장 중요한 사업 구조입니다.</p></div>
+        <div class="model-shell">
+          <div class="model-core"><h3>정품 창호는 MM LAB이 직접.<span>WINDOW DIRECT · INTERIOR PARTNER NETWORK</span></h3><p>MM LAB은 정품 창호를 직접 상담·공급·시공합니다. 인테리어는 MM LAB이 직접 시공하지 않으며, 10년간의 현장 경험을 통해 실력과 신뢰도를 검증한 별도 파트너 업체만 선별해 연결합니다. 고객은 창호만 단독으로 맡기거나, 전체 인테리어가 필요할 때 창호와 인테리어를 함께 진행할 수 있습니다.</p></div>
+          <div class="service-paths">
+            <article class="service-path"><div class="num">01 · WINDOW ONLY</div><h3>창호 단독 시공</h3><p><strong>MM LAB이 창호 전체를 직접 담당합니다.</strong><br>제품 상담부터 정품 공급, 실측, 시공과 창호 범위의 사후 대응까지 한 흐름으로 진행합니다.</p></article>
+            <article class="service-path"><div class="num">02 · FULL INTERIOR</div><h3>창호 + 전체 인테리어</h3><p><strong>창호는 MM LAB, 인테리어는 검증된 파트너가 담당합니다.</strong><br>두 영역을 연결해 전체 일정을 조율하되, 인테리어 계약·시공·책임과 사후 대응은 해당 파트너 업체가 별도로 맡습니다.</p></article>
+          </div>
+          <div class="value-strip"><div class="value-mark"><b>20–30%</b><span>POTENTIAL COST SAVING</span></div><div class="value-copy"><h3>High Quality, Low Price</h3><p>창호는 전체 인테리어 비용에서 비중이 크고, 경우에 따라 주방 한 곳을 바꿀 수 있을 만큼 큰 예산이 들어갑니다. MM LAB은 창호 전문 유통·시공 구조로 불필요한 유통 단계를 줄여 정품만 사용하면서도, 동일·유사 사양의 통합 견적과 비교할 때 최대 20~30%까지 비용을 낮출 수 있는 구조를 지향합니다. 창호 품질은 높게 유지하고 전체 인테리어 예산은 효율적으로 배분할 수 있다는 점이 MM LAB만의 핵심 경쟁력입니다.</p></div></div>
+          <p class="model-disclaimer">※ 20~30%는 모든 현장에 동일하게 보장되는 할인율이 아닙니다. 제품 사양, 수량, 철거·보양, 현장 조건과 비교 견적의 포함 범위에 따라 달라지므로 최종 견적으로 확인합니다.</p>
+        </div>
+      </section>
+
+      <section id="next-build">
+        <div class="section-head"><div><div class="eyebrow">06 · required next build</div><h2>사진 관리와 상담 연결을<br>별도 프로젝트로 개발합니다.</h2></div><p>다음 작업의 필수 범위입니다. 현재 홈페이지 저장소에 임시 기능을 덧붙이지 말고, 독립된 작업 폴더와 저장소에서 개발·검수한 뒤 연결합니다.</p></div>
+        <div class="next-build">
+          <div class="next-banner"><div class="next-route"><small>separate route</small>/mmlab_info</div><div><h3>기존 화면과 겹치지 않는<br>새 GitHub Pages 경로</h3><p>로컬 작업 폴더는 <strong>mmlab_info</strong>로 별도 생성합니다. 배포할 때는 기존 Pages 저장소 안에서 다른 화면과 겹치지 않는 독립 경로만 추가합니다. 공개 주소는 <strong>https://sunmi.works/mmlab_info/</strong>이며, <strong>mmlab_info</strong> 폴더 밖의 홈페이지 파일은 수정하지 않습니다.</p></div></div>
+          <div class="dev-grid">
+            <article class="dev-card"><div class="tag">ADMIN · MEDIA</div><h3>시공사진 관리 어드민</h3><ul><li>창호 시공사진과 인테리어 시공사진을 구분해 관리</li><li>사진 업로드·교체·삭제·순서 변경</li><li>제목, 현장 설명, 지역, 공사 유형, 대체텍스트 입력</li><li>임시저장·공개·비공개 상태 관리</li></ul></article>
+            <article class="dev-card"><div class="tag">IMAGE · QUALITY</div><h3>업데이트 품질과 보안</h3><ul><li>PC·태블릿·아이폰용 반응형 이미지 생성</li><li>용량 최적화와 WebP 등 웹 형식 변환</li><li>삭제 전 확인과 복구 가능한 보관 방식</li><li>관리자 로그인과 권한 검증 필수</li></ul></article>
+            <article class="dev-card"><div class="tag">CONSULT · KAKAO</div><h3>오픈카카오톡 상담 연결</h3><ul><li>상담신청 버튼에서 지정된 오픈카톡으로 이동</li><li>PC는 새 탭, 모바일은 카카오톡 앱 연결 우선</li><li>연결 실패 시 URL 복사·재시도 안내</li><li>오픈카톡 주소를 코드 수정 없이 변경 가능하게 관리</li></ul></article>
+          </div>
+          <div class="system-map" aria-label="추가 개발 동작 흐름">
+            <div class="system-row"><span class="actor">관리자</span><span class="arrow">→</span><span>사진 등록·수정·순서·공개 상태 관리</span><span class="arrow">→</span><span class="result">창호·인테리어 시공사례 화면 업데이트</span></div>
+            <div class="system-row"><span class="actor">고객</span><span class="arrow">→</span><span>홈페이지 상담신청 버튼 선택</span><span class="arrow">→</span><span class="result">MM LAB 오픈카카오톡 상담방 연결</span></div>
+          </div>
+          <div class="scope-lock"><strong>구현 주의:</strong> GitHub Pages는 화면을 공개하는 정적 호스팅입니다. 안전한 어드민을 만들려면 별도의 관리자 인증, 이미지 저장소와 데이터베이스가 필요합니다. 화면에 비밀번호만 넣는 방식은 사용하지 않습니다. 배포 변경 범위는 <strong>mmlab_info</strong> 경로로 제한하며, 기존 홈페이지 화면과 CNAME·DNS 설정은 건드리지 않습니다.</div>
+        </div>
+      </section>
+
+      <section id="memo">
+        <div class="section-head"><div><div class="eyebrow">07 · IMG_3495 transcript</div><h2>사진 대신 내용을<br>전부 글로 옮겼습니다.</h2></div><p>수기 메모에서 지워진 항목은 제외했습니다. 필체가 불명확한 세부 표현은 원본 링크와 담당자 확인을 기준으로 최종 확정합니다.</p></div>
+        <div class="transcript">
+          <article class="transcript-card"><h3>창호 순서</h3><ol><li>고객 문의</li><li>상담 신청과 견적·공정·실측 조율</li><li>현장과 환경 분석, 실측 견적</li><li>계약 및 시공 일정 협의</li><li>공사 신고 및 엘리베이터 보양</li><li>공사 진행</li></ol><small>철거폐기물이나 공용부 이동·사용 조건 등 현장 상황에 따라 공사 일정과 공정이 변동될 수 있습니다.</small></article>
+          <article class="transcript-card"><h3>인테리어 순서</h3><ol><li>고객 문의</li><li>각 현장에 맞는 인테리어 매칭</li><li>인테리어 담당자 전화 상담</li><li>인테리어 담당자 현장 방문, 실측 및 상담</li><li>견적서 확인 후 인테리어 계약 진행</li></ol><small>MM LAB은 창호 공사 부분에만 관여합니다.</small></article>
+        </div>
+        <div class="note">수기 메모 원본과 확대본은 공개하지 않고 작업자 전달 ZIP의 참고이미지 폴더에만 포함합니다.</div>
+        <h3 style="margin:32px 0 15px;color:var(--forest)">창호 상담·시공 흐름</h3>
+        <div class="flow"><div class="step"><b>고객 문의</b><span>현장과 원하는 창호 범위를 확인합니다.</span></div><div class="step"><b>상담·견적 조율</b><span>상담 신청 후 견적, 공정과 발주 조건을 정리합니다.</span></div><div class="step"><b>현장 실측</b><span>현장을 방문해 치수와 시공 조건을 확인합니다.</span></div><div class="step"><b>계약·일정 협의</b><span>사양과 금액, 시공 일정을 확정합니다.</span></div><div class="step"><b>신고·보양</b><span>필요한 공사 신고와 엘리베이터·공용부 보양을 준비합니다.</span></div><div class="step"><b>창호 공사</b><span>현장 여건에 따라 공정과 일정이 달라질 수 있음을 안내합니다.</span></div></div>
+        <h3 style="margin:38px 0 15px;color:var(--forest)">인테리어 파트너 연결 흐름</h3>
+        <div class="flow"><div class="step"><b>고객 문의</b><span>인테리어 요청 범위와 현장을 확인합니다.</span></div><div class="step"><b>파트너 매칭</b><span>현장과 요구에 맞는 인테리어 업체를 연결합니다.</span></div><div class="step"><b>전화 상담</b><span>연결된 담당자가 고객과 직접 상담합니다.</span></div><div class="step"><b>현장 상담·실측</b><span>인테리어 담당자가 방문해 범위와 치수를 확인합니다.</span></div><div class="step"><b>견적·계약</b><span>업체 견적을 확인하고 고객과 업체가 별도로 계약합니다.</span></div></div>
+        <div class="boundary"><strong>MM LAB은 창호 공사 부분에 관여합니다.</strong><p>홈페이지에서 MM LAB이 인테리어 전체 공사를 직접 계약·시공·보증하는 것처럼 표현하지 않습니다. 인테리어 계약과 책임 범위는 연결된 업체와 고객이 별도로 확인하도록 안내합니다.</p></div>
+      </section>
+
+      <section id="rules">
+        <div class="section-head"><div><div class="eyebrow">08 · non-negotiables</div><h2>사이트 구조와<br>공개 설정을 보호합니다.</h2></div><p>세부 규칙은 소스 루트의 AGENTS.md와 ROUTES.md가 기준입니다.</p></div>
+        <div class="card-grid"><article class="card"><h3>파일과 경로</h3><p>정식 페이지는 폴더/index.html 구조를 사용합니다. sitenav.js와 common.js 연결, 페이지 깊이에 따른 상대 경로를 반드시 검사합니다.</p></article><article class="card"><h3>브랜치와 배포</h3><p>작업은 site-structure 또는 새 브랜치에서 진행합니다. 승인 없이 main, CNAME, .nojekyll, Pages, 도메인과 DNS를 수정하지 않습니다.</p></article><article class="card"><h3>반응형</h3><p>PC·태블릿·아이폰에서 이미지 잘림, 글자 겹침, 가로 스크롤과 터치 영역을 확인합니다.</p></article><article class="card"><h3>돌려받은 작업</h3><p>외부 작업자의 ZIP을 현재 저장소에 덮어쓰지 않습니다. 별도 폴더에서 diff 후 필요한 파일만 선택 반영합니다.</p></article></div>
+      </section>
+
+      <section id="qa">
+        <div class="section-head"><div><div class="eyebrow">09 · quality gate</div><h2>완료 기준은<br>화면과 기능입니다.</h2></div><p>파일이 저장됐다는 사실만으로 완료하지 않습니다.</p></div>
+        <div class="check-grid"><div class="check"><h3>PC</h3><ul><li>창호가 화면에서 잘리지 않음</li><li>히어로 문구가 핵심 이미지를 가리지 않음</li><li>2열 카드와 구분선이 정확함</li></ul></div><div class="check"><h3>태블릿</h3><ul><li>좁은 2열이 자연스럽게 1열로 전환</li><li>표와 이미지가 화면 밖으로 나가지 않음</li><li>세로·가로 방향 모두 확인</li></ul></div><div class="check"><h3>아이폰</h3><ul><li>375~430px에서 가로 스크롤 없음</li><li>제품의 네 모서리가 보임</li><li>제목과 버튼의 줄바꿈이 자연스러움</li></ul></div><div class="check"><h3>기능</h3><ul><li>메뉴·상담 모달·YouTube 링크 작동</li><li>이미지·영상·CSS·JS 404 없음</li><li>콘솔 오류와 포커스 상태 확인</li></ul></div></div>
+      </section>
+
+      <section id="deploy">
+        <div class="section-head"><div><div class="eyebrow">10 · git and deploy</div><h2>이력은 bundle로<br>완전하게 복원합니다.</h2></div><p>단순 소스 폴더도 제공하지만 실제 협업은 Git 이력을 복원해 진행하는 것이 안전합니다.</p></div>
+        <div class="table"><div class="row"><div class="label">CLONE</div><div><strong class="path">git clone "02_Git_작업이력/sunmi-mm-lab-site-all-branches.bundle" sunmi-mm-lab-site</strong></div></div><div class="row"><div class="label">WORK BRANCH</div><div><strong class="path">git switch site-structure</strong></div></div><div class="row"><div class="label">REMOTE</div><div><strong class="path">git remote set-url origin https://github.com/julia-paek/sunmi-mm-lab-site.git</strong></div></div><div class="row"><div class="label">FLOW</div><div><strong>Pull → 작업 → 검사 → Commit → Push → 검토 → main 배포</strong></div></div></div>
+        <p class="print-note">외부 작업자는 본인 Fork와 별도 브랜치를 사용하고 Pull Request로 전달하는 방식을 권장합니다.</p>
+      </section>
+
+      <section id="links">
+        <div class="section-head"><div><div class="eyebrow">11 · live links</div><h2>현재 공개 화면을<br>비교 기준으로 사용합니다.</h2></div><p>새 작업 전후로 실제 페이지와 비교해 의도하지 않은 변화가 없는지 확인합니다.</p></div>
+        <div class="links"><a href="https://sunmi.works/" target="_blank" rel="noopener">홈</a><a href="https://sunmi.works/windows/kcc/" target="_blank" rel="noopener">KCC 창호</a><a href="https://sunmi.works/windows/kbe/" target="_blank" rel="noopener">독일 시스템창호</a><a href="https://sunmi.works/screens/kogo/" target="_blank" rel="noopener">고려안전방충망</a><a href="https://sunmi.works/windows/lx/" target="_blank" rel="noopener">LX 창호</a><a href="https://github.com/julia-paek/sunmi-mm-lab-site/blob/site-structure/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a><a href="https://github.com/julia-paek/sunmi-mm-lab-site/blob/site-structure/ROUTES.md" target="_blank" rel="noopener">ROUTES.md</a></div>
+      </section>
+    </main>
+  </div>
+</div>
+</body>
+</html>
