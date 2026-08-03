@@ -89,7 +89,7 @@ if(ft){
    +'<li><a href="#" onclick="openModal();return false;">협력 인테리어사 등록</a></li>'
    +'<li><a href="#" onclick="openModal();return false;">대량 견적 문의</a></li></ul></div>'
    +'</div>'
-   +'<div class="footer-business">© 2026 MM LAB (Millimeter Laboratory). All rights reserved.<br>상호 어반로드(urbanroad) · 대표자 김완섭 · 사업자등록번호 336-38-00713 · 통신판매업 신고번호 제2020-서울용산-1116호<br>사업장 서울특별시 용산구 이촌로14길 16, 1층 상가 101호(이촌동) · 업태 건설업·소매업 · 종목 창호·중문·전자상거래<br><span style="color:#A1A1A6;">본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.</span></div>'
+   +'<div class="footer-business">© 2026 MM LAB (Millimeter Laboratory). All rights reserved.<br>상호 어반로드(urbanroad) · 대표자 김완섭 · <span style="white-space:nowrap">사업자등록번호 336-38-00713</span> · 통신판매업 신고번호 제2020-서울용산-1116호<br>사업장 서울특별시 용산구 이촌로14길 16, 1층 101호 · 업태 건설업·소매업 · 종목 창호·중문·전자상거래<br><span style="color:#A1A1A6;">본 사이트는 KCC·LX하우시스·KBE 본사의 공식 정품만 취급합니다.</span></div>'
    +'</footer>';
 }
 
