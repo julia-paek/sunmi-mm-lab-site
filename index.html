@@ -87,30 +87,29 @@ section[id]{scroll-margin-top:78px}
 .card{position:relative;height:560px;border-radius:0;overflow:hidden;background:#e7e7e9;cursor:pointer;--cz:1;--px:0px;--py:0px;transition:box-shadow .5s var(--ease-soft)}
 /* 사진 — 커서 패럴랙스(.media) + 상시 켄번스(img) 2층 분리 */
 .card .media{position:absolute;inset:-18px;transform:translate3d(var(--px),var(--py),0) scale(var(--cz));transition:transform .8s var(--ease-soft);will-change:transform}
-.card:hover .media{--cz:1.06}
+.card:hover .media,.card.is-active .media,.card:focus-visible .media{--cz:1.06}
 .card .media img{width:100%;height:100%;object-fit:cover;animation:mmKenburns 28s ease-in-out infinite alternate}
 @keyframes mmKenburns{from{transform:scale(1.02)}to{transform:scale(1.09) translate3d(-1.4%,-1%,0)}}
 /* 호버 시 빛이 한 번 훑고 지나감 */
 .card .media::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(104deg,rgba(255,255,255,0) 34%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 66%);transform:translateX(-135%);opacity:0}
-.card:hover .media::after{animation:mmSheen 1.05s var(--ease-soft) .06s}
+.card:hover .media::after,.card.is-active .media::after{animation:mmSheen 1.05s var(--ease-soft) .06s}
 @keyframes mmSheen{0%{transform:translateX(-135%);opacity:0}14%{opacity:1}100%{transform:translateX(135%);opacity:0}}
 /* 호버 시 안쪽 괘선이 조여들며 나타남 */
 .card::after{content:'';position:absolute;inset:14px;z-index:4;pointer-events:none;border:1px solid rgba(47,82,51,.5);opacity:0;transform:scale(1.015);transition:opacity .45s var(--ease-soft),transform .45s var(--ease-soft)}
-.card:hover::after{opacity:1;transform:none}
+.card:hover::after,.card.is-active::after,.card:focus-visible::after{opacity:1;transform:none}
 /* 글자 — 크림 스크림을 텍스트 높이까지 확실히 덮어 가독 확보 */
 .card .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,240,230,.97) 0%,rgba(244,240,230,.95) 22%,rgba(244,240,230,.88) 32%,rgba(244,240,230,.55) 44%,rgba(244,240,230,.14) 56%,rgba(244,240,230,0) 66%)}
 .card .ct{position:absolute;top:44px;left:44px;right:44px;z-index:2}
 .card .ct>*{transition:transform .55s var(--ease-soft)}
-.card:hover .ct small{transform:translateY(-3px)}
-.card:hover .ct h2{transform:translateY(-3px);transition-delay:.05s}
-.card:hover .ct p{transform:translateY(-3px);transition-delay:.1s}
+.card:hover .ct small,.card.is-active .ct small,.card:focus-visible .ct small{transform:translateY(-3px)}
+.card:hover .ct h2,.card.is-active .ct h2,.card:focus-visible .ct h2{transform:translateY(-3px);transition-delay:.05s}
+.card:hover .ct p,.card.is-active .ct p,.card:focus-visible .ct p{transform:translateY(-3px);transition-delay:.1s}
 .card .ct small{display:block;font-size:12px;letter-spacing:.07em;font-weight:600;color:var(--accent)}
 .card .ct h2{font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-.02em;margin:10px 0 12px;color:var(--headline)}
 .card .ct p{font-size:17px;font-weight:500;color:#3E4C3B;line-height:1.55}
 .card .pill{position:absolute;left:44px;bottom:44px;z-index:3;background:var(--accent);color:#fff;padding:12px 22px;border-radius:0;font-weight:600;font-size:15px;opacity:0;transform:translateY(10px);transition:opacity .4s var(--ease-soft) .08s,transform .4s var(--ease-soft) .08s,background .25s var(--ease)}
-.card:hover .pill{opacity:1;transform:none}
-/* 터치 기기는 호버가 없으므로 버튼을 늘 보여 준다 */
-@media(hover:none){.card .pill{opacity:1;transform:none}.card::after{opacity:1;transform:none}}
+.card:hover .pill,.card.is-active .pill,.card:focus-visible .pill{opacity:1;transform:none}
+/* 터치 기기는 첫 탭에 .is-active를 붙여 데스크톱 호버 상태를 재현한다 */
 
 /* section */
 .sec{padding:clamp(96px,13vh,168px) 0}
@@ -379,7 +378,7 @@ body{counter-reset:mmsec}
 .mnav{background:var(--bg);border-bottom:1px solid #2F5233}
 /* 히어로 카드·브랜드 카드 = 괘선 사각 */
 .card{background:#fff;border:1px solid #2F5233}
-.card:hover{transform:none;box-shadow:6px 6px 0 var(--accent)}
+.card:hover,.card.is-active,.card:focus-visible{transform:none;box-shadow:6px 6px 0 var(--accent)}
 .card .pill{background:var(--accent)}
 /* WHY = 블랙 구획 (화이트+블랙 믹스) */
 .events{background:var(--bg-alt)}
@@ -833,6 +832,34 @@ setTimeout(function(){document.getElementById('hero').classList.add('ready');},4
     });
     card.addEventListener('pointerleave',function(){nx=0;ny=0;if(!raf)raf=requestAnimationFrame(apply);});
   });
+})();
+
+/* 창호·인테리어 카드 — 모바일 첫 탭은 호버 상태, 두 번째 탭은 링크 이동 */
+(function(){
+  var touch=matchMedia('(hover: none) and (pointer: coarse)');
+  var cards=Array.prototype.slice.call(document.querySelectorAll('.cards .card'));
+  if(!cards.length)return;
+  function closeCards(except){
+    cards.forEach(function(card){if(card!==except)card.classList.remove('is-active');});
+  }
+  cards.forEach(function(card){
+    card.addEventListener('click',function(e){
+      if(!touch.matches||e.detail===0)return;
+      if(!card.classList.contains('is-active')){
+        e.preventDefault();
+        closeCards(card);
+        card.classList.add('is-active');
+      }
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(!touch.matches||e.target.closest('.cards .card'))return;
+    closeCards();
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCards();});
+  function resetForDesktop(){if(!touch.matches)closeCards();}
+  if(touch.addEventListener)touch.addEventListener('change',resetForDesktop);
+  else if(touch.addListener)touch.addListener(resetForDesktop);
 })();
 
 /* progress bar + nav scrolled */
