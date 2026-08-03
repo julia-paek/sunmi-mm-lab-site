@@ -57,11 +57,9 @@ body{margin:0;background:var(--cream);color:var(--ink)}
 .kg-tab.is-active small{color:#D7C9AD}
 .kg-panel{display:none;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);border:1px solid var(--kogo-dark);background:var(--cream)}
 .kg-panel.is-active{display:grid}
-.kg-product-visual{position:relative;min-height:590px;overflow:hidden;background:#F2F2F2;border-right:1px solid var(--kogo-dark)}
-.kg-product-visual img{position:absolute;max-width:none}
-.kg-product-visual img.kg-door-shot{width:250%;height:auto;left:-45px;top:-45px}
-.kg-product-visual img.kg-dust-shot{width:220%;height:auto;left:-75px;top:-115px}
-.kg-product-visual[data-label^="K-ADS"]::before{content:"";position:absolute;z-index:1;right:0;top:0;width:31%;height:100%;background:#fff}
+.kg-product-visual{position:relative;display:flex;min-height:590px;align-items:center;justify-content:center;overflow:hidden;padding:34px;background:#F2F2F2;border-right:1px solid var(--kogo-dark)}
+.kg-product-visual img{position:static;display:block;width:auto;height:auto;max-width:100%;max-height:520px;object-fit:contain}
+.kg-product-visual img.kg-door-shot,.kg-product-visual img.kg-dust-shot{width:auto;height:auto;max-width:100%;max-height:520px}
 .kg-product-visual::after{content:attr(data-label);position:absolute;z-index:2;left:18px;bottom:18px;padding:8px 10px;background:var(--kogo-dark);color:#fff;font:600 10px/1 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
 .kg-product-copy{padding:46px 48px 38px}
 .kg-product-copy .kg-eyebrow{color:var(--kogo);margin-bottom:16px}
@@ -102,7 +100,7 @@ body{margin:0;background:var(--cream);color:var(--ink)}
   .kg-hero,.kg-hero-copy{min-height:620px}.kg-hero img{object-position:55% center;transform:scale(1.16)}
   .kg-hero-copy{padding-bottom:48px}.kg-hero h1{font-size:48px}.kg-hero p{font-size:15px;line-height:1.65}.kg-hero-note{display:none}
   .kg-intro{padding:78px 0 68px}.kg-intro-head{grid-template-columns:1fr;gap:20px;margin-bottom:34px}.kg-intro h2{font-size:42px}.kg-feature-grid{grid-template-columns:1fr}.kg-feature{min-height:auto;padding:26px}.kg-feature+.kg-feature{border-left:0;border-top:1px solid var(--ink)}.kg-feature .kg-eyebrow{margin-bottom:30px}
-  .kg-products{padding:76px 0 84px}.kg-products-head{display:block}.kg-products h2{font-size:42px}.kg-products-head p{margin-top:18px}.kg-tabs{grid-template-columns:1fr;gap:8px}.kg-tab{min-height:68px;display:flex;align-items:center;justify-content:space-between}.kg-tab small{margin:0}.kg-panel.is-active{grid-template-columns:1fr}.kg-product-visual{min-height:440px;border-right:0;border-bottom:1px solid var(--kogo-dark)}.kg-product-visual img.kg-door-shot{width:252%;top:-25px}.kg-product-visual img.kg-dust-shot{width:220%;left:-70px;top:-70px}.kg-product-copy{padding:34px 24px}.kg-product-copy h3{font-size:42px}.kg-spec{grid-template-columns:84px 1fr;gap:12px}
+  .kg-products{padding:76px 0 84px}.kg-products-head{display:block}.kg-products h2{font-size:42px}.kg-products-head p{margin-top:18px}.kg-tabs{grid-template-columns:1fr;gap:8px}.kg-tab{min-height:68px;display:flex;align-items:center;justify-content:space-between}.kg-tab small{margin:0}.kg-panel.is-active{grid-template-columns:1fr}.kg-product-visual{min-height:440px;padding:24px;border-right:0;border-bottom:1px solid var(--kogo-dark)}.kg-product-visual img,.kg-product-visual img.kg-door-shot,.kg-product-visual img.kg-dust-shot{max-width:100%;max-height:390px}.kg-product-copy{padding:34px 24px}.kg-product-copy h3{font-size:42px}.kg-spec{grid-template-columns:84px 1fr;gap:12px}
   .kg-common{padding:78px 0}.kg-common h2{font-size:42px}.kg-common-grid{grid-template-columns:1fr}.kg-common-main{padding:28px 22px}.kg-common-list{grid-template-columns:1fr}.kg-common-item:nth-child(even){padding-left:0;border-left:0}.kg-common-as{min-height:320px;padding:30px 24px}.kg-common-as .kg-eyebrow{margin-bottom:80px}
   .kg-cta{padding:76px 20px}.kg-cta h2{font-size:40px}
 }
@@ -146,17 +144,17 @@ body{margin:0;background:var(--cream);color:var(--ink)}
       </div>
 
       <article class="kg-panel is-active" id="security-panel" role="tabpanel" data-panel="security">
-        <div class="kg-product-visual" data-label="K-SS06 · SECURITY SCREEN"><img class="kg-door-shot" src="../../assets/kogo/security-mesh-source.png?v=g2026080101" alt="고구려 방범망 K-SS06 제품"></div>
+        <div class="kg-product-visual" data-label="K-SS06 · SECURITY SCREEN"><img class="kg-door-shot" src="../../assets/kogo/security-screen-cutout-v2.png?v=g2026080301" alt="고구려 방범망 K-SS06 제품 전체 모습"></div>
         <div class="kg-product-copy"><div class="kg-eyebrow">security screen · k-ss06</div><h3 class="kg-title">방범망</h3><p class="kg-product-lead">저층 주거와 상업공간의 침입 위험을 줄이고 반려동물과 함께 쓰는 공간까지 고려한 방범형 망입니다.</p><div class="kg-specs"><div class="kg-spec"><span>제품 코드</span><strong>K-SS06</strong></div><div class="kg-spec"><span>망</span><strong>dia 0.6mm · 16mesh · 스테인리스</strong></div><div class="kg-spec"><span>프레임·잠금</span><strong>고강도 알루미늄 · 이중 크리센트 · 비밀번호 잠금</strong></div><div class="kg-spec"><span>추천 공간</span><strong>저층 주거·상업공간, 교육·의료·숙박·공공기관</strong></div><div class="kg-spec"><span>옵션</span><strong>화이트·블랙 외 분체도장 색상 · 곡선형/평판형 망</strong></div><div class="kg-spec"><span>A/S</span><strong>망 무상 10년 · 잠금장치 1년</strong></div></div><p class="kg-product-foot">* 인위적 훼손은 무상 A/S에서 제외됩니다.</p></div>
       </article>
 
       <article class="kg-panel" id="safety-panel" role="tabpanel" data-panel="safety" hidden>
-        <div class="kg-product-visual" data-label="K-SS04 · SAFETY SCREEN"><img class="kg-door-shot" src="../../assets/kogo/safety-mesh-source.png?v=g2026080101" alt="고구려 안전망 K-SS04 제품"></div>
+        <div class="kg-product-visual" data-label="K-SS04 · SAFETY SCREEN"><img class="kg-door-shot" src="../../assets/kogo/safety-screen-cutout-v2.png?v=g2026080301" alt="고구려 안전망 K-SS04 제품 전체 모습"></div>
         <div class="kg-product-copy"><div class="kg-eyebrow">safety screen · k-ss04</div><h3 class="kg-title">안전망</h3><p class="kg-product-lead">4층 이상 공동주택에서 어린이와 반려동물의 창문 추락 위험을 줄이기 위한 안전형 망입니다.</p><div class="kg-specs"><div class="kg-spec"><span>제품 코드</span><strong>K-SS04</strong></div><div class="kg-spec"><span>망</span><strong>dia 0.4mm · 16mesh · 스테인리스</strong></div><div class="kg-spec"><span>프레임·잠금</span><strong>고강도 알루미늄 · 이중 크리센트 · 비밀번호 잠금</strong></div><div class="kg-spec"><span>추천 공간</span><strong>4층 이상 고층 주거·상업공간, 교육·의료·숙박·공공기관</strong></div><div class="kg-spec"><span>옵션</span><strong>화이트·블랙 외 분체도장 색상 · 곡선형/평판형 망</strong></div><div class="kg-spec"><span>A/S</span><strong>망 무상 10년 · 잠금장치 1년</strong></div></div><p class="kg-product-foot">* 인위적 훼손은 무상 A/S에서 제외됩니다.</p></div>
       </article>
 
       <article class="kg-panel" id="dust-panel" role="tabpanel" data-panel="dust" hidden>
-        <div class="kg-product-visual" data-label="K-ADS · FINE DUST SCREEN"><img class="kg-dust-shot" src="../../assets/kogo/dust-mesh-source.png?v=g2026080101" alt="고구려 미세먼지 저감망 K-ADS 제품"></div>
+        <div class="kg-product-visual" data-label="K-ADS · FINE DUST SCREEN"><img class="kg-dust-shot" src="../../assets/kogo/dust-screen-cutout-v2.png?v=g2026080301" alt="고구려 미세먼지 저감망 K-ADS 제품 전체 모습"></div>
         <div class="kg-product-copy"><div class="kg-eyebrow">fine dust screen · k-ads</div><h3 class="kg-title">미세먼지<br>저감망</h3><p class="kg-product-lead">안전망과 방범망에 추가 적용하는 250mesh 미세먼지 저감 옵션입니다.</p><div class="kg-specs"><div class="kg-spec"><span>제품 코드</span><strong>K-ADS</strong></div><div class="kg-spec"><span>망</span><strong>dia 0.047mm · 250mesh · 폴리에스터</strong></div><div class="kg-spec"><span>색상</span><strong>블랙</strong></div><div class="kg-spec"><span>적용</span><strong>안전망·방범망에 옵션으로 적용</strong></div></div><p class="kg-product-foot">* 현장 조건과 선택한 기본 망에 따라 적용 가능 여부를 확인합니다.</p></div>
       </article>
     </div>
