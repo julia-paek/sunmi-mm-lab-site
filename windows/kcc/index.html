@@ -15,7 +15,7 @@ body{background:#F4F0E6;color:#1F3822}
 .kcc-page{--accent:var(--kcc);--accent-press:var(--kcc-dark);overflow:hidden}
 .kcc-wrap{width:min(1200px,calc(100% - 48px));margin:0 auto}
 .kcc-hero{padding:88px 0 28px}
-.kcc-hero .kcc-wrap{width:min(1000px,calc(100% - 48px))}
+.kcc-hero .kcc-wrap{position:relative;width:min(1000px,calc(100% - 48px))}
 .kcc-hero-frame{position:relative;min-height:clamp(440px,52vw,570px);border:1px solid var(--kcc);overflow:hidden;background:#CFC7B8}
 .kcc-hero-frame>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:37% center}
 .kcc-hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,20,15,.8) 0%,rgba(28,20,15,.38) 45%,rgba(28,20,15,.06) 72%),linear-gradient(0deg,rgba(28,20,15,.42),transparent 48%)}
@@ -23,8 +23,32 @@ body{background:#F4F0E6;color:#1F3822}
 .kcc-hero-copy .eyebrow{color:rgba(255,255,255,.76);margin-bottom:16px}
 .kcc-hero-copy h1{font-family:'Gmarket Sans','SUIT Variable',sans-serif;font-size:clamp(44px,6.5vw,78px);line-height:1.02;letter-spacing:-.05em;color:#fff;margin:0 0 20px}
 .kcc-hero-copy p{font-size:clamp(15px,1.55vw,19px);line-height:1.65;color:rgba(255,255,255,.84);max-width:610px;word-break:keep-all}
-.kcc-hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.kcc-hero-actions{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin-top:26px}
+.kcc-hero-tags{display:flex;flex-wrap:wrap;gap:8px}
 .kcc-hero-tags span{border:1px solid rgba(255,255,255,.54);padding:9px 12px;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.06em;background:rgba(28,20,15,.18)}
+.kcc-hero-video{z-index:3;border:1px solid rgba(255,255,255,.72);background:#F4F0E6;color:var(--kcc);text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+.kcc-hero-video--desktop{display:grid;grid-template-columns:64px minmax(0,1fr);width:180px;min-height:34px;box-shadow:4px 5px 0 rgba(28,20,15,.22)}
+.kcc-hero-video--mobile{display:none}
+.kcc-hero-video-media{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#D8D0C4}
+.kcc-hero-video-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.kcc-hero-video-play{position:absolute;top:50%;left:50%;display:grid;width:44px;height:44px;place-items:center;border:1px solid var(--kcc);background:rgba(244,240,230,.94);box-shadow:4px 4px 0 rgba(28,20,15,.3);transform:translate(-50%,-50%)}
+.kcc-hero-video-play::before{content:"";width:0;height:0;margin-left:3px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid var(--kcc)}
+.kcc-hero-video-copy{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 13px}
+.kcc-hero-video-label{display:flex;min-width:0;flex-direction:column;gap:3px}
+.kcc-hero-video-label small{font:600 9px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#6E7C64}
+.kcc-hero-video-label strong{font-family:'Gmarket Sans','SUIT Variable',sans-serif;font-size:13px;line-height:1.3;color:var(--kcc)}
+.kcc-hero-video-arrow{font:700 18px 'JetBrains Mono',monospace;color:var(--kcc)}
+.kcc-hero-video--desktop .kcc-hero-video-media{height:100%;aspect-ratio:auto}
+.kcc-hero-video--desktop .kcc-hero-video-play{width:20px;height:20px;box-shadow:2px 2px 0 rgba(28,20,15,.28)}
+.kcc-hero-video--desktop .kcc-hero-video-play::before{border-top-width:4px;border-bottom-width:4px;border-left-width:6px}
+.kcc-hero-video--desktop .kcc-hero-video-copy{gap:6px;padding:4px 7px}
+.kcc-hero-video--desktop .kcc-hero-video-label{gap:1px}
+.kcc-hero-video--desktop .kcc-hero-video-label small{font-size:7px}
+.kcc-hero-video--desktop .kcc-hero-video-label strong{font-size:10px;white-space:nowrap}
+.kcc-hero-video--desktop .kcc-hero-video-arrow{font-size:13px}
+.kcc-hero-video:hover{transform:translateY(-2px);box-shadow:4px 7px 0 rgba(28,20,15,.25)}
+.kcc-hero-video:hover .kcc-hero-video-media img{transform:scale(1.025)}
+.kcc-hero-video:focus-visible{outline:3px solid #fff;outline-offset:4px}
 .kcc-lineup{padding:90px 0 110px}
 .kcc-heading{display:grid;grid-template-columns:1fr minmax(280px,.72fr);align-items:end;gap:40px;margin-bottom:30px}
 .kcc-heading .eyebrow{margin-bottom:10px;color:var(--kcc)}
@@ -147,8 +171,14 @@ body{background:#F4F0E6;color:#1F3822}
 @media(max-width:600px){
   .kcc-wrap{width:calc(100% - 24px)}.kcc-hero .kcc-wrap{width:calc(100% - 24px)}.kcc-hero{padding:72px 0 18px}.kcc-hero-frame{min-height:480px}.kcc-hero-frame>img{object-position:42% center}.kcc-hero-frame::after{background:linear-gradient(0deg,rgba(28,20,15,.9) 0%,rgba(28,20,15,.26) 76%,rgba(28,20,15,.08))}.kcc-hero-copy{left:22px;right:22px;bottom:28px}.kcc-hero-copy h1{font-size:42px}.kcc-hero-copy p{font-size:14px}.kcc-lineup{padding:60px 0 74px}.kcc-heading{gap:16px;margin-bottom:24px}.kcc-heading h2{font-size:34px}.kcc-heading p{font-size:13px}.kcc-category-nav{gap:8px;margin-bottom:38px}.kcc-category-btn{padding:14px 13px;min-height:74px}.kcc-category-btn strong{font-size:17px}.kcc-category-head{gap:10px;margin-bottom:14px}.kcc-category-head h3{font-size:29px}.kcc-category-head p{font-size:12.5px}.kcc-model-nav{margin-left:0;margin-right:-12px;padding-bottom:14px}.kcc-model-btn{flex:0 0 146px;height:58px;padding:9px 11px}.kcc-model-btn strong{font-size:14px}.kcc-model-panel{margin-top:12px}.kcc-product-image,.kcc-product-image.is-contain,.kcc-product-image.is-native,.kcc-product-image.is-split,.kcc-product-image.is-modes{height:220px;min-height:220px}.kcc-product-image.is-contain img{padding:12px}.kcc-product-image.is-native{padding:12px}.kcc-product-image.is-native img{max-width:100%;max-height:100%}.kcc-product-image.is-split figure{padding:6px}.kcc-product-image.is-split img{max-width:calc(100% - 12px);max-height:calc(100% - 12px)}.kcc-product-image.is-modes{gap:6px;padding:10px}.kcc-product-image.is-modes figure{padding:8px 4px 10px}.kcc-product-image.is-modes img{height:120px;max-height:120px}.kcc-product-image.is-modes figcaption{gap:3px;margin-top:8px}.kcc-product-image.is-modes figcaption span{font-size:7px}.kcc-product-image.is-modes figcaption strong{font-size:11px}.kcc-product-copy{min-height:0;padding:24px 20px}.kcc-product-copy h4{font-size:30px}.kcc-product-copy .lead{font-size:13.5px;margin-bottom:16px}.kcc-fact{grid-template-columns:78px 1fr;gap:10px;padding:10px 0}.kcc-structure-visual{padding:12px}.kcc-structure-visual img{width:min(100%,500px);height:auto;max-height:170px}.kcc-structure-copy{padding:24px 20px}.kcc-structure-copy h5{font-size:29px}.kcc-structure-copy p{font-size:13px}.kcc-lx-detail{grid-template-columns:1fr}.kcc-lx-detail-visual{grid-row:auto;min-height:260px;border-right:0;border-bottom:1px solid var(--kcc)}.kcc-lx-profile{width:min(48%,175px)}.kcc-lx-detail-copy{padding:24px 20px}.kcc-lx-detail-copy h5{font-size:30px}.kcc-lx-detail-copy p{font-size:13px}.kcc-lx-detail-facts{grid-column:auto;padding:20px}.kcc-lx-detail-fact{grid-template-columns:78px 1fr;gap:10px;padding:11px 0}.kcc-double-profiles{padding:12px}.kcc-double-profile{min-height:190px;padding:10px 6px 34px}.kcc-double-profile img{max-width:96%;max-height:145px}.kcc-structure-split{grid-template-columns:1fr}.kcc-structure-split img{max-height:180px}.kcc-variant-diagrams{grid-template-columns:1fr}.kcc-variant-diagrams figure{display:grid;grid-template-columns:110px 1fr;align-items:center;min-height:0;padding:14px;text-align:left}.kcc-variant-diagrams img{width:100%;height:70px}.kcc-variant-diagrams figcaption{align-items:flex-start;margin-top:0;padding-left:12px}.kcc-variant-diagrams figcaption strong{font-size:14px}.kcc-pjf-variants figure{grid-template-columns:1fr;gap:12px;padding:14px}.kcc-pjf-variants img{width:100%;height:auto;max-height:none;max-width:none}.kcc-pjf-variants figcaption{padding-left:0}.kcc-ubf-structure{grid-template-columns:1fr}.kcc-ubf-profile{display:grid;grid-template-columns:120px 1fr;min-height:140px;text-align:left}.kcc-ubf-profile img{height:132px}.kcc-ubf-profile figcaption{margin-top:0;text-align:left}.kcc-ubf-drawings{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto}.kcc-ubf-drawings figure:first-child{grid-row:auto}.kcc-ubf-drawings figure:nth-child(3){grid-column:1/3}.kcc-support{padding:64px 0}.kcc-support p{font-size:14px}
   .kcc-product-image.is-modes{height:240px;min-height:240px}
+  .kcc-hero-video--desktop{display:none}
+  .kcc-hero-video--mobile{position:relative;display:grid;grid-template-columns:128px minmax(0,1fr);width:100%;margin-top:10px;border-color:var(--kcc);box-shadow:4px 5px 0 rgba(28,20,15,.2)}
+  .kcc-hero-video-copy{padding:10px 12px}
+  .kcc-hero-video-play{width:34px;height:34px;box-shadow:3px 3px 0 rgba(28,20,15,.28)}
+  .kcc-hero-video-play::before{border-top-width:6px;border-bottom-width:6px;border-left-width:9px}
+  .kcc-hero-video:hover{transform:none;box-shadow:4px 5px 0 rgba(28,20,15,.2)}
 }
-@media(prefers-reduced-motion:reduce){.kcc-category-btn,.kcc-model-btn{transition:none}}
+@media(prefers-reduced-motion:reduce){.kcc-category-btn,.kcc-model-btn,.kcc-hero-video,.kcc-hero-video-media img{transition:none}}
 </style>
 <link rel="stylesheet" href="../../responsive.css?v=g84">
 </head>
@@ -165,9 +195,31 @@ body{background:#F4F0E6;color:#1F3822}
           <div class="eyebrow">KCC · WINDOW LINEUP</div>
           <h1>공간에 맞는<br>KCC 창호.</h1>
           <p>발코니 외창부터 실내의 미서기창과 여닫이 시스템까지.</p>
-          <div class="kcc-hero-tags"><span>BALCONY 02</span><span>INTERIOR 04</span><span>ASA FINISH</span></div>
+          <div class="kcc-hero-actions">
+            <div class="kcc-hero-tags"><span>BALCONY 02</span><span>INTERIOR 04</span><span>ASA FINISH</span></div>
+            <a class="kcc-hero-video kcc-hero-video--desktop" href="https://www.youtube.com/watch?v=fZqatTLQouM" target="_blank" rel="noopener noreferrer" aria-label="KCC 광고 영상 새 탭에서 보기">
+              <span class="kcc-hero-video-media">
+                <img src="https://i.ytimg.com/vi/fZqatTLQouM/maxresdefault.jpg" alt="" loading="lazy" decoding="async">
+                <span class="kcc-hero-video-play" aria-hidden="true"></span>
+              </span>
+              <span class="kcc-hero-video-copy">
+                <span class="kcc-hero-video-label"><small>KCC 광고</small><strong>영상 보기</strong></span>
+                <span class="kcc-hero-video-arrow" aria-hidden="true">↗</span>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
+      <a class="kcc-hero-video kcc-hero-video--mobile" href="https://www.youtube.com/watch?v=fZqatTLQouM" target="_blank" rel="noopener noreferrer" aria-label="KCC 광고 영상 새 탭에서 보기">
+        <span class="kcc-hero-video-media">
+          <img src="https://i.ytimg.com/vi/fZqatTLQouM/maxresdefault.jpg" alt="KCC 창호 광고 영상 썸네일" loading="lazy" decoding="async">
+          <span class="kcc-hero-video-play" aria-hidden="true"></span>
+        </span>
+        <span class="kcc-hero-video-copy">
+          <span class="kcc-hero-video-label"><small>KCC 광고 · OFFICIAL</small><strong>광고 영상 보기</strong></span>
+          <span class="kcc-hero-video-arrow" aria-hidden="true">↗</span>
+        </span>
+      </a>
     </div>
   </section>
 

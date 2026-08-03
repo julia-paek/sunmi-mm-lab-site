@@ -112,6 +112,7 @@ section[id]{scroll-margin-top:78px}
 .brand:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(0,0,0,.08)}
 .brand .tag{font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
 .brand .bn{font-size:clamp(28px,2.4vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-top:12px;color:var(--headline)}
+.brand .bn-alias{display:block;margin-top:5px;color:inherit;font-size:clamp(20px,1.7vw,24px);font-weight:700;line-height:1.1;letter-spacing:-.02em;white-space:nowrap}
 .brand .bs{font-size:15px;color:var(--muted);margin-top:7px;line-height:1.55}
 .brand .bm{font-size:14px;color:#74806F;margin-top:auto;padding-top:20px;border-top:1px solid var(--hairline);line-height:1.75}
 .brand .bc{font-size:15px;font-weight:600;color:var(--accent);margin-top:13px}.brand .bc::after{content:' →'}
@@ -732,7 +733,7 @@ var CASES = [
 var BRANDS = [
   {id:'brand-lx', status:'active', price:null, purchasable:false, href:'windows/lx/', tag:'K-BPI 18회 1위', name:'LX하우시스', sub:'뷰프레임(일반창) · 유로시스템9(시스템창)', meta:'일반창 9종 + 시스템창<br>자동환기 · 스마트핸들 · 베젤리스'},
   {id:'brand-kcc', status:'active', price:null, purchasable:false, href:'windows/kcc/', tag:'국내 1위', name:'KCC', sub:'KS-WEI 6년 연속 1위', meta:'시스템창 · 발코니 · 일반창<br>13개 모델 / ASA 7색'},
-  {id:'brand-kbe', status:'active', price:null, purchasable:false, href:'windows/kbe/', tag:'독일 직수입', name:'독일 시스템창호 KBE', sub:'120년 profine 그룹', meta:'88mm 7챔버 / 패시브하우스<br>래미안 신정 · 김포 라피아노'},
+  {id:'brand-kbe', status:'active', price:null, purchasable:false, href:'windows/kbe/', tag:'독일 직수입', name:'독일 시스템창호', alias:'KBE · KÖMMERLING', sub:'120년 profine 그룹', meta:'88mm 7챔버 / 패시브하우스<br>래미안 신정 · 김포 라피아노'},
   {id:'brand-kogo', status:'active', price:null, purchasable:false, href:'screens/kogo/', tag:'안전방충망 전문', name:'고구려안전방충망', sub:'추락 방지 · 미세먼지 차단', meta:'안전 · 기밀 · 미세먼지<br>창호와 통합 시공'}
 ];
 
@@ -761,7 +762,7 @@ function renderCases(){var t=document.getElementById('ctrack');if(!t)return;
     return '<a href="projects/#'+c.id+'" class="cs-card" aria-label="'+esc(c.title)+(c.type==='video'?' 영상 보기':' 사진 보기')+'">'+media+'<div class="cs-title">'+esc(c.title)+'</div><div class="cs-sub">'+esc(c.location)+'</div></a>';
   }).join('');}
 function renderBrands(){var t=document.getElementById('track');if(!t)return;
-  t.innerHTML=BRANDS.map(function(b){return '<a href="'+b.href+'" class="brand"><div class="tag">'+esc(b.tag)+'</div><div class="bn">'+esc(b.name)+'</div><div class="bs">'+esc(b.sub)+'</div><div class="bm">'+b.meta+'</div><div class="bc">더 알아보기</div></a>';}).join('');}
+  t.innerHTML=BRANDS.map(function(b){return '<a href="'+b.href+'" class="brand"><div class="tag">'+esc(b.tag)+'</div><div class="bn">'+esc(b.name)+(b.alias?'<span class="bn-alias">'+esc(b.alias)+'</span>':'')+'</div><div class="bs">'+esc(b.sub)+'</div><div class="bm">'+b.meta+'</div><div class="bc">더 알아보기</div></a>';}).join('');}
 function renderComing(){var t=document.getElementById('ptrack');if(!t)return;
   t.innerHTML=COMING.map(function(c){return '<article class="pc-card"><div class="pc-tag">Coming Soon</div><div class="pc-name">'+esc(c.name)+'</div><p class="pc-desc">'+esc(c.desc)+'</p><div class="pc-art" aria-hidden="true">'+c.icon+'</div></article>';}).join('');}
 renderCases();renderBrands();renderComing();
