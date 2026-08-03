@@ -76,13 +76,16 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .gcompare-label{position:absolute;left:10px;top:10px;padding:5px 8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.08em;line-height:1;z-index:1}
 .gcompare-before .gcompare-label{background:#F4F0E6;color:#1F3822}
 .gcompare-after .gcompare-label{background:#1F3822;color:#F4F0E6}
-.gmedia.gvideo{display:grid;grid-template-columns:46% 54%;background:#1F3822}
-.gvideo-poster{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s var(--ease-soft)}
-.gcard:hover .gvideo-poster{transform:scale(1.035)}
-.gvideo-copy{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:24px;background:#1F3822;color:#F4F0E6}
-.gvideo-copy small{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.12em}
-.gvideo-copy b{font-family:'Gmarket Sans','Pretendard Variable',sans-serif;font-size:clamp(27px,3vw,40px);line-height:1;font-weight:700;margin-top:8px}
-.gvideo-copy em{font-style:normal;font-size:12px;color:#C9D2C5;margin-top:auto;padding-top:18px;border-top:1px solid rgba(244,240,230,.35)}
+.gmedia.gvideo{display:block;isolation:isolate;background:#1F3822}
+.gmedia.gvideo::before{content:"";position:absolute;inset:-12%;z-index:-2;background-image:var(--poster);background-position:center;background-size:cover;filter:blur(18px) saturate(.72) brightness(.58);transform:scale(1.14)}
+.gmedia.gvideo::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(16,29,18,.08) 28%,rgba(16,29,18,.56) 100%);pointer-events:none}
+.gvideo-poster{position:relative;z-index:0;width:100%;height:100%;object-fit:contain;object-position:center;transition:transform .7s var(--ease-soft),filter .7s var(--ease-soft)}
+.gvideo-label{position:absolute;top:14px;left:14px;z-index:2;padding:7px 9px;background:rgba(244,240,230,.94);border:1px solid rgba(31,56,34,.72);color:#1F3822;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;font-weight:700;line-height:1;letter-spacing:.12em}
+.gvideo-play{position:absolute;left:50%;top:50%;z-index:2;width:58px;height:58px;display:grid;place-items:center;transform:translate(-50%,-50%);background:rgba(244,240,230,.94);border:1px solid #1F3822;box-shadow:6px 6px 0 rgba(31,56,34,.72);transition:transform .35s var(--ease-soft),background .25s var(--ease),box-shadow .35s var(--ease-soft)}
+.gvideo-play::before{content:"";width:0;height:0;margin-left:4px;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid #1F3822}
+.gvideo-action{position:absolute;right:14px;bottom:12px;z-index:2;color:#F4F0E6;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.08em}
+.gcard:hover .gvideo-poster{transform:scale(1.025);filter:saturate(1.04)}
+.gcard:hover .gvideo-play{transform:translate(-50%,-54%);background:#fff;box-shadow:9px 9px 0 rgba(31,56,34,.78)}
 .gcount{position:absolute;left:12px;bottom:12px;padding:6px 9px;background:rgba(31,56,34,.9);color:#fff;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.05em;line-height:1;z-index:1}
 .gbadge{display:inline-block;margin-top:14px;font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--accent);text-transform:uppercase}
 .gtitle{font-size:18px;font-weight:600;color:var(--headline);margin-top:4px}
@@ -121,7 +124,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .vlb-copy p{font-size:15px;line-height:1.7;margin-top:18px}
 .vlb-steps{margin-top:auto;padding-top:26px;border-top:1px solid #B9B19F;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;line-height:1.9;color:#2F5233}
 .vlb-close{position:absolute;top:12px;right:12px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:#F4F0E6;border:1px solid #1F3822;color:#1F3822;font-size:23px;z-index:2}
-@media(max-width:700px){.vlb{padding:12px}.vlb-panel{width:100%;grid-template-columns:1fr;max-height:94vh}.vlb video{height:min(62vh,620px)}.vlb-copy{padding:24px 20px 22px}.vlb-copy h2{font-size:25px}.vlb-copy p{margin-top:10px}.vlb-steps{margin-top:18px;padding-top:16px}.gvideo-copy{padding:18px}.gvideo-copy b{font-size:28px}}
+@media(max-width:700px){.vlb{padding:12px}.vlb-panel{width:100%;grid-template-columns:1fr;max-height:94vh}.vlb video{height:min(62vh,620px)}.vlb-copy{padding:24px 20px 22px}.vlb-copy h2{font-size:25px}.vlb-copy p{margin-top:10px}.vlb-steps{margin-top:18px;padding-top:16px}.gvideo-play{width:52px;height:52px;box-shadow:5px 5px 0 rgba(31,56,34,.72)}.gvideo-label{top:11px;left:11px}.gvideo-action{right:11px;bottom:10px}}
 
 /* floating + footer */
 .float{position:fixed;right:26px;bottom:26px;background:var(--accent);color:#fff;padding:16px 26px;border-radius:0;z-index:850;box-shadow:0 14px 30px rgba(17,17,17,.42);font-weight:600;font-size:15px;transition:transform .25s var(--ease)}
@@ -286,7 +289,7 @@ function visibleList(){return CASES.filter(function(c){return curFilter==='전�
 function renderGallery(){
   gallery.innerHTML=CASES.map(function(c,i){
     var media=c.type==='video'
-      ? '<div class="gmedia gvideo"><img class="gvideo-poster" src="'+c.image+'" alt=""><span class="gvideo-copy"><small>PROCESS</small><b>VIDEO</b><em>영상 보기</em></span></div>'
+      ? '<div class="gmedia gvideo" style="--poster:url(\''+c.image+'\')"><img class="gvideo-poster" src="'+c.image+'" alt="" loading="lazy"><span class="gvideo-label">PROCESS FILM · 01</span><span class="gvideo-play" aria-hidden="true"></span><span class="gvideo-action">영상 보기 ↗</span></div>'
       : c.beforeCover
       ? '<div class="gmedia gcompare"><span class="gcompare-shot gcompare-before"><i style="--img:url(\''+c.beforeCover+'\')"></i><b class="gcompare-label">BEFORE</b></span><span class="gcompare-shot gcompare-after"><i style="--img:url(\''+c.afterCover+'\')"></i><b class="gcompare-label">AFTER</b></span><span class="gcount">'+c.images.length+' PHOTOS</span></div>'
       : '<div class="gmedia"><i style="--img:url(\''+c.image+'\')"></i><span class="gcount">'+c.images.length+' PHOTOS</span></div>';

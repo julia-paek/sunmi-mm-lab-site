@@ -188,15 +188,19 @@ section[id]{scroll-margin-top:78px}
 .cs-compare-label{position:absolute;left:10px;top:10px;padding:5px 8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.08em;line-height:1}
 .cs-compare-before .cs-compare-label{background:#F4F0E6;color:#1F3822}
 .cs-compare-after .cs-compare-label{background:#1F3822;color:#F4F0E6}
-.cs-media.cs-video{display:grid;grid-template-columns:42% 58%;background:#1F3822}
-.cs-video img{width:100%;height:100%;object-fit:cover;object-position:center}
-.cs-video-copy{display:flex;flex-direction:column;justify-content:center;padding:22px;color:#F4F0E6}
-.cs-video-copy small{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.12em}
-.cs-video-copy b{font-family:'Gmarket Sans','Pretendard Variable',sans-serif;font-size:34px;line-height:1;font-weight:700;margin-top:7px}
-.cs-video-copy span{font-size:12px;color:#C9D2C5;margin-top:auto;padding-top:15px;border-top:1px solid rgba(244,240,230,.35)}
+.cs-media.cs-video{position:relative;isolation:isolate;background:#1F3822}
+.cs-media.cs-video::before{content:"";position:absolute;inset:-12%;z-index:-2;background-image:var(--poster);background-position:center;background-size:cover;filter:blur(17px) saturate(.72) brightness(.58);transform:scale(1.14)}
+.cs-media.cs-video::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(16,29,18,.08) 28%,rgba(16,29,18,.56) 100%);pointer-events:none}
+.cs-video img{position:relative;z-index:0;width:100%;height:100%;object-fit:contain;object-position:center;transition:transform .7s var(--ease-soft),filter .7s var(--ease-soft)}
+.cs-video-label{position:absolute;top:13px;left:13px;z-index:2;padding:7px 9px;background:rgba(244,240,230,.94);border:1px solid rgba(31,56,34,.72);color:#1F3822;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;font-weight:700;line-height:1;letter-spacing:.12em}
+.cs-video-play{position:absolute;left:50%;top:50%;z-index:2;width:56px;height:56px;display:grid;place-items:center;transform:translate(-50%,-50%);background:rgba(244,240,230,.94);border:1px solid #1F3822;box-shadow:6px 6px 0 rgba(31,56,34,.72);transition:transform .35s var(--ease-soft),background .25s var(--ease),box-shadow .35s var(--ease-soft)}
+.cs-video-play::before{content:"";width:0;height:0;margin-left:4px;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid #1F3822}
+.cs-video-action{position:absolute;right:13px;bottom:11px;z-index:2;color:#F4F0E6;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;letter-spacing:.08em}
+.cs-card:hover .cs-video img{transform:scale(1.025);filter:saturate(1.04)}
+.cs-card:hover .cs-video-play{transform:translate(-50%,-54%);background:#fff;box-shadow:9px 9px 0 rgba(31,56,34,.78)}
 .cs-title{margin-top:14px;font-size:17px;font-weight:600;color:var(--headline)}
 .cs-sub{font-size:14px;color:var(--muted);margin-top:2px}
-@media(max-width:900px){.cs-card{flex:0 0 320px;max-width:320px}.cs-title{font-size:15px}}
+@media(max-width:900px){.cs-card{flex:0 0 320px;max-width:320px}.cs-title{font-size:15px}.cs-video-play{width:50px;height:50px;box-shadow:5px 5px 0 rgba(31,56,34,.72)}.cs-video-label{top:10px;left:10px}.cs-video-action{right:10px;bottom:9px}}
 
 /* coming — Apple 스토어 '최신 제품' 스타일 가로 카드 캐러셀 */
 .pcoming{background:var(--bg-alt);padding:clamp(88px,12vh,150px) 0;position:relative;overflow:hidden}
@@ -921,7 +925,7 @@ var COMING = [
 function renderCases(){var t=document.getElementById('ctrack');if(!t)return;
   t.innerHTML=CASES.map(function(c){
     var media=c.type==='video'
-      ? '<div class="cs-media cs-video"><img src="'+c.image+'" alt=""><span class="cs-video-copy"><small>PROCESS</small><b>VIDEO</b><span>영상 보기</span></span></div>'
+      ? '<div class="cs-media cs-video" style="--poster:url(\''+c.image+'\')"><img src="'+c.image+'" alt="" loading="lazy"><span class="cs-video-label">PROCESS FILM · 01</span><span class="cs-video-play" aria-hidden="true"></span><span class="cs-video-action">영상 보기 ↗</span></div>'
       : c.beforeImage
       ? '<div class="cs-media cs-compare"><span class="cs-compare-shot cs-compare-before"><i style="--img:url(\''+c.beforeImage+'\')"></i><b class="cs-compare-label">BEFORE</b></span><span class="cs-compare-shot cs-compare-after"><i style="--img:url(\''+c.afterImage+'\')"></i><b class="cs-compare-label">AFTER</b></span></div>'
       : '<div class="cs-media" style="background-image:url(\''+c.image+'\')"></div>';
