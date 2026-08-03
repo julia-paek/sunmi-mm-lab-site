@@ -3,8 +3,8 @@
     "slug": "mmlab_info",
     "mode": "primary",
     "url": "https://sunmi.works/mmlab_info/",
-    "last_kind": "new",
-    "last_sha256": "f43b81c5be29e4b42f5809ee7668b8f522acf3cef54a845f926ae26d19c7a35a",
-    "timestamp": "2026-08-03T02:04:28.476313Z"
+    "last_kind": "redeploy",
+    "last_sha256": "d84e364c8f64e7db7fafd50d35e7aa052f2275504da9152bade9033efcf89b37",
+    "timestamp": "2026-08-03T02:06:58.402847Z"
   }
 }

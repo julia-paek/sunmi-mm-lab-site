@@ -18,12 +18,8 @@ GitHub 저장소: https://github.com/julia-paek/sunmi-mm-lab-site
 
 ## 추가 개발 예정
 
-다음 단계에서는 기존 홈페이지와 분리된 새 로컬 작업 폴더 `mmlab_info`를 만듭니다. 공개할 때는 기존 GitHub Pages 저장소에 `mmlab_info` 경로만 추가합니다.
-
 - 창호 시공사진과 인테리어 시공사진을 관리자가 직접 업데이트하는 어드민
 - 상담신청 버튼에서 MM LAB 오픈카카오톡으로 연결되는 기능
-- GitHub Pages 주소 `https://sunmi.works/mmlab_info/`로 배포
-- `mmlab_info` 경로 밖의 기존 홈페이지 화면, CNAME과 DNS는 변경하지 않음
 
 세부 개발 범위와 검수 조건은 `00_MM-LAB_작업설명서.html`의 **추가 개발** 섹션과 `05_작업현황_및_검수체크리스트.md`를 확인합니다.
 

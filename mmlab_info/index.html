@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>MM LAB 홈페이지 작업 인수인계 · mmlab_info</title>
+<title>MM LAB 홈페이지 작업 인수인계</title>
 <style>
 :root{--forest:#17361f;--forest-deep:#0f2616;--paper:#f4f1e8;--white:#fff;--line:#aeb9b0;--muted:#68766b;--brass:#987a45;--blue:#252944;--soft:#e4e9e4;--ink:#172019}
 *{box-sizing:border-box}
@@ -116,11 +116,6 @@ section:last-child{border-bottom:0}
 .value-copy p{margin:10px 0 0;color:#5f5a50;font-size:13px}
 .model-disclaimer{margin:0;padding:14px 20px;border-top:1px solid #cbbfa7;color:#756d60;font-size:11px}
 .next-build{border:1px solid var(--blue);background:#fff}
-.next-banner{display:grid;grid-template-columns:minmax(210px,.55fr) minmax(0,1.45fr);gap:30px;padding:30px;background:var(--blue);color:#fff}
-.next-route{align-self:start;padding:18px;border:1px solid rgba(255,255,255,.38);font:800 clamp(22px,3vw,34px)/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.04em}
-.next-route small{display:block;margin-bottom:10px;color:#abb0c8;font:700 9px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;text-transform:uppercase}
-.next-banner h3{margin:0;font-size:clamp(26px,3.2vw,40px);line-height:1.08;letter-spacing:-.05em}
-.next-banner p{margin:13px 0 0;color:#c9cce0;font-size:13px}
 .dev-grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .dev-card{padding:26px}
 .dev-card+.dev-card{border-left:1px solid var(--blue)}
@@ -137,8 +132,8 @@ section:last-child{border-bottom:0}
 .scope-lock{padding:18px 22px;border-top:1px solid var(--blue);background:#fff6df;color:#675d47;font-size:12px}
 .scope-lock strong{color:#473c26}
 .print-note{color:var(--muted);font-size:11px}
-@media(max-width:980px){.layout{grid-template-columns:1fr}.rail{position:relative;height:auto}.rail nav{display:grid;grid-template-columns:repeat(3,1fr)}.rail nav a{padding-right:12px}.rail-meta{display:none}.hero-grid{grid-template-columns:1fr}.hero-stat+.hero-stat{border-left:0;border-top:1px solid rgba(255,255,255,.32)}.section-head{grid-template-columns:1fr}.transcript{grid-template-columns:1fr}.transcript-card+.transcript-card{border-left:0;border-top:1px solid var(--forest)}.model-core,.next-banner{grid-template-columns:1fr}}
-@media(max-width:680px){.rail{padding:26px 20px}.rail nav{grid-template-columns:1fr}.hero{padding:54px 20px 48px}.hero h1{font-size:42px}main{padding:0 14px 70px}section{padding:58px 0}.section-head h2{font-size:34px}.card-grid,.facts,.flow,.check-grid,.open-grid,.service-paths,.value-strip,.dev-grid{grid-template-columns:1fr}.card+.card,.fact+.fact,.service-path+.service-path,.dev-card+.dev-card{border-left:0;border-top:1px solid var(--forest)}.card.is-wide{grid-template-columns:1fr}.card.is-wide ul{grid-template-columns:1fr}.row{grid-template-columns:1fr}.row>div+div{border-left:0;border-top:1px solid var(--line)}.row .label{padding:9px 16px}.transcript-card{padding:22px}.model-core,.service-path,.value-copy,.value-mark,.next-banner,.dev-card{padding:22px}.system-row{grid-template-columns:1fr}.system-row span{min-height:44px}.system-row .arrow{transform:rotate(90deg);min-height:26px}}
+@media(max-width:980px){.layout{grid-template-columns:1fr}.rail{position:relative;height:auto}.rail nav{display:grid;grid-template-columns:repeat(3,1fr)}.rail nav a{padding-right:12px}.rail-meta{display:none}.hero-grid{grid-template-columns:1fr}.hero-stat+.hero-stat{border-left:0;border-top:1px solid rgba(255,255,255,.32)}.section-head{grid-template-columns:1fr}.transcript{grid-template-columns:1fr}.transcript-card+.transcript-card{border-left:0;border-top:1px solid var(--forest)}.model-core{grid-template-columns:1fr}}
+@media(max-width:680px){.rail{padding:26px 20px}.rail nav{grid-template-columns:1fr}.hero{padding:54px 20px 48px}.hero h1{font-size:42px}main{padding:0 14px 70px}section{padding:58px 0}.section-head h2{font-size:34px}.card-grid,.facts,.flow,.check-grid,.open-grid,.service-paths,.value-strip,.dev-grid{grid-template-columns:1fr}.card+.card,.fact+.fact,.service-path+.service-path,.dev-card+.dev-card{border-left:0;border-top:1px solid var(--forest)}.card.is-wide{grid-template-columns:1fr}.card.is-wide ul{grid-template-columns:1fr}.row{grid-template-columns:1fr}.row>div+div{border-left:0;border-top:1px solid var(--line)}.row .label{padding:9px 16px}.transcript-card{padding:22px}.model-core,.service-path,.value-copy,.value-mark,.dev-card{padding:22px}.system-row{grid-template-columns:1fr}.system-row span{min-height:44px}.system-row .arrow{transform:rotate(90deg);min-height:26px}}
 @media print{.layout{display:block}.rail{position:relative;height:auto;break-after:page}.rail nav{display:none}.hero{padding:48px 0}.content,main{padding-left:0;padding-right:0}section{break-inside:avoid}.memo img{max-height:500px}a{text-decoration:none}.print-note{display:none}}
 </style>
 </head>
@@ -213,9 +208,8 @@ section:last-child{border-bottom:0}
       </section>
 
       <section id="next-build">
-        <div class="section-head"><div><div class="eyebrow">06 · required next build</div><h2>사진 관리와 상담 연결을<br>별도 프로젝트로 개발합니다.</h2></div><p>다음 작업의 필수 범위입니다. 현재 홈페이지 저장소에 임시 기능을 덧붙이지 말고, 독립된 작업 폴더와 저장소에서 개발·검수한 뒤 연결합니다.</p></div>
+        <div class="section-head"><div><div class="eyebrow">06 · required next build</div><h2>사진 관리와 상담 연결은<br>다음 개발의 필수 범위입니다.</h2></div><p>작업자는 아래 기능 요구사항과 책임 범위를 기준으로 구현하고, 관리자와 고객 화면을 각각 검수합니다.</p></div>
         <div class="next-build">
-          <div class="next-banner"><div class="next-route"><small>separate route</small>/mmlab_info</div><div><h3>기존 화면과 겹치지 않는<br>새 GitHub Pages 경로</h3><p>로컬 작업 폴더는 <strong>mmlab_info</strong>로 별도 생성합니다. 배포할 때는 기존 Pages 저장소 안에서 다른 화면과 겹치지 않는 독립 경로만 추가합니다. 공개 주소는 <strong>https://sunmi.works/mmlab_info/</strong>이며, <strong>mmlab_info</strong> 폴더 밖의 홈페이지 파일은 수정하지 않습니다.</p></div></div>
           <div class="dev-grid">
             <article class="dev-card"><div class="tag">ADMIN · MEDIA</div><h3>시공사진 관리 어드민</h3><ul><li>창호 시공사진과 인테리어 시공사진을 구분해 관리</li><li>사진 업로드·교체·삭제·순서 변경</li><li>제목, 현장 설명, 지역, 공사 유형, 대체텍스트 입력</li><li>임시저장·공개·비공개 상태 관리</li></ul></article>
             <article class="dev-card"><div class="tag">IMAGE · QUALITY</div><h3>업데이트 품질과 보안</h3><ul><li>PC·태블릿·아이폰용 반응형 이미지 생성</li><li>용량 최적화와 WebP 등 웹 형식 변환</li><li>삭제 전 확인과 복구 가능한 보관 방식</li><li>관리자 로그인과 권한 검증 필수</li></ul></article>
@@ -225,7 +219,7 @@ section:last-child{border-bottom:0}
             <div class="system-row"><span class="actor">관리자</span><span class="arrow">→</span><span>사진 등록·수정·순서·공개 상태 관리</span><span class="arrow">→</span><span class="result">창호·인테리어 시공사례 화면 업데이트</span></div>
             <div class="system-row"><span class="actor">고객</span><span class="arrow">→</span><span>홈페이지 상담신청 버튼 선택</span><span class="arrow">→</span><span class="result">MM LAB 오픈카카오톡 상담방 연결</span></div>
           </div>
-          <div class="scope-lock"><strong>구현 주의:</strong> GitHub Pages는 화면을 공개하는 정적 호스팅입니다. 안전한 어드민을 만들려면 별도의 관리자 인증, 이미지 저장소와 데이터베이스가 필요합니다. 화면에 비밀번호만 넣는 방식은 사용하지 않습니다. 배포 변경 범위는 <strong>mmlab_info</strong> 경로로 제한하며, 기존 홈페이지 화면과 CNAME·DNS 설정은 건드리지 않습니다.</div>
+          <div class="scope-lock"><strong>구현 주의:</strong> 안전한 어드민을 만들려면 실제 관리자 인증, 이미지 저장소와 데이터베이스가 필요합니다. 화면에 비밀번호만 넣는 방식은 사용하지 않습니다.</div>
         </div>
       </section>
 
