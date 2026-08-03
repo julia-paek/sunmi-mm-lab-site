@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MM LAB — Making Space</title>
+<title>MM LAB — 본사 정품 창호 직거래 시공</title>
 <link rel="canonical" href="/">
 <meta name="description" content="공간의 완성은 밀리미터의 차이에서 시작됩니다. 프리미엄 창호와 인테리어로 더 정교한 공간을 만듭니다.">
 <meta name="theme-color" content="#F4F0E6">
 <meta property="og:type" content="website">
-<meta property="og:title" content="MM LAB — Making Space">
+<meta property="og:title" content="MM LAB — 본사 정품 창호 직거래 시공">
 <meta property="og:description" content="공간의 완성은 밀리미터의 차이에서 시작됩니다. 프리미엄 창호와 인테리어로 더 정교한 공간을 만듭니다.">
 <meta property="og:locale" content="ko_KR">
 <link rel="icon" href="assets/brand/favicon.ico?v=b2" type="image/x-icon">
@@ -84,18 +84,33 @@ section[id]{scroll-margin-top:78px}
 
 /* cards */
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:64px}
-.card{position:relative;height:560px;border-radius:0;overflow:hidden;background:#e7e7e9;cursor:pointer;transition:transform .5s var(--ease-soft),box-shadow .5s var(--ease-soft);will-change:transform}
-.card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.10)}
-.card .media{position:absolute;inset:0}
-.card .media img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease-soft)}
-.card:hover .media img{transform:scale(1.05)}
-.card .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.86) 0%,rgba(255,255,255,.3) 26%,rgba(255,255,255,0) 52%)}
+.card{position:relative;height:560px;border-radius:0;overflow:hidden;background:#e7e7e9;cursor:pointer;--cz:1;--px:0px;--py:0px;transition:box-shadow .5s var(--ease-soft)}
+/* 사진 — 커서 패럴랙스(.media) + 상시 켄번스(img) 2층 분리 */
+.card .media{position:absolute;inset:-18px;transform:translate3d(var(--px),var(--py),0) scale(var(--cz));transition:transform .8s var(--ease-soft);will-change:transform}
+.card:hover .media{--cz:1.06}
+.card .media img{width:100%;height:100%;object-fit:cover;animation:mmKenburns 28s ease-in-out infinite alternate}
+@keyframes mmKenburns{from{transform:scale(1.02)}to{transform:scale(1.09) translate3d(-1.4%,-1%,0)}}
+/* 호버 시 빛이 한 번 훑고 지나감 */
+.card .media::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(104deg,rgba(255,255,255,0) 34%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 66%);transform:translateX(-135%);opacity:0}
+.card:hover .media::after{animation:mmSheen 1.05s var(--ease-soft) .06s}
+@keyframes mmSheen{0%{transform:translateX(-135%);opacity:0}14%{opacity:1}100%{transform:translateX(135%);opacity:0}}
+/* 호버 시 안쪽 괘선이 조여들며 나타남 */
+.card::after{content:'';position:absolute;inset:14px;z-index:4;pointer-events:none;border:1px solid rgba(47,82,51,.5);opacity:0;transform:scale(1.015);transition:opacity .45s var(--ease-soft),transform .45s var(--ease-soft)}
+.card:hover::after{opacity:1;transform:none}
+/* 글자 — 크림 스크림을 텍스트 높이까지 확실히 덮어 가독 확보 */
+.card .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,240,230,.97) 0%,rgba(244,240,230,.95) 22%,rgba(244,240,230,.88) 32%,rgba(244,240,230,.55) 44%,rgba(244,240,230,.14) 56%,rgba(244,240,230,0) 66%)}
 .card .ct{position:absolute;top:44px;left:44px;right:44px;z-index:2}
-.card .ct small{font-size:12px;letter-spacing:.04em;color:var(--muted)}
+.card .ct>*{transition:transform .55s var(--ease-soft)}
+.card:hover .ct small{transform:translateY(-3px)}
+.card:hover .ct h2{transform:translateY(-3px);transition-delay:.05s}
+.card:hover .ct p{transform:translateY(-3px);transition-delay:.1s}
+.card .ct small{display:block;font-size:12px;letter-spacing:.07em;font-weight:600;color:var(--accent)}
 .card .ct h2{font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-.02em;margin:10px 0 12px;color:var(--headline)}
-.card .ct p{font-size:17px;color:#6E7C64;line-height:1.55}
-.card .pill{position:absolute;left:44px;bottom:44px;z-index:3;background:var(--accent);color:#fff;padding:12px 22px;border-radius:0;font-weight:600;font-size:15px;opacity:0;transform:translateY(8px);transition:.3s var(--ease)}
+.card .ct p{font-size:17px;font-weight:500;color:#3E4C3B;line-height:1.55}
+.card .pill{position:absolute;left:44px;bottom:44px;z-index:3;background:var(--accent);color:#fff;padding:12px 22px;border-radius:0;font-weight:600;font-size:15px;opacity:0;transform:translateY(10px);transition:opacity .4s var(--ease-soft) .08s,transform .4s var(--ease-soft) .08s,background .25s var(--ease)}
 .card:hover .pill{opacity:1;transform:none}
+/* 터치 기기는 호버가 없으므로 버튼을 늘 보여 준다 */
+@media(hover:none){.card .pill{opacity:1;transform:none}.card::after{opacity:1;transform:none}}
 
 /* section */
 .sec{padding:clamp(96px,13vh,168px) 0}
@@ -136,14 +151,26 @@ section[id]{scroll-margin-top:78px}
 .ev-desc{font-size:16px;color:var(--muted);line-height:1.65;margin-top:6px}
 .ev-warning{display:inline;padding:0 .04em;color:inherit;font-weight:inherit;background:linear-gradient(transparent 72%,#DCE3B1 72%,#DCE3B1 91%,transparent 91%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .nb{white-space:nowrap}
-.ev-visual{margin-top:auto;height:150px;display:grid;place-items:center;font-weight:700;letter-spacing:-.03em}
-.ev-visual span{font-family:'Gmarket Sans','SUIT Variable',sans-serif;font-weight:700;font-size:clamp(34px,3.6vw,46px);line-height:1;color:var(--headline)}
-.ev-visual .ev-quality-copy{font-size:clamp(25px,2.4vw,32px);line-height:1.08;letter-spacing:-.02em;text-align:center}
+/* 라인 일러스트 — 스크롤 진입 시 선이 그려지고, 호버 때 다시 그려진다 */
+.ev-ill{margin-top:auto;height:162px;display:grid;place-items:center;padding:0 24px 6px;transition:transform .55s var(--ease-soft)}
+.ev-ill svg{width:100%;max-width:228px;height:auto;overflow:visible}
+.ev-ill-sm svg{max-width:198px} /* 네트워크 — 내용이 화면 끝까지 차서 살짝 줄임 */
+.ev-ill path{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-width .35s var(--ease)}
+.ev-ill path[data-dim]{opacity:.34}
+.ev-card.ill-in .ev-ill path{animation:mmDraw .95s var(--ease-soft) forwards;animation-delay:calc(var(--i,0)*.08s)}
+@keyframes mmDraw{to{stroke-dashoffset:0}}
+.ev-card:hover .ev-ill{transform:scale(1.07)}
+.ev-card:hover .ev-ill path{stroke-width:2.2}
+.ev-card:hover .ev-ill path[data-dim]{opacity:.55}
+.ev-card .ev-body>*{transition:transform .45s var(--ease-soft)}
+.ev-card:hover .ev-sub{transform:translateY(-3px)}
+.ev-card:hover .ev-title{transform:translateY(-3px);transition-delay:.04s}
+.ev-card:hover .ev-desc{transform:translateY(-3px);transition-delay:.08s}
 .ev-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:0;background:rgba(255,255,255,.92);border:1px solid var(--hairline);box-shadow:0 8px 22px rgba(0,0,0,.10);color:var(--ink);font-size:21px;font-weight:300;display:flex;align-items:center;justify-content:center;z-index:5;transition:background .25s var(--ease),color .25s var(--ease),opacity .25s var(--ease)}
 .ev-arrow:hover{background:var(--headline);color:#fff;border-color:var(--headline)}
 .ev-arrow:disabled{opacity:0;pointer-events:none}
 .ev-prev{left:14px}.ev-next{right:14px}
-@media(max-width:900px){.ev-card{flex:0 0 286px;max-width:286px;min-height:0}.ev-body{padding:22px 22px 0;gap:6px}.ev-desc{font-size:14px;line-height:1.58;margin-top:4px}.ev-visual{height:88px}.ev-visual span{font-size:34px}.ev-visual .ev-quality-copy{font-size:25px}.ev-arrow{width:42px;height:42px;font-size:19px}.ev-title{font-size:22px}}
+@media(max-width:900px){.ev-card{flex:0 0 286px;max-width:286px;min-height:0}.ev-body{padding:22px 22px 0;gap:6px}.ev-desc{font-size:14px;line-height:1.58;margin-top:4px}.ev-ill{height:104px;padding:0 20px 4px}.ev-ill svg{max-width:140px}.ev-arrow{width:42px;height:42px;font-size:19px}.ev-title{font-size:22px}}
 
 /* cases — Apple Arcade 스타일 와이드 카드 자동 캐러셀 */
 .cs-wrap{position:relative}
@@ -263,11 +290,12 @@ section[id]{scroll-margin-top:78px}
   .card{height:auto;aspect-ratio:1/1;border-radius:0;min-width:0}
   /* 좁은 세로 카드에서 사진이 하늘만 확대되어 깨져 보이는 것 방지 — 창틀·실내 쪽으로 초점 */
   .card .media img{object-position:50% 78%}
-  .card .scrim{background:linear-gradient(180deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.55) 34%,rgba(255,255,255,0) 60%)}
+  .card .scrim{background:linear-gradient(180deg,rgba(244,240,230,.97) 0%,rgba(244,240,230,.94) 26%,rgba(244,240,230,.8) 40%,rgba(244,240,230,.4) 52%,rgba(244,240,230,0) 68%)}
   .card .ct{top:20px;left:16px;right:16px}
-  .card .ct small{font-size:9px;letter-spacing:.03em}
+  .card .ct small{font-size:10.5px;letter-spacing:.04em}
+  .card::after{inset:8px}
   .card .ct h2{font-size:clamp(22px,6.5vw,30px);margin:8px 0 8px}
-  .card .ct p{font-size:12px;line-height:1.5}
+  .card .ct p{font-size:13px;line-height:1.5}
   .card .pill{left:12px;bottom:12px;padding:8px 12px;font-size:11px}
   .stats{grid-template-columns:1fr;gap:48px}
   .float{display:none}.mcta{display:flex}body{padding-bottom:78px}
@@ -285,25 +313,61 @@ body{counter-reset:mmsec}
 .sec-head .eyebrow::before{counter-increment:mmsec;content:counter(mmsec,decimal-leading-zero) " — "}
 .sec-head::after{content:"";display:block;width:140px;height:9px;margin:22px auto 0;background:repeating-linear-gradient(90deg,#111 0 1px,transparent 1px 10px)}
 /* 히어로 — 밀리미터 눈금 모티프 */
-.hero .lead::after{content:"";display:block;width:180px;height:9px;margin:26px 0 0;background:repeating-linear-gradient(90deg,#111 0 1px,transparent 1px 10px)}
 /* 히어로 — 에디토리얼 오버랩 (텍스트 레이어 × 사진 레이어) */
 .hero .eyebrow::before{content:"— "}
 .hero-ed{position:relative;min-height:clamp(460px,60vh,620px);display:flex;align-items:center}
 .hero-photo{position:absolute;top:0;right:0;width:66%;height:100%;overflow:hidden;background:#EAE4D6;z-index:1}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;filter:saturate(.9) brightness(1.03) contrast(.97)}
+/* 히어로 슬라이드 — 나갈 때 창짝이 열리듯 세 쪽으로 갈라져 오른쪽으로 밀린다 */
+/* 사진은 화면에 있는 내내 오른쪽으로 천천히 흐른다 — 정지 화면이 아니라 공간으로 읽히게 */
+.hp-slide{position:absolute;inset:0;visibility:hidden;will-change:transform}
+.hp-slide.is-on,.hp-slide.is-out{animation:mmDrift 14s linear forwards}
+@keyframes mmDrift{from{transform:scale(1.12) translate3d(-3.5%,0,0)}to{transform:scale(1.12) translate3d(3.5%,0,0)}}
+.hp-slide.is-on{visibility:visible;z-index:2}
+.hp-slide.is-out{visibility:visible;z-index:1}
+.hp-pane{position:absolute;inset:0;background-image:var(--src);background-size:cover;background-position:60% 50%;filter:saturate(.9) brightness(1.03) contrast(.97);transition:transform 2.6s cubic-bezier(.4,.05,.25,1),opacity 2.2s cubic-bezier(.4,.05,.25,1)}
+.hp-pane:nth-child(1){clip-path:inset(0 66.4% 0 0)}
+.hp-pane:nth-child(2){clip-path:inset(0 33.2% 0 33.3%)}
+.hp-pane:nth-child(3){clip-path:inset(0 0 0 66.5%)}
+.hp-slide.is-prep .hp-pane{transform:translate3d(-72px,0,0);opacity:0;transition:none}
+.hp-slide.is-out .hp-pane{transform:translate3d(124px,0,0);opacity:0}
+.hp-slide.is-out .hp-pane:nth-child(2){transition-delay:.2s}
+.hp-slide.is-out .hp-pane:nth-child(3){transition-delay:.4s}
+/* 사진 왼쪽을 배경색으로 풀어 어떤 헤드라인이 올라와도 읽히게 한다 */
+.hp-fade{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(90deg,var(--bg) 0%,rgba(244,240,230,.92) 18%,rgba(244,240,230,.6) 36%,rgba(244,240,230,.3) 54%,rgba(244,240,230,.08) 68%,rgba(244,240,230,0) 78%)}
+/* 카피 교체 — 첫 등장 규칙(.hero.ready .a)보다 우선하도록 선택자를 한 단계 더 준다.
+   등장은 퇴장보다 확실히 느리게 둔다. 급하게 나타나면 값싸 보인다. */
+/* 이징을 완만하게. --ease-soft는 앞 0.9초에 65%가 끝나 버려 아무리 늘려도 빨라 보인다 */
+.hero .hero-copy h1{transition:opacity 6s cubic-bezier(.35,.1,.25,1),transform 6s cubic-bezier(.35,.1,.25,1)}
+.hero .hero-copy .lead{transition:opacity 6s cubic-bezier(.35,.1,.25,1) .5s,transform 6s cubic-bezier(.35,.1,.25,1) .5s}
+.hero .hero-ed.swap h1,.hero .hero-ed.swap .lead{opacity:0;transform:translateY(-14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.hero .hero-ed.rise h1,.hero .hero-ed.rise .lead{opacity:0;transform:translateY(26px);transition:none}
+/* 진행 게이지 */
+.hero-gauge{display:flex;gap:8px;margin-top:26px}
+.hero-gauge .hg{position:relative;width:56px;height:3px;padding:0;border:0;border-radius:0;background:rgba(47,82,51,.2);overflow:hidden;cursor:pointer}
+.hero-gauge .hg::after{content:"";position:absolute;inset:-13px -4px} /* 터치 영역 확보 */
+.hero-gauge .hg i{position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left}
+.hero-gauge .hg.done i{transform:scaleX(1)}
+.hero-gauge .hg.on i{animation:mmGauge 8s linear forwards}
+@keyframes mmGauge{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.hero-ed:hover .hero-gauge .hg.on i,.hero-gauge:focus-within .hg.on i{animation-play-state:paused}
 .hero-copy{position:relative;z-index:2;max-width:84%}
 .hero .cards{margin-top:64px}
 /* 히어로 스택 전환은 컴팩트 내비(860px)와 같은 지점에서 — 태블릿 구간에서 카피가 사진 위에 얹히지 않게 */
 @media(max-width:860px){
   .hero-ed{display:grid;grid-template-columns:1fr;min-height:0}
   .hero-photo{grid-area:1/1;position:relative;width:100%;height:clamp(440px,68svh,500px);margin-bottom:0}
-  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,240,230,0) 28%,rgba(244,240,230,.5) 58%,rgba(244,240,230,.92) 100%);z-index:1;pointer-events:none}
   .hero-photo img{object-position:58% 50%}
   .hero-copy{grid-area:1/1;position:relative;align-self:end;left:auto;right:auto;bottom:auto;max-width:none;margin:0 18px 24px;padding:0;background:transparent;border:0;color:#1F3822}
   .hero .eyebrow{color:#4F7355}
   .hero h1{color:#1F3822;text-shadow:0 1px 10px rgba(244,240,230,.6)}
   .hero .lead{color:#4F7355;font-size:14px;line-height:1.65;margin-top:18px;max-width:310px}
-  .hero .lead::after{background:repeating-linear-gradient(90deg,#4F7355 0 1px,transparent 1px 10px);opacity:.85;margin-top:20px}
+  .hero-gauge{margin-top:20px}
+  .hero-gauge .hg{width:44px;background:rgba(79,115,85,.3)}
+  .hp-fade{background:linear-gradient(180deg,rgba(244,240,230,0) 28%,rgba(244,240,230,.5) 58%,rgba(244,240,230,.92) 100%)}
+  .hp-pane:nth-child(1),.hp-pane:nth-child(2),.hp-pane:nth-child(3){clip-path:none}
+  .hp-pane:nth-child(2),.hp-pane:nth-child(3){display:none}
+  .hp-slide.is-out .hp-pane{transform:translate3d(48px,0,0)}
   .hero .cards{margin-top:44px}
 }
 .nav{background:rgba(244,240,230,.88);border-bottom:1px solid #2F5233}
@@ -368,7 +432,7 @@ body{counter-reset:mmsec}
 .sec-head h2,.card .ct h2,.ev-head h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-serif;font-weight:900}
 .hero h1{font-family:'Gmarket Sans','SUIT Variable','SUIT','Pretendard Variable',sans-serif;font-weight:700;line-height:.88;letter-spacing:-.055em!important}
 /* ═══ 타이틀 폰트 통일 — Gmarket Sans Bold (영문 포함) ═══ */
-.hero h1,.sec-head h2,.card .ct h2,.ev-head h2,.ev-title,.ev-visual span,
+.hero h1,.sec-head h2,.card .ct h2,.ev-head h2,.ev-title,
 .cs-title,.brand .bn,.pc-name,.stat .fig,
 #about .about-hd h2,#why-t,.about-hd h2{
   font-family:'Gmarket Sans','SUIT Variable','Pretendard Variable',sans-serif!important;font-weight:700!important;
@@ -404,10 +468,20 @@ body{counter-reset:mmsec}
 <section class="hero" id="hero">
   <div class="wrap">
     <div class="hero-ed">
-      <div class="hero-photo a"><img src="assets/mm-lab-hero-v2.jpg" width="1536" height="1024" alt="따뜻한 자연광과 블랙 프레임 창호가 어우러진 MM LAB 거실과 주방" loading="eager" fetchpriority="high"></div>
+      <div class="hero-photo a" id="heroPhoto">
+        <div class="hp-slide is-on" style="--src:url('assets/hero-genuine.jpg')" role="img" aria-label="호수 전망 와이드 거실창 시공"><span class="hp-pane"></span><span class="hp-pane"></span><span class="hp-pane"></span></div>
+        <div class="hp-slide" style="--src:url('assets/lx-view-frame-hero-v2.jpg')" role="img" aria-label="대형 뷰프레임 창호를 시공한 거실"><span class="hp-pane"></span><span class="hp-pane"></span><span class="hp-pane"></span></div>
+        <div class="hp-slide" style="--src:url('assets/mm-lab-hero-v2.jpg')" role="img" aria-label="블랙 프레임 창호가 어우러진 거실과 주방"><span class="hp-pane"></span><span class="hp-pane"></span><span class="hp-pane"></span></div>
+        <div class="hp-fade" aria-hidden="true"></div>
+      </div>
       <div class="hero-copy">
-        <h1 class="a">Making<br>Space</h1>
-        <p class="lead a">공간의 완성은 밀리미터의 차이에서 시작됩니다.<br>프리미엄 창호와 인테리어로 더 정교한 공간을 만듭니다.</p>
+        <h1 id="heroH1">CERTIFIED<br>GENUINE</h1>
+        <p class="lead" id="heroLead">본사 정품 창호를 직접 시공합니다.<br>KCC · LX하우시스 · 독일 KBE 본사 정품만 씁니다.</p>
+        <div class="hero-gauge a" id="heroGauge">
+          <button type="button" class="hg" aria-label="1번 화면 보기"><i></i></button>
+          <button type="button" class="hg" aria-label="2번 화면 보기"><i></i></button>
+          <button type="button" class="hg" aria-label="3번 화면 보기"><i></i></button>
+        </div>
       </div>
     </div>
     <div class="cards a" id="cards">
@@ -461,7 +535,14 @@ body{counter-reset:mmsec}
           <div class="ev-title">본사 정품만 사용<br>저가 공업사 제품 미취급</div>
           <p class="ev-desc">KCC · LX하우시스 · KBE 본사 정품만 엄선해 시공합니다.</p>
         </div>
-        <div class="ev-visual" aria-hidden="true"><span>정품만</span></div>
+        <!-- 창 프레임 + 본사 인증 씰 -->
+        <div class="ev-ill" aria-hidden="true"><svg viewBox="0 0 150 100">
+          <path pathLength="1" style="--i:0" d="M18 12h68v76H18z"/>
+          <path pathLength="1" style="--i:1" d="M52 12v76"/>
+          <path pathLength="1" style="--i:2" d="M18 50h68"/>
+          <path pathLength="1" style="--i:3" d="M112 47a19 19 0 1 0 0 38 19 19 0 1 0 0-38"/>
+          <path pathLength="1" style="--i:4" d="M103 66l6 6 12-13"/>
+        </svg></div>
       </a>
 
       <a class="ev-card" href="about/#save" aria-label="직거래 절감 안내 자세히 보기">
@@ -470,7 +551,15 @@ body{counter-reset:mmsec}
           <div class="ev-title">유통 마진 20% 절감,<br><span style="white-space:nowrap">30평 기준 약 200만 원</span></div>
           <p class="ev-desc">본사 직거래로 불필요한 유통 단계를 줄여, 같은 자재를 더 합리적으로 제안합니다.</p>
         </div>
-        <div class="ev-visual" aria-hidden="true"><span class="ev-quality-copy">HIGH QUALITY<br>LOW PRICE</span></div>
+        <!-- 대리점 우회 경로는 지우고 본사에서 현장으로 직행 -->
+        <div class="ev-ill" aria-hidden="true"><svg viewBox="0 0 150 100">
+          <path pathLength="1" style="--i:0" data-dim d="M18 58C18 22 46 20 75 20s57 4 57 34"/>
+          <path pathLength="1" style="--i:1" data-dim d="M68 13l14 14M82 13l-14 14"/>
+          <path pathLength="1" style="--i:2" d="M8 58h20v20H8z"/>
+          <path pathLength="1" style="--i:3" d="M122 78V62l10-9 10 9v16z"/>
+          <path pathLength="1" style="--i:4" d="M28 68h82"/>
+          <path pathLength="1" style="--i:5" d="M104 62l8 6-8 6"/>
+        </svg></div>
       </a>
 
       <a class="ev-card" href="about/#model" aria-label="창호 단독 시공과 본사 직거래 방식 자세히 보기">
@@ -479,7 +568,13 @@ body{counter-reset:mmsec}
           <div class="ev-title">창호만 따로<br>시공할 수 있어요</div>
           <p class="ev-desc">창호만 단독으로도, 인테리어와 함께도 원하는 방식으로 진행합니다.<br>거주 중에도 시공할 수 있습니다.</p>
         </div>
-        <div class="ev-visual" aria-hidden="true"><span>창호 단독</span></div>
+        <!-- 집은 그대로 두고 창만 교체 -->
+        <div class="ev-ill" aria-hidden="true"><svg viewBox="0 0 150 100">
+          <path pathLength="1" style="--i:0" data-dim d="M28 92V44L75 12l47 32v48z"/>
+          <path pathLength="1" style="--i:1" d="M52 48h46v36H52z"/>
+          <path pathLength="1" style="--i:2" d="M75 48v36"/>
+          <path pathLength="1" style="--i:3" d="M52 66h46"/>
+        </svg></div>
       </a>
 
       <a class="ev-card" href="interior/" aria-label="검증된 협력사 인테리어 안내 보기">
@@ -488,7 +583,17 @@ body{counter-reset:mmsec}
           <div class="ev-title">검증된 협력사와<br>연결해 드려요</div>
           <p class="ev-desc">직접 검증한 협력사와 연결해 책임 범위를 명확히 합니다.</p>
         </div>
-        <div class="ev-visual" aria-hidden="true"><span>네트워크</span></div>
+        <!-- 중심에서 검증된 협력사 세 곳으로 -->
+        <div class="ev-ill ev-ill-sm" aria-hidden="true"><svg viewBox="0 0 150 100">
+          <path pathLength="1" style="--i:0" d="M75 21a13 13 0 1 0 0 26 13 13 0 1 0 0-26"/>
+          <path pathLength="1" style="--i:1" d="M63 30L36 21M87 30l27-9M75 47v29"/>
+          <path pathLength="1" style="--i:2" d="M24 8a10 10 0 1 0 0 20 10 10 0 1 0 0-20"/>
+          <path pathLength="1" style="--i:3" d="M19 18l4 4 6-7"/>
+          <path pathLength="1" style="--i:4" d="M126 8a10 10 0 1 0 0 20 10 10 0 1 0 0-20"/>
+          <path pathLength="1" style="--i:5" d="M121 18l4 4 6-7"/>
+          <path pathLength="1" style="--i:6" d="M75 76a10 10 0 1 0 0 20 10 10 0 1 0 0-20"/>
+          <path pathLength="1" style="--i:7" d="M70 86l4 4 6-7"/>
+        </svg></div>
       </a>
 
       <a class="ev-card" href="about/#brand-warranty" aria-label="본사 품질 보증 안내 자세히 보기">
@@ -497,7 +602,12 @@ body{counter-reset:mmsec}
           <div class="ev-title">본사 품질 보증<br>10년</div>
           <p class="ev-desc">LX하우시스 본사 품질 보증 10년.</p>
         </div>
-        <div class="ev-visual" aria-hidden="true"><span>10년</span></div>
+        <!-- 본사 품질 보증 방패 -->
+        <div class="ev-ill" aria-hidden="true"><svg viewBox="0 0 150 100">
+          <path pathLength="1" style="--i:0" d="M75 6l40 13v27c0 23-17 34-40 42-23-8-40-19-40-42V19z"/>
+          <path pathLength="1" style="--i:1" data-dim d="M75 18l29 9v20c0 17-12 25-29 31-17-6-29-14-29-31V27z"/>
+          <path pathLength="1" style="--i:2" d="M60 52l12 12 22-24"/>
+        </svg></div>
       </a>
 
     </div>
@@ -599,6 +709,127 @@ var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* hero entrance */
 addEventListener('load',function(){document.getElementById('hero').classList.add('ready');});
 setTimeout(function(){document.getElementById('hero').classList.add('ready');},400);
+
+/* 히어로 3장 루프 — 카피·사진 교체, 폭 맞춤, 진행 게이지 */
+(function(){
+  var ed=document.querySelector('.hero-ed'),h1=document.getElementById('heroH1'),
+      lead=document.getElementById('heroLead'),gauge=document.getElementById('heroGauge');
+  if(!ed||!h1||!lead||!gauge)return;
+  var slides=[].slice.call(document.querySelectorAll('.hp-slide')),
+      bars=[].slice.call(gauge.querySelectorAll('.hg'));
+
+  var COPY=[
+    {h1:['CERTIFIED','GENUINE'],
+     lead:'본사 정품 창호를 직접 시공합니다.<br>KCC · LX하우시스 · 독일 KBE 본사 정품만 씁니다.'},
+    {h1:['DIRECT','PRICE'],
+     lead:'30평 기준 약 200만 원을 아낍니다.<br>대리점을 거치지 않아 유통 마진이 빠집니다.'},
+    {h1:['STAY','HOME'],
+     lead:'이사 없이 창만 바꿉니다.<br>살던 집 그대로, 거주 중에도 시공할 수 있습니다.'}
+  ];
+  var idx=0,busy=false;
+
+  /* 세 컷 모두 같은 글자 크기. 화면 폭에 비례해 잡는다 */
+  var SIZE=0;
+  function fit(){
+    if(innerWidth<=860){h1.style.fontSize='';SIZE=0;return;}
+    SIZE=Math.max(56,Math.min(190,ed.clientWidth*.1188));
+    h1.style.fontSize=SIZE.toFixed(1)+'px';
+  }
+
+  var timers=[];
+  function clearTimers(){timers.forEach(clearTimeout);timers=[];}
+
+  function go(next){
+    if(busy||next===idx)return;
+    busy=true;clearTimers();
+    var prev=idx;idx=next;
+
+    /* 사진 — 나가는 장은 세 쪽으로 갈라지고, 들어오는 장은 한 몸으로 */
+    slides.forEach(function(s,i){if(i!==prev&&i!==idx)s.classList.remove('is-on','is-out','is-prep');});
+    slides[prev].classList.remove('is-on');slides[prev].classList.add('is-out');
+    slides[idx].classList.remove('is-out');slides[idx].classList.add('is-prep','is-on');
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      slides[idx].classList.remove('is-prep');
+    });});
+
+    /* 카피 — 사진이 먼저 움직이고 글자가 아주 천천히 뒤따른다 */
+    timers.push(setTimeout(function(){
+      ed.classList.add('swap');
+      timers.push(setTimeout(function(){
+        h1.innerHTML=COPY[idx].h1.join('<br>');
+        lead.innerHTML=COPY[idx].lead;
+        ed.classList.remove('swap');ed.classList.add('rise');
+        requestAnimationFrame(function(){requestAnimationFrame(function(){
+          ed.classList.remove('rise');
+        });});
+      },620));
+    },160));
+
+    bars.forEach(function(b,i){
+      b.classList.remove('on','done');
+      if(i<idx)b.classList.add('done');
+    });
+    if(!reduce)bars[idx].classList.add('on');
+
+    timers.push(setTimeout(function(){slides[prev].classList.remove('is-out');},3200));
+    timers.push(setTimeout(function(){busy=false;},900));
+  }
+
+  bars.forEach(function(b,i){b.addEventListener('click',function(){go(i);});});
+  gauge.addEventListener('animationend',function(e){
+    if(e.animationName==='mmGauge')go((idx+1)%slides.length);
+  });
+
+  fit();addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+
+  /* 첫 등장이 끝난 뒤 게이지를 돌리고, 다음 사진들을 미리 받아 둔다 */
+  addEventListener('load',function(){
+    setTimeout(function(){
+      if(!reduce)bars[0].classList.add('on');
+      slides.slice(1).forEach(function(s){
+        var u=s.style.getPropertyValue('--src').replace(/^url\(['"]?|['"]?\)$/g,'');
+        if(u)(new Image()).src=u;
+      });
+    },1200);
+  });
+})();
+
+/* WHY 카드 라인 일러스트 — 화면에 들어오면 선이 그려지고, 호버 때 다시 그려진다 */
+(function(){
+  var cards=document.querySelectorAll('.ev-card');
+  if(!cards.length)return;
+  if(reduce){Array.prototype.forEach.call(cards,function(c){c.classList.add('ill-in');});return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('ill-in');io.unobserve(e.target);}});
+  },{threshold:.35});
+  Array.prototype.forEach.call(cards,function(card){
+    io.observe(card);
+    card.addEventListener('pointerenter',function(){
+      if(!card.classList.contains('ill-in'))return;
+      card.classList.remove('ill-in');
+      void card.offsetWidth;            /* 리플로우로 애니메이션 재시작 */
+      card.classList.add('ill-in');
+    });
+  });
+})();
+
+/* 창호·인테리어 카드 — 커서를 따라 사진이 반대로 미세하게 밀린다(창밖을 보는 느낌) */
+(function(){
+  if(reduce||!matchMedia('(hover:hover)').matches)return;
+  var MAX=11; /* px */
+  Array.prototype.forEach.call(document.querySelectorAll('.cards .card'),function(card){
+    var raf=0,nx=0,ny=0;
+    function apply(){raf=0;card.style.setProperty('--px',nx.toFixed(2)+'px');card.style.setProperty('--py',ny.toFixed(2)+'px');}
+    card.addEventListener('pointermove',function(e){
+      var r=card.getBoundingClientRect();
+      nx=-((e.clientX-r.left)/r.width-.5)*2*MAX;
+      ny=-((e.clientY-r.top)/r.height-.5)*2*MAX;
+      if(!raf)raf=requestAnimationFrame(apply);
+    });
+    card.addEventListener('pointerleave',function(){nx=0;ny=0;if(!raf)raf=requestAnimationFrame(apply);});
+  });
+})();
 
 /* progress bar + nav scrolled */
 var nav=document.getElementById('nav'),prog=document.getElementById('progress');
