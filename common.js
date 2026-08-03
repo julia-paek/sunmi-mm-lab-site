@@ -27,7 +27,7 @@ var PAGES={
   'kogo'   :{name:'고구려안전방충망'}
 };
 var BRANDS=[
-  {id:'lx-vue' ,href:site('windows/lx/') ,eyebrow:'LX하우시스 · 일반창',name:'뷰프레임(일반창)'      ,sub:'완성창 · 제작창 · 스마트핸들'},
+  {id:'lx-vue' ,href:site('windows/lx/viewframe/finished/') ,eyebrow:'LX하우시스 · 일반창',name:'뷰프레임(일반창)'      ,sub:'완성창 · 제작창 · 스마트핸들'},
   {id:'lx-euro',href:site('windows/lx/euro-system-9/pl/'),eyebrow:'LX하우시스 · 시스템창',name:'유로시스템9(시스템창)',sub:'PL·AL 개폐방식 · 유럽 하드웨어'},
   {id:'kcc'    ,href:site('windows/kcc/')    ,eyebrow:'국내 1위'      ,name:'KCC'            ,sub:'KS-WEI 6년 연속 1위'},
   {id:'kbe'    ,href:site('windows/kbe/')    ,eyebrow:'독일 직수입'   ,name:'KBE'            ,sub:'120년 profine · 88mm 7챔버'},
@@ -77,7 +77,7 @@ if(ft){
    +'<div class="footer-certs"><span>K-BPI 창호 1위</span><span>KS 인증</span><span>ISO 9001</span><span>본사 10년 보증</span><span>정품 직거래</span><span>거주 시공 가능</span></div>'
    +'<div class="footer-info-grid">'
    +'<div><a href="'+site('')+'" aria-label="MM LAB 홈"><img src="'+site('assets/brand/mm-lab-lockup-horizontal-green.png?v=b1')+'" width="1489" height="393" alt="MM LAB" style="display:block;width:148px;max-width:100%;height:auto;margin-bottom:14px;"></a><p>정밀한 자재, 합리적인 가치.<br>본사 정품 창호 직거래의 구조.</p>'
-   +'<p style="margin-top:12px;"><a href="'+site('windows/kcc/')+'">KCC</a> · <a href="'+site('windows/lx/')+'">LX 뷰프레임</a> · <a href="'+site('windows/lx/euro-system-9/pl/')+'">유로시스템9</a> · <a href="'+site('windows/kbe/')+'">KBE</a> · <a href="'+site('screens/kogo/')+'">고구려</a></p></div>'
+   +'<p style="margin-top:12px;"><a href="'+site('windows/kcc/')+'">KCC</a> · <a href="'+site('windows/lx/viewframe/finished/')+'">LX 뷰프레임 완성창</a> · <a href="'+site('windows/lx/euro-system-9/pl/')+'">유로시스템9</a> · <a href="'+site('windows/kbe/')+'">KBE</a> · <a href="'+site('screens/kogo/')+'">고구려</a></p></div>'
    +'<div><h5>고객 지원</h5><ul>'
    +'<li><a href="#" onclick="openModal();return false;">상담신청</a></li>'
    +'<li><a href="mailto:ksw.mmlab@gmail.com">ksw.mmlab@gmail.com</a></li>'
@@ -119,8 +119,14 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()
 document.getElementById('mmForm').addEventListener('submit',function(e){
   e.preventDefault();
   var f=e.target,ok=document.getElementById('mmSuccess');
-  f.style.display='none';ok.classList.add('on');
-  setTimeout(function(){closeModal();setTimeout(function(){f.reset();f.style.display='';ok.classList.remove('on');},350);},2400);
+  var show=function(r){
+    if(r&&r.ok===false){alert(r.title+'\n\n'+r.message);return;}
+    var h=ok.querySelector('h4'),p=ok.querySelector('p');
+    if(r&&h&&p){h.textContent=r.title;p.innerHTML=String(r.message).replace(/\n/g,'<br>');}
+    f.style.display='none';ok.classList.add('on');
+    setTimeout(function(){closeModal();setTimeout(function(){f.reset();f.style.display='';ok.classList.remove('on');},350);},2800);
+  };
+  if(window.mmConsultSubmit){window.mmConsultSubmit(f,show);}else{show(null);}
 });
 
 /* ── 모바일 햄버거 (미정의 페이지 대비 공통 제공) ── */

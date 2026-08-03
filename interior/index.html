@@ -7,6 +7,13 @@
 <link rel="canonical" href="/interior/">
 <meta name="description" content="검증된 협력 인테리어 네트워크 — 협력 업체와 현장별 작업 사진.">
 <meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="인테리어 — MM LAB">
+<meta property="og:description" content="검증된 협력 인테리어 네트워크 — 협력 업체와 현장별 작업 사진.">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="../assets/brand/favicon.ico?v=b2" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png?v=b2">
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png?v=b2">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500&display=swap">
@@ -302,7 +309,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   <a class="logo" href="../">MM LAB<span class="logo-sub">millimeter laboratory</span></a>
   <nav class="menu" aria-label="주 메뉴">
     <a href="../">홈</a>
-    <a href="../#brands">창호</a>
+    <a href="../windows/">창호</a>
     <a href="../interior/" class="active" aria-current="page">인테리어</a>
     <a href="../about/">브랜드</a>
     <a href="../projects/">시공사례</a>
@@ -372,7 +379,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
         </div>
       </div>
     </div>
-    <div class="note-band"><span><b>창호는 본사 직거래로 직접 시공</b>합니다. 인테리어와 함께 진행하면 <b class="save">창호 비용을 약 20% 절감</b>할 수 있어요.</span><a href="../about/#model">창호 직거래 자세히 →</a></div>
+    <div class="note-band"><span><b>창호는 본사 직거래로 직접 시공</b>합니다. 인테리어와 함께 진행하면 <b class="save">창호 비용을 약 20–30% 절감</b>할 수 있어요.</span><a href="../about/#model">창호 직거래 자세히 →</a></div>
   </section>
 
   <!-- 협력 업체 -->
@@ -395,7 +402,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
 <footer class="footer">
   <div class="footer-grid">
     <div><a href="../" aria-label="MM LAB 홈" style="display:inline-block;line-height:0;margin-bottom:14px"><img src="../assets/brand/mm-lab-lockup-horizontal-green.png?v=b1" width="1489" height="393" alt="MM LAB" style="display:block;width:148px;height:auto"></a><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px"><a href="mailto:ksw.mmlab@gmail.com">ksw.mmlab@gmail.com</a><br><a href="tel:02-6012-0033">02-6012-0033</a> (평일 09:00~18:00)</p></div>
-    <div><h4>바로가기</h4><a href="../">홈</a><a href="../#brands">창호</a><a href="../projects/">시공사례</a></div>
+    <div><h4>바로가기</h4><a href="../">홈</a><a href="../windows/">창호</a><a href="../projects/">시공사례</a></div>
     <div><h4>협력 문의</h4><a href="#" onclick="openModal();return false;">협력 인테리어사 등록</a><a href="#" onclick="openModal();return false;">상담신청</a></div>
   </div>
   <div class="footer-bottom">© 2026 MM LAB. All rights reserved.<br>상호 어반로드(urbanroad) · 대표자 김완섭 · 사업자등록번호 336-38-00713 · 통신판매업 신고번호 제2020-서울용산-1116호<br>사업장 서울특별시 용산구 이촌로14길 16, 1층 상가 101호(이촌동) · 업태 건설업·소매업 · 종목 창호·중문·전자상거래<br>협력 업체는 MM LAB의 검증을 거친 독립 사업자이며, 시공 책임은 각 협력사에 있습니다.</div>
@@ -429,6 +436,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   </div>
 </div>
 
+<script src="../consult.js?v=c1"></script>
 <script src="../sitenav.js?v=g50"></script>
 <script>
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -613,7 +621,9 @@ function openModal(){mFocus=document.activeElement;modal.classList.add('open');m
 function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(mFocus&&mFocus.focus){mFocus.focus();mFocus=null;}}
 modal.addEventListener('click',function(e){if(e.target.id==='modal')closeModal();});
 addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
-function submitForm(e){e.preventDefault();alert('데모입니다. 실제 발송은 추후 연결됩니다.\n\n감사합니다.');closeModal();}
+function submitForm(e){e.preventDefault();var f=e.target;
+  if(window.mmConsultSubmit){mmConsultSubmit(f,function(r){alert(r.title+'\n\n'+r.message);if(r.ok!==false){f.reset();closeModal();}});}
+  else{alert('접수 준비 중입니다. 전화 02-6012-0033 로 문의해 주세요.');closeModal();}}
 </script>
 </body>
 </html>

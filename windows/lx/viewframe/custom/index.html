@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>뷰프레임S 제작창 | LX하우시스 | MM LAB</title>
 <link rel="canonical" href="/windows/lx/viewframe/custom/">
+<meta name="description" content="LX하우시스 뷰프레임S 제작창 — 실내창·분합문·도어 등 공간에 맞춘 제작 창호의 라인업과 마감 옵션을 안내합니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="뷰프레임S 제작창 | LX하우시스 | MM LAB">
+<meta property="og:description" content="LX하우시스 뷰프레임S 제작창 — 실내창·분합문·도어 등 공간에 맞춘 제작 창호의 라인업과 마감 옵션을 안내합니다.">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="../../../../assets/brand/favicon.ico?v=b2" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../assets/brand/favicon-32.png?v=b2">
+<link rel="apple-touch-icon" href="../../../../assets/brand/apple-touch-icon.png?v=b2">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
@@ -71,7 +79,7 @@ button{font:inherit;border-radius:0}
 .plan-wrap:has(.fit-hotspot:hover) .fit-hotspot.is-active:not(:hover)::after,.plan-wrap:has(.fit-hotspot:focus-visible) .fit-hotspot.is-active:not(:focus-visible)::after{opacity:0;transform:translate(-50%,-4px)}
 .plan-wrap:has(.fit-hotspot:hover) .fit-hotspot.is-active:not(:hover),.plan-wrap:has(.fit-hotspot:focus-visible) .fit-hotspot.is-active:not(:focus-visible){background:#F7F5EE;box-shadow:0 0 0 7px rgba(47,82,51,.11);transform:none}
 .plan-wrap:has(.fit-hotspot:hover) .fit-hotspot.is-active:not(:hover)::before,.plan-wrap:has(.fit-hotspot:focus-visible) .fit-hotspot.is-active:not(:focus-visible)::before{background:var(--lx)}
-.fit-hotspot[data-area="rear-expanded"]{left:10.4%;top:39.5%}.fit-hotspot[data-area="rear"]{left:26.9%;top:28.4%}.fit-hotspot[data-area="partition"]{left:88.9%;top:45.4%}.fit-hotspot[data-area="front"]{left:46%;top:71.7%}.fit-hotspot[data-area="front-expanded"]{left:65.7%;top:55.8%}.fit-hotspot[data-area="door"]{left:55%;top:59.5%}
+.fit-hotspot[data-area="rear-expanded"]{left:10.4%;top:39.5%}.fit-hotspot[data-area="rear"]{left:26.9%;top:28.4%}.fit-hotspot[data-area="partition"]{left:88.9%;top:45.4%}.fit-hotspot[data-area="front"]{left:46%;top:71.7%}.fit-hotspot[data-area="front-expanded"]{left:65.7%;top:55.8%}.fit-hotspot[data-area="door"]{left:55%;top:59.5%}.fit-hotspot[data-area="hung"]{left:42.4%;top:17.2%}
 .fit-hotspot[data-area="rear-expanded"]::after{left:-8px;max-width:none;white-space:nowrap;transform:translate(0,-4px)}.fit-hotspot[data-area="rear-expanded"]:hover::after,.fit-hotspot[data-area="rear-expanded"]:focus-visible::after,.fit-hotspot[data-area="rear-expanded"].is-active::after{transform:translate(0,0)}
 .fit-hotspot[data-area="partition"]::after{left:auto;right:-8px;max-width:none;white-space:nowrap;transform:translate(0,-4px)}.fit-hotspot[data-area="partition"]:hover::after,.fit-hotspot[data-area="partition"]:focus-visible::after,.fit-hotspot[data-area="partition"].is-active::after{transform:translate(0,0)}
 .location-copy{display:flex;min-width:0;flex-direction:column;justify-content:center;padding:clamp(26px,3.5vw,48px)}
@@ -92,7 +100,15 @@ button{font:inherit;border-radius:0}
 .option-card strong{display:block;margin-top:15px;font-family:"Gmarket Sans","SUIT Variable",sans-serif;font-size:18px;line-height:1.35;color:var(--green);word-break:keep-all}
 .option-card p{margin:10px 0 0;color:var(--sage);font-size:13px;line-height:1.6;word-break:keep-all}
 .source-note{margin:18px 0 0;color:#879180;font-size:11px;line-height:1.6}
+/* 핸들 · 내부 컬러 시트 · 외부 사양 — LX 카탈로그 기준 */
+.vf-handle-banner{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;min-height:210px;padding:26px 32px;border:1px solid #BFC9BA;background:#fff}.vf-handle-banner-copy h3{margin:0;font-family:"Gmarket Sans","SUIT Variable",Pretendard,sans-serif;font-weight:700;letter-spacing:-.045em;font-size:clamp(26px,2.6vw,36px);line-height:1.1;color:var(--green)}.vf-handle-banner-copy .eyebrow{color:var(--sage)}.vf-handle-banner-copy p{max-width:570px;margin:12px 0 0;font-size:14px;line-height:1.65;color:var(--sage);word-break:keep-all}.vf-handle-banner img{display:block;width:100%;height:170px;object-fit:contain}
+.vf-handle-family{display:grid;grid-template-columns:250px minmax(0,1fr);border-left:1px solid #BFC9BA;border-right:1px solid #BFC9BA;border-bottom:1px solid #BFC9BA;background:#fff}.vf-handle-family-copy{padding:26px 25px;border-right:1px solid #BFC9BA}.vf-handle-family-copy small{font:500 10px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.11em;color:var(--sage)}.vf-handle-family-copy h4{margin:7px 0 0;font-family:"Gmarket Sans","SUIT Variable",Pretendard,sans-serif;font-weight:700;font-size:22px;line-height:1.25;color:var(--green)}.vf-handle-family-copy p{margin:11px 0 0;font-size:12.5px;line-height:1.7;color:var(--sage);word-break:keep-all}.vf-handle-colors{display:flex;gap:15px;margin-top:18px}.vf-handle-color{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--sage)}.vf-handle-color::before{content:"";width:18px;height:18px;border:1px solid #C5CABB;border-radius:50%;background:var(--chip)}
+.vf-handle-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:0}.vf-handle-grid.is-three{grid-template-columns:repeat(3,minmax(0,1fr))}.vf-handle-card{min-width:0;padding:14px 8px 13px;border-right:1px solid #E0E4DB;text-align:center}.vf-handle-card:last-child{border-right:0}.vf-handle-media{display:flex;align-items:center;justify-content:center;height:124px;gap:2px;background:#FAFAF7;overflow:hidden}.vf-handle-media img{display:block;max-width:52%;height:108px;object-fit:contain}.vf-handle-card:not(.is-pair) .vf-handle-media img{max-width:80%;height:112px}.vf-handle-card strong{display:block;margin-top:10px;font-size:12px;line-height:1.3;color:var(--green);word-break:keep-all}.vf-handle-card span{display:block;margin-top:3px;font:500 9px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;color:#8A9484}
+.vf-catalog-note{margin:14px 0 0;font-size:10.5px;line-height:1.65;color:#879180}
+.vf-sheet-panel{margin-top:74px;padding-top:28px;border-top:1px solid var(--lx)}.vf-sheet-head{display:grid;grid-template-columns:250px 1fr;align-items:end;gap:34px;margin-bottom:22px}.vf-sheet-head h3{margin:9px 0 0;font-family:"Gmarket Sans","SUIT Variable",Pretendard,sans-serif;font-weight:700;letter-spacing:-.045em;font-size:clamp(27px,2.7vw,36px);line-height:1.1;color:var(--green)}.vf-sheet-head .eyebrow{color:var(--sage)}.vf-sheet-head p{margin:0;font-size:14px;line-height:1.65;color:var(--sage);word-break:keep-all}.vf-sheet-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid #BFC9BA;border-left:1px solid #BFC9BA}.vf-sheet-card{display:flex;min-width:0;align-items:center;gap:13px;padding:17px;border-right:1px solid #BFC9BA;border-bottom:1px solid #BFC9BA;background:#fff}.vf-sheet-swatch{flex:0 0 62px;width:62px;height:62px;border:1px solid #CCD1C7;border-radius:50%;object-fit:cover}.vf-sheet-card strong{display:block;font-size:12px;line-height:1.3;color:var(--green);word-break:keep-all}.vf-sheet-card span{display:block;margin-top:3px;font-size:10px;line-height:1.3;color:var(--sage)}.vf-sheet-card code{display:block;margin-top:2px;font:500 9px "JetBrains Mono",ui-monospace,monospace;color:#8A9484}
+.vf-exterior-panel{margin-top:44px;padding-top:28px;border-top:1px solid #BFC9BA}.vf-exterior-table{border-top:1px solid #BFC9BA;border-left:1px solid #BFC9BA;background:#fff}.vf-exterior-columns,.vf-exterior-row{display:grid;grid-template-columns:minmax(220px,1.35fr) repeat(2,minmax(170px,1fr))}.vf-exterior-columns{background:var(--cream)}.vf-exterior-column{padding:11px 18px;border-right:1px solid #BFC9BA;border-bottom:1px solid #BFC9BA;font:500 10px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;color:var(--sage)}.vf-exterior-cell{min-width:0;min-height:146px;border-right:1px solid #BFC9BA;border-bottom:1px solid #BFC9BA}.vf-exterior-finish{display:flex;align-items:center;gap:20px;padding:22px}.vf-exterior-finish strong{display:block;font-size:16px;line-height:1.2;color:var(--green)}.vf-exterior-finish span{display:block;margin-top:5px;font:500 10px "JetBrains Mono",ui-monospace,monospace;color:var(--sage)}.vf-exterior-swatch{flex:0 0 76px;width:76px;height:76px;border:1px solid #C8CEC3;border-radius:50%;background:#F8F7F2}.vf-exterior-swatch.is-asa{border-color:#60675F;background:linear-gradient(145deg,#5E625E 0 28%,#252B2B 29% 63%,#4A4C48 64% 100%);box-shadow:inset 0 0 0 8px rgba(255,255,255,.08)}.vf-exterior-product{display:flex;align-items:center;justify-content:center;padding:12px 20px}.vf-exterior-product img{display:block;width:100%;height:120px;object-fit:contain}.vf-exterior-notes{display:grid;gap:3px;margin-top:14px}
 @media(max-width:900px){
+  .vf-handle-family{grid-template-columns:1fr}.vf-handle-family-copy{border-right:0;border-bottom:1px solid #BFC9BA}.vf-handle-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.vf-handle-grid.is-three{grid-template-columns:repeat(3,minmax(0,1fr))}.vf-handle-card{border-bottom:1px solid #E0E4DB}.vf-handle-card:nth-child(4n){border-right:0}.vf-handle-card:nth-last-child(-n+3){border-bottom:0}.vf-sheet-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.vf-sheet-head{grid-template-columns:1fr}
   .section-head{display:block}.section-desc{margin-top:14px}
   .detail-stage{grid-template-columns:1fr}.detail-visual{border-right:0;border-bottom:1px solid var(--lx)}
   .detail-stage{width:min(100%,520px);margin:14px auto 0}.detail-visual{min-height:190px}.detail-copy{display:block;padding:20px 18px 22px;border-left:3px solid var(--lx)}.spec-list{margin-top:16px}
@@ -100,6 +116,9 @@ button{font:inherit;border-radius:0}
   .option-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:600px){
+  .vf-handle-banner{grid-template-columns:1fr 120px;min-height:170px;padding:20px 18px}.vf-handle-banner-copy p{font-size:12.5px}.vf-handle-banner img{height:120px}
+  .vf-handle-family-copy{padding:22px 18px}.vf-handle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vf-handle-grid.is-three{grid-template-columns:repeat(3,minmax(0,1fr))}.vf-handle-card{min-width:0;padding:12px 7px 13px;border-right:1px solid #E0E4DB!important;border-bottom:1px solid #E0E4DB!important}.vf-handle-grid:not(.is-three) .vf-handle-card:nth-child(even){border-right:0!important}.vf-handle-grid:not(.is-three) .vf-handle-card:last-child{grid-column:1/-1;border-right:0!important;border-bottom:0!important}.vf-handle-grid.is-three .vf-handle-card{border-bottom:0!important}.vf-handle-grid.is-three .vf-handle-card:last-child{border-right:0!important}.vf-handle-media{height:104px}.vf-handle-media img{height:88px}.vf-handle-card:not(.is-pair) .vf-handle-media img{height:92px}.vf-handle-card strong{margin-top:8px;font-size:11.5px}.vf-handle-card span{font-size:8px}
+  .vf-sheet-panel{margin-top:54px;padding-top:22px}.vf-sheet-head{gap:10px}.vf-sheet-head p{font-size:13px}.vf-sheet-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vf-sheet-card{display:block;padding:15px 12px;text-align:center}.vf-sheet-swatch{width:72px;height:72px;margin:0 auto 10px}.vf-catalog-note{font-size:9.5px}.vf-exterior-panel{margin-top:34px;padding-top:22px}.vf-exterior-columns,.vf-exterior-row{grid-template-columns:repeat(2,minmax(0,1fr))}.vf-exterior-column--finish{display:none}.vf-exterior-finish{grid-column:1/-1;min-height:112px;padding:17px 18px;border-bottom:1px solid #BFC9BA}.vf-exterior-swatch{flex-basis:64px;width:64px;height:64px}.vf-exterior-cell{min-height:122px}.vf-exterior-product{padding:9px 12px}.vf-exterior-product img{height:102px}
   .vfs-main{padding-top:62px}.vfs-wrap{width:calc(100% - 24px)}.vfs-crumb{padding:16px 0}
   .vfs-hero{min-height:560px}.vfs-hero>img{object-position:center}.vfs-hero::after{background:linear-gradient(0deg,rgba(16,36,20,.82) 0%,rgba(16,36,20,.28) 70%,rgba(16,36,20,.08))}
   .vfs-hero-copy{left:22px;right:22px;bottom:30px}.vfs-hero h1{font-size:48px}.vfs-hero p{font-size:14px}
@@ -133,13 +152,17 @@ button{font:inherit;border-radius:0}
       </div>
       <div class="model-slider">
         <div class="model-arrows" aria-label="제품 목록 이동"><button type="button" id="modelPrev" aria-label="이전 제품" disabled>‹</button><button type="button" id="modelNext" aria-label="다음 제품">›</button></div>
-        <div class="product-rail" id="productRail" role="group" aria-label="뷰프레임S 제작창 6개 모델">
+        <div class="product-rail" id="productRail" role="group" aria-label="뷰프레임S 제작창 10개 모델">
           <button class="product-card is-active" type="button" data-model="f140s" data-family="balcony"><img src="../../../../assets/viewframe-s/f-140s-room.webp?v=g2026073019" alt="발코니에 적용된 F-140S"><span class="product-meta"><span><small>BALCONY · SINGLE</small><strong>F-140S</strong></span><em>발코니 단창</em></span></button>
           <button class="product-card" type="button" data-model="f250s" data-family="balcony"><img src="../../../../assets/viewframe-s/f-250s-room.webp?v=g2026073019" alt="발코니에 적용된 F-250S"><span class="product-meta"><span><small>BALCONY · DOUBLE</small><strong>F-250S</strong></span><em>발코니 이중창</em></span></button>
           <button class="product-card" type="button" data-model="f130is" data-family="general"><img src="../../../../assets/viewframe-s/general-room-card.webp?v=g2026073019" alt="실내에 적용된 F-130IS"><span class="product-meta"><span><small>GENERAL · SINGLE</small><strong>F-130IS</strong></span><em>일반창 단창</em></span></button>
           <button class="product-card" type="button" data-model="f250is" data-family="general"><img src="../../../../assets/viewframe-s/general-room-card.webp?v=g2026073019" alt="실내에 적용된 F-250IS"><span class="product-meta"><span><small>GENERAL · DOUBLE</small><strong>F-250IS</strong></span><em>일반창 이중창</em></span></button>
           <button class="product-card" type="button" data-model="f230ws" data-family="partition"><img src="../../../../assets/viewframe-s/partition-room-card.webp?v=g2026073019" alt="거실 분합문으로 적용된 F-230WS"><span class="product-meta"><span><small>WIDE · PARTITION</small><strong>F-230WS</strong></span><em>실내 분합문</em></span></button>
           <button class="product-card" type="button" data-model="ftd140s" data-family="door"><img src="../../../../assets/viewframe-s/turn-door-room-card.webp?v=g2026073019" alt="다용도실에 적용된 F-TD140S"><span class="product-meta"><span><small>TURN · DOOR</small><strong>F-TD140S</strong></span><em>여닫이 도어</em></span></button>
+          <button class="product-card" type="button" data-model="f270i" data-family="general"><img src="../../../../assets/viewframe-s/general-room-card.webp?v=g2026073019" alt="실내에 적용된 F-270I 베젤리스 이중창"><span class="product-meta"><span><small>GENERAL · BEZELLESS</small><strong>F-270I</strong></span><em>베젤리스 이중창</em></span></button>
+          <button class="product-card" type="button" data-model="f230wf" data-family="partition"><img src="../../../../assets/viewframe-s/partition-room-card.webp?v=g2026073019" alt="거실 분합문으로 적용된 F-230WF"><span class="product-meta"><span><small>WIDE · PARTITION</small><strong>F-230WF</strong></span><em>광폭 분합문</em></span></button>
+          <button class="product-card" type="button" data-model="fsh60" data-family="hung"><img src="../../../../assets/viewframe-custom-hung-room-v2.jpg?v=g2026073019" alt="세탁실에 적용된 F-SH60 측면 여닫이창"><span class="product-meta"><span><small>SIDE · HUNG</small><strong>F-SH60</strong></span><em>측면 여닫이창</em></span></button>
+          <button class="product-card" type="button" data-model="fth60" data-family="hung"><img src="../../../../assets/viewframe-custom-hung-room-v2.jpg?v=g2026073019" alt="계단실에 적용된 F-TH60 상부 여닫이창"><span class="product-meta"><span><small>TOP · HUNG</small><strong>F-TH60</strong></span><em>상부 여닫이창</em></span></button>
         </div>
       </div>
       <article class="detail-stage" id="detailStage" aria-live="polite">
@@ -172,6 +195,7 @@ button{font:inherit;border-radius:0}
             <button class="fit-hotspot" type="button" data-area="front" aria-label="전면 발코니&#10;F-140S"></button>
             <button class="fit-hotspot" type="button" data-area="front-expanded" aria-label="전면 확장 발코니&#10;F-250S"></button>
             <button class="fit-hotspot" type="button" data-area="door" aria-label="발코니 도어&#10;F-TD140S"></button>
+            <button class="fit-hotspot" type="button" data-area="hung" aria-label="세탁실·계단실&#10;F-SH60 · F-TH60"></button>
           </div>
         </div>
         <div class="location-copy">
@@ -215,12 +239,111 @@ button{font:inherit;border-radius:0}
       <p class="source-note">제품 이미지와 사양은 LX하우시스 창호 카탈로그를 기준으로 구성했으며, 실제 적용 가능 여부는 현장과 선택 옵션에 따라 달라질 수 있습니다.</p>
     </div>
   </section>
+
+  <section class="vfs-section" id="finish">
+    <div class="vfs-wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">HANDLE · INTERIOR SHEET</div><h2 class="section-title" id="vfFinishOptionsTitle">핸들과 컬러를 고르세요.</h2></div>
+        <p class="section-desc">공간의 분위기와 사용 방식에 맞춰 핸들 라인과 내부 컬러 시트를 선택할 수 있습니다.</p>
+      </div>
+
+      <div class="vf-handle-banner">
+        <div class="vf-handle-banner-copy"><div class="eyebrow">ANTIBACTERIAL HANDLE</div><h3>항균 성능 핸들</h3><p>디자인과 소재가 다른 세 가지 핸들 라인으로 창의 사용감과 분위기를 완성합니다.</p></div>
+        <img src="../../../../assets/viewframe-finished/handles/handle-family.webp?v=g2026073101" alt="프리마, 스퀘마, 아노다이징 핸들 비교" loading="lazy">
+      </div>
+
+      <article class="vf-handle-family">
+        <div class="vf-handle-family-copy"><small>01 · PRIMA</small><h4>프리마 라인</h4><p>이탈리아어로 ‘최고’를 뜻하는 프리마는 전체 실버 색상의 다이캐스팅 금속 재질을 적용해 심플한 디자인에 고급스러움을 강조한 핸들 라인입니다.</p></div>
+        <div class="vf-handle-grid" aria-label="프리마 핸들 종류">
+          <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/prima-large.webp?v=g2026073101" alt="프리마 대형핸들" loading="lazy"></div><strong>대형핸들</strong></div>
+          <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/prima-small.webp?v=g2026073101" alt="프리마 소형핸들" loading="lazy"></div><strong>소형핸들</strong></div>
+          <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/prima-grip.webp?v=g2026073101" alt="프리마 Grip 핸들" loading="lazy"></div><strong>Grip</strong></div>
+          <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/prima-pocket.webp?v=g2026073101" alt="프리마 Pocket 핸들" loading="lazy"></div><strong>Pocket</strong></div>
+          <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/prima-crescent.webp?v=g2026073101" alt="프리마 Crescent 핸들" loading="lazy"></div><strong>Crescent</strong></div>
+          <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/prima-door.webp?v=g2026073101" alt="프리마 Door 핸들" loading="lazy"></div><strong>Door</strong></div>
+          <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/prima-smart.webp?v=g2026073101" alt="프리마 스마트핸들" loading="lazy"></div><strong>스마트핸들</strong></div>
+        </div>
+      </article>
+
+      <article class="vf-handle-family">
+        <div class="vf-handle-family-copy"><small>02 · SQUAMA</small><h4>스퀘마 라인</h4><p>라틴어로 물고기를 뜻하는 ‘스퀘마’는 재운과 행복을 가져다준다는 의미를 담았습니다. 유선형 디자인과 컬러 옵션, 편의성을 강화한 핸들 라인입니다.</p><div class="vf-handle-colors"><span class="vf-handle-color" style="--chip:#9A7A48">Gold</span><span class="vf-handle-color" style="--chip:#AEB2B4">Silver</span></div></div>
+        <div class="vf-handle-grid" aria-label="스퀘마 핸들 종류">
+          <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/squama-manual-gold.webp?v=g2026073101" alt="골드 스퀘마 수동핸들" loading="lazy"><img src="../../../../assets/viewframe-finished/handles/squama-manual-silver.webp?v=g2026073101" alt="실버 스퀘마 수동핸들" loading="lazy"></div><strong>수동핸들</strong><span>GOLD · SILVER</span></div>
+          <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/squama-large-gold.webp?v=g2026073101" alt="골드 스퀘마 대형핸들" loading="lazy"><img src="../../../../assets/viewframe-finished/handles/squama-large-silver.webp?v=g2026073101" alt="실버 스퀘마 대형핸들" loading="lazy"></div><strong>대형핸들</strong><span>GOLD · SILVER</span></div>
+          <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/squama-small-gold.webp?v=g2026073101" alt="골드 스퀘마 소형핸들" loading="lazy"><img src="../../../../assets/viewframe-finished/handles/squama-small-silver.webp?v=g2026073101" alt="실버 스퀘마 소형핸들" loading="lazy"></div><strong>소형핸들</strong><span>GOLD · SILVER</span></div>
+          <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/squama-grip-gold.webp?v=g2026073101" alt="골드 스퀘마 Grip 핸들" loading="lazy"><img src="../../../../assets/viewframe-finished/handles/squama-grip-silver.webp?v=g2026073101" alt="실버 스퀘마 Grip 핸들" loading="lazy"></div><strong>Grip</strong><span>GOLD · SILVER</span></div>
+          <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/squama-pocket-gold.webp?v=g2026073101" alt="골드 스퀘마 Pocket 핸들" loading="lazy"><img src="../../../../assets/viewframe-finished/handles/squama-pocket-silver.webp?v=g2026073101" alt="실버 스퀘마 Pocket 핸들" loading="lazy"></div><strong>Pocket</strong><span>GOLD · SILVER</span></div>
+          <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/squama-crescent-gold.webp?v=g2026073101" alt="골드 스퀘마 Crescent 핸들" loading="lazy"><img src="../../../../assets/viewframe-finished/handles/squama-crescent-silver.webp?v=g2026073101" alt="실버 스퀘마 Crescent 핸들" loading="lazy"></div><strong>Crescent</strong><span>GOLD · SILVER</span></div>
+          <div class="vf-handle-card is-pair"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/squama-door-gold.webp?v=g2026073101" alt="골드 스퀘마 Door 핸들" loading="lazy"><img src="../../../../assets/viewframe-finished/handles/squama-door-silver.webp?v=g2026073101" alt="실버 스퀘마 Door 핸들" loading="lazy"></div><strong>Door</strong><span>GOLD · SILVER</span></div>
+        </div>
+      </article>
+
+      <article class="vf-handle-family">
+        <div class="vf-handle-family-copy"><small>03 · ANODIZING</small><h4>아노다이징 라인</h4><p>알루미늄 소재로 제작해 내구성을 높였으며, 세련된 광택을 내는 표면처리 기술을 적용한 최고급 핸들 라인입니다.</p></div>
+        <div class="vf-handle-grid is-three" aria-label="아노다이징 핸들 종류">
+          <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/anodizing-large.webp?v=g2026073101" alt="아노다이징 대형핸들" loading="lazy"></div><strong>대형핸들</strong></div>
+          <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/anodizing-small.webp?v=g2026073101" alt="아노다이징 소형핸들" loading="lazy"></div><strong>소형핸들</strong></div>
+          <div class="vf-handle-card"><div class="vf-handle-media"><img src="../../../../assets/viewframe-finished/handles/anodizing-lock.webp?v=g2026073101" alt="아노다이징 꺾임핸들" loading="lazy"></div><strong>꺾임핸들</strong></div>
+        </div>
+      </article>
+      <p class="vf-catalog-note">※ 항균 테스트 기준 ISO 22196:2011 준용. 선택 가능한 핸들 종류와 색상은 모델 사양에 따라 달라질 수 있습니다.</p>
+
+      <div class="vf-sheet-panel">
+        <div class="vf-sheet-head"><div><div class="eyebrow">INTERIOR COLOR SHEET</div><h3>내부 컬러 시트</h3></div><p>트렌디한 화이트톤 컬러와 텍스처가 풍부한 우드컬러로 조화로운 인테리어를 연출할 수 있습니다.</p></div>
+        <div class="vf-sheet-grid" aria-label="내부 컬러 시트 13종">
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/off-white.webp?v=g2026073101" alt="오프 화이트 컬러 시트" loading="lazy"><div><strong>오프 화이트</strong><span>Off White</span><code>WAU65</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/pure-white.webp?v=g2026073101" alt="퓨어 화이트 컬러 시트" loading="lazy"><div><strong>퓨어 화이트</strong><span>Pure White</span><code>WAP97</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/snow-white.webp?v=g2026073101" alt="스노우 화이트 컬러 시트" loading="lazy"><div><strong>스노우 화이트</strong><span>Snow White</span><code>WAQ76</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/cream-white.webp?v=g2026073101" alt="크림 화이트 컬러 시트" loading="lazy"><div><strong>크림 화이트</strong><span>Cream White</span><code>WAR89</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/mono-white.webp?v=g2026073101" alt="모노 화이트 컬러 시트" loading="lazy"><div><strong>모노 화이트</strong><span>Mono White</span><code>WAU51</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/creamy.webp?v=g2026073101" alt="크리미 컬러 시트" loading="lazy"><div><strong>크리미</strong><span>Creamy</span><code>NQ904</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/wash-beige.webp?v=g2026073101" alt="워시 베이지 컬러 시트" loading="lazy"><div><strong>워시 베이지</strong><span>Wash Beige</span><code>AJI04</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/light-beige.webp?v=g2026073101" alt="라이트 베이지 컬러 시트" loading="lazy"><div><strong>라이트 베이지</strong><span>Light Beige</span><code>NCBS2</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/crema.webp?v=g2026073101" alt="크레마 컬러 시트" loading="lazy"><div><strong>크레마</strong><span>Crema</span><code>NQ903</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/natural-oak.webp?v=g2026073101" alt="내추럴 오크 컬러 시트" loading="lazy"><div><strong>내추럴 오크</strong><span>Natural Oak</span><code>NQ901</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/modern-gray.webp?v=g2026073101" alt="모던 그레이 컬러 시트" loading="lazy"><div><strong>모던 그레이</strong><span>Modern Gray</span><code>KAFM8</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/modern-black.webp?v=g2026073101" alt="모던 블랙 컬러 시트" loading="lazy"><div><strong>모던 블랙</strong><span>Modern Black</span><code>KDB86</code></div></div>
+          <div class="vf-sheet-card"><img class="vf-sheet-swatch" src="../../../../assets/viewframe-finished/sheets/urban-gray.webp?v=g2026073101" alt="어반 그레이 컬러 시트" loading="lazy"><div><strong>어반 그레이</strong><span>Urban Gray</span><code>KAEC4</code></div></div>
+        </div>
+        <p class="vf-catalog-note">※ 내부 컬러 시트는 모델별 선택 가능 사양이 다를 수 있으며, 화면과 실제 색상에는 차이가 있을 수 있습니다.</p>
+
+        <section class="vf-exterior-panel" aria-labelledby="vfExteriorTitle">
+          <div class="vf-sheet-head">
+            <div><div class="eyebrow">EXTERIOR</div><h3 id="vfExteriorTitle">외부</h3></div>
+            <p>내구성이 강한 외부 Color(ASA*)를 선택하면 건축물 디자인과 어울리는 고급스러운 외관을 구현할 수 있습니다. 여름철 고온과 스크래치에 강해 건물 외부에 안전하게 사용할 수 있습니다.</p>
+          </div>
+          <div class="vf-exterior-table" role="table" aria-label="외부 컬러와 부품 사양">
+            <div class="vf-exterior-columns" role="row">
+              <div class="vf-exterior-column vf-exterior-column--finish" role="columnheader">외부 마감</div>
+              <div class="vf-exterior-column" role="columnheader">방충배수캡</div>
+              <div class="vf-exterior-column" role="columnheader">안전스토퍼</div>
+            </div>
+            <div class="vf-exterior-row" role="row">
+              <div class="vf-exterior-cell vf-exterior-finish" role="cell"><span class="vf-exterior-swatch" aria-hidden="true"></span><div><strong>화이트</strong><span>White</span></div></div>
+              <div class="vf-exterior-cell vf-exterior-product" role="cell"><img src="../../../../assets/viewframe-finished/exterior/drain-cap-white.png?v=g2026073140" alt="화이트 방충배수캡" loading="lazy"></div>
+              <div class="vf-exterior-cell vf-exterior-product" role="cell"><img src="../../../../assets/viewframe-finished/exterior/safety-stopper-white.png?v=g2026073140" alt="화이트 안전스토퍼" loading="lazy"></div>
+            </div>
+            <div class="vf-exterior-row" role="row">
+              <div class="vf-exterior-cell vf-exterior-finish" role="cell"><span class="vf-exterior-swatch is-asa" aria-hidden="true"></span><div><strong>ASA</strong><span>D/Brown</span></div></div>
+              <div class="vf-exterior-cell vf-exterior-product" role="cell"><img src="../../../../assets/viewframe-finished/exterior/drain-cap-asa.png?v=g2026073140" alt="ASA D/Brown 방충배수캡" loading="lazy"></div>
+              <div class="vf-exterior-cell vf-exterior-product" role="cell"><img src="../../../../assets/viewframe-finished/exterior/safety-stopper-asa.png?v=g2026073140" alt="ASA D/Brown 안전스토퍼" loading="lazy"></div>
+            </div>
+          </div>
+          <div class="vf-exterior-notes">
+            <p class="vf-catalog-note">* ASA 수지는 충격과 열에 강하고 광택을 높인 외장용 소재입니다.</p>
+            <p class="vf-catalog-note">※ 터닝도어, 광폭단창 등 일부 제품은 외부 ASA 사양이 없습니다.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
 </main>
 
 <div id="mm-related"></div>
 <div id="mm-cta"></div>
 <div id="mm-footer"></div>
 
+<script src="../../../../consult.js?v=c1"></script>
 <script src="../../../../common.js?v=g60"></script>
 <script src="../../../../sitenav.js?v=g50"></script>
 <script>
@@ -232,17 +355,22 @@ const PRODUCTS={
   f130is:{name:'F-130IS',family:'general',type:'GENERAL WINDOW · SINGLE',kind:'일반창 단창',glass:'22 · 24 · 26 · 28mm',feature:'실내창 · 후면 발코니',image:'f-130is.webp',desc:'실내창과 후면 발코니에 적용하는 단창형 제작창입니다.'},
   f250is:{name:'F-250IS',family:'general',type:'GENERAL WINDOW · DOUBLE',kind:'일반창 이중창',glass:'22 · 24 · 26 · 28mm',feature:'이중 구조 · 실내외 경계',image:'f-250is.webp',desc:'실내외 경계에 적용하는 이중창형 제작창입니다.'},
   f230ws:{name:'F-230WS',family:'partition',type:'WIDE PARTITION',kind:'실내 분합문',glass:'24 · 26 · 28mm',feature:'광폭 구조 · 실내 분합',image:'f-230ws.webp',desc:'거실과 발코니 사이 넓은 개구부에 적용하는 실내 분합문입니다.'},
-  ftd140s:{name:'F-TD140S',family:'door',type:'TURN DOOR',kind:'여닫이 도어',glass:'22 · 24mm',feature:'여닫이 구조 · 출입 동선',image:'f-td140s.webp',desc:'발코니와 다용도실 출입부에 적용하는 여닫이 도어입니다.'}
+  ftd140s:{name:'F-TD140S',family:'door',type:'TURN DOOR',kind:'여닫이 도어',glass:'22 · 24mm',feature:'여닫이 구조 · 출입 동선',image:'f-td140s.webp',desc:'발코니와 다용도실 출입부에 적용하는 여닫이 도어입니다.'},
+  f270i:{name:'F-270I',family:'general',type:'GENERAL WINDOW · BEZELLESS',kind:'베젤리스 이중창',glass:'24 · 26 · 28mm',feature:'베젤리스 마감 · 프리미엄 실내외창',image:'../viewframe-custom-f-270i-matched-v4.png',desc:'깊은 이중창 구조와 정돈된 베젤리스 마감으로 조망과 공간의 완성도를 높입니다.'},
+  f230wf:{name:'F-230WF',family:'partition',type:'WIDE PARTITION · WF',kind:'광폭 분합문',glass:'24 · 26 · 28mm',feature:'광폭 구조 · 아파트 · 빌라 분합문',image:'../viewframe-custom-f-230wf-matched-v4.png',desc:'넓은 개구부를 유연하게 나누는 광폭 분합문으로, 거실과 발코니 사이에 적용합니다.'},
+  fsh60:{name:'F-SH60',family:'hung',type:'SIDE HUNG WINDOW',kind:'측면 여닫이창',glass:'22 · 24mm',feature:'측면 개폐 · 주택 · 숙박시설 · 병원',image:'../viewframe-custom-f-sh60-matched-v4.png',desc:'측면 축으로 열리는 소형 여닫이창으로 환기와 개방이 필요한 공간에 적합합니다.'},
+  fth60:{name:'F-TH60',family:'hung',type:'TOP HUNG WINDOW',kind:'상부 여닫이창',glass:'22 · 24mm',feature:'상부 개폐 · 병원 · 상가 · 환기 공간',image:'../viewframe-custom-f-th60-matched-v4.png',desc:'상부 축을 중심으로 열려 비가 오는 날에도 안정적인 환기를 돕는 소형창입니다.'}
 };
 const AREAS={
   rear:{title:'후면 발코니',desc:'후면 발코니와 실내 조건에 맞는 단창 제품을 비교해보세요.',models:['f140s','f130is']},
-  'rear-expanded':{title:'후면 확장 발코니',desc:'단열과 차음을 높인 이중창 중 공간에 맞는 제품을 비교해보세요.',models:['f250s','f250is']},
-  partition:{title:'실내 분합문',desc:'거실과 발코니 사이 넓은 개구부에 적용하는 제품입니다.',models:['f230ws']},
+  'rear-expanded':{title:'후면 확장 발코니',desc:'단열과 차음을 높인 이중창 중 공간에 맞는 제품을 비교해보세요.',models:['f250s','f250is','f270i']},
+  partition:{title:'실내 분합문',desc:'거실과 발코니 사이 넓은 개구부에 적용하는 제품입니다.',models:['f230ws','f230wf']},
   front:{title:'전면 발코니',desc:'전면 발코니에 적용하는 단창형 제작창입니다.',models:['f140s']},
   'front-expanded':{title:'전면 확장 발코니',desc:'확장 발코니에 적용하는 이중창형 제작창입니다.',models:['f250s']},
-  door:{title:'발코니 도어',desc:'발코니와 다용도실 출입부에 적용하는 여닫이 도어입니다.',models:['ftd140s']}
+  door:{title:'발코니 도어',desc:'발코니와 다용도실 출입부에 적용하는 여닫이 도어입니다.',models:['ftd140s']},
+  hung:{title:'세탁실 · 계단실',desc:'세탁실과 계단실처럼 환기가 필요한 작은 개구부에는 F-SH60 또는 F-TH60을 선택합니다.',models:['fsh60','fth60']}
 };
-const DEFAULT_AREA={f140s:'rear',f250s:'rear-expanded',f130is:'rear',f250is:'rear-expanded',f230ws:'partition',ftd140s:'door'};
+const DEFAULT_AREA={f140s:'rear',f250s:'rear-expanded',f130is:'rear',f250is:'rear-expanded',f230ws:'partition',ftd140s:'door',f270i:'rear-expanded',f230wf:'partition',fsh60:'hung',fth60:'hung'};
 const rail=document.getElementById('productRail');
 const stage=document.getElementById('detailStage');
 const prev=document.getElementById('modelPrev');

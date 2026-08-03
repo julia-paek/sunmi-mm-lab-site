@@ -11,7 +11,9 @@
 <meta property="og:title" content="MM LAB — Making Space">
 <meta property="og:description" content="공간의 완성은 밀리미터의 차이에서 시작됩니다. 프리미엄 창호와 인테리어로 더 정교한 공간을 만듭니다.">
 <meta property="og:locale" content="ko_KR">
-<link rel="icon" href="/assets/brand/favicon.ico?v=b2" type="image/x-icon">
+<link rel="icon" href="assets/brand/favicon.ico?v=b2" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png?v=b2">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png?v=b2">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
@@ -107,15 +109,6 @@ section[id]{scroll-margin-top:78px}
 .track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px;scrollbar-width:none;scroll-behavior:smooth;cursor:grab}
 .track.drag{cursor:grabbing;scroll-snap-type:none}
 .track::-webkit-scrollbar{display:none}
-.brand{flex:0 0 330px;max-width:330px;scroll-snap-align:center;background:var(--bg);border:1px solid var(--hairline);border-radius:0;padding:36px 30px;min-height:344px;display:flex;flex-direction:column;transition:transform .4s var(--ease-soft),box-shadow .4s var(--ease-soft)}
-.sec-gray .brand{background:#fff}
-.brand:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(0,0,0,.08)}
-.brand .tag{font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
-.brand .bn{font-size:clamp(28px,2.4vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-top:12px;color:var(--headline)}
-.brand .bn-alias{display:block;margin-top:5px;color:inherit;font-size:clamp(20px,1.7vw,24px);font-weight:700;line-height:1.1;letter-spacing:-.02em;white-space:nowrap}
-.brand .bs{font-size:15px;color:var(--muted);margin-top:7px;line-height:1.55}
-.brand .bm{font-size:14px;color:#74806F;margin-top:auto;padding-top:20px;border-top:1px solid var(--hairline);line-height:1.75}
-.brand .bc{font-size:15px;font-weight:600;color:var(--accent);margin-top:13px}.brand .bc::after{content:' →'}
 .car-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:0;background:rgba(255,255,255,.92);border:1px solid var(--hairline);box-shadow:0 8px 22px rgba(0,0,0,.10);display:flex;align-items:center;justify-content:center;font-size:21px;color:var(--ink);font-weight:300;z-index:5;transition:background .25s var(--ease),color .25s var(--ease),opacity .25s var(--ease)}
 .car-btn:hover{background:var(--headline);color:#fff;border-color:var(--headline)}
 .car-btn:disabled{opacity:0;pointer-events:none}
@@ -237,15 +230,6 @@ section[id]{scroll-margin-top:78px}
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease-soft),transform .9s var(--ease-soft)}
 .reveal.in{opacity:1;transform:none}
 
-/* ===== BRANDS SHEET (창호 클릭 시 오버레이) ===== */
-.sheet{position:fixed;inset:0;z-index:1050;background:rgba(0,0,0,.42);opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
-.sheet.open{opacity:1;pointer-events:auto}
-.sheet-panel{position:absolute;left:0;right:0;bottom:0;top:max(48px,6vh);background:var(--bg-alt);border-radius:0;overflow-y:auto;overscroll-behavior:contain;transform:translateY(40px);opacity:0;transition:transform .5s var(--ease-soft),opacity .5s var(--ease-soft);padding:72px 0 90px}
-.sheet.open .sheet-panel{transform:none;opacity:1}
-.sheet-x{position:sticky;top:0;float:right;margin:-52px 28px 0 0;width:40px;height:40px;border-radius:0;background:#fff;border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-size:21px;color:var(--ink);z-index:5;transition:.25s var(--ease)}
-.sheet-x:hover{background:var(--headline);color:#fff;border-color:var(--headline)}
-@media(max-width:900px){.sheet-panel{top:32px;padding:60px 0 80px}}
-
 /* modal */
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1100;opacity:0;pointer-events:none;transition:opacity .3s var(--ease);display:flex;align-items:center;justify-content:center;padding:24px}
 .ov.open{opacity:1;pointer-events:auto}
@@ -309,7 +293,8 @@ body{counter-reset:mmsec}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;filter:saturate(.9) brightness(1.03) contrast(.97)}
 .hero-copy{position:relative;z-index:2;max-width:84%}
 .hero .cards{margin-top:64px}
-@media(max-width:760px){
+/* 히어로 스택 전환은 컴팩트 내비(860px)와 같은 지점에서 — 태블릿 구간에서 카피가 사진 위에 얹히지 않게 */
+@media(max-width:860px){
   .hero-ed{display:grid;grid-template-columns:1fr;min-height:0}
   .hero-photo{grid-area:1/1;position:relative;width:100%;height:clamp(440px,68svh,500px);margin-bottom:0}
   .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,240,230,0) 28%,rgba(244,240,230,.5) 58%,rgba(244,240,230,.92) 100%);z-index:1;pointer-events:none}
@@ -328,9 +313,6 @@ body{counter-reset:mmsec}
 .card{background:#fff;border:1px solid #2F5233}
 .card:hover{transform:none;box-shadow:6px 6px 0 var(--accent)}
 .card .pill{background:var(--accent)}
-.brand{background:#fff;border:1px solid #2F5233}
-.brand:hover{transform:none;box-shadow:5px 5px 0 var(--accent)}
-.brand .bm{border-top:1px solid #2F5233;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px}
 /* WHY = 블랙 구획 (화이트+블랙 믹스) */
 .events{background:var(--bg-alt)}
 .events .ev-head h2{color:var(--headline)}
@@ -354,7 +336,6 @@ body{counter-reset:mmsec}
 .mcta .call{background:#fff;border:1px solid #2F5233;color:#2F5233}
 .modal{background:#fff;border:1px solid #2F5233}
 .mf input,.mf select,.mf textarea{background:#fff;border:1px solid #2F5233}
-.sheet-x{background:#fff;border:1px solid #2F5233}
 /* 룩앤필 — 레퍼런스 '13+/64+' 컬러 플러스 */
 .stats .u{color:var(--accent);font-weight:700}
 /* ABOUT MM LAB — 에디토리얼 */
@@ -403,7 +384,7 @@ body{counter-reset:mmsec}
   <div class="logo">MM LAB<span class="logo-sub">millimeter laboratory</span></div>
   <nav class="menu" id="menu" aria-label="주 메뉴">
     <a href="#" onclick="goHome();return false;">홈</a>
-    <a href="#" onclick="openBrands();return false;">창호</a>
+    <a href="windows/">창호</a>
     <a href="interior/">인테리어</a>
     <a href="about/">브랜드 소개</a>
     <a href="#cases">시공사례</a>
@@ -413,7 +394,7 @@ body{counter-reset:mmsec}
 </header>
 <div class="mnav" id="mnav">
   <a href="#" onclick="goHome();return false;">홈</a>
-  <a href="#" onclick="openBrands();return false;">창호</a><a href="interior/">인테리어</a><a href="about/">브랜드 소개</a><a href="#cases">시공사례</a>
+  <a href="windows/">창호</a><a href="interior/">인테리어</a><a href="about/">브랜드 소개</a><a href="#cases">시공사례</a>
   <a href="#" onclick="openModal();return false;">상담신청</a>
 </div>
 
@@ -430,7 +411,7 @@ body{counter-reset:mmsec}
       </div>
     </div>
     <div class="cards a" id="cards">
-      <a href="#" class="card" aria-label="창호 브랜드 보기" onclick="openBrands();return false;">
+      <a href="windows/" class="card" aria-label="창호 전 제품 보기">
         <div class="media"><img src="assets/window-hero.png" alt="시스템창호 시공 — 호수 전망 와이드 거실창" loading="lazy"></div>
         <div class="scrim" aria-hidden="true"></div>
         <div class="ct"><small>PREMIUM WINDOW SYSTEM</small><h2>창호</h2><p>KCC · LX하우시스 · 독일 시스템창호(KBE)<br>프리미엄 창호 컬렉션</p></div>
@@ -576,7 +557,7 @@ body{counter-reset:mmsec}
   <div class="wrap">
     <div class="footer-grid">
       <div><a href="./" aria-label="MM LAB 홈" style="display:inline-block;line-height:0;margin-bottom:14px"><img src="assets/brand/mm-lab-lockup-horizontal-green.png?v=b1" width="1489" height="393" alt="MM LAB" style="display:block;width:148px;height:auto"></a><p>공간의 완성은 밀리미터의 차이에서 시작됩니다.</p><p style="margin-top:12px"><a href="mailto:ksw.mmlab@gmail.com">ksw.mmlab@gmail.com</a><br><a href="tel:02-6012-0033">02-6012-0033</a> (평일 09:00~18:00)</p></div>
-      <div><h4>창호 브랜드</h4><a href="windows/lx/">LX하우시스</a><a href="windows/kcc/">KCC</a><a href="windows/kbe/">독일 시스템창호 KBE</a><a href="screens/kogo/">고구려안전방충망</a></div>
+      <div><h4>창호 브랜드</h4><a href="windows/">전 제품 한눈에</a><a href="windows/lx/">LX하우시스</a><a href="windows/lx/viewframe/finished/">뷰프레임 완성창</a><a href="windows/lx/viewframe/custom/">뷰프레임 제작창</a><a href="windows/lx/euro-system-9/pl/">유로시스템9 PL</a><a href="windows/lx/euro-system-9/al/">유로시스템9 AL</a><a href="windows/kcc/">KCC</a><a href="windows/kbe/">독일 시스템창호 KBE</a><a href="screens/kogo/">고구려안전방충망</a></div>
       <div><h4>인테리어</h4><a href="#">주거 인테리어</a><a href="#">부분 리모델링</a><a href="#">A/S 안내</a><a href="#">거주 시공</a></div>
       <div><h4>B2B / 도매</h4><a href="#" onclick="openModal();return false;">도매·납품 문의</a><a href="#" onclick="openModal();return false;">협력 인테리어사 등록</a><a href="#" onclick="openModal();return false;">대량 견적</a></div>
     </div>
@@ -592,23 +573,6 @@ body{counter-reset:mmsec}
 <div class="mcta">
   <div class="mcta-info"><span>consult</span><b>무료 상담</b></div>
   <a href="#" class="quote" onclick="openModal();return false;">상담신청</a>
-</div>
-
-<!-- BRANDS SHEET (창호 배너 클릭 시) -->
-<div class="sheet" id="brandsSheet" aria-hidden="true">
-  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="brands-t">
-    <button class="sheet-x" onclick="closeBrands()" aria-label="닫기">×</button>
-    <section class="sec-gray" id="brands" style="padding:0">
-      <div class="wrap">
-        <div class="sec-head"><p class="eyebrow">Window Brands</p><h2 id="brands-t">4개 본사 정품 브랜드</h2><p>공간과 예산에 맞춰 정확하게 선택할 수 있도록.</p></div>
-        <div class="carousel">
-          <div class="track" id="track"><!-- BRANDS 데이터로 자동 생성 --></div>
-          <button class="car-btn car-prev" id="prev" aria-label="이전 브랜드">‹</button>
-      <button class="car-btn car-next" id="next" aria-label="다음 브랜드">›</button>
-        </div>
-      </div>
-    </section>
-  </div>
 </div>
 
 <!-- MODAL -->
@@ -627,6 +591,7 @@ body{counter-reset:mmsec}
   </div>
 </div>
 
+<script src="consult.js?v=c1"></script>
 <script src="sitenav.js?v=g50"></script>
 <script>
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -650,7 +615,7 @@ function setMenu(o){hamb.classList.toggle('open',o);mnav.classList.toggle('open'
 hamb.addEventListener('click',function(){setMenu(!hamb.classList.contains('open'));});
 mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
 
-/* scrollspy (brands는 시트로 분리되어 제외) */
+/* scrollspy */
 var menuLinks=document.querySelectorAll('#menu a');
 if('IntersectionObserver' in window){
   var so=new IntersectionObserver(function(es){es.forEach(function(e){
@@ -658,28 +623,6 @@ if('IntersectionObserver' in window){
   });},{rootMargin:'-45% 0px -50% 0px'});
   ['why','cases'].forEach(function(id){var el=document.getElementById(id);if(el)so.observe(el);});
 }
-
-/* brands sheet — 창호 배너 클릭 시 오버레이 */
-var brandsSheet=document.getElementById('brandsSheet'),brandsLast=null;
-function openBrands(){
-  brandsLast=document.activeElement;
-  setMenu(false);
-  brandsSheet.classList.add('open');
-  brandsSheet.setAttribute('aria-hidden','false');
-  document.body.style.overflow='hidden';
-  dispatchEvent(new Event('resize')); /* 캐러셀 화살표 상태 갱신 */
-  var x=brandsSheet.querySelector('.sheet-x');if(x)setTimeout(function(){x.focus();},80);
-}
-function closeBrands(){
-  brandsSheet.classList.remove('open');
-  brandsSheet.setAttribute('aria-hidden','true');
-  document.body.style.overflow='';
-  if(brandsLast&&brandsLast.focus){brandsLast.focus();brandsLast=null;}
-}
-brandsSheet.addEventListener('click',function(e){if(e.target===brandsSheet)closeBrands();});
-addEventListener('keydown',function(e){if(e.key==='Escape'&&brandsSheet.classList.contains('open'))closeBrands();});
-/* 상세 페이지에서 '창호'로 돌아온 경우(#brands) 시트 자동 열기 */
-if(location.hash==='#brands'){setTimeout(openBrands,350);}
 
 /* reveal */
 if('IntersectionObserver' in window){
@@ -701,7 +644,7 @@ if(!reduce){
   addEventListener('scroll',function(){if(innerWidth<=900||!cards)return;var y=scrollY*0.04;cards.style.transform='translateY('+(-y)+'px)';},{passive:true});
 }
 
-/* carousel: arrows + drag (범용 — 브랜드 시트 + 이벤트 캐러셀) */
+/* carousel: arrows + drag (범용) */
 function initCarousel(trackId,prevId,nextId){
   var track=document.getElementById(trackId),prev=document.getElementById(prevId),next=document.getElementById(nextId);
   if(!track||!prev||!next)return;
@@ -729,14 +672,6 @@ var CASES = [
   {id:'daebang-daerim-59', status:'published', price:null, purchasable:false, title:'대방대림 59평형 창호 시공', location:'서울 · 동작구 · 대방대림', image:'assets/projects/daebang-daerim-59/01.webp'}
 ];
 
-/* 창호 브랜드 — 브랜드 시트 (id·status·price·purchasable = 커머스 확장 대비 필드) */
-var BRANDS = [
-  {id:'brand-lx', status:'active', price:null, purchasable:false, href:'windows/lx/', tag:'K-BPI 18회 1위', name:'LX하우시스', sub:'뷰프레임(일반창) · 유로시스템9(시스템창)', meta:'일반창 9종 + 시스템창<br>자동환기 · 스마트핸들 · 베젤리스'},
-  {id:'brand-kcc', status:'active', price:null, purchasable:false, href:'windows/kcc/', tag:'국내 1위', name:'KCC', sub:'KS-WEI 6년 연속 1위', meta:'시스템창 · 발코니 · 일반창<br>13개 모델 / ASA 7색'},
-  {id:'brand-kbe', status:'active', price:null, purchasable:false, href:'windows/kbe/', tag:'독일 직수입', name:'독일 시스템창호', alias:'KBE · KÖMMERLING', sub:'120년 profine 그룹', meta:'88mm 7챔버 / 패시브하우스<br>래미안 신정 · 김포 라피아노'},
-  {id:'brand-kogo', status:'active', price:null, purchasable:false, href:'screens/kogo/', tag:'안전방충망 전문', name:'고구려안전방충망', sub:'추락 방지 · 미세먼지 차단', meta:'안전 · 기밀 · 미세먼지<br>창호와 통합 시공'}
-];
-
 /* categories 테이블 매핑 (status=준비중) — "곧 더 많은 영역에서" */
 var ICON = {
   door:`<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="14" width="88" height="92" rx="2"/><line x1="46" y1="14" x2="46" y2="106"/><line x1="76" y1="14" x2="76" y2="106"/><line x1="24" y1="24" x2="38" y2="24"/><line x1="54" y1="24" x2="68" y2="24"/><line x1="84" y1="24" x2="98" y2="24"/><circle cx="42" cy="60" r="1.6" fill="currentColor"/><circle cx="80" cy="60" r="1.6" fill="currentColor"/></svg>`,
@@ -761,14 +696,11 @@ function renderCases(){var t=document.getElementById('ctrack');if(!t)return;
       : '<div class="cs-media" style="background-image:url(\''+c.image+'\')"></div>';
     return '<a href="projects/#'+c.id+'" class="cs-card" aria-label="'+esc(c.title)+(c.type==='video'?' 영상 보기':' 사진 보기')+'">'+media+'<div class="cs-title">'+esc(c.title)+'</div><div class="cs-sub">'+esc(c.location)+'</div></a>';
   }).join('');}
-function renderBrands(){var t=document.getElementById('track');if(!t)return;
-  t.innerHTML=BRANDS.map(function(b){return '<a href="'+b.href+'" class="brand"><div class="tag">'+esc(b.tag)+'</div><div class="bn">'+esc(b.name)+(b.alias?'<span class="bn-alias">'+esc(b.alias)+'</span>':'')+'</div><div class="bs">'+esc(b.sub)+'</div><div class="bm">'+b.meta+'</div><div class="bc">더 알아보기</div></a>';}).join('');}
 function renderComing(){var t=document.getElementById('ptrack');if(!t)return;
   t.innerHTML=COMING.map(function(c){return '<article class="pc-card"><div class="pc-tag">Coming Soon</div><div class="pc-name">'+esc(c.name)+'</div><p class="pc-desc">'+esc(c.desc)+'</p><div class="pc-art" aria-hidden="true">'+c.icon+'</div></article>';}).join('');}
-renderCases();renderBrands();renderComing();
+renderCases();renderComing();
 /* ═══════════════════════════════════════════════════════════════════════════ */
 
-initCarousel('track','prev','next');
 initCarousel('etrack','eprev','enext');
 initCarousel('ptrack','pprev','pnext');
 initCarousel('ctrack','cprev','cnext');
@@ -806,11 +738,12 @@ addEventListener('keydown',function(e){
     if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
 });
-function submitForm(e){e.preventDefault();alert('데모입니다. 실제 발송은 추후 연결됩니다.\n\n감사합니다.');closeModal();}
+function submitForm(e){e.preventDefault();var f=e.target;
+  if(window.mmConsultSubmit){mmConsultSubmit(f,function(r){alert(r.title+'\n\n'+r.message);if(r.ok!==false){f.reset();closeModal();}});}
+  else{alert('접수 준비 중입니다. 전화 02-6012-0033 로 문의해 주세요.');closeModal();}}
 
-/* 홈으로 — 시트·모바일 메뉴 닫고 맨 위로 */
+/* 홈으로 — 모바일 메뉴 닫고 맨 위로 */
 function goHome(){
-  if(typeof closeBrands==='function')closeBrands();
   setMenu(false);
   scrollTo({top:0,behavior:reduce?'auto':'smooth'});
 }

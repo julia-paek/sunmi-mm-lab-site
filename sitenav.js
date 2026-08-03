@@ -16,6 +16,19 @@ function ensureBrandIcon(rel,href){
 }
 ensureBrandIcon('icon','assets/brand/favicon.ico?v=b2');
 ensureBrandIcon('apple-touch-icon','assets/brand/apple-touch-icon.png?v=b2');
+
+/* 서버 없이 파일(file://)로 열었을 때만: 폴더 주소 링크를 그 폴더의 index.html로 이어준다.
+   배포 환경(https)에서는 서버가 index.html을 찾아주므로 이 블록은 실행되지 않는다. */
+if(location.protocol==='file:'){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');
+    if(!a)return;
+    var url;try{url=new URL(a.href);}catch(err){return;}
+    if(url.protocol!=='file:'||!/\/$/.test(url.pathname))return;
+    e.preventDefault();
+    location.href=url.pathname+'index.html'+url.search+url.hash;
+  },true);
+}
 function routeOf(href){
   var rootPath=decodeURIComponent(ROOT_URL.pathname);
   var targetPath=decodeURIComponent(new URL(href,ROOT_URL).pathname);
@@ -44,6 +57,11 @@ var css=`
 .mg-links.mg-hovering .mg-top.on{border-bottom-color:transparent}
 .mg-links.mg-hovering .mg-drop.open>.mg-top{border-bottom-color:var(--accent,#2F5233)}
 .mg-drop>.mg-top::after{content:"▾";font-size:9px;margin-left:5px;vertical-align:2px}
+.mg-drop.mg-plain>.mg-top::after{content:none}
+/* 홈 링크 — 로고의 집 모양 테두리 안에 글자를 앉혀 다른 메뉴와 구별 */
+.mg-drop>.mg-top.mg-home{width:34px;text-align:center;font-size:10px;font-weight:400;letter-spacing:0;line-height:1;padding:22px 0 19px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 2L22 9.8V20H2V9.8Z' fill='none' stroke='%232F5233' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center 14px/24px 22px}
+.mg-drop>.mg-top.mg-home.on{font-weight:400}
+.mg-mlink.mg-mhome{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 2L22 9.8V20H2V9.8Z' fill='none' stroke='%232F5233' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat 2px center/18px 16.5px;padding-left:28px}
 .mg-fly{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:310px;background:#fff;border:1px solid #111;box-shadow:6px 6px 0 rgba(47,82,51,.22);opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease;padding:6px 0;z-index:3}
 .mg-drop.open .mg-fly{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
 .mg-drop.mg-left .mg-fly{left:0;transform:translateY(8px)}
@@ -56,6 +74,17 @@ var css=`
 .mg-sw{width:12px;height:12px;border:1px solid #111;flex:none}
 .mg-fly b{font-size:14px;font-weight:600;white-space:nowrap}
 .mg-fly span{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10px;color:#6E7C64;margin-left:auto;letter-spacing:.03em;text-transform:lowercase;white-space:nowrap}
+/* 창호 메가메뉴 — 브랜드 4열(허브 링크 + 제품 직링크) + 전 제품 행 */
+.mg-fly.mg-mega{min-width:0;width:736px;padding:0}
+.mg-mega .mg-mgrid{display:grid;grid-template-columns:repeat(4,1fr);padding:16px 10px 14px}
+.mg-mega .mg-mgcol{padding:0 14px;border-left:1px solid #EDE7DA}
+.mg-mega .mg-mgcol:first-child{border-left:0}
+.mg-mega .mg-mghead{display:flex;align-items:center;gap:8px;padding:4px 2px 10px;margin-bottom:5px;border-bottom:1px solid #D9D1C1}
+.mg-mega .mg-mghead b{font-size:13.5px;font-weight:700;white-space:nowrap}
+.mg-mega .mg-mgitem{display:block;padding:7px 8px;margin:0 -6px;font-size:13px;font-weight:500;line-height:1.45}
+.mg-mega .mg-mgitem.on,.mg-mega .mg-mghead.on b{font-weight:700;color:#1F3822}
+.mg-mega .mg-mgall{display:flex;align-items:center;gap:12px;padding:12px 24px;border-top:1px solid #111}
+.mg-mega .mg-mgall b{font-size:13px;font-weight:700}
 #mmGnb .mg-cta{background:var(--accent,#2F5233);color:#fff;padding:8px 14px;border-bottom:none}
 #mmGnb .mg-cta:hover{background:var(--accent-press,#1F3822);color:#fff}
 #mmGnb .mg-cta::after{color:#fff}
@@ -73,43 +102,53 @@ var css=`
 .mg-mpanel a:hover{color:#1F3822}
 .mg-mpanel .mg-sw{width:9px;height:9px}
 .mg-mpanel span{display:none}
+/* 모바일 — 드롭다운 없는 그룹은 바로가기 행으로 */
+.mg-mlink{display:flex;align-items:center;justify-content:space-between;padding:13px 2px;color:#1F3822;font-size:15px;font-weight:700;text-decoration:none}
+.mg-mlink::after{content:"→";font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:400}
+/* 모바일 창호 — 브랜드 소제목 + 제품 2단 */
+.mg-mpanel .mg-mbhead{padding:8px 2px 3px;font-weight:700;color:#1F3822}
+.mg-mpanel .mg-mprod{padding:5px 2px 5px 19px;font-size:12px}
+.mg-mpanel .mg-mall{margin-top:5px;border-top:1px solid #D9D1C1;padding:9px 2px 7px;font-weight:700;color:#1F3822}
 @media(max-width:860px){#mmGnb{background:#F4F0E6;backdrop-filter:none;-webkit-backdrop-filter:none}.mg-in{padding:0 20px}.mg-links{display:none!important}.mg-burger{display:inline-flex}.mg-logo img{height:26px}}
 @media(max-width:480px){.mg-in{padding:0 16px;gap:10px}.mg-logo img{height:24px}.mg-burger{padding:7px 11px}.mg-mobile{width:min(230px,64vw);padding-left:12px;padding-right:12px}}
 body>header.nav,body>nav.nav,body>nav.gnb,.mnav{display:none!important}
 `;
 var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
 
-var BRANDS=[
-  {href:site('windows/lx/'),name:'LX 하우시스',sub:'일반창 · 시스템창',color:'#2F5233'},
-  {href:site('windows/kcc/'),name:'KCC',sub:'국내 1위',color:'#5C4433'},
-  {href:site('windows/kbe/'),name:'독일시스템창호',sub:'KBE, KÖMMERLING',color:'#464B52'},
-  {href:site('screens/kogo/'),name:'고구려안전방충망',sub:'안전 · 방범',color:'#8A7A5C'}
+/* 창호 메가메뉴 — 브랜드 허브 링크 아래 제품 직링크를 붙인다 */
+var WINDOW_SECTIONS=[
+  {href:site('windows/lx/'),name:'LX 하우시스',color:'#2F5233',items:[
+    {href:site('windows/lx/viewframe/finished/'),name:'뷰프레임 완성창'},
+    {href:site('windows/lx/viewframe/custom/'),name:'뷰프레임 제작창'},
+    {href:site('windows/lx/euro-system-9/pl/'),name:'유로시스템9 PL'},
+    {href:site('windows/lx/euro-system-9/al/'),name:'유로시스템9 AL'}
+  ]},
+  {href:site('windows/kcc/'),name:'KCC',color:'#5C4433',items:[
+    {href:site('windows/kcc/#lineup'),name:'발코니창'},
+    {href:site('windows/kcc/#lineup-inner'),name:'일반창(내창)'}
+  ]},
+  {href:site('windows/kbe/'),name:'독일시스템창호',color:'#464B52',items:[
+    {href:site('windows/kbe/'),name:'KBE·KÖMMERLING'}
+  ]},
+  {href:site('screens/kogo/'),name:'고구려안전방충망',color:'#8A7A5C',items:[
+    {href:site('screens/kogo/#products'),name:'방범망 · 안전망 · 미세먼지망'}
+  ]}
 ];
 var GROUPS=[
-  {id:'home',label:'홈',href:site(''),align:'mg-left',active:here==='',items:[
-    {href:site(''),name:'메인',sub:'making space'},
-    {href:site('#about'),name:'MM LAB 소개',sub:'about'},
-    {href:site('#why'),name:'Why MM LAB',sub:'difference'},
-    {href:site('#cases'),name:'대표 시공사례',sub:'portfolio'}
-  ]},
-  {id:'windows',label:'창호',href:site('windows/'),active:isRouteOrChild('windows')||isRouteOrChild('screens'),items:BRANDS},
+  {id:'home',label:'홈',href:site(''),active:isRouteOrChild(''),home:true},
+  {id:'windows',label:'창호',href:site('windows/'),active:isRouteOrChild('windows')||isRouteOrChild('screens'),mega:WINDOW_SECTIONS},
   {id:'interior',label:'인테리어',href:site('interior/'),active:isRouteOrChild('interior'),items:[
     {href:site('interior/'),name:'인테리어 소개',sub:'network'},
     {href:site('interior/#process'),name:'Our Process',sub:'5 steps'},
-    {href:site('interior/#partners'),name:'검증된 협력 업체',sub:'partners'},
-    {href:site('projects/'),name:'전체 시공사례',sub:'projects'}
+    {href:site('interior/#partners'),name:'검증된 협력 업체',sub:'partners'}
   ]},
+  {id:'cases',label:'시공사례',href:site('projects/'),active:isRouteOrChild('projects')},
   {id:'brand',label:'브랜드 소개',href:site('about/'),active:isRouteOrChild('about'),items:[
     {href:site('about/#about'),name:'대표 인사말',sub:'message'},
     {href:site('about/#model'),name:'Why MM LAB',sub:'reason'},
     {href:site('about/#save'),name:'정품 직거래 구조',sub:'saving'},
     {href:site('about/#genuine'),name:'저가 공업사와의 차이',sub:'compare'},
     {href:site('about/#flow'),name:'상담부터 시공까지',sub:'process'}
-  ]},
-  {id:'cases',label:'시공사례',href:site('projects/'),align:'mg-right',active:isRouteOrChild('projects'),items:[
-    {href:site('projects/'),name:'전체 시공사례',sub:'all projects'},
-    {href:site('#cases'),name:'대표 사례 미리보기',sub:'featured'},
-    {href:site('interior/#partners'),name:'인테리어 현장',sub:'interior'}
   ]},
   {id:'consult',label:'상담신청',href:'#',align:'mg-right',cta:true,items:[
     {href:'#',name:'무료 상담 신청',sub:'consult',action:'inquiry'},
@@ -124,16 +163,42 @@ function itemHtml(item){
   return '<a href="'+item.href+'"'+(isCurrent?' class="on"':'')+(item.action==='inquiry'?' data-inquiry="true"':'')+'>'
     +'<i class="mg-sw" style="background:'+(item.color||'#F4F0E6')+'"></i><b>'+item.name+'</b><span>'+item.sub+'</span></a>';
 }
+function megaItemHtml(item){
+  var isCurrent=item.href.indexOf('#')<0&&isRouteOrChild(routeOf(item.href));
+  return '<a class="mg-mgitem'+(isCurrent?' on':'')+'" href="'+item.href+'">'+item.name+'</a>';
+}
+function megaSectionHtml(sec){
+  var headOn=isRouteOrChild(routeOf(sec.href));
+  return '<div class="mg-mgcol"><a class="mg-mghead'+(headOn?' on':'')+'" href="'+sec.href+'">'
+    +'<i class="mg-sw" style="background:'+sec.color+'"></i><b>'+sec.name+'</b></a>'
+    +sec.items.map(megaItemHtml).join('')+'</div>';
+}
+/* 드롭다운 본문 — mega: 창호 메가메뉴 · items: 기본 리스트 · 없으면 단일 링크 */
+function flyHtml(group){
+  if(group.mega)return '<div class="mg-fly mg-mega"><div class="mg-mgrid">'+group.mega.map(megaSectionHtml).join('')+'</div>'
+    +'<a class="mg-mgall'+(here==='windows'?' on':'')+'" href="'+group.href+'"><b>전 제품 한눈에 보기</b><span>all products</span></a></div>';
+  if(group.items&&group.items.length)return '<div class="mg-fly">'+group.items.map(itemHtml).join('')+'</div>';
+  return '';
+}
 function groupHtml(group){
-  var topClass='mg-top'+(group.active?' on':'')+(group.cta?' mg-cta':'');
+  var topClass='mg-top'+(group.active?' on':'')+(group.cta?' mg-cta':'')+(group.home?' mg-home':'');
   var top=group.href
     ?'<a href="'+group.href+'" class="'+topClass+'"'+(group.cta?' data-inquiry="true"':'')+'>'+group.label+'</a>'
     :'<button type="button" class="'+topClass+'">'+group.label+'</button>';
-  return '<div class="mg-drop '+(group.align||'')+'" data-group="'+group.id+'">'+top+'<div class="mg-fly">'+group.items.map(itemHtml).join('')+'</div></div>';
+  var fly=flyHtml(group);
+  return '<div class="mg-drop '+(group.align||'')+(fly?'':' mg-plain')+'" data-group="'+group.id+'">'+top+fly+'</div>';
 }
 function mobileGroupHtml(group){
+  if(!group.mega&&(!group.items||!group.items.length))
+    return '<div class="mg-msection"><a class="mg-mlink'+(group.home?' mg-mhome':'')+'" href="'+group.href+'">'+group.label+'</a></div>';
+  var panel=group.mega
+    ?group.mega.map(function(sec){
+        return '<a class="mg-mbhead" href="'+sec.href+'"><i class="mg-sw" style="background:'+sec.color+'"></i>'+sec.name+'</a>'
+          +sec.items.map(function(item){return '<a class="mg-mprod" href="'+item.href+'">'+item.name+'</a>';}).join('');
+      }).join('')+'<a class="mg-mall" href="'+group.href+'">전 제품 한눈에 보기</a>'
+    :group.items.map(itemHtml).join('');
   return '<div class="mg-msection"><button class="mg-mtoggle" type="button" aria-expanded="false">'+group.label+'</button>'
-    +'<div class="mg-mpanel">'+group.items.map(itemHtml).join('')+'</div></div>';
+    +'<div class="mg-mpanel">'+panel+'</div></div>';
 }
 
 var html='<header id="mmGnb"><div class="mg-in">'
@@ -182,7 +247,7 @@ mob.querySelectorAll('.mg-mtoggle').forEach(function(toggle){
 document.querySelectorAll('[data-inquiry]').forEach(function(link){
   link.addEventListener('click',function(e){e.preventDefault();closeDrops();setMobile(false);if(window.openModal)window.openModal();});
 });
-mob.querySelectorAll('.mg-mpanel a').forEach(function(a){if(!a.hasAttribute('data-inquiry'))a.addEventListener('click',function(){setMobile(false);});});
+mob.querySelectorAll('.mg-mpanel a,.mg-mlink').forEach(function(a){if(!a.hasAttribute('data-inquiry'))a.addEventListener('click',function(){setMobile(false);});});
 document.addEventListener('click',function(e){if(mob.classList.contains('open')&&!mob.contains(e.target)&&!burger.contains(e.target))setMobile(false);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')setMobile(false);});
 })();
