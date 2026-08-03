@@ -8,6 +8,8 @@
 | MM LAB 소개 | `/about/` | `about/index.html` |
 | 창호 전체 | `/windows/` | `windows/index.html` |
 | LX하우시스 | `/windows/lx/` | `windows/lx/index.html` |
+| LX 뷰프레임 완성창 | `/windows/lx/viewframe/finished/` | `windows/lx/viewframe/finished/index.html` |
+| LX 뷰프레임 제작창 | `/windows/lx/viewframe/custom/` | `windows/lx/viewframe/custom/index.html` |
 | LX 유로시스템9 PL | `/windows/lx/euro-system-9/pl/` | `windows/lx/euro-system-9/pl/index.html` |
 | LX 유로시스템9 AL | `/windows/lx/euro-system-9/al/` | `windows/lx/euro-system-9/al/index.html` |
 | KCC | `/windows/kcc/` | `windows/kcc/index.html` |
@@ -29,15 +31,15 @@
 
 ## LX 뷰프레임 확장 구조
 
-아래 주소는 페이지가 실제로 제작될 때 해당 폴더의 `index.html`을 만들면 활성화된다. 지금은 규칙만 정한 상태다.
+아래 주소는 페이지가 실제로 제작될 때 해당 폴더의 `index.html`을 만들면 활성화된다. 완성창과 제작창은 페이지를 만들어 활성 상태다.
 
-| 역할 | 예정 주소 | 파일 규칙 |
-|---|---|---|
-| 뷰프레임 허브 | `/windows/lx/viewframe/` | `windows/lx/viewframe/index.html` |
-| 완성창 | `/windows/lx/viewframe/finished/` | `windows/lx/viewframe/finished/index.html` |
-| 제작창 | `/windows/lx/viewframe/custom/` | `windows/lx/viewframe/custom/index.html` |
-| 완성창 모델 | `/windows/lx/viewframe/finished/{model}/` | `windows/lx/viewframe/finished/{model}/index.html` |
-| 제작창 모델 | `/windows/lx/viewframe/custom/{model}/` | `windows/lx/viewframe/custom/{model}/index.html` |
+| 역할 | 주소 | 파일 규칙 | 상태 |
+|---|---|---|---|
+| 뷰프레임 허브 | `/windows/lx/viewframe/` | `windows/lx/viewframe/index.html` | 예정 |
+| 완성창 | `/windows/lx/viewframe/finished/` | `windows/lx/viewframe/finished/index.html` | 활성 |
+| 제작창 | `/windows/lx/viewframe/custom/` | `windows/lx/viewframe/custom/index.html` | 활성 |
+| 완성창 모델 | `/windows/lx/viewframe/finished/{model}/` | `windows/lx/viewframe/finished/{model}/index.html` | 예정 |
+| 제작창 모델 | `/windows/lx/viewframe/custom/{model}/` | `windows/lx/viewframe/custom/{model}/index.html` | 예정 |
 
 새 하위 페이지는 같은 상위 주소를 기준으로 공통 메뉴의 현재 위치와 브랜드 색상을 자동으로 이어받는다. 메뉴 목록에 새 이름을 직접 노출해야 할 때만 `sitenav.js`의 메뉴 데이터에 항목을 추가한다.
 

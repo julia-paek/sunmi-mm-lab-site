@@ -3,9 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>창호 브랜드와 제품 — MM LAB</title>
-  <meta name="description" content="LX하우시스, KCC, KBE 시스템창과 안전방충망을 공간과 성능 기준으로 비교합니다.">
+  <title>창호·방충망 전 제품 — MM LAB</title>
+  <meta name="description" content="LX 뷰프레임 완성창·제작창, 유로시스템9 PL·AL, KCC 발코니창·일반창, 독일 KBE·KÖMMERLING 시스템창호, 고구려안전방충망까지 전 제품을 한 화면에서 비교합니다.">
   <link rel="canonical" href="/windows/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="창호·방충망 전 제품 — MM LAB">
+  <meta property="og:description" content="LX 뷰프레임 완성창·제작창, 유로시스템9 PL·AL, KCC 발코니창·일반창, 독일 KBE·KÖMMERLING 시스템창호, 고구려안전방충망까지 전 제품을 한 화면에서 비교합니다.">
+  <meta property="og:locale" content="ko_KR">
+  <link rel="icon" href="../assets/brand/favicon.ico?v=b2" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png?v=b2">
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png?v=b2">
   <link rel="stylesheet" href="../styles.css?v=g50">
   <link rel="stylesheet" href="../responsive.css?v=r4">
   <style>
@@ -13,44 +20,145 @@
     .route-wrap{max-width:1200px;margin:auto}.route-kicker{font:600 11px/1.4 "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#62705e}
     .route-hero h1{max-width:840px;margin:18px 0 20px;font-size:clamp(42px,7vw,86px);line-height:.94;letter-spacing:-.055em;color:#1f3822;word-break:keep-all}
     .route-hero p{max-width:640px;margin:0;font-size:18px;line-height:1.7;color:#455044}
-    .route-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding:72px 24px 100px}
-    .route-card{position:relative;min-height:330px;padding:30px;border:1px solid #111;background:#fff;color:#1f3822;text-decoration:none;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .2s,box-shadow .2s}
-    .route-card:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 rgba(47,82,51,.25)}
-    .route-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.48;transition:transform .35s,opacity .25s}.route-card:hover img{transform:scale(1.025);opacity:.58}
-    .route-card::after{content:"";position:absolute;inset:38% 0 0;background:linear-gradient(transparent,rgba(244,240,230,.97))}
-    .route-card>*:not(img){position:relative;z-index:1}.route-card small{font:600 10px "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase}.route-card h2{margin:10px 0 7px;font-size:clamp(28px,4vw,44px);letter-spacing:-.04em}.route-card p{margin:0;line-height:1.6}
-    .route-card.no-photo{background:#dce58f}.route-card.no-photo:nth-child(3){background:#dbe3ea}
-    @media(max-width:720px){.route-hero{padding:116px 20px 54px}.route-hero p{font-size:16px}.route-grid{grid-template-columns:1fr;padding:42px 20px 72px}.route-card{min-height:270px}}
+    .route-products{padding:72px 24px 0}
+    .route-sec-head h2{margin:14px 0 0;font-size:clamp(26px,3.5vw,40px);letter-spacing:-.04em;color:#1f3822;word-break:keep-all}
+    .prod-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:34px}
+    .prod-card{display:flex;flex-direction:column;border:1px solid #111;background:#fff;color:#1f3822;text-decoration:none;transition:transform .2s,box-shadow .2s}
+    .prod-card:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 rgba(47,82,51,.22)}
+    .prod-media{display:block;aspect-ratio:4/3;border-bottom:1px solid #111;overflow:hidden;background:#e7e2d2}
+    .prod-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+    .prod-card:hover .prod-media img{transform:scale(1.03)}
+    .prod-media.no-photo{background:#dce58f}
+    .prod-body{display:flex;flex-direction:column;gap:9px;padding:18px 18px 20px;flex:1}
+    .prod-brand{font:600 10px/1.4 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:#62705e}
+    .prod-brand--lx{color:#2F5233}.prod-brand--kcc{color:#5C4433}.prod-brand--kbe{color:#464B52}.prod-brand--kogo{color:#8A7A5C}
+    .prod-card h3{margin:0;font-size:21px;line-height:1.25;letter-spacing:-.03em;word-break:keep-all}
+    .prod-value{margin:0;flex:1;font-size:14px;line-height:1.6;color:#455044;word-break:keep-all}
+    .prod-specs{display:flex;flex-wrap:wrap;gap:6px}
+    .prod-specs span{font:600 10px/1.4 "JetBrains Mono",monospace;letter-spacing:.03em;padding:6px 9px;border:1px solid #111;background:#f4f0e6;color:#1f3822}
+    .prod-note{margin:16px 0 0;font-size:12px;line-height:1.6;color:#6b7566}
+    .route-brands{padding:64px 24px 100px}
+    .brand-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:26px}
+    .brand-link{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border:1px solid #111;background:#fff;color:#1f3822;text-decoration:none;transition:transform .2s,box-shadow .2s}
+    .brand-link:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 rgba(47,82,51,.22)}
+    .brand-link small{font:600 10px/1.4 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
+    .brand-link strong{font-size:18px;letter-spacing:-.02em;word-break:keep-all}
+    @media(max-width:1024px){.prod-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.route-hero{padding:116px 20px 54px}.route-hero p{font-size:16px}.route-products{padding:48px 20px 0}.prod-grid{grid-template-columns:1fr;gap:16px;margin-top:26px}.route-brands{padding:48px 20px 72px}.brand-links{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <main>
     <section class="route-hero">
       <div class="route-wrap">
-        <div class="route-kicker">Windows · Product directory</div>
-        <h1>창을 고르는 기준부터<br>분명하게.</h1>
-        <p>브랜드 이름보다 먼저 공간, 개폐 방식, 단열과 기밀 성능을 봅니다. 제품군별 차이를 확인하고 우리 집에 맞는 창을 찾아보세요.</p>
+        <div class="route-kicker">Windows · Full lineup</div>
+        <h1>전 제품을<br>한 화면에서.</h1>
+        <p>브랜드부터 고르지 않아도 됩니다. LX하우시스와 KCC, 독일 시스템창호, 안전방충망까지 취급 제품 전체의 쓰임과 핵심 사양을 비교하고, 자세한 내용은 각 제품 페이지에서 이어서 확인하세요.</p>
       </div>
     </section>
-    <section class="route-wrap route-grid" aria-label="창호 브랜드 목록">
-      <a class="route-card" href="lx/">
-        <img src="../assets/lx-view-frame-hero-v2.jpg" alt="LX하우시스 뷰프레임 창호" loading="eager">
-        <small>Domestic · Windows</small><h2>LX하우시스</h2><p>뷰프레임 일반창과 유로시스템9 PL·AL 시스템창</p>
-      </a>
-      <a class="route-card" href="kcc/">
-        <img src="../assets/window-hero.png" alt="KCC 창호가 적용된 거실" loading="lazy">
-        <small>Domestic · Windows</small><h2>KCC</h2><p>일반창, 발코니창과 시스템창을 한곳에서 비교</p>
-      </a>
-      <a class="route-card no-photo" href="kbe/">
-        <small>German · System windows</small><h2>KBE</h2><p>독일 profine 그룹의 88mm 7챔버 시스템창</p>
-      </a>
-      <a class="route-card no-photo" href="../screens/kogo/">
-        <small>Safety · Screens</small><h2>고구려안전방충망</h2><p>추락 방지, 기밀과 미세먼지 대응을 창호와 함께 설계</p>
-      </a>
+
+    <section class="route-products" aria-labelledby="prodTitle">
+      <div class="route-wrap">
+        <div class="route-sec-head">
+          <div class="route-kicker">All products · 08</div>
+          <h2 id="prodTitle">전 제품 라인업.</h2>
+        </div>
+        <div class="prod-grid">
+          <a class="prod-card" href="lx/viewframe/finished/">
+            <span class="prod-media"><img src="../assets/viewframe-finished/premium-room.jpg" alt="뷰프레임 완성창이 적용된 고급형 발코니 거실" loading="lazy"></span>
+            <span class="prod-body">
+              <small class="prod-brand prod-brand--lx">LX Z:IN · View Frame</small>
+              <h3>뷰프레임 완성창</h3>
+              <p class="prod-value">일반형부터 베젤리스까지, 발코니창(외창) 다섯 프레임을 공간과 성능 기준으로 비교합니다.</p>
+              <span class="prod-specs"><span>발코니 외창 5모델</span><span>일반형·고급형·베젤리스</span></span>
+            </span>
+          </a>
+          <a class="prod-card" href="lx/viewframe/custom/">
+            <span class="prod-media"><img src="../assets/viewframe-custom-general-room.jpg" alt="실내에 설치된 뷰프레임 제작창" loading="lazy"></span>
+            <span class="prod-body">
+              <small class="prod-brand prod-brand--lx">LX Z:IN · View Frame</small>
+              <h3>뷰프레임 제작창</h3>
+              <p class="prod-value">발코니창부터 실내 분합문과 여닫이 도어까지, 설치 공간과 개구부에 맞춰 제작합니다.</p>
+              <span class="prod-specs"><span>공간 맞춤 제작</span><span>실내창·분합문·도어·여닫이창</span></span>
+            </span>
+          </a>
+          <a class="prod-card" href="lx/euro-system-9/pl/">
+            <span class="prod-media"><img src="../assets/euro9/lift-slide-pl.jpg" alt="유로시스템9 PL 리프트 슬라이드 창이 적용된 거실" loading="lazy"></span>
+            <span class="prod-body">
+              <small class="prod-brand prod-brand--lx">LX Z:IN · Euro System 9</small>
+              <h3>유로시스템9 PL</h3>
+              <p class="prod-value">PVC 프로파일에 유럽식 개폐 방식을 적용해 단열을 단단하게 잡는 시스템창입니다.</p>
+              <span class="prod-specs"><span>에너지소비효율 1등급*</span><span>Lift &amp; Slide · Tilt &amp; Turn</span></span>
+            </span>
+          </a>
+          <a class="prod-card" href="lx/euro-system-9/al/">
+            <span class="prod-media"><img src="../assets/euro9/lift-slide-al.jpg" alt="유로시스템9 AL 리프트 슬라이드 창이 적용된 대형 개구부" loading="lazy"></span>
+            <span class="prod-body">
+              <small class="prod-brand prod-brand--lx">LX Z:IN · Euro System 9</small>
+              <h3>유로시스템9 AL</h3>
+              <p class="prod-value">알루미늄의 구조적 강성과 슬림한 프레임으로 대형 개구부와 정돈된 입면을 완성합니다.</p>
+              <span class="prod-specs"><span>AL 13모델 + 복합창</span><span>PHI 인증 Lift &amp; Slide 보유</span></span>
+            </span>
+          </a>
+          <a class="prod-card" href="kcc/#lineup">
+            <span class="prod-media"><img src="../assets/kcc/catalog/new-prime-250-photo.png" alt="KCC 뉴프라임 발코니 이중창 제품" loading="lazy"></span>
+            <span class="prod-body">
+              <small class="prod-brand prod-brand--kcc">KCC · New Prime</small>
+              <h3>발코니창(외창)</h3>
+              <p class="prod-value">고층 발코니의 슬림 단창부터 확장 공간 이중창까지, 뉴프라임 제품군에서 비교합니다.</p>
+              <span class="prod-specs"><span>뉴프라임 단창·이중창</span><span>242 실속형 · 250 단열·방음</span></span>
+            </span>
+          </a>
+          <a class="prod-card" href="kcc/#lineup-inner">
+            <span class="prod-media"><img src="../assets/kcc/catalog/ubf225tm-room-photo.png" alt="KCC 실내 미서기창이 적용된 공간" loading="lazy"></span>
+            <span class="prod-body">
+              <small class="prod-brand prod-brand--kcc">KCC · Interior</small>
+              <h3>일반창(내창)</h3>
+              <p class="prod-value">실내 미서기창부터 터닝도어와 여닫이 시스템까지, 내창을 한곳에서 고릅니다.</p>
+              <span class="prod-specs"><span>미서기·공틀일체형</span><span>터닝도어 · 60mm 여닫이</span></span>
+            </span>
+          </a>
+          <a class="prod-card" href="kbe/">
+            <span class="prod-media"><img src="../assets/kbe-german/koemmerling-hero.webp" alt="독일 KBE·KÖMMERLING 시스템창호가 적용된 공간" loading="lazy"></span>
+            <span class="prod-body">
+              <small class="prod-brand prod-brand--kbe">German · Profine Group</small>
+              <h3>KBE·KÖMMERLING</h3>
+              <p class="prod-value">독일 profine 그룹의 88mm 프로파일로 단열·기밀·차음과 구조 안정성을 함께 지탱합니다.</p>
+              <span class="prod-specs"><span>88mm · 7챔버 · 3중 가스켓</span><span>Tilt &amp; Slide · Tilt &amp; Turn</span></span>
+            </span>
+          </a>
+          <a class="prod-card" href="../screens/kogo/#products">
+            <span class="prod-media"><img src="../assets/kogo/hero-installation.png" alt="고구려안전방충망 시공 모습" loading="lazy"></span>
+            <span class="prod-body">
+              <small class="prod-brand prod-brand--kogo">Safety · Screens</small>
+              <h3>고구려안전방충망</h3>
+              <p class="prod-value">저층의 침입 위험, 고층의 추락 위험, 생활 속 미세먼지까지 창에 필요한 안전을 더합니다.</p>
+              <span class="prod-specs"><span>방범망·안전망·저감망</span><span>250mesh 저감 옵션</span></span>
+            </span>
+          </a>
+        </div>
+        <p class="prod-note">* 에너지소비효율 등급 등 성능 표기는 각 제품 페이지의 시험 구성 기준이며, 유리 사양과 시공 조건에 따라 달라질 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="route-brands" aria-labelledby="brandTitle">
+      <div class="route-wrap">
+        <div class="route-sec-head">
+          <div class="route-kicker">Brand pages</div>
+          <h2 id="brandTitle">브랜드로 살펴보기.</h2>
+        </div>
+        <div class="brand-links">
+          <a class="brand-link" href="lx/"><small class="prod-brand--lx">LX Z:IN</small><strong>LX하우시스</strong></a>
+          <a class="brand-link" href="kcc/"><small class="prod-brand--kcc">New Prime · System</small><strong>KCC</strong></a>
+          <a class="brand-link" href="kbe/"><small class="prod-brand--kbe">German · Profine</small><strong>KBE·KÖMMERLING</strong></a>
+          <a class="brand-link" href="../screens/kogo/"><small class="prod-brand--kogo">Safety · Screens</small><strong>고구려안전방충망</strong></a>
+        </div>
+      </div>
     </section>
   </main>
   <div id="mm-cta"></div>
   <div id="mm-footer"></div>
+  <script src="../consult.js?v=c1"></script>
   <script src="../common.js?v=g60"></script>
   <script src="../sitenav.js?v=g50"></script>
 </body>
