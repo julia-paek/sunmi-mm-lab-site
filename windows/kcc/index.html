@@ -370,6 +370,7 @@ body{background:#F4F0E6;color:#1F3822}
 (function(){
   var categoryButtons=Array.from(document.querySelectorAll('[data-kcc-category]'));
   var categoryPanels=Array.from(document.querySelectorAll('[data-kcc-category-panel]'));
+  var modelSyncFrames=new WeakMap();
   function positionModelPointer(panel,button){
     var detail=panel.querySelector('[data-kcc-model-panel].is-active');
     if(!detail||!button)return;
@@ -383,6 +384,24 @@ body{background:#F4F0E6;color:#1F3822}
     panel.querySelectorAll('[data-kcc-model-panel]').forEach(function(item){item.classList.toggle('is-active',item.dataset.kccModelPanel===key);});
     positionModelPointer(panel,button);
   }
+  function visibleModelButton(nav){
+    var navBox=nav.getBoundingClientRect(),best=null,bestWidth=-1;
+    nav.querySelectorAll('[data-kcc-model]').forEach(function(button){
+      var box=button.getBoundingClientRect();
+      var visibleWidth=Math.max(0,Math.min(box.right,navBox.right)-Math.max(box.left,navBox.left));
+      if(visibleWidth>bestWidth){best=button;bestWidth=visibleWidth;}
+    });
+    return best;
+  }
+  function syncModelNav(panel,nav){
+    var previous=modelSyncFrames.get(nav);if(previous)cancelAnimationFrame(previous);
+    modelSyncFrames.set(nav,requestAnimationFrame(function(){
+      var button=visibleModelButton(nav);if(!button)return;
+      var active=panel.querySelector('[data-kcc-model].is-active');
+      if(button!==active)selectModel(panel,button.dataset.kccModel,button);
+      else positionModelPointer(panel,button);
+    }));
+  }
   function activateCategory(key,button){
     categoryButtons.forEach(function(item){var on=item===button;item.classList.toggle('is-active',on);item.setAttribute('aria-selected',String(on));});
     categoryPanels.forEach(function(panel){panel.classList.toggle('is-active',panel.dataset.kccCategoryPanel===key);});
@@ -394,6 +413,8 @@ body{background:#F4F0E6;color:#1F3822}
     button.addEventListener('mouseenter',preview);button.addEventListener('focus',preview);button.addEventListener('click',preview);
   });
   categoryPanels.forEach(function(panel){
+    var nav=panel.querySelector('.kcc-model-nav');
+    if(nav)nav.addEventListener('scroll',function(){syncModelNav(panel,nav);},{passive:true});
     panel.querySelectorAll('[data-kcc-model]').forEach(function(button){
       function preview(){selectModel(panel,button.dataset.kccModel,button);}
       button.addEventListener('mouseenter',preview);button.addEventListener('focus',preview);button.addEventListener('click',preview);
@@ -411,7 +432,7 @@ body{background:#F4F0E6;color:#1F3822}
   }
   applyHashCategory();
   window.addEventListener('hashchange',applyHashCategory);
-  window.addEventListener('resize',function(){categoryPanels.forEach(function(panel){if(panel.classList.contains('is-active'))positionModelPointer(panel,panel.querySelector('[data-kcc-model].is-active'));});});
+  window.addEventListener('resize',function(){categoryPanels.forEach(function(panel){if(!panel.classList.contains('is-active'))return;var nav=panel.querySelector('.kcc-model-nav');if(nav)syncModelNav(panel,nav);});});
 })();
 </script>
 </body>
