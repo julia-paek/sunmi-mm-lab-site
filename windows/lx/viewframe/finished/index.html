@@ -240,6 +240,8 @@ const prev=document.getElementById('modelPrev');
 const next=document.getElementById('modelNext');
 let selected='f140s';
 let activeArea='rear';
+let detailTimer=0;
+let railSyncFrame=0;
 function updateArrows(){
   const max=Math.max(0,rail.scrollWidth-rail.clientWidth);prev.disabled=rail.scrollLeft<4;next.disabled=rail.scrollLeft>max-4;
 }
@@ -268,7 +270,8 @@ function renderArea(areaKey,preferred){
 }
 function selectModel(key,scrollToDetail){
   const p=PRODUCTS[key],card=rail.querySelector('[data-model="'+key+'"]');if(!p)return;selected=key;stage.classList.add('is-changing');
-  window.setTimeout(()=>{
+  window.clearTimeout(detailTimer);
+  detailTimer=window.setTimeout(()=>{
     document.getElementById('detailImage').src=ASSET+p.image;
     document.getElementById('detailImage').alt=p.name+' 프레임 구조';
     document.getElementById('detailVisual').dataset.caption=p.name+' · 제품 구조';
@@ -285,10 +288,29 @@ function selectModel(key,scrollToDetail){
   renderArea(DEFAULT_AREA[key],key);
   positionConnector(card);if(scrollToDetail)stage.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
+function visibleModel(){
+  const railBox=rail.getBoundingClientRect();
+  let best=null,bestWidth=-1;
+  rail.querySelectorAll('[data-model]').forEach(card=>{
+    const box=card.getBoundingClientRect();
+    const visibleWidth=Math.max(0,Math.min(box.right,railBox.right)-Math.max(box.left,railBox.left));
+    if(visibleWidth>bestWidth){best=card;bestWidth=visibleWidth;}
+  });
+  return best;
+}
+function syncRailModel(){
+  updateArrows();
+  window.cancelAnimationFrame(railSyncFrame);
+  railSyncFrame=window.requestAnimationFrame(()=>{
+    const card=visibleModel();
+    if(card&&card.dataset.model!==selected)selectModel(card.dataset.model,false);
+    else positionConnector(card);
+  });
+}
 rail.querySelectorAll('[data-model]').forEach(card=>{card.addEventListener('mouseenter',()=>selectModel(card.dataset.model,false));card.addEventListener('focus',()=>selectModel(card.dataset.model,false));card.addEventListener('click',()=>selectModel(card.dataset.model,false));});
 document.querySelectorAll('.fit-hotspot').forEach(button=>{const open=()=>renderArea(button.dataset.area,button.dataset.model);button.addEventListener('mouseenter',open);button.addEventListener('focus',open);button.addEventListener('click',open);});
 function moveRail(direction){const card=rail.querySelector('.product-card'),amount=(card?card.getBoundingClientRect().width:300)+14;rail.scrollBy({left:direction*amount,behavior:'smooth'});}
-prev.addEventListener('click',()=>moveRail(-1));next.addEventListener('click',()=>moveRail(1));rail.addEventListener('scroll',updateArrows,{passive:true});window.addEventListener('resize',()=>{updateArrows();positionConnector(rail.querySelector('[data-model="'+selected+'"]'));});
+prev.addEventListener('click',()=>moveRail(-1));next.addEventListener('click',()=>moveRail(1));rail.addEventListener('scroll',syncRailModel,{passive:true});window.addEventListener('resize',syncRailModel);
 selectModel('f140s',false);updateArrows();
 
 /* 일반형·고급형 공간 비교 슬라이드 — 자동 전환 */
