@@ -9,7 +9,7 @@
 window.MM_CONSULT = window.MM_CONSULT || {
   mode: 'mailto',
   endpoint: '',                    /* 예: 'https://formspree.io/f/xxxxxxx' */
-  email: 'ksw.mmlab@gmail.com',
+  email: 'urbanroad@mmlab.co.kr',
   tel: '02-6012-0033',
   kakao: ''                        /* 값을 넣으면 카카오톡 상담 링크가 표시됩니다 */
 };
