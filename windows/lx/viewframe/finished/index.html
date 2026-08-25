@@ -51,7 +51,7 @@ button{font:inherit;border-radius:0}
 .vfs-section{padding:clamp(74px,9vw,124px) 0;border-bottom:1px solid var(--line)}
 .section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:30px}
 .section-title{margin:9px 0 0;font-size:clamp(36px,5vw,62px);line-height:1.04;color:var(--green)}
-#lineup .section-title{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
+#lineup .section-title,#interiorLineup .section-title{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
 .section-desc{max-width:470px;margin:0;color:var(--sage);font-size:15px;line-height:1.7;word-break:keep-all}
 .model-slider{position:relative}
 .model-arrows{position:absolute;left:14px;right:14px;top:0;bottom:14px;z-index:8;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
@@ -62,6 +62,7 @@ button{font:inherit;border-radius:0}
 .product-card img{display:block;width:100%;height:172px;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1)}
 .product-card[data-model="f285s"] img{object-position:center 48%}
 .product-card:hover img,.product-card:focus-visible img{transform:scale(1.02)}
+.product-placeholder{display:flex;height:172px;align-items:center;justify-content:center;background-color:#F7F6F2;background-image:linear-gradient(rgba(47,82,51,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(47,82,51,.055) 1px,transparent 1px);background-size:24px 24px;color:rgba(47,82,51,.46);font:500 34px "JetBrains Mono",monospace;letter-spacing:.04em}
 .product-meta{display:grid;grid-template-columns:1fr auto;align-items:end;gap:10px;padding:14px 15px 15px;background:#fff}
 .product-meta small{display:block;font:500 11px "JetBrains Mono",monospace;letter-spacing:.07em;color:var(--sage)}
 .product-meta strong{display:block;margin-top:3px;font-size:20px;line-height:1.2;color:var(--green)}
@@ -72,6 +73,7 @@ button{font:inherit;border-radius:0}
 .detail-visual::before{content:"";position:absolute;width:150px;height:150px;border:1px dashed rgba(47,82,51,.3);border-radius:50%;box-shadow:0 0 0 18px rgba(47,82,51,.035)}
 .detail-visual::after{content:attr(data-caption);position:absolute;z-index:2;left:12px;bottom:11px;padding:6px 8px;background:rgba(31,56,34,.9);font:500 9px "JetBrains Mono",monospace;letter-spacing:.08em;color:#fff}
 .detail-visual img{position:relative;z-index:1;width:min(100%,170px);height:155px;object-fit:contain;mix-blend-mode:multiply;transition:opacity .2s,transform .3s}
+.detail-placeholder-mark{position:relative;z-index:1;display:flex;width:138px;height:138px;align-items:center;justify-content:center;border:1px solid rgba(47,82,51,.4);background:rgba(255,255,255,.66);color:var(--lx);font:500 31px "JetBrains Mono",monospace;letter-spacing:.04em}
 .detail-stage.is-changing .detail-visual img{opacity:.35;transform:translateY(6px)}
 .detail-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,.9fr);align-content:center;column-gap:clamp(24px,4vw,58px);padding:22px clamp(24px,3.4vw,46px);border-left:4px solid var(--lx);background:linear-gradient(90deg,rgba(255,255,255,.82),rgba(255,255,255,.34))}
 .detail-summary{align-self:center}.detail-copy .eyebrow{color:var(--sage)}
@@ -171,6 +173,40 @@ button{font:inherit;border-radius:0}
             <div><small>구분</small><strong id="detailUse">일반형 발코니 단창</strong></div>
             <div><small>유리 두께</small><strong id="detailGlass">24 · 26 · 28mm</strong></div>
             <div><small>핵심 특징</small><strong id="detailFeature">다중 챔버 · 넓은 조망</strong></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="vfs-section" id="interiorLineup" aria-labelledby="interiorLineupTitle">
+    <div class="vfs-wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">PRODUCT LINEUP</div><h2 class="section-title" id="interiorLineupTitle">일반창(내창)</h2></div>
+        <p class="section-desc">실내 공간에 적용하는 뷰프레임 일반창 9개 모델을 비교할 수 있는 영역입니다. 모델 정보는 순차적으로 반영됩니다.</p>
+      </div>
+      <div class="model-slider">
+        <div class="model-arrows" aria-label="일반창 제품 목록 이동"><button type="button" id="interiorModelPrev" aria-label="이전 일반창 제품" disabled>‹</button><button type="button" id="interiorModelNext" aria-label="다음 일반창 제품">›</button></div>
+        <div class="product-rail" id="interiorProductRail" role="group" aria-label="일반창 9개 모델">
+          <button class="product-card is-active" type="button" aria-pressed="true" data-interior-model="01"><span class="product-placeholder" aria-hidden="true">01</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 01</strong></span><em>정보 준비 중</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="02"><span class="product-placeholder" aria-hidden="true">02</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 02</strong></span><em>정보 준비 중</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="03"><span class="product-placeholder" aria-hidden="true">03</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 03</strong></span><em>정보 준비 중</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="04"><span class="product-placeholder" aria-hidden="true">04</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 04</strong></span><em>정보 준비 중</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="05"><span class="product-placeholder" aria-hidden="true">05</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 05</strong></span><em>정보 준비 중</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="06"><span class="product-placeholder" aria-hidden="true">06</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 06</strong></span><em>정보 준비 중</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="07"><span class="product-placeholder" aria-hidden="true">07</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 07</strong></span><em>정보 준비 중</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="08"><span class="product-placeholder" aria-hidden="true">08</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 08</strong></span><em>정보 준비 중</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="09"><span class="product-placeholder" aria-hidden="true">09</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 09</strong></span><em>정보 준비 중</em></span></button>
+        </div>
+      </div>
+      <article class="detail-stage" id="interiorDetailStage" aria-live="polite">
+        <div class="detail-visual" id="interiorDetailVisual" data-caption="MODEL 01 · 제품 정보"><span class="detail-placeholder-mark" id="interiorDetailMark" aria-hidden="true">01</span></div>
+        <div class="detail-copy">
+          <div class="detail-summary"><div class="eyebrow">INTERIOR WINDOW</div><h3 id="interiorDetailName">MODEL 01</h3><div class="detail-kind">일반창(내창)</div><p class="detail-desc">모델명과 제품 이미지, 상세 사양을 전달받으면 이 영역에 순서대로 반영합니다.</p></div>
+          <div class="spec-list">
+            <div><small>구분</small><strong>일반창(내창)</strong></div>
+            <div><small>라인업</small><strong>총 9개 모델</strong></div>
+            <div><small>상세 정보</small><strong>모델 정보 준비 중</strong></div>
           </div>
         </div>
       </article>
@@ -312,6 +348,75 @@ document.querySelectorAll('.fit-hotspot').forEach(button=>{const open=()=>render
 function moveRail(direction){const card=rail.querySelector('.product-card'),amount=(card?card.getBoundingClientRect().width:300)+14;rail.scrollBy({left:direction*amount,behavior:'smooth'});}
 prev.addEventListener('click',()=>moveRail(-1));next.addEventListener('click',()=>moveRail(1));rail.addEventListener('scroll',syncRailModel,{passive:true});window.addEventListener('resize',syncRailModel);
 selectModel('f140s',false);updateArrows();
+
+/* 일반창 9개 모델 영역 — 모델 정보 반영 전 공통 인터랙션 */
+(function(){
+  const interiorRail=document.getElementById('interiorProductRail');
+  const interiorStage=document.getElementById('interiorDetailStage');
+  const interiorPrev=document.getElementById('interiorModelPrev');
+  const interiorNext=document.getElementById('interiorModelNext');
+  const interiorName=document.getElementById('interiorDetailName');
+  const interiorMark=document.getElementById('interiorDetailMark');
+  const interiorVisual=document.getElementById('interiorDetailVisual');
+  if(!interiorRail||!interiorStage||!interiorPrev||!interiorNext)return;
+  let interiorFrame=0;
+  function updateInteriorArrows(){
+    const max=Math.max(0,interiorRail.scrollWidth-interiorRail.clientWidth);
+    interiorPrev.disabled=interiorRail.scrollLeft<4;
+    interiorNext.disabled=interiorRail.scrollLeft>max-4;
+  }
+  function positionInteriorConnector(card){
+    if(!card)return;
+    requestAnimationFrame(()=>{
+      const stageBox=interiorStage.getBoundingClientRect(),cardBox=card.getBoundingClientRect();
+      interiorStage.style.setProperty('--connector-x',Math.max(18,Math.min(stageBox.width-18,cardBox.left+cardBox.width/2-stageBox.left))+'px');
+    });
+  }
+  function selectInteriorModel(card){
+    if(!card)return;
+    const number=card.dataset.interiorModel;
+    interiorRail.querySelectorAll('[data-interior-model]').forEach(button=>{
+      const active=button===card;
+      button.classList.toggle('is-active',active);
+      button.setAttribute('aria-pressed',String(active));
+    });
+    interiorName.textContent='MODEL '+number;
+    interiorMark.textContent=number;
+    interiorVisual.dataset.caption='MODEL '+number+' · 제품 정보';
+    positionInteriorConnector(card);
+  }
+  function visibleInteriorModel(){
+    const railBox=interiorRail.getBoundingClientRect();
+    let best=null,bestWidth=-1;
+    interiorRail.querySelectorAll('[data-interior-model]').forEach(card=>{
+      const box=card.getBoundingClientRect();
+      const visibleWidth=Math.max(0,Math.min(box.right,railBox.right)-Math.max(box.left,railBox.left));
+      if(visibleWidth>bestWidth){best=card;bestWidth=visibleWidth;}
+    });
+    return best;
+  }
+  function syncInteriorRail(){
+    updateInteriorArrows();
+    cancelAnimationFrame(interiorFrame);
+    interiorFrame=requestAnimationFrame(()=>selectInteriorModel(visibleInteriorModel()));
+  }
+  function moveInteriorRail(direction){
+    const card=interiorRail.querySelector('.product-card');
+    const amount=(card?card.getBoundingClientRect().width:300)+14;
+    interiorRail.scrollBy({left:direction*amount,behavior:'smooth'});
+  }
+  interiorRail.querySelectorAll('[data-interior-model]').forEach(card=>{
+    card.addEventListener('mouseenter',()=>selectInteriorModel(card));
+    card.addEventListener('focus',()=>selectInteriorModel(card));
+    card.addEventListener('click',()=>selectInteriorModel(card));
+  });
+  interiorPrev.addEventListener('click',()=>moveInteriorRail(-1));
+  interiorNext.addEventListener('click',()=>moveInteriorRail(1));
+  interiorRail.addEventListener('scroll',syncInteriorRail,{passive:true});
+  window.addEventListener('resize',syncInteriorRail);
+  selectInteriorModel(interiorRail.querySelector('[data-interior-model="01"]'));
+  updateInteriorArrows();
+})();
 
 /* 일반형·고급형 공간 비교 슬라이드 — 자동 전환 */
 (function(){
