@@ -61,11 +61,12 @@ button{font:inherit;border-radius:0}
 .product-card{position:relative;flex:0 0 clamp(270px,29vw,360px);min-width:0;padding:0;border:1px solid var(--lx);background:#fff;color:var(--green);text-align:left;cursor:pointer;scroll-snap-align:start}
 .product-card img{display:block;width:100%;height:172px;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1)}
 .product-card[data-model="f285s"] img{object-position:center 48%}
+.product-card[data-family="general"] img,.product-card[data-family="door"] img{object-position:center 48%}
 .product-card:hover img,.product-card:focus-visible img{transform:scale(1.02)}
-.product-placeholder{display:flex;height:172px;align-items:center;justify-content:center;background-color:#F7F6F2;background-image:linear-gradient(rgba(47,82,51,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(47,82,51,.055) 1px,transparent 1px);background-size:24px 24px;color:rgba(47,82,51,.46);font:500 34px "JetBrains Mono",monospace;letter-spacing:.04em}
 .product-meta{display:grid;grid-template-columns:1fr auto;align-items:end;gap:10px;padding:14px 15px 15px;background:#fff}
 .product-meta small{display:block;font:500 11px "JetBrains Mono",monospace;letter-spacing:.07em;color:var(--sage)}
 .product-meta strong{display:block;margin-top:3px;font-size:20px;line-height:1.2;color:var(--green)}
+.product-card[data-interior-model="f235i250i"] .product-meta strong{font-size:18px;letter-spacing:-.035em}
 .product-meta em{font-style:normal;font-size:12px;color:var(--sage)}
 .detail-stage{--connector-x:180px;position:relative;display:grid;grid-template-columns:clamp(220px,28vw,360px) minmax(0,1fr);min-height:200px;margin-top:26px;overflow:visible;border:1px solid #BFC9BA;background:#FAFAF7;box-shadow:0 12px 28px rgba(31,56,34,.07)}
 .detail-stage::before{content:"";position:absolute;z-index:5;left:var(--connector-x);top:-12px;width:22px;height:22px;border-left:1px solid #BFC9BA;border-top:1px solid #BFC9BA;background:#F7F6F2;transform:translateX(-50%) rotate(45deg)}
@@ -73,7 +74,6 @@ button{font:inherit;border-radius:0}
 .detail-visual::before{content:"";position:absolute;width:150px;height:150px;border:1px dashed rgba(47,82,51,.3);border-radius:50%;box-shadow:0 0 0 18px rgba(47,82,51,.035)}
 .detail-visual::after{content:attr(data-caption);position:absolute;z-index:2;left:12px;bottom:11px;padding:6px 8px;background:rgba(31,56,34,.9);font:500 9px "JetBrains Mono",monospace;letter-spacing:.08em;color:#fff}
 .detail-visual img{position:relative;z-index:1;width:min(100%,170px);height:155px;object-fit:contain;mix-blend-mode:multiply;transition:opacity .2s,transform .3s}
-.detail-placeholder-mark{position:relative;z-index:1;display:flex;width:138px;height:138px;align-items:center;justify-content:center;border:1px solid rgba(47,82,51,.4);background:rgba(255,255,255,.66);color:var(--lx);font:500 31px "JetBrains Mono",monospace;letter-spacing:.04em}
 .detail-stage.is-changing .detail-visual img{opacity:.35;transform:translateY(6px)}
 .detail-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,.9fr);align-content:center;column-gap:clamp(24px,4vw,58px);padding:22px clamp(24px,3.4vw,46px);border-left:4px solid var(--lx);background:linear-gradient(90deg,rgba(255,255,255,.82),rgba(255,255,255,.34))}
 .detail-summary{align-self:center}.detail-copy .eyebrow{color:var(--sage)}
@@ -183,30 +183,29 @@ button{font:inherit;border-radius:0}
     <div class="vfs-wrap">
       <div class="section-head">
         <div><div class="eyebrow">PRODUCT LINEUP</div><h2 class="section-title" id="interiorLineupTitle">일반창(내창)</h2></div>
-        <p class="section-desc">실내 공간에 적용하는 뷰프레임 일반창 9개 모델을 비교할 수 있는 영역입니다. 모델 정보는 순차적으로 반영됩니다.</p>
+        <p class="section-desc">실내창과 분합문, 여닫이 도어·창까지 뷰프레임 일반창 9개 모델을 용도와 구조에 맞춰 비교해보세요.</p>
       </div>
       <div class="model-slider">
         <div class="model-arrows" aria-label="일반창 제품 목록 이동"><button type="button" id="interiorModelPrev" aria-label="이전 일반창 제품" disabled>‹</button><button type="button" id="interiorModelNext" aria-label="다음 일반창 제품">›</button></div>
-        <div class="product-rail" id="interiorProductRail" role="group" aria-label="일반창 9개 모델">
-          <button class="product-card is-active" type="button" aria-pressed="true" data-interior-model="01"><span class="product-placeholder" aria-hidden="true">01</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 01</strong></span><em>정보 준비 중</em></span></button>
-          <button class="product-card" type="button" aria-pressed="false" data-interior-model="02"><span class="product-placeholder" aria-hidden="true">02</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 02</strong></span><em>정보 준비 중</em></span></button>
-          <button class="product-card" type="button" aria-pressed="false" data-interior-model="03"><span class="product-placeholder" aria-hidden="true">03</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 03</strong></span><em>정보 준비 중</em></span></button>
-          <button class="product-card" type="button" aria-pressed="false" data-interior-model="04"><span class="product-placeholder" aria-hidden="true">04</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 04</strong></span><em>정보 준비 중</em></span></button>
-          <button class="product-card" type="button" aria-pressed="false" data-interior-model="05"><span class="product-placeholder" aria-hidden="true">05</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 05</strong></span><em>정보 준비 중</em></span></button>
-          <button class="product-card" type="button" aria-pressed="false" data-interior-model="06"><span class="product-placeholder" aria-hidden="true">06</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 06</strong></span><em>정보 준비 중</em></span></button>
-          <button class="product-card" type="button" aria-pressed="false" data-interior-model="07"><span class="product-placeholder" aria-hidden="true">07</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 07</strong></span><em>정보 준비 중</em></span></button>
-          <button class="product-card" type="button" aria-pressed="false" data-interior-model="08"><span class="product-placeholder" aria-hidden="true">08</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 08</strong></span><em>정보 준비 중</em></span></button>
-          <button class="product-card" type="button" aria-pressed="false" data-interior-model="09"><span class="product-placeholder" aria-hidden="true">09</span><span class="product-meta"><span><small>INTERIOR WINDOW</small><strong>MODEL 09</strong></span><em>정보 준비 중</em></span></button>
+        <div class="product-rail" id="interiorProductRail" role="group" aria-label="일반창 9개 모델, 8개 제품 카드">
+          <button class="product-card is-active" type="button" aria-pressed="true" data-interior-model="f130i" data-family="general"><img src="../../../../assets/viewframe-s/general-room-card.webp?v=g2026082518" alt="실내에 적용된 F-130I 일반창 단창" loading="lazy"><span class="product-meta"><span><small>GENERAL · SINGLE</small><strong>F-130I</strong></span><em>일반창 단창</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="f235i250i" data-family="general"><img src="../../../../assets/viewframe-s/general-room-card.webp?v=g2026082518" alt="실내에 적용된 F-235I와 F-250I 일반창 이중창" loading="lazy"><span class="product-meta"><span><small>GENERAL · DOUBLE</small><strong>F-235I/250I</strong></span><em>일반창 이중창</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="f270i" data-family="general"><img src="../../../../assets/viewframe-s/general-room-card.webp?v=g2026082518" alt="실내에 적용된 F-270I 베젤리스 이중창" loading="lazy"><span class="product-meta"><span><small>GENERAL · BEZELLESS</small><strong>F-270I</strong></span><em>베젤리스 이중창</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="f230wf" data-family="partition"><img src="../../../../assets/viewframe-s/partition-room-card.webp?v=g2026082518" alt="거실 분합문으로 적용된 F-230WF" loading="lazy"><span class="product-meta"><span><small>WIDE · PARTITION</small><strong>F-230WF</strong></span><em>알루미늄 레일 분합문</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="f230w" data-family="partition"><img src="../../../../assets/viewframe-s/partition-room-card.webp?v=g2026082518" alt="거실 분합문으로 적용된 F-230W" loading="lazy"><span class="product-meta"><span><small>WIDE · PARTITION</small><strong>F-230W</strong></span><em>백색 레일 분합문</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="ftd140" data-family="door"><img src="../../../../assets/viewframe-s/turn-door-room-card.webp?v=g2026082518" alt="다용도실에 적용된 F-TD140 여닫이 도어" loading="lazy"><span class="product-meta"><span><small>TURN · DOOR</small><strong>F-TD140</strong></span><em>여닫이 도어</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="fsh60" data-family="hung"><img src="../../../../assets/viewframe-custom-hung-room-v2.jpg?v=g2026082518" alt="세탁실에 적용된 F-SH60 측면 여닫이창" loading="lazy"><span class="product-meta"><span><small>SIDE · HUNG</small><strong>F-SH60</strong></span><em>측면 여닫이창</em></span></button>
+          <button class="product-card" type="button" aria-pressed="false" data-interior-model="fth60" data-family="hung"><img src="../../../../assets/viewframe-custom-hung-room-v2.jpg?v=g2026082518" alt="계단실에 적용된 F-TH60 상부 여닫이창" loading="lazy"><span class="product-meta"><span><small>TOP · HUNG</small><strong>F-TH60</strong></span><em>상부 여닫이창</em></span></button>
         </div>
       </div>
       <article class="detail-stage" id="interiorDetailStage" aria-live="polite">
-        <div class="detail-visual" id="interiorDetailVisual" data-caption="MODEL 01 · 제품 정보"><span class="detail-placeholder-mark" id="interiorDetailMark" aria-hidden="true">01</span></div>
+        <div class="detail-visual" id="interiorDetailVisual" data-caption="F-130I · 제품 구조"><img id="interiorDetailImage" src="../../../../assets/viewframe-s/f-130is.webp?v=g2026082518" alt="F-130I 제품 구조"></div>
         <div class="detail-copy">
-          <div class="detail-summary"><div class="eyebrow">INTERIOR WINDOW</div><h3 id="interiorDetailName">MODEL 01</h3><div class="detail-kind">일반창(내창)</div><p class="detail-desc">모델명과 제품 이미지, 상세 사양을 전달받으면 이 영역에 순서대로 반영합니다.</p></div>
+          <div class="detail-summary"><div class="eyebrow" id="interiorDetailType">GENERAL WINDOW · SINGLE</div><h3 id="interiorDetailName">F-130I</h3><div class="detail-kind" id="interiorDetailKind">일반창 단창</div><p class="detail-desc" id="interiorDetailDesc">아파트 실내창과 후면 발코니창에 적용하는 단창입니다.</p></div>
           <div class="spec-list">
-            <div><small>구분</small><strong>일반창(내창)</strong></div>
-            <div><small>라인업</small><strong>총 9개 모델</strong></div>
-            <div><small>상세 정보</small><strong>모델 정보 준비 중</strong></div>
+            <div><small>구분</small><strong id="interiorDetailUse">일반창 단창</strong></div>
+            <div><small>유리 두께</small><strong id="interiorDetailGlass">24 · 26 · 28mm</strong></div>
+            <div><small>핵심 특징</small><strong id="interiorDetailFeature">실내창 · 후면 발코니창</strong></div>
           </div>
         </div>
       </article>
@@ -349,17 +348,30 @@ function moveRail(direction){const card=rail.querySelector('.product-card'),amou
 prev.addEventListener('click',()=>moveRail(-1));next.addEventListener('click',()=>moveRail(1));rail.addEventListener('scroll',syncRailModel,{passive:true});window.addEventListener('resize',syncRailModel);
 selectModel('f140s',false);updateArrows();
 
-/* 일반창 9개 모델 영역 — 모델 정보 반영 전 공통 인터랙션 */
+/* 일반창 9개 모델 · 8개 카드 */
 (function(){
+  const INTERIOR_ASSET='../../../../assets/';
+  const INTERIOR_VERSION='?v=g2026082518';
+  const INTERIOR_PRODUCTS={
+    f130i:{name:'F-130I',type:'GENERAL WINDOW · SINGLE',kind:'일반창 단창',glass:'24 · 26 · 28mm',feature:'실내창 · 후면 발코니창',image:'viewframe-s/f-130is.webp',desc:'아파트 실내창과 후면 발코니창에 적용하는 단창입니다.'},
+    f235i250i:{name:'F-235I/250I',type:'GENERAL WINDOW · DOUBLE',kind:'일반창 이중창',glass:'24 · 26 · 28mm',feature:'이중 구조 · 실내외 경계',image:'viewframe-s/f-250is.webp',desc:'동일한 제품 구조를 사용하는 F-235I와 F-250I로, 아파트 실내외 경계와 빌라·주택의 실내외창에 적용합니다.'},
+    f270i:{name:'F-270I',type:'GENERAL WINDOW · BEZELLESS',kind:'베젤리스 이중창',glass:'24 · 26 · 28mm',feature:'베젤리스 마감 · 실내외창',image:'viewframe-custom-f-270i-matched-v4.png',desc:'깊은 이중창 구조와 정돈된 베젤리스 마감으로 조망과 공간의 완성도를 높입니다.'},
+    f230wf:{name:'F-230WF',type:'WIDE PARTITION · WF',kind:'광폭 분합문',glass:'24 · 26 · 28mm',feature:'알루미늄 레일 · 넓은 개구부',image:'viewframe-custom-f-230wf-matched-v4.png',desc:'알루미늄 레일을 적용한 광폭 분합문으로, 거실과 발코니 사이의 넓은 개구부에 적용합니다.'},
+    f230w:{name:'F-230W',type:'WIDE PARTITION · W',kind:'광폭 분합문',glass:'24 · 26 · 28mm',feature:'백색 레일 · 넓은 개구부',image:'viewframe-s/f-230ws.webp',desc:'백색 레일을 적용한 광폭 분합문으로, 아파트와 빌라·주택의 넓은 실내 분합 공간에 적용합니다.'},
+    ftd140:{name:'F-TD140',type:'TURN DOOR',kind:'여닫이 도어',glass:'22 · 24mm',feature:'여닫이 구조 · 실내 출입문',image:'viewframe-s/f-td140s.webp',desc:'아파트와 빌라·주택의 실내 다용도 공간 출입부에 적용하는 여닫이 도어입니다.'},
+    fsh60:{name:'F-SH60',type:'SIDE HUNG WINDOW',kind:'측면 여닫이창',glass:'22 · 24mm',feature:'측면 개폐 · 소형 환기창',image:'viewframe-custom-f-sh60-matched-v4.png',desc:'측면 축으로 열리는 소형 여닫이창으로 환기와 개방이 필요한 공간에 적합합니다.'},
+    fth60:{name:'F-TH60',type:'TOP HUNG WINDOW',kind:'상부 여닫이창',glass:'22 · 24mm',feature:'상부 개폐 · 소형 환기창',image:'viewframe-custom-f-th60-matched-v4.png',desc:'상부 축을 중심으로 열려 비가 오는 날에도 안정적인 환기를 돕는 소형창입니다.'}
+  };
   const interiorRail=document.getElementById('interiorProductRail');
   const interiorStage=document.getElementById('interiorDetailStage');
   const interiorPrev=document.getElementById('interiorModelPrev');
   const interiorNext=document.getElementById('interiorModelNext');
-  const interiorName=document.getElementById('interiorDetailName');
-  const interiorMark=document.getElementById('interiorDetailMark');
+  const interiorImage=document.getElementById('interiorDetailImage');
   const interiorVisual=document.getElementById('interiorDetailVisual');
   if(!interiorRail||!interiorStage||!interiorPrev||!interiorNext)return;
   let interiorFrame=0;
+  let interiorTimer=0;
+  let interiorSelectionLock=0;
   function updateInteriorArrows(){
     const max=Math.max(0,interiorRail.scrollWidth-interiorRail.clientWidth);
     interiorPrev.disabled=interiorRail.scrollLeft<4;
@@ -372,17 +384,32 @@ selectModel('f140s',false);updateArrows();
       interiorStage.style.setProperty('--connector-x',Math.max(18,Math.min(stageBox.width-18,cardBox.left+cardBox.width/2-stageBox.left))+'px');
     });
   }
-  function selectInteriorModel(card){
+  function selectInteriorModel(card,lockRail){
     if(!card)return;
-    const number=card.dataset.interiorModel;
+    const key=card.dataset.interiorModel;
+    const product=INTERIOR_PRODUCTS[key];
+    if(!product)return;
+    if(lockRail)interiorSelectionLock=performance.now()+500;
     interiorRail.querySelectorAll('[data-interior-model]').forEach(button=>{
       const active=button===card;
       button.classList.toggle('is-active',active);
       button.setAttribute('aria-pressed',String(active));
     });
-    interiorName.textContent='MODEL '+number;
-    interiorMark.textContent=number;
-    interiorVisual.dataset.caption='MODEL '+number+' · 제품 정보';
+    interiorStage.classList.add('is-changing');
+    clearTimeout(interiorTimer);
+    interiorTimer=setTimeout(()=>{
+      interiorImage.src=INTERIOR_ASSET+product.image+INTERIOR_VERSION;
+      interiorImage.alt=product.name+' 제품 구조';
+      interiorVisual.dataset.caption=product.name+' · 제품 구조';
+      document.getElementById('interiorDetailType').textContent=product.type;
+      document.getElementById('interiorDetailName').textContent=product.name;
+      document.getElementById('interiorDetailKind').textContent=product.kind;
+      document.getElementById('interiorDetailDesc').textContent=product.desc;
+      document.getElementById('interiorDetailUse').textContent=product.kind;
+      document.getElementById('interiorDetailGlass').textContent=product.glass;
+      document.getElementById('interiorDetailFeature').textContent=product.feature;
+      interiorStage.classList.remove('is-changing');
+    },120);
     positionInteriorConnector(card);
   }
   function visibleInteriorModel(){
@@ -398,7 +425,13 @@ selectModel('f140s',false);updateArrows();
   function syncInteriorRail(){
     updateInteriorArrows();
     cancelAnimationFrame(interiorFrame);
-    interiorFrame=requestAnimationFrame(()=>selectInteriorModel(visibleInteriorModel()));
+    interiorFrame=requestAnimationFrame(()=>{
+      if(performance.now()<interiorSelectionLock){
+        positionInteriorConnector(interiorRail.querySelector('[aria-pressed="true"]'));
+        return;
+      }
+      selectInteriorModel(visibleInteriorModel(),false);
+    });
   }
   function moveInteriorRail(direction){
     const card=interiorRail.querySelector('.product-card');
@@ -406,15 +439,15 @@ selectModel('f140s',false);updateArrows();
     interiorRail.scrollBy({left:direction*amount,behavior:'smooth'});
   }
   interiorRail.querySelectorAll('[data-interior-model]').forEach(card=>{
-    card.addEventListener('mouseenter',()=>selectInteriorModel(card));
-    card.addEventListener('focus',()=>selectInteriorModel(card));
-    card.addEventListener('click',()=>selectInteriorModel(card));
+    card.addEventListener('mouseenter',()=>selectInteriorModel(card,true));
+    card.addEventListener('focus',()=>selectInteriorModel(card,true));
+    card.addEventListener('click',()=>selectInteriorModel(card,true));
   });
   interiorPrev.addEventListener('click',()=>moveInteriorRail(-1));
   interiorNext.addEventListener('click',()=>moveInteriorRail(1));
   interiorRail.addEventListener('scroll',syncInteriorRail,{passive:true});
   window.addEventListener('resize',syncInteriorRail);
-  selectInteriorModel(interiorRail.querySelector('[data-interior-model="01"]'));
+  selectInteriorModel(interiorRail.querySelector('[data-interior-model="f130i"]'),false);
   updateInteriorArrows();
 })();
 
