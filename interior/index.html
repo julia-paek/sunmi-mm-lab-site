@@ -387,7 +387,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
     <div class="wrap">
       <div style="text-align:center;margin-bottom:18px">
         <p class="eyebrow">Partners</p>
-        <h2 style="font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-.02em;margin-top:10px">검증된 협력 인테리어 <span id="pcount">4</span>곳</h2>
+        <h2 style="font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-.02em;margin-top:10px">검증된 협력 인테리어 업체</h2>
         <p style="font-size:17px;color:var(--muted);margin-top:12px">현장 카드를 누르면 그 현장의 사진을 넘겨볼 수 있어요.</p>
       </div>
       <div class="partner-index-shell">
@@ -526,7 +526,6 @@ var PARTNERS=[
    ]}
 ];
 
-document.getElementById('pcount').textContent=PARTNERS.length;
 document.getElementById('partnerIndex').innerHTML='<a class="partner-jump active" href="#partners" data-partner="partners">전체</a>'
   +PARTNERS.map(function(p){return '<a class="partner-jump" href="#partner-'+p.id+'" data-partner="partner-'+p.id+'">'+esc(p.short)+'</a>';}).join('');
 
