@@ -482,10 +482,12 @@ function partnerProject(id,name,vendor,project,afterCount,beforeCount,coverIndex
     item.beforeCover=base+'before/001.webp';
   }
   if(matchedPairs&&matchedPairs.length&&item.beforePhotos){
+    var livingPair=matchedPairs.find(function(pair){return String(pair[2]||'').indexOf('거실')>-1;})||matchedPairs[0];
+    var livingBefore=item.beforePhotos[livingPair[0]-1],livingAfter=item.photos[livingPair[1]-1];
     item.beforePhotos=prioritizePhotos(item.beforePhotos,matchedPairs.map(function(pair){return pair[0];}));
     item.photos=prioritizePhotos(item.photos,matchedPairs.map(function(pair){return pair[1];}));
-    item.beforeCover=item.beforePhotos[0].image;
-    item.afterCover=item.photos[0].image;
+    item.beforeCover=livingBefore.image;
+    item.afterCover=livingAfter.image;
     item.cover=item.afterCover;
   }
   return item;
