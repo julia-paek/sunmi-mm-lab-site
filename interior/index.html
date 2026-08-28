@@ -387,7 +387,7 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
     <div class="wrap">
       <div style="text-align:center;margin-bottom:18px">
         <p class="eyebrow">Partners</p>
-        <h2 style="font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-.02em;margin-top:10px">검증된 협력 인테리어 <span id="pcount">5</span>곳</h2>
+        <h2 style="font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-.02em;margin-top:10px">검증된 협력 인테리어 <span id="pcount">4</span>곳</h2>
         <p style="font-size:17px;color:var(--muted);margin-top:12px">현장 카드를 누르면 그 현장의 사진을 넘겨볼 수 있어요.</p>
       </div>
       <div class="partner-index-shell">
@@ -461,6 +461,24 @@ function sd(stage,n){ /* 상도건영 40평형 BEFORE/AFTER */
   }
   return arr;
 }
+function pad3(n){return String(n).padStart(3,'0');}
+function partnerPhotos(vendor,project,set,n){
+  var base='../assets/interior/'+vendor+'/'+project+'/',arr=[];
+  for(var i=1;i<=n;i++){
+    var file=pad3(i)+'.webp';
+    arr.push({id:vendor+'-'+project+'-'+set+'-'+pad3(i),image:base+set+'/'+file,thumb:base+'thumbs/'+set+'/'+file});
+  }
+  return arr;
+}
+function partnerProject(id,name,vendor,project,afterCount,beforeCount,coverIndex){
+  var base='../assets/interior/'+vendor+'/'+project+'/',cover=base+'after/'+pad3(coverIndex||1)+'.webp';
+  var item={id:id,name:name,photos:partnerPhotos(vendor,project,'after',afterCount),cover:cover,afterCover:cover};
+  if(beforeCount){
+    item.beforePhotos=partnerPhotos(vendor,project,'before',beforeCount);
+    item.beforeCover=base+'before/001.webp';
+  }
+  return item;
+}
 var PARTNERS=[
   {id:'jiwoo', short:'지우', name:'지우인테리어디자인', tagline:'아파트 전체 리모델링 — 실제 시공 현장', specialty:['아파트','전체 리모델링'], status:'active',
    socials:[
@@ -473,10 +491,26 @@ var PARTNERS=[
      {id:'jw-gileum', name:'길음 경남아너스빌 32평형', photos:jw('gileum','KakaoTalk_20260622_172443870',7)},
      {id:'jw-daebang', name:'대방 대림 59평형', photos:jw('daebang','KakaoTalk_20260622_172426216',7)}
    ]},
-  {id:'p2', short:'어반', name:'어반 인테리어', tagline:'따뜻한 우드 & 내추럴', specialty:['빌라','부분 리모델링'], status:'active', projects:[]},
-  {id:'p3', short:'라인', name:'라인 디자인', tagline:'호텔식 럭셔리 마감', specialty:['아파트','대형 평형'], status:'active', projects:[]},
-  {id:'p4', short:'코지', name:'코지 홈', tagline:'합리적 가성비 리모델링', specialty:['소형 평형','부분 시공'], status:'active', projects:[]},
-  {id:'p5', short:'노블', name:'노블 스페이스', tagline:'상업·주거 토탈 디자인', specialty:['상가','단독주택'], status:'active', projects:[]}
+  {id:'space-changing', short:'공간', name:'공간을바꾸는공간', tagline:'주거 공간 리모델링 — 실제 시공 현장', specialty:['아파트','주거 리모델링'], status:'active',
+   projects:[
+     partnerProject('sc-gwangjang','광장 현대파크빌 10차','space-changing','gwangjang-hyundai-parkvill-10',203,29,59),
+     partnerProject('sc-wangsimni','왕십리 텐즈힐','space-changing','wangsimni-tenz-hill',244,0,140),
+     partnerProject('sc-haengdang','행당 대림','space-changing','haengdang-daerim',193,0,166)
+   ]},
+  {id:'dowoo', short:'도우', name:'도우건축', tagline:'아파트 리모델링 — 실제 시공 현장', specialty:['아파트','주거 리모델링'], status:'active',
+   projects:[
+     partnerProject('dw-daebang-33','대방 대림 33평형','dowoo','daebang-daerim-33',31,0,22),
+     partnerProject('dw-daebang-59-1','대방 대림 59평형 · 1','dowoo','daebang-daerim-59-1',28,0,1),
+     partnerProject('dw-daebang-59-2','대방 대림 59평형 · 2','dowoo','daebang-daerim-59-2',33,0,15),
+     partnerProject('dw-sangdo','상도 래미안','dowoo','sangdo-raemian',18,0,1)
+   ]},
+  {id:'soyu', short:'소유', name:'소유디자인', tagline:'아파트 리모델링 — 시공 전·후 기록', specialty:['아파트','BEFORE & AFTER'], status:'active',
+   projects:[
+     partnerProject('sy-sangdo','상도 더샵','soyu','sangdo-the-sharp',177,30,127),
+     partnerProject('sy-seoul-forest','서울숲 그린동아','soyu','seoul-forest-green-donga',123,16,106),
+     partnerProject('sy-yongsan','용산 푸르지오 써밋','soyu','yongsan-summit',201,160,115),
+     partnerProject('sy-jegi','제기 이수브라운스톤','soyu','jegi-isu-brown',156,22,90)
+   ]}
 ];
 
 document.getElementById('pcount').textContent=PARTNERS.length;
