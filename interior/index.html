@@ -245,7 +245,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:1600;background:rgba(0,0,0,.93);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:28px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
 .lb.open{opacity:1;pointer-events:auto}
-.lb img{max-width:min(1000px,86vw);max-height:70vh;border-radius:0;object-fit:contain}
+.lb>img{max-width:min(1000px,86vw);max-height:70vh;border-radius:0;object-fit:contain}
 .lb.has-photo-sets>img{max-height:56vh}
 .lb-tabs{display:flex;gap:10px;width:min(440px,86vw);margin:0 0 14px}
 .lb-tabs[hidden],.lb-thumbs[hidden]{display:none}
@@ -263,7 +263,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .lb-x:hover{background:rgba(120,120,124,.9)}
 .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:0;background:rgba(80,80,84,.55);color:#fff;font-size:26px;font-weight:300;display:flex;align-items:center;justify-content:center}
 .lb-nav:hover{background:rgba(120,120,124,.85)}.lb-prev{left:20px}.lb-next{right:20px}
-@media(max-width:740px){.lb{padding:20px 14px}.lb img{max-width:84vw;max-height:66vh}.lb.has-photo-sets>img{max-height:48vh}.lb-tabs,.lb-thumbs{width:84vw}.lb-tab{height:40px}.lb-thumb{flex-basis:58px;height:46px}.lb-x{top:70px;right:14px}.lb-nav{width:44px;height:44px;font-size:22px}}
+@media(max-width:740px){.lb{padding:20px 14px}.lb>img{max-width:84vw;max-height:66vh}.lb.has-photo-sets>img{max-height:48vh}.lb-tabs,.lb-thumbs{width:84vw}.lb-tab{height:40px;font-size:10px;letter-spacing:.04em}.lb-thumb{flex-basis:58px;height:46px}.lb-x{top:70px;right:14px}.lb-nav{width:44px;height:44px;font-size:22px}}
 
 /* footer */
 .footer{background:var(--bg-alt);color:var(--ink);border-top:1px solid var(--line-strong);padding:64px 0 44px}
@@ -413,8 +413,8 @@ h1,h2{font-family:'SUIT Variable','SUIT','Pretendard Variable',Pretendard,sans-s
   <button class="lb-x" onclick="closeLb()" aria-label="닫기">×</button>
   <button class="lb-nav lb-prev" onclick="stepLb(-1)" aria-label="이전 사진">‹</button>
   <div class="lb-tabs" id="lbTabs" role="tablist" aria-label="사진 구분" hidden>
-    <button class="lb-tab active" type="button" role="tab" data-set="after" aria-selected="true">AFTER <span class="count" id="lbAfterCount"></span></button>
-    <button class="lb-tab" type="button" role="tab" data-set="before" aria-selected="false">BEFORE <span class="count" id="lbBeforeCount"></span></button>
+    <button class="lb-tab active" type="button" role="tab" data-set="before" aria-selected="true">BEFORE <span class="count" id="lbBeforeCount"></span></button>
+    <button class="lb-tab" type="button" role="tab" data-set="after" aria-selected="false">AFTER <span class="count" id="lbAfterCount"></span></button>
   </div>
   <img id="lbImg" alt="">
   <div class="lb-thumbs" id="lbThumbs" aria-label="사진 목록" hidden></div>
@@ -470,12 +470,23 @@ function partnerPhotos(vendor,project,set,n){
   }
   return arr;
 }
-function partnerProject(id,name,vendor,project,afterCount,beforeCount,coverIndex){
+function prioritizePhotos(photos,indices){
+  var selected=indices.map(function(index){return photos[index-1];}).filter(Boolean),selectedIds=new Set(selected.map(function(photo){return photo.id;}));
+  return selected.concat(photos.filter(function(photo){return !selectedIds.has(photo.id);}));
+}
+function partnerProject(id,name,vendor,project,afterCount,beforeCount,coverIndex,matchedPairs){
   var base='../assets/interior/'+vendor+'/'+project+'/',cover=base+'after/'+pad3(coverIndex||1)+'.webp';
   var item={id:id,name:name,photos:partnerPhotos(vendor,project,'after',afterCount),cover:cover,afterCover:cover};
   if(beforeCount){
     item.beforePhotos=partnerPhotos(vendor,project,'before',beforeCount);
     item.beforeCover=base+'before/001.webp';
+  }
+  if(matchedPairs&&matchedPairs.length&&item.beforePhotos){
+    item.beforePhotos=prioritizePhotos(item.beforePhotos,matchedPairs.map(function(pair){return pair[0];}));
+    item.photos=prioritizePhotos(item.photos,matchedPairs.map(function(pair){return pair[1];}));
+    item.beforeCover=item.beforePhotos[0].image;
+    item.afterCover=item.photos[0].image;
+    item.cover=item.afterCover;
   }
   return item;
 }
@@ -493,7 +504,7 @@ var PARTNERS=[
    ]},
   {id:'space-changing', short:'공간', name:'공간을바꾸는공간', tagline:'주거 공간 리모델링 — 실제 시공 현장', specialty:['아파트','주거 리모델링'], status:'active',
    projects:[
-     partnerProject('sc-gwangjang','광장 현대파크빌 10차','space-changing','gwangjang-hyundai-parkvill-10',203,29,59),
+     partnerProject('sc-gwangjang','광장 현대파크빌 10차','space-changing','gwangjang-hyundai-parkvill-10',203,29,59,[[3,127,'현관'],[19,55,'거실 전면'],[29,72,'거실 벽면'],[21,85,'주방'],[9,47,'방·서재'],[13,23,'안방'],[1,10,'욕실'],[14,33,'욕실']]),
      partnerProject('sc-wangsimni','왕십리 텐즈힐','space-changing','wangsimni-tenz-hill',244,0,140),
      partnerProject('sc-haengdang','행당 대림','space-changing','haengdang-daerim',193,0,166)
    ]},
@@ -506,10 +517,10 @@ var PARTNERS=[
    ]},
   {id:'soyu', short:'소유', name:'소유디자인', tagline:'아파트 리모델링 — 시공 전·후 기록', specialty:['아파트','BEFORE & AFTER'], status:'active',
    projects:[
-     partnerProject('sy-sangdo','상도 더샵','soyu','sangdo-the-sharp',177,30,127),
-     partnerProject('sy-seoul-forest','서울숲 그린동아','soyu','seoul-forest-green-donga',123,16,106),
-     partnerProject('sy-yongsan','용산 푸르지오 써밋','soyu','yongsan-summit',201,160,115),
-     partnerProject('sy-jegi','제기 이수브라운스톤','soyu','jegi-isu-brown',156,22,90)
+     partnerProject('sy-sangdo','상도 더샵','soyu','sangdo-the-sharp',177,30,127,[[5,64,'복도'],[6,43,'욕실'],[12,34,'방'],[15,85,'거실'],[22,31,'확장 발코니'],[26,121,'주방'],[30,19,'욕실']]),
+     partnerProject('sy-seoul-forest','서울숲 그린동아','soyu','seoul-forest-green-donga',123,16,106,[[2,31,'현관'],[4,67,'거실'],[10,79,'주방'],[13,53,'방'],[14,19,'욕실'],[15,97,'발코니']]),
+     partnerProject('sy-yongsan','용산 푸르지오 써밋','soyu','yongsan-summit',201,56,115,[[1,123,'현관'],[18,33,'서재'],[24,92,'거실'],[33,176,'주방·거실'],[38,41,'코너 방'],[14,7,'작은 욕실'],[47,67,'큰 욕실'],[31,138,'다용도실']]),
+     partnerProject('sy-jegi','제기 이수브라운스톤','soyu','jegi-isu-brown',156,22,90,[[1,43,'현관'],[3,1,'욕실'],[4,36,'방·발코니'],[5,67,'거실'],[7,93,'주방'],[13,55,'방·창가'],[18,113,'발코니']])
    ]}
 ];
 
@@ -622,7 +633,7 @@ var curPhotos=[],curSets={after:[],before:[]},curMode='after',curName='',lbI=0,l
 document.getElementById('list').addEventListener('click',function(e){
   var b=e.target.closest('.proj'); if(!b)return;
   var p=PARTNERS[+b.dataset.p], pr=p.projects[+b.dataset.j];
-  curSets={after:pr.photos||[],before:pr.beforePhotos||[]};curMode='after';curPhotos=curSets.after;curName=p.name+' · '+pr.name;prepareLbSets();openLb(0);
+  curSets={after:pr.photos||[],before:pr.beforePhotos||[]};curMode=curSets.before.length?'before':'after';curPhotos=curSets[curMode];curName=p.name+' · '+pr.name;prepareLbSets();openLb(0);
 });
 function prepareLbSets(){
   var hasBefore=curSets.before.length>0;
@@ -638,7 +649,7 @@ function renderLbThumbs(){
 }
 function setLb(){
   var photo=curPhotos[lbI];lbImg.src=photo.image;lbImg.alt=curName+' '+(curMode==='before'?'시공 전':'시공 후');lbT.textContent=curName;
-  lbS.textContent=(curSets.before.length?(curMode==='before'?'BEFORE':'AFTER')+' · ':'')+(lbI+1)+' / '+curPhotos.length;
+  lbS.textContent=(curMode==='before'?'BEFORE':'AFTER')+' · '+(lbI+1)+' / '+curPhotos.length;
   if(!lbThumbs.hidden){lbThumbs.querySelectorAll('.lb-thumb').forEach(function(thumb,i){thumb.classList.toggle('active',i===lbI);});var active=lbThumbs.querySelector('.lb-thumb.active');if(active)active.scrollIntoView({block:'nearest',inline:'nearest'});}
 }
 function openLb(i){lbI=i;lbFocus=document.activeElement;setLb();lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus();}
