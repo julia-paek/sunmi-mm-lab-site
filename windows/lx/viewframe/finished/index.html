@@ -89,12 +89,12 @@ button{font:inherit;border-radius:0}
 .fit-hotspot{position:absolute;z-index:3;width:32px;height:32px;margin:-16px 0 0 -16px;border:1px solid var(--lx);border-radius:50%;background:#F7F5EE;color:var(--green);font-size:0;cursor:pointer;box-shadow:0 0 0 7px rgba(47,82,51,.11);transition:transform .25s,background .2s,box-shadow .25s}
 .fit-hotspot::before{content:"";position:absolute;inset:10px;border-radius:50%;background:var(--lx)}
 .fit-hotspot::after{content:attr(aria-label);position:absolute;left:50%;top:42px;width:max-content;max-width:190px;padding:7px 9px;border:1px solid var(--line);background:#fff;box-shadow:5px 6px 0 rgba(47,82,51,.1);transform:translate(-50%,-4px);font-size:11px;font-weight:700;line-height:1.35;white-space:pre-line;text-align:center;color:var(--green);opacity:0;pointer-events:none}
-.fit-hotspot:hover,.fit-hotspot:focus-visible,.fit-hotspot.is-active{transform:scale(1.12);background:var(--lx);box-shadow:0 0 0 10px rgba(47,82,51,.16)}
+.fit-hotspot:hover,.fit-hotspot:focus-visible,.fit-hotspot.is-active{z-index:5;transform:scale(1.12);background:var(--lx);box-shadow:0 0 0 10px rgba(47,82,51,.16)}
 .fit-hotspot:hover::before,.fit-hotspot:focus-visible::before,.fit-hotspot.is-active::before{background:#fff}.fit-hotspot:hover::after,.fit-hotspot:focus-visible::after,.fit-hotspot.is-active::after{opacity:1;transform:translate(-50%,0)}
 .plan-wrap:has(.fit-hotspot:hover) .fit-hotspot.is-active:not(:hover)::after,.plan-wrap:has(.fit-hotspot:focus-visible) .fit-hotspot.is-active:not(:focus-visible)::after{opacity:0;transform:translate(-50%,-4px)}
-.plan-wrap:has(.fit-hotspot:hover) .fit-hotspot.is-active:not(:hover),.plan-wrap:has(.fit-hotspot:focus-visible) .fit-hotspot.is-active:not(:focus-visible){background:#F7F5EE;box-shadow:0 0 0 7px rgba(47,82,51,.11);transform:none}
+.plan-wrap:has(.fit-hotspot:hover) .fit-hotspot.is-active:not(:hover),.plan-wrap:has(.fit-hotspot:focus-visible) .fit-hotspot.is-active:not(:focus-visible){z-index:3;background:#F7F5EE;box-shadow:0 0 0 7px rgba(47,82,51,.11);transform:none}
 .plan-wrap:has(.fit-hotspot:hover) .fit-hotspot.is-active:not(:hover)::before,.plan-wrap:has(.fit-hotspot:focus-visible) .fit-hotspot.is-active:not(:focus-visible)::before{background:var(--lx)}
-.fit-hotspot[data-area="rear-expanded"]{left:9.8%;top:37.1%}.fit-hotspot[data-area="rear"]{left:25%;top:28.3%}.fit-hotspot[data-area="hung"]{left:39.3%;top:15.8%}.fit-hotspot[data-area="partition-bedroom"]{left:73%;top:34.7%}.fit-hotspot[data-area="front-right"]{left:82.3%;top:45.3%}.fit-hotspot[data-area="front-expanded"]{left:65.7%;top:55.8%}.fit-hotspot[data-area="door"]{left:50.8%;top:54.9%}.fit-hotspot[data-area="front-bottom"]{left:46%;top:66.1%}.fit-hotspot[data-area="interior-window"]{left:36.8%;top:64.1%}.fit-hotspot[data-area="partition-left"]{left:19%;top:54.8%}
+.fit-hotspot[data-area="rear-expanded"]{left:10.5%;top:40.1%}.fit-hotspot[data-area="rear"]{left:27%;top:30.7%}.fit-hotspot[data-area="hung"]{left:42.4%;top:16.9%}.fit-hotspot[data-area="partition-bedroom"]{left:78.9%;top:37.4%}.fit-hotspot[data-area="front-right"]{left:88.8%;top:49%;margin:-2px 0 0 -2px}.fit-hotspot[data-area="front-expanded"]{left:70.9%;top:60.3%}.fit-hotspot[data-area="door"]{left:55%;top:59.1%}.fit-hotspot[data-area="front-bottom"]{left:49.7%;top:71.5%}.fit-hotspot[data-area="interior-window"]{left:39.8%;top:69.2%}.fit-hotspot[data-area="partition-left"]{left:28.8%;top:40.5%}
 .fit-hotspot[data-area="rear-expanded"]::after{left:-8px;width:190px;max-width:190px;white-space:pre-line;transform:translate(0,-4px)}.fit-hotspot[data-area="rear-expanded"]:hover::after,.fit-hotspot[data-area="rear-expanded"]:focus-visible::after,.fit-hotspot[data-area="rear-expanded"].is-active::after{transform:translate(0,0)}
 .fit-hotspot[data-area="front-right"]::after{left:auto;right:-8px;width:165px;max-width:165px;white-space:pre-line;transform:translate(0,-4px)}.fit-hotspot[data-area="front-right"]:hover::after,.fit-hotspot[data-area="front-right"]:focus-visible::after,.fit-hotspot[data-area="front-right"].is-active::after{transform:translate(0,0)}
 .location-copy{display:flex;min-width:0;flex-direction:column;justify-content:center;padding:clamp(26px,3.5vw,48px)}
@@ -256,7 +256,7 @@ button{font:inherit;border-radius:0}
 
 <script src="../../../../consult.js?v=c3"></script>
 <script src="../../../../common.js?v=g62"></script>
-<script src="../../../../sitenav.js?v=g50"></script>
+<script src="../../../../sitenav.js?v=g51"></script>
 <script>
 const ASSET='../../../../assets/viewframe-finished/';
 const INTERIOR_ASSET='../../../../assets/';

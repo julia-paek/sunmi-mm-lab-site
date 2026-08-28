@@ -119,7 +119,7 @@ var st=document.createElement('style');st.textContent=css;document.head.appendCh
 var WINDOW_SECTIONS=[
   {href:site('windows/lx/'),name:'LX 하우시스',color:'#2F5233',items:[
     {href:site('windows/lx/viewframe/finished/'),name:'뷰프레임 완성창'},
-    {href:site('windows/lx/viewframe/custom/'),name:'뷰프레임 제작창'},
+    {href:site('windows/lx/viewframe/custom/'),name:'뷰프레임S 제작창'},
     {href:site('windows/lx/euro-system-9/pl/'),name:'유로시스템9 PL'},
     {href:site('windows/lx/euro-system-9/al/'),name:'유로시스템9 AL'}
   ]},
