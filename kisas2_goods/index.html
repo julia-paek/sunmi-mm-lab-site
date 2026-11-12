@@ -106,9 +106,9 @@ button,input,textarea{font:inherit;color:inherit}
   .bhead{display:none}
   .brow{grid-template-columns:repeat(5,minmax(0,1fr));row-gap:0}
   .brow>*{border-right:none;height:auto}
-  .bname{grid-column:1/4;padding:var(--tp-s-3) var(--tp-s-2) var(--tp-s-2) var(--tp-s-3)!important;border-right:none}
-  .bpct{grid-column:4/6;padding-right:var(--tp-s-3)!important}
-  .bst{padding:0 2px var(--tp-s-3)!important}
+  .bname{grid-row:1;grid-column:1/4;padding:var(--tp-s-3) var(--tp-s-2) var(--tp-s-2) var(--tp-s-3)!important;border-right:none}
+  .bpct{grid-row:1;grid-column:4/6;padding-right:var(--tp-s-3)!important}
+  .bst{grid-row:2;padding:0 2px var(--tp-s-3)!important}
   .bst .chip{height:24px;font-size:var(--tp-fs-label);padding:0}
   .bst .sn{display:block;font-size:var(--tp-fs-label);color:var(--tp-ink-70);line-height:1.2;text-align:center;white-space:nowrap}
   .bst small{display:none}
@@ -118,7 +118,7 @@ button,input,textarea{font:inherit;color:inherit}
 .todo{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:760px){.todo{grid-template-columns:1fr}}
 .todo-col{display:grid;align-content:start}
-.todo-head{display:flex;align-items:center;gap:var(--tp-s-3);padding:var(--tp-s-3) var(--tp-s-4);border-bottom:1px solid var(--tp-line)}
+.todo-head{display:flex;flex-wrap:wrap;align-items:center;gap:var(--tp-s-3);padding:var(--tp-s-3) var(--tp-s-4);border-bottom:1px solid var(--tp-line)}
 .todo-head b{font-size:var(--tp-fs-h3);font-weight:900;letter-spacing:-.02em}
 .todo-head .cnt{margin-left:auto;font:700 var(--tp-fs-label) var(--tp-font-mono);color:var(--tp-ink-70);white-space:nowrap}
 .todo ul{list-style:none;margin:0;padding:0}
@@ -138,8 +138,6 @@ button,input,textarea{font:inherit;color:inherit}
 .cb:checked{background:var(--tp-ink)}
 .cb:checked::after{content:"";width:6px;height:12px;border:solid var(--tp-sun);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
 .cb:disabled{cursor:default;opacity:.85}
-body.readonly .cb{border-style:dashed;border-color:var(--tp-ink-45);cursor:not-allowed}
-body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
 
 /* 메모 버튼 */
 .tc-btn{min-height:32px;min-width:60px;padding:0 var(--tp-s-2);border:1px solid var(--tp-line);background:var(--tp-cream);font:700 var(--tp-fs-label) var(--tp-font-mono);letter-spacing:var(--tp-ls-label);cursor:pointer;white-space:nowrap;margin-top:2px}
@@ -239,7 +237,7 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
   <div class="rail">
     <span class="sum-all">전체 <b id="sumAll">0%</b><span class="track"><i id="sumBar"></i></span></span>
     <span class="sum-chips" id="sumChips"></span>
-    <span class="sum-next"><span class="lbl">다음 </span><b id="sumNext">–</b> · 입소일 <b id="sumDday">–</b></span>
+    <span class="sum-next"><span class="lbl">다음 </span><b id="sumNext">-</b> · 입소일 <b id="sumDday">-</b></span>
   </div>
 </div>
 
@@ -249,7 +247,7 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
     <h1>KISAS 2기 굿즈 진행표</h1>
     <div class="meta">
       <span>입소일 <b>2027.01.11</b> 전원 지급 · 한양대 ERICA</span>
-      <span>함께 진행 <b>KISAS</b> · <b>3PICKS</b></span>
+      <span>함께 진행 <b>KISAS</b>, <b>3PICKS</b></span>
       <span>기준 <b>11.11 결정사항</b></span>
     </div>
     <div class="whoami">
@@ -258,7 +256,7 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
         <button type="button" data-side="KISAS" aria-pressed="false">KISAS</button>
         <button type="button" data-side="3PICKS" aria-pressed="false">3PICKS</button>
       </div>
-      <span class="status" id="status">체크와 메모를 불러오는 중입니다…</span>
+      <span class="status" id="status">체크와 메모를 불러오는 중입니다</span>
     </div>
   </header>
 
@@ -273,8 +271,8 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
   <section class="sec" aria-labelledby="h-todo">
     <div class="tp-head"><h2 id="h-todo">이번에 할 일</h2><p>품목마다 지금 단계의 일만 보여 줍니다 · 「함께」는 양쪽에 표시</p></div>
     <div class="mesh todo">
-      <div class="todo-col"><div class="todo-head"><span class="who k">KISAS</span><b>KISAS</b><span class="cnt" id="cntK"></span></div><ul id="todoK"></ul></div>
-      <div class="todo-col"><div class="todo-head"><span class="who p">3PICKS</span><b>3PICKS</b><span class="cnt" id="cntP"></span></div><ul id="todoP"></ul></div>
+      <div class="todo-col"><div class="todo-head"><span class="who k">KISAS</span><b>할 일</b><span class="cnt" id="cntK"></span></div><ul id="todoK"></ul></div>
+      <div class="todo-col"><div class="todo-head"><span class="who p">3PICKS</span><b>할 일</b><span class="cnt" id="cntP"></span></div><ul id="todoP"></ul></div>
     </div>
   </section>
 
@@ -309,18 +307,18 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
     {s:"2026-11-05",e:"2026-11-05",d:"11.05",t:"1차 미팅",x:"제안서·실물 샘플"},
     {s:"2026-11-11",e:"2026-11-11",d:"11.11",t:"품목·사양 결정",x:"KISAS 정리 전달"},
     {s:"2026-11-12",e:"2026-11-12",d:"11.12 17:00",t:"2차 미팅",x:"컬러칩·캐릭터 시안"},
-    {s:"2026-11-16",e:"2026-11-25",d:"11.16–25",t:"샘플 제작",x:"사이즈 → 로고"},
-    {s:"2026-11-26",e:"2026-11-30",d:"11.26–30",t:"샘플 확정",x:"사이즈별 수량"},
-    {s:"2026-12-01",e:"2026-12-20",d:"12.01–20",t:"본제작",x:"케어라벨·포장"},
+    {s:"2026-11-16",e:"2026-11-25",d:"11.16-25",t:"샘플 제작",x:"사이즈 → 로고"},
+    {s:"2026-11-26",e:"2026-11-30",d:"11.26-30",t:"샘플 확정",x:"사이즈별 수량"},
+    {s:"2026-12-01",e:"2026-12-20",d:"12.01-20",t:"본제작",x:"케어라벨·포장"},
     {s:"2026-12-21",e:"2026-12-31",d:"12월 말",t:"납품",x:"품목별, 한 번에"},
     {s:"2027-01-11",e:"2027-01-11",d:"01.11",t:"입소일 지급",x:"한양대 ERICA"}
   ];
-  var LOG_FIXED=[{at:"2026-11-05T11:00:00+09:00",side:"함께",text:"1차 미팅 — 제안서·실물 샘플 확인"}];
+  var LOG_FIXED=[{at:"2026-11-05T11:00:00+09:00",side:"함께",text:"1차 미팅, 제안서와 실물 샘플 확인"}];
   /* ms:true = 단계 표시용(본제작·납품 완료). 남은 일 숫자와 '이번에 할 일'에서는 빠집니다 */
   var ITEMS=[
     {id:"hood",short:"후드",name:"후드티 1-A 노이즈",qty:"200장 · 참가자 110 + 운영진·선물 90",thumb:"img/th_hood.jpg",
-     pics:[{src:"img/hood_navy.jpg",cap:"배색 시안 — 네이비 바디 + 카멜"},{src:"img/hood_camel.jpg",cap:"배색 시안 — 카멜 바디 + 네이비"}],
-     spec:[["구성","참가자용·운영진용 2종 (몸판 원단 + 패치 원단)"],["원단","샘플 옷과 같은 원단 · 기모 없음 · 바이오워싱 · 시보리·끈·패치는 원단 톤에 맞춤"],["사이즈","S·M은 아동복 기준, 세부 치수는 샘플 보고 조정"],["끈","전 사이즈"],["문구","Simplify the complex / Deepen the simple / Enjoy the profound — 3줄, 마침표 없음, 맨 아래 영문 단체명 줄은 넣지 않음"]],
+     pics:[{src:"img/hood_navy.jpg",cap:"배색 시안: 네이비 바디 + 카멜"},{src:"img/hood_camel.jpg",cap:"배색 시안: 카멜 바디 + 네이비"}],
+     spec:[["구성","참가자용·운영진용 2종 (몸판 원단 + 패치 원단)"],["원단","샘플 옷과 같은 원단 · 기모 없음 · 바이오워싱 · 시보리·끈·패치는 원단 톤에 맞춤"],["사이즈","S·M은 아동복 기준, 세부 치수는 샘플 보고 조정"],["끈","전 사이즈"],["문구","Simplify the complex / Deepen the simple / Enjoy the profound (3줄, 마침표 없음, 맨 아래 영문 단체명 줄은 넣지 않음)"]],
      tasks:[
       {id:"h0",g:0,o:"b",t:"품목·사양 결정 (원단·구성·사이즈·끈·문구)"},
       {id:"h1",g:1,o:"k",t:"원단 컬러칩 전달 (참가자용·운영진용 몸판·패치)",due:"11.12 미팅"},
@@ -337,7 +335,7 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
       {id:"h10",g:3,o:"p",t:"본제작 완료",ms:true},
       {id:"h11",g:4,o:"p",t:"납품 완료 (한 번에 전량)",ms:true}]},
     {id:"bag",short:"백팩",name:"백팩 2-A 네이비",qty:"110개",thumb:"img/th_bag.jpg",
-     pics:[{src:"img/bag_navy.jpg",cap:"네이비 백팩 원본 — 수정 시안이 오면 교체"}],
+     pics:[{src:"img/bag_navy.jpg",cap:"네이비 백팩 원본 (수정 시안이 오면 교체)"}],
      spec:[["바디","네이비, 지퍼·손잡이 색은 기본 그대로"],["인쇄","앞판 상단 문구 + 하단 오른쪽 방패 로고"],["색·가공","카멜색 · 디지털 나염"]],
      tasks:[
       {id:"b0",g:0,o:"b",t:"품목·사양 결정 (네이비·문구+방패 로고·카멜)"},
@@ -346,8 +344,8 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
       {id:"b3",g:2,o:"b",t:"샘플 확인"},
       {id:"b4",g:3,o:"p",t:"본제작 완료",ms:true},
       {id:"b5",g:4,o:"p",t:"납품 완료 (한 번에 전량)",ms:true}]},
-    {id:"keyring",short:"키링",name:"학생용 키링 — 키캡 · 비즈",qty:"키캡 110 + 비즈 110 · 참가자 1인 1세트",thumb:"img/th_keyring.jpg",
-     pics:[{src:"img/keycap.jpg",cap:"키캡 키링 — KISAS 이니셜"},{src:"img/beads.jpg",cap:"비즈 키링 참고 — 글자는 「KISAS」로"}],
+    {id:"keyring",short:"키링",name:"학생용 키링 (키캡·비즈)",qty:"키캡 110 + 비즈 110 · 참가자 1인 1세트",thumb:"img/th_keyring.jpg",
+     pics:[{src:"img/keycap.jpg",cap:"키캡 키링, KISAS 이니셜"},{src:"img/beads.jpg",cap:"비즈 키링 참고 (글자는 「KISAS」로)"}],
      spec:[["글자","두 종류 모두 「KISAS」 포함"],["원칙","키캡끼리·비즈끼리 스타일과 사양 통일"]],
      tasks:[
       {id:"k0",g:0,o:"b",t:"품목 결정 (키캡·비즈 두 종 모두)"},
@@ -357,7 +355,7 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
       {id:"k4",g:3,o:"p",t:"본제작 완료",ms:true},
       {id:"k5",g:4,o:"p",t:"납품 완료 (한 번에 전량)",ms:true}]},
     {id:"towel",short:"수건",name:"수건 세트 4-A 브라운 최고급",qty:"최대 200세트",thumb:"img/th_towel.jpg",
-     pics:[{src:"img/towel_set.jpg",cap:"수건 세트 — 네이비 자수 참고"},{src:"img/band.jpg",cap:"박스 띠지 최종 (KISAS 제작) · 70 × 300mm"}],
+     pics:[{src:"img/towel_set.jpg",cap:"수건 세트, 네이비 자수 참고"},{src:"img/band.jpg",cap:"박스 띠지 최종 (KISAS 제작) · 70 × 300mm"}],
      spec:[["자수","방패 + KISAS 심플 로고, 네이비 한 색"],["포장","크래프트 박스 + 네이비 띠지, 띠지에 홈페이지 QR"],["띠지","아트지 무광 코팅 · 70 × 300mm (앞면 220 + 밑면 80)"]],
      tasks:[
       {id:"t0",g:0,o:"b",t:"품목·사양 결정 (4-A 브라운, 최대 200세트)"},
@@ -391,6 +389,9 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
     t2:{done:true,side:"KISAS",at:"2026-11-12T11:57:00+09:00"},t3:{done:true,side:"KISAS",at:"2026-11-12T12:51:00+09:00"}};
 
   var TASK={},ALL=[];ITEMS.forEach(function(it,ii){it.tasks.forEach(function(t,ti){t.item=it;t.ord=ii*100+ti;TASK[t.id]=t;ALL.push(t)})});
+  var LS_C="kisas2-checks",LS_M="kisas2-memos",localMode=false;
+  function lsGet(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+  function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}
   var checks={},comments=[],db=null,user=null,myId=null,canWrite=null,isOwnerFlag=false,editable=false,side="KISAS",profiles={};
   var $=function(s,r){return (r||document).querySelector(s)};
   function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
@@ -408,7 +409,7 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
   paintSide();
 
   var dd=Math.round((new Date("2027-01-11T00:00:00")-new Date(TODAY+"T00:00:00"))/864e5);$("#sumDday").textContent=dd>0?"D-"+dd:(dd===0?"D-DAY":"지남");
-  var nx=TIMELINE.filter(function(m){return m.e>=TODAY})[0];$("#sumNext").textContent=nx?nx.d+" "+nx.t:"–";
+  var nx=TIMELINE.filter(function(m){return m.e>=TODAY})[0];$("#sumNext").textContent=nx?nx.d+" "+nx.t:"-";
 
   (function(){var box=$("#timeline"),marked=false;
     TIMELINE.forEach(function(m){var st,lab;if(m.e<TODAY){st="past";lab="지남"}else if(m.s<=TODAY){st="now";lab="NOW"}else{st="next";lab=marked?"예정":"NEXT";marked=true}
@@ -422,7 +423,7 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
   ITEMS.forEach(function(it){
     var row=el("div","brow");row.dataset.item=it.id;
     var nb=el("button","bname");nb.type="button";
-    if(it.thumb){var im=el("img","thumb");im.src=it.thumb;im.alt="";nb.appendChild(im)}else{nb.appendChild(el("span","thumb none","—"))}
+    if(it.thumb){var im=el("img","thumb");im.src=it.thumb;im.alt="";nb.appendChild(im)}else{nb.appendChild(el("span","thumb none","시안"))}
     nb.appendChild(el("span",null,it.name));nb.addEventListener("click",function(){openItem(it.id,true)});row.appendChild(nb);
     STAGES.forEach(function(sn,g){var c=el("div","bst");c.dataset.g=g;c.appendChild(el("span","sn",sn.replace(" 확정","")));c.appendChild(el("span","chip","대기"));c.appendChild(el("small",null,""));row.appendChild(c)});
     var pc=el("div","bpct");var tk=el("span","track");tk.appendChild(el("i"));pc.appendChild(tk);pc.appendChild(el("b",null,"0%"));row.appendChild(pc);
@@ -434,7 +435,7 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
   ITEMS.forEach(function(it){
     var det=el("details","item");det.id="item-"+it.id;
     var sm=el("summary");
-    if(it.thumb){var im=el("img","thumb");im.src=it.thumb;im.alt="";sm.appendChild(im)}else{sm.appendChild(el("span","thumb none","—"))}
+    if(it.thumb){var im=el("img","thumb");im.src=it.thumb;im.alt="";sm.appendChild(im)}else{sm.appendChild(el("span","thumb none","시안"))}
     var mid=el("div");mid.appendChild(el("h3",null,it.name));var sub=el("div","sub");sub.appendChild(el("span",null,it.qty));var sc=el("span","chip wip","");sc.dataset.cur=it.id;sub.appendChild(sc);var oc=el("span","mono");oc.dataset.open=it.id;sub.appendChild(oc);mid.appendChild(sub);sm.appendChild(mid);
     var right=el("div","right");var tk=el("span","track");tk.style.width="90px";tk.appendChild(el("i"));right.appendChild(tk);right.appendChild(el("b",null,"0%"));right.appendChild(el("span","tog"));sm.appendChild(right);
     det.appendChild(sm);
@@ -523,7 +524,7 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
   }
   function drawCmt(list,c){var box=el("div","cmt");var m=el("div","meta");
     m.appendChild(el("span","who "+whoCls(c.side),c.side||""));var nm=(c.by&&profiles[c.by]&&profiles[c.by].name)||"";if(nm)m.appendChild(el("span",null,nm));m.appendChild(el("span",null,fmt(c.at)));
-    if(editable&&((myId&&c.by===myId)||isOwnerFlag)){var del=el("button",null,"삭제");del.type="button";del.addEventListener("click",function(){removeComment(c._id,del)});m.appendChild(del)}
+    if(editable&&(localMode||(myId&&c.by===myId)||isOwnerFlag)){var del=el("button",null,"삭제");del.type="button";del.addEventListener("click",function(){removeComment(c._id,del)});m.appendChild(del)}
     box.appendChild(m);box.appendChild(el("p",null,c.text));list.appendChild(box)}
   async function renderComments(){
     var ids=[];comments.forEach(function(c){if(c.by&&ids.indexOf(c.by)<0)ids.push(c.by)});
@@ -537,26 +538,29 @@ body.readonly .tc-btn,body.readonly .cmt-form{display:none!important}
   render();
 
   function setEditable(on){editable=on;document.querySelectorAll(".cb,.cmt-form textarea,.cmt-form button,.tc-form input,.tc-form button").forEach(function(x){x.disabled=!on})}
-  async function toggle(id,on,cb){if(!db||!editable){cb.checked=!on;return}cb.disabled=true;
+  async function toggle(id,on,cb){if(localMode){var lc=lsGet(LS_C,{});lc[id]={done:on,side:side,at:new Date().toISOString()};lsSet(LS_C,lc);checks=Object.assign({},SNAPSHOT,lc);render();return}
+    if(!db||!editable){cb.checked=!on;return}cb.disabled=true;
     try{await db.doc("checks/"+id).set({done:on,side:side,by:myId,at:new Date().toISOString()})}
     catch(e){cb.checked=!on;handleWriteError(e)}finally{cb.disabled=!editable}}
-  async function addComment(item,ta,bt,task){var text=ta.value.trim();if(!db||!text||!editable)return;bt.disabled=true;
+  async function addComment(item,ta,bt,task){var text=ta.value.trim();if(!text)return;
     var doc={item:item,text:text.slice(0,2000),side:side,by:myId,at:new Date().toISOString()};if(task)doc.task=task;
+    if(localMode){doc._id="l"+Date.now();var lm=lsGet(LS_M,[]);lm.push(doc);lsSet(LS_M,lm);comments=lm;ta.value="";renderComments();return}
+    if(!db||!editable)return;bt.disabled=true;
     try{await db.collection("comments").add(doc);ta.value=""}catch(e){handleWriteError(e)}finally{bt.disabled=!editable}}
-  async function removeComment(id,btn){if(!db)return;btn.disabled=true;try{await db.doc("comments/"+id).delete()}catch(e){btn.disabled=false;handleWriteError(e)}}
+  async function removeComment(id,btn){if(localMode){var lm=lsGet(LS_M,[]).filter(function(c){return c._id!==id});lsSet(LS_M,lm);comments=lm;renderComments();return}
+    if(!db)return;btn.disabled=true;try{await db.doc("comments/"+id).delete()}catch(e){btn.disabled=false;handleWriteError(e)}}
   function handleWriteError(e){
     if(e&&e.code==="invalid_argument"){setEditable(false);setStatus("이 계정은 보기 권한이라 체크와 메모를 남길 수 없습니다.")}
     else if(e&&e.code==="quota_exceeded"){setStatus("저장 공간이 가득 찼습니다. 3PICKS에 알려 주세요.")}
     else setStatus("저장하지 못했습니다. 잠시 뒤 다시 시도해 주세요.")}
 
   async function boot(){
-    if(!window.claude||!window.claude.use){checks=SNAPSHOT;document.body.classList.add("readonly");
-      var note=el("p","ro-note","이 주소는 진행 상황을 보는 용도라 체크·메모를 남길 수 없습니다. 체크·메모는 3PICKS가 따로 보내 드린 claude.ai 진행표 링크에서 해 주세요.");var wa=$(".whoami");wa.parentNode.insertBefore(note,wa);
-      document.querySelectorAll(".cmt-list[data-item]").forEach(function(l){l.textContent="";l.appendChild(el("div","cmt-empty","코멘트는 공유 진행표에서 남길 수 있습니다."))});
-      render();setStatus(SNAPSHOT_AT+" 기준 진행 상황");return}
+    function goLocal(){localMode=true;checks=Object.assign({},SNAPSHOT,lsGet(LS_C,{}));comments=lsGet(LS_M,[]);setEditable(true);render();renderComments();
+      setStatus("체크와 메모는 이 브라우저에 저장됩니다")}
+    if(!window.claude||!window.claude.use){goLocal();return}
     try{user=await window.claude.use("user")}catch(e){user=null}
     try{db=await window.claude.use("db")}catch(e){db=null}
-    if(!db){checks=SNAPSHOT;render();setStatus("로그인하면 체크와 메모를 보고 남길 수 있습니다.");return}
+    if(!db){goLocal();return}
     if(user){try{myId=await user.id()}catch(e){}try{isOwnerFlag=await user.isOwner()}catch(e){}try{canWrite=await user.can("data.write")}catch(e){canWrite=null}
       var saved=null;try{saved=localStorage.getItem("kisas-side")}catch(e){}if(!saved&&isOwnerFlag){side="3PICKS";paintSide()}}
     if(canWrite!==false){setEditable(true);render()}
