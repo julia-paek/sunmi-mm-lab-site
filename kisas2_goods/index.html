@@ -422,7 +422,7 @@ button,input,textarea{font:inherit;color:inherit}
   var TASK={},ALL=[];ITEMS.forEach(function(it,ii){it.tasks.forEach(function(t,ti){t.item=it;t.ord=ii*100+ti;TASK[t.id]=t;ALL.push(t)})});
   var LS_C="kisas2-checks",LS_M="kisas2-memos",localMode=false;
   /* 공유 저장소 (Google Apps Script 웹앱). 비어 있으면 브라우저 저장만 사용 */
-  var SHARED_URL="__SHARED_URL__";
+  var SHARED_URL="https://script.google.com/macros/s/AKfycbyxYve-7-heTWdy9ABUbpFLMcVwg8HAT9QlFgpunT1ASJikzlXi3CEC0B2UFbLsBXnV/exec";
   var sharedMode=false,pollTimer=null,lastRev="",busy=0;
   function mineIds(){return lsGet("kisas2-mine",[])}
   function applyShared(d){if(!d||!d.ok)return;lastRev=d.rev;checks=d.checks||{};comments=(d.memos||[]).map(function(m){if(!m.task)delete m.task;return m});render();renderComments()}
