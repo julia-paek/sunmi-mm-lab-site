@@ -6,13 +6,5 @@
     "last_kind": "redeploy",
     "last_sha256": "d84e364c8f64e7db7fafd50d35e7aa052f2275504da9152bade9033efcf89b37",
     "timestamp": "2026-08-03T02:06:58.402847Z"
-  },
-  "kisas2_goods": {
-    "slug": "kisas2_goods",
-    "mode": "primary",
-    "url": "https://sunmi.works/kisas2_goods/",
-    "last_kind": "redeploy",
-    "last_sha256": "6092a42b1a9e36ae2b40b04893f882e7c049b7cf9d6677681250dfa8172a37df",
-    "timestamp": "2026-11-12T07:34:49.710188Z"
   }
 }
