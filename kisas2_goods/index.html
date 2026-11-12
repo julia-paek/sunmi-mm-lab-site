@@ -127,7 +127,10 @@ button,input,textarea{font:inherit;color:inherit}
 .todo li .it{font:700 var(--tp-fs-label) var(--tp-font-mono);color:var(--tp-grey);margin-right:var(--tp-s-2);white-space:nowrap}
 .tag-b{font:700 var(--tp-fs-label) var(--tp-font-mono);background:var(--tp-sun);padding:0 var(--tp-s-1);margin-left:var(--tp-s-2);border-radius:5px;white-space:nowrap}
 .due{font-size:var(--tp-fs-label);font-weight:700;background:var(--tp-sun);padding:0 var(--tp-s-1);margin-left:var(--tp-s-2);white-space:nowrap}
-.todo li.done label{color:var(--tp-ink-45);text-decoration:line-through}
+.todo li.done label{color:var(--tp-ink-45);text-decoration:line-through;text-decoration-thickness:1.5px}
+.todo li.done .it,.todo li.done .due,.todo li.done .tag-b{opacity:.5;text-decoration:none}
+.todo li.done .cb{opacity:.45}
+.todo li.done .tc-btn{opacity:.6}
 .todo .empty{display:block;padding:var(--tp-s-4);color:var(--tp-ink-70);font-size:var(--tp-fs-meta)}
 .todo details summary,.fold summary{padding:var(--tp-s-3) var(--tp-s-4);font:700 var(--tp-fs-label) var(--tp-font-mono);letter-spacing:var(--tp-ls-label);color:var(--tp-ink-70);cursor:pointer;min-height:var(--tp-touch-min)}
 .todo details li{padding-left:var(--tp-s-4)}
@@ -197,6 +200,7 @@ button,input,textarea{font:inherit;color:inherit}
 .task label>b{font-weight:500}
 .task .done-by{display:block;font:var(--tp-fs-label) var(--tp-font-mono);color:var(--tp-ink-70)}
 .task.is-done label>b{color:var(--tp-ink-45);text-decoration:line-through;font-weight:400}
+.task.is-done .cb{opacity:.45}.task.is-done .who{opacity:.45}
 .task.ms label>b{font-family:var(--tp-font-mono);font-size:var(--tp-fs-label);letter-spacing:var(--tp-ls-label);color:var(--tp-ink-70)}
 @media (max-width:480px){.task{grid-template-columns:auto minmax(0,1fr) auto}.task .who{grid-column:2;grid-row:1;width:auto;justify-self:start}.task label{grid-column:2}.task .tc-btn{grid-column:3;grid-row:1}}
 .tc{grid-column:1/-1;margin-left:36px;border-left:2px solid var(--tp-ink);padding:var(--tp-s-2) 0 var(--tp-s-2) var(--tp-s-3);display:grid;gap:var(--tp-s-2)}
@@ -476,20 +480,23 @@ button,input,textarea{font:inherit;color:inherit}
     var li=el("li",isDone(t.id)?"done":"");var cb=el("input","cb");cb.type="checkbox";cb.id="td-"+t.id;cb.checked=isDone(t.id);cb.disabled=!editable;
     cb.addEventListener("change",function(){toggle(t.id,cb.checked,cb)});
     var lb=el("label");lb.htmlFor=cb.id;lb.appendChild(el("span","it",t.item.short+" · "+STAGES[t.g]));lb.appendChild(document.createTextNode(t.t));
-    if(t.o==="b")lb.appendChild(el("span","tag-b","함께"));if(t.due)lb.appendChild(el("span","due",t.due));
+    if(t.o==="b")lb.appendChild(el("span","tag-b","함께"));if(t.due&&!isDone(t.id))lb.appendChild(el("span","due",t.due));
     li.appendChild(cb);li.appendChild(lb);
     var n=memoCount(t.id);var mb=el("button","tc-btn"+(n?" has":""),n?"메모 "+n:"메모");mb.type="button";mb.addEventListener("click",function(){openTask(t.id)});li.appendChild(mb);return li}
   function renderTodo(){
     [["k","K"],["p","P"]].forEach(function(x){
       var cur={};ITEMS.forEach(function(it){cur[it.id]=curStage(it)});
-      var mine=ALL.filter(function(t){return !t.ms&&(t.o===x[0]||t.o==="b")&&!isDone(t.id)});
-      var now=mine.filter(function(t){return t.g<=cur[t.item.id]}).sort(function(a,b){return a.g-b.g||a.ord-b.ord});
-      var later=mine.filter(function(t){return t.g>cur[t.item.id]}).sort(function(a,b){return a.g-b.g||a.ord-b.ord});
+      var mine=ALL.filter(function(t){return !t.ms&&(t.o===x[0]||t.o==="b")});
+      var open=mine.filter(function(t){return !isDone(t.id)});
+      /* 지금 단계까지의 일: 끝난 일도 자리에 남겨 흐리게 표시 (사양 확정 단계의 완료 건은 생략) */
+      var now=mine.filter(function(t){return t.g<=cur[t.item.id]&&!(t.g===0&&isDone(t.id))}).sort(function(a,b){return a.g-b.g||a.ord-b.ord});
+      var later=open.filter(function(t){return t.g>cur[t.item.id]}).sort(function(a,b){return a.g-b.g||a.ord-b.ord});
       var ul=$("#todo"+x[1]);ul.textContent="";
       if(!now.length)ul.appendChild(el("li","empty","지금 단계에서 남은 일이 없습니다."));
       now.forEach(function(t){ul.appendChild(todoItem(t))});
       if(later.length){var lw=el("li");lw.style.display="block";lw.style.padding="0";var dt=el("details");dt.appendChild(el("summary",null,"다음 단계 할 일 "+later.length+"개"));var lu=el("ul");later.forEach(function(t){lu.appendChild(todoItem(t))});dt.appendChild(lu);lw.appendChild(dt);ul.appendChild(lw)}
-      $("#cnt"+x[1]).textContent="지금 "+now.length+" · 전체 남은 "+mine.length;
+      var nowOpen=now.filter(function(t){return !isDone(t.id)}).length,nowDone=now.length-nowOpen;
+      $("#cnt"+x[1]).textContent="남은 "+nowOpen+" · 완료 "+nowDone;
     })}
   function render(){
     var all=0,allDone=0;
