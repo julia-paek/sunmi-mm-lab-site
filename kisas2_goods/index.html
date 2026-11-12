@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F5F0E4">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>KISAS 2기 굿즈 진행표</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* SKILL: 3picks-design v1.8.0 · MODE: cream · REFERENCES: components(tp-ticker, tp-head, tp-bignum, tp-spec, tp-timeline, tp-btn, tp-badge) · precision-qa · mobile-preserve
+   Layout: 1200px 단일 레일 · 크림 캔버스 · 1px 그리지 모눈 · 먹=완료/KISAS, 오렌지=3PICKS·행동, 옐로=진행 중·현재 */
+:root{
+  --tp-cream:#F5F0E4; --tp-ink:#000000; --tp-line:#A89F91; --tp-cell:#F5F0E4; --tp-photo:#FFFFFF;
+  --tp-pop:#FC6B38; --tp-sun:#FFFD78; --tp-grey:#767676;
+  --tp-ink-70:rgba(0,0,0,.70); --tp-ink-45:rgba(0,0,0,.45); --tp-ink-12:rgba(0,0,0,.12);
+  --tp-font-sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+  --tp-font-mono:ui-monospace,"SF Mono",Menlo,monospace;
+  --tp-fs-h1:48px; --tp-fs-h2:32px; --tp-fs-h3:22px; --tp-fs-body:16px; --tp-fs-meta:14px; --tp-fs-label:13px;
+  --tp-ls-label:.07em; --tp-ls-eyebrow:.14em;
+  --tp-max:1200px; --tp-border:1px; --tp-gutter:clamp(16px,2.4vw,32px); --tp-touch-min:44px; --tp-touch:var(--tp-touch-min); --tp-control-h:48px;
+  --tp-s-1:4px; --tp-s-2:8px; --tp-s-3:12px; --tp-s-4:16px; --tp-s-5:24px; --tp-s-6:40px; --tp-s-7:64px;
+  --tp-dur:240ms; --tp-ease:cubic-bezier(.22,.61,.36,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--tp-cream);color:var(--tp-ink);font-family:var(--tp-font-sans);font-size:var(--tp-fs-body);line-height:1.6;
+  word-break:keep-all;line-break:strict;overflow-wrap:break-word}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--tp-ink)}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--tp-ink);outline-offset:2px}
+.mono{font-family:var(--tp-font-mono);font-size:var(--tp-fs-label);letter-spacing:var(--tp-ls-label)}
+.eyebrow{font-family:var(--tp-font-mono);font-size:var(--tp-fs-label);letter-spacing:var(--tp-ls-eyebrow);text-transform:uppercase;color:var(--tp-grey)}
+.num{font-variant-numeric:tabular-nums}
+.rail{max-width:var(--tp-max);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.rail>*,.mesh>*{min-width:0}
+.mesh{display:grid;gap:1px;background:var(--tp-line);border:1px solid var(--tp-line)}
+.mesh>*{background:var(--tp-cell)}
+
+/* 티커 — 페이지당 1회, 실제 일정만 */
+.tp-ticker{background:var(--tp-pop);color:var(--tp-ink);overflow:hidden;height:34px;display:flex;align-items:center;border-bottom:1px solid var(--tp-ink)}
+.tp-ticker-track{display:inline-block;white-space:nowrap;font-family:var(--tp-font-mono);font-size:var(--tp-fs-label);letter-spacing:var(--tp-ls-label);font-weight:700;animation:tp-marquee 32s linear infinite}
+@keyframes tp-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* 한 줄 요약 — 스티키 먹 반전 */
+.sumbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--tp-ink);color:var(--tp-cream)}
+.sumbar .rail{min-height:48px;display:flex;align-items:center;gap:var(--tp-s-2) var(--tp-s-5);flex-wrap:wrap;padding-block:var(--tp-s-2)}
+.sum-all{display:flex;align-items:center;gap:var(--tp-s-3);font-weight:700;font-size:var(--tp-fs-meta)}
+.sum-all b{font:700 20px var(--tp-font-mono);color:var(--tp-sun)}
+.sum-track{width:120px;height:8px;background:rgba(245,240,228,.25)}
+.sum-track i{display:block;height:100%;background:var(--tp-sun);width:0;transition:width var(--tp-dur) var(--tp-ease)}
+.sum-chips{display:flex;flex-wrap:wrap;gap:var(--tp-s-1) var(--tp-s-4);font-size:var(--tp-fs-label)}
+.sum-chips span b{font-family:var(--tp-font-mono);margin-left:var(--tp-s-1);color:var(--tp-sun)}
+.sum-next{margin-left:auto;display:flex;gap:var(--tp-s-4);flex-wrap:wrap;font-size:var(--tp-fs-label)}
+.sum-next b{color:var(--tp-pop)}
+@media (max-width:760px){.sum-next{margin-left:0}}
+
+/* 헤더 + 빅넘버 */
+.hero{padding-block:var(--tp-s-6) var(--tp-s-5);display:grid;gap:var(--tp-s-4)}
+.hero h1{font-size:clamp(34px,6vw,64px);font-weight:900;line-height:1.04;letter-spacing:-.03em}
+.hero .meta{display:flex;flex-wrap:wrap;gap:var(--tp-s-1) var(--tp-s-5);font-size:var(--tp-fs-meta);color:var(--tp-ink-70)}
+.hero .meta b{color:var(--tp-ink)}
+.bignums{grid-template-columns:repeat(4,minmax(0,1fr))}
+.bignum{padding:var(--tp-s-4) var(--tp-s-4) var(--tp-s-5);display:grid;gap:var(--tp-s-1)}
+.bignum .v{font:900 clamp(32px,5vw,56px)/1 var(--tp-font-sans);letter-spacing:-.03em}
+.bignum .v small{font-size:var(--tp-fs-meta);font-weight:500;color:var(--tp-ink-70);margin-left:var(--tp-s-1);letter-spacing:0}
+.bignum .bar{height:8px;background:var(--tp-ink-12);margin-top:var(--tp-s-2)}
+.bignum .bar i{display:block;height:100%;background:var(--tp-ink);width:0;transition:width var(--tp-dur) var(--tp-ease)}
+@media (max-width:760px){.bignums{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.whoami{display:flex;flex-wrap:wrap;align-items:center;gap:var(--tp-s-3);font-size:var(--tp-fs-meta)}
+.seg{display:inline-flex;border:1px solid var(--tp-line)}
+.seg button{min-height:var(--tp-touch);min-width:88px;border:none;background:var(--tp-cream);padding:0 var(--tp-s-4);cursor:pointer;font-weight:700;font-size:var(--tp-fs-meta);letter-spacing:var(--tp-ls-label)}
+.seg button+button{border-left:1px solid var(--tp-line)}
+.seg button[aria-pressed="true"][data-side="3PICKS"]{background:var(--tp-pop)}
+.seg button[aria-pressed="true"][data-side="KISAS"]{background:var(--tp-ink);color:var(--tp-cream)}
+.status{font-size:var(--tp-fs-label);color:var(--tp-ink-70)}
+
+/* 섹션 헤드 */
+.sec{padding-block:var(--tp-s-6) 0}
+.tp-head{border-top:1px solid var(--tp-ink);padding-top:var(--tp-s-4);margin-bottom:var(--tp-s-4);display:flex;justify-content:space-between;align-items:flex-end;gap:var(--tp-s-2) var(--tp-s-5);flex-wrap:wrap}
+.tp-head h2{font-size:var(--tp-fs-h2);font-weight:900;letter-spacing:-.02em;line-height:1.16;margin-top:var(--tp-s-2)}
+.tp-head p{font-size:var(--tp-fs-meta);color:var(--tp-ink-70)}
+
+/* 담당 칩 — KISAS 먹 / 3PICKS 오렌지 / 함께 옐로 */
+.who{display:inline-grid;place-content:center;min-width:64px;height:26px;padding:0 var(--tp-s-2);font:700 var(--tp-fs-label)/1 var(--tp-font-mono);letter-spacing:var(--tp-ls-label);border:1px solid var(--tp-ink);border-radius:5px;white-space:nowrap}
+.who.k{background:var(--tp-ink);color:var(--tp-cream)} .who.p{background:var(--tp-pop);color:var(--tp-ink)} .who.b{background:var(--tp-sun);color:var(--tp-ink)}
+
+/* 진행 현황판 */
+.board-wrap{overflow-x:auto;border:1px solid var(--tp-line)}
+.board{width:100%;min-width:760px;border-collapse:collapse;background:var(--tp-cell)}
+.board th,.board td{border-bottom:1px solid var(--tp-line);border-right:1px solid var(--tp-line);padding:var(--tp-s-3) var(--tp-s-2);text-align:center;vertical-align:middle}
+.board th:last-child,.board td:last-child{border-right:none}
+.board tbody tr:last-child td{border-bottom:none}
+.board thead th{font-family:var(--tp-font-mono);font-size:var(--tp-fs-label);letter-spacing:var(--tp-ls-label);font-weight:700;color:var(--tp-ink-70)}
+.board .name{text-align:left;padding-left:var(--tp-s-3);width:250px}
+.board .name a{display:flex;align-items:center;gap:var(--tp-s-3);color:inherit;text-decoration:none;font-weight:700;font-size:var(--tp-fs-meta);min-height:var(--tp-touch)}
+.board .name a:hover span{text-decoration:underline}
+.thumb{width:48px;height:48px;flex:0 0 48px;object-fit:contain;background:var(--tp-photo);border:1px solid var(--tp-line)}
+.thumb.none{display:grid;place-content:center;background:var(--tp-cream);font:700 var(--tp-fs-label) var(--tp-font-mono);color:var(--tp-grey)}
+.st{display:grid;gap:var(--tp-s-1);justify-items:center}
+.chip{display:grid;place-content:center;width:100%;max-width:96px;height:28px;font:700 var(--tp-fs-label)/1 var(--tp-font-mono);letter-spacing:var(--tp-ls-label);border:1px solid var(--tp-line);color:var(--tp-grey);background:var(--tp-cream)}
+.chip.done{background:var(--tp-ink);border-color:var(--tp-ink);color:var(--tp-cream)}
+.chip.wip{background:var(--tp-sun);border-color:var(--tp-ink);color:var(--tp-ink)}
+.st small{font:var(--tp-fs-label) var(--tp-font-mono);color:var(--tp-ink-70)}
+.pct{display:grid;gap:var(--tp-s-1);min-width:120px;padding-inline:var(--tp-s-2)}
+.pct b{font:900 20px var(--tp-font-mono);text-align:right}
+.track{height:8px;background:var(--tp-ink-12)} .track i{display:block;height:100%;background:var(--tp-ink);width:0;transition:width var(--tp-dur) var(--tp-ease)}
+.legend{display:flex;gap:var(--tp-s-2) var(--tp-s-5);flex-wrap:wrap;font-size:var(--tp-fs-label);color:var(--tp-ink-70);margin-top:var(--tp-s-3);align-items:center}
+.legend .chip{width:56px;height:22px;display:inline-grid}
+
+/* 전체 할 일 — 2칸 */
+.todo{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){.todo{grid-template-columns:1fr}}
+.todo-col{display:grid;align-content:start}
+.todo-head{display:flex;align-items:center;gap:var(--tp-s-3);padding:var(--tp-s-3) var(--tp-s-4);border-bottom:1px solid var(--tp-line)}
+.todo-head b{font-size:var(--tp-fs-h3);font-weight:900;letter-spacing:-.02em}
+.todo-head .cnt{margin-left:auto;font:700 var(--tp-fs-label) var(--tp-font-mono);color:var(--tp-ink-70)}
+.todo ul{list-style:none;margin:0;padding:0}
+.todo li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--tp-s-3);align-items:start;padding:var(--tp-s-2) var(--tp-s-4);border-bottom:1px solid var(--tp-ink-12);min-height:var(--tp-touch)}
+.todo li label{cursor:pointer;font-size:var(--tp-fs-meta);padding-top:var(--tp-s-1)}
+.todo li .it{font:700 var(--tp-fs-label) var(--tp-font-mono);color:var(--tp-grey);margin-right:var(--tp-s-2);white-space:nowrap}
+.todo li .both{font:700 var(--tp-fs-label) var(--tp-font-mono);background:var(--tp-sun);padding:0 var(--tp-s-1);margin-left:var(--tp-s-2);border-radius:5px}
+.todo li .due{font-size:var(--tp-fs-label);font-weight:700;color:var(--tp-ink);background:var(--tp-sun);padding:0 var(--tp-s-1);margin-left:var(--tp-s-2)}
+.todo li.done label{color:var(--tp-ink-45);text-decoration:line-through}
+.todo .empty{padding:var(--tp-s-4);color:var(--tp-ink-70);font-size:var(--tp-fs-meta)}
+.todo details summary{padding:var(--tp-s-3) var(--tp-s-4);font:700 var(--tp-fs-label) var(--tp-font-mono);letter-spacing:var(--tp-ls-label);color:var(--tp-ink-70);cursor:pointer;min-height:var(--tp-touch)}
+
+/* 체크박스 공통 (44px 터치 영역) */
+.cb{appearance:none;flex:0 0 auto;width:24px;height:24px;margin:var(--tp-s-1) 0;border:1.5px solid var(--tp-ink);background:var(--tp-cream);cursor:pointer;display:grid;place-content:center;position:relative}
+.cb::before{content:"";position:absolute;inset:-10px}
+.cb:checked{background:var(--tp-ink)}
+.cb:checked::after{content:"";width:6px;height:12px;border:solid var(--tp-sun);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.cb:disabled{cursor:default;opacity:.85}
+
+/* 일정 — 스텝 레일 */
+.steps{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+.step{padding:var(--tp-s-4);display:grid;gap:var(--tp-s-1);align-content:start;position:relative}
+.step .d{font:700 var(--tp-fs-label) var(--tp-font-mono);letter-spacing:var(--tp-ls-label)}
+.step .t{font-size:var(--tp-fs-h3);font-weight:900;letter-spacing:-.02em;line-height:1.2}
+.step .x{font-size:var(--tp-fs-meta);color:var(--tp-ink-70)}
+.step.past{color:var(--tp-ink-45)} .step.past .x{color:var(--tp-ink-45)}
+.step.now{background:var(--tp-sun)}
+.step .tag{justify-self:start;font:700 var(--tp-fs-label) var(--tp-font-mono);letter-spacing:var(--tp-ls-label);padding:2px var(--tp-s-2);border:1px solid currentColor;border-radius:5px;margin-bottom:var(--tp-s-1)}
+
+/* 진행 기록 */
+.log{list-style:none;margin:0;padding:0;border:1px solid var(--tp-line);border-bottom:none}
+.log li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--tp-s-3);align-items:center;padding:var(--tp-s-3) var(--tp-s-4);border-bottom:1px solid var(--tp-line);font-size:var(--tp-fs-meta)}
+.log .d{font:var(--tp-fs-label) var(--tp-font-mono);color:var(--tp-ink-70)}
+.log .who{margin-right:var(--tp-s-2);min-width:56px;height:22px}
+.log .empty{display:block;color:var(--tp-ink-70)}
+@media (max-width:480px){.log li{grid-template-columns:1fr;gap:var(--tp-s-1)}}
+
+/* 품목 카드 */
+.items{display:grid;gap:var(--tp-s-6)}
+.item{grid-template-columns:minmax(0,400px) minmax(0,1fr);scroll-margin-top:64px}
+@media (max-width:860px){.item{grid-template-columns:1fr}}
+.pics{display:grid;gap:1px;background:var(--tp-line);align-content:start;align-self:start;position:sticky;top:64px}
+.pics.two{grid-template-columns:1fr 1fr}
+@media (max-width:860px){.pics{position:static}}
+.pics figure{margin:0;background:var(--tp-cream);display:grid}
+.pics img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;background:var(--tp-photo)}
+.pics figcaption{font-size:var(--tp-fs-label);color:var(--tp-ink-70);padding:var(--tp-s-2) var(--tp-s-3);border-top:1px solid var(--tp-line)}
+.pics .empty{aspect-ratio:1/1;display:grid;place-content:center;text-align:center;gap:var(--tp-s-2);padding:var(--tp-s-5);background:var(--tp-cream);font-size:var(--tp-fs-meta);color:var(--tp-ink-70)}
+.pics .empty b{font:700 var(--tp-fs-label) var(--tp-font-mono);letter-spacing:var(--tp-ls-eyebrow);color:var(--tp-ink)}
+.ibody{padding:var(--tp-s-5);display:grid;gap:var(--tp-s-5);align-content:start}
+.ihead{display:grid;gap:var(--tp-s-2)}
+.ihead .row{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--tp-s-1) var(--tp-s-3)}
+.ihead h3{font-size:28px;font-weight:900;letter-spacing:-.03em;line-height:1.15}
+.ihead .qty{font:var(--tp-fs-label) var(--tp-font-mono);color:var(--tp-ink-70)}
+.ihead .ip{display:flex;align-items:center;gap:var(--tp-s-3)}
+.ihead .ip b{font:900 20px var(--tp-font-mono)}
+.ihead .ip .track{flex:1;max-width:240px}
+.spec{width:100%;border-collapse:collapse;font-size:var(--tp-fs-meta);border-top:1px solid var(--tp-line)}
+.spec th,.spec td{border-bottom:1px solid var(--tp-line);padding:var(--tp-s-2) 0;text-align:left;vertical-align:top}
+.spec th{width:76px;font:700 var(--tp-fs-label) var(--tp-font-mono);letter-spacing:var(--tp-ls-label);color:var(--tp-ink-70);padding-top:10px}
+.grp{display:grid}
+.grp-h{display:flex;align-items:center;gap:var(--tp-s-2);padding:var(--tp-s-2) 0;border-bottom:1px solid var(--tp-ink)}
+.grp-h span{font:700 var(--tp-fs-label) var(--tp-font-mono);letter-spacing:var(--tp-ls-eyebrow)}
+.grp-h .chip{width:auto;height:22px;padding:0 var(--tp-s-2);max-width:none}
+.tasks{list-style:none;margin:0;padding:0}
+.task{display:grid;grid-template-columns:auto 70px minmax(0,1fr);gap:var(--tp-s-3);align-items:start;padding:var(--tp-s-2) 0;border-bottom:1px solid var(--tp-ink-12);min-height:var(--tp-touch)}
+.task .who{margin-top:3px;min-width:0;width:70px}
+.task label{cursor:pointer;font-size:var(--tp-fs-meta);padding-top:var(--tp-s-1)}
+.task .due{font-size:var(--tp-fs-label);font-weight:700;background:var(--tp-sun);padding:0 var(--tp-s-1);margin-left:var(--tp-s-2)}
+.task .done-by{display:block;font:var(--tp-fs-label) var(--tp-font-mono);color:var(--tp-ink-70)}
+.task.is-done label>b{color:var(--tp-ink-45);text-decoration:line-through;font-weight:400}
+.task label>b{font-weight:500}
+
+/* 코멘트 */
+.cmts{display:grid;gap:var(--tp-s-3);border:1px solid var(--tp-line);padding:var(--tp-s-4);background:var(--tp-cream)}
+.cmts-h{font:700 var(--tp-fs-label) var(--tp-font-mono);letter-spacing:var(--tp-ls-eyebrow);text-transform:uppercase}
+.cmt-list{display:grid;gap:var(--tp-s-2)}
+.cmt{display:grid;gap:var(--tp-s-1);border-top:1px solid var(--tp-line);padding-top:var(--tp-s-2);font-size:var(--tp-fs-meta)}
+.cmt .meta{display:flex;flex-wrap:wrap;gap:var(--tp-s-2);align-items:center;font-size:var(--tp-fs-label);color:var(--tp-ink-70)}
+.cmt .meta .who{height:22px;min-width:56px}
+.cmt .meta button{margin-left:auto;min-height:32px;border:none;background:none;color:var(--tp-ink-70);cursor:pointer;font-size:var(--tp-fs-label);text-decoration:underline}
+.cmt p{white-space:pre-wrap;overflow-wrap:anywhere}
+.cmt-empty{font-size:var(--tp-fs-meta);color:var(--tp-ink-70)}
+.cmt-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--tp-s-2)}
+.cmt-form textarea{min-height:var(--tp-control-h);resize:vertical;border:1px solid var(--tp-line);background:var(--tp-photo);padding:var(--tp-s-3);font-size:var(--tp-fs-body);border-radius:0}
+.tp-btn{min-height:var(--tp-control-h);min-width:96px;padding:0 var(--tp-s-5);border:1px solid var(--tp-line);border-radius:0;background:var(--tp-pop);color:var(--tp-ink);font-weight:700;font-size:15px;letter-spacing:var(--tp-ls-label);cursor:pointer;transition:opacity var(--tp-dur) var(--tp-ease)}
+.tp-btn:hover{opacity:.86} .tp-btn:disabled{opacity:.4;cursor:default}
+@media (max-width:480px){.cmt-form{grid-template-columns:1fr}}
+
+.foot{margin-top:var(--tp-s-7);background:var(--tp-ink);color:var(--tp-cream)}
+.foot .rail{padding-block:var(--tp-s-6);display:grid;gap:var(--tp-s-2);font-size:var(--tp-fs-label)}
+.foot b{font:900 22px var(--tp-font-sans);letter-spacing:-.02em}
+@media (prefers-reduced-motion:reduce){.tp-ticker-track{animation:none}*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="tp-ticker" aria-hidden="true"><div class="tp-ticker-track" id="tickerTrack"></div></div>
+
+<div class="sumbar" role="status" aria-label="전체 진행 요약">
+  <div class="rail">
+    <span class="sum-all">전체 <b id="sumAll" class="num">0%</b><span class="sum-track"><i id="sumBar"></i></span></span>
+    <span class="sum-chips" id="sumChips"></span>
+    <span class="sum-next"><span>다음 <b id="sumNext">–</b></span><span>입소일 <b id="sumDday">–</b></span></span>
+  </div>
+</div>
+
+<main class="rail">
+  <header class="hero">
+    <div class="eyebrow">3PICKS × KISAS · Winter camp goods</div>
+    <h1>KISAS 2기 굿즈 진행표</h1>
+    <div class="meta">
+      <span>입소일 <b>2027.01.11</b> 전원 지급 · 한양대 ERICA</span>
+      <span>함께 진행 <b>KISAS</b> · <b>3PICKS</b></span>
+      <span>기준 <b>11.11 결정사항</b></span>
+    </div>
+    <div class="mesh bignums">
+      <div class="bignum"><span class="eyebrow">전체 완료율</span><span class="v num" id="bnAll">0%</span><div class="bar"><i id="bnBar"></i></div></div>
+      <div class="bignum"><span class="eyebrow">입소일까지</span><span class="v num" id="bnDday">–</span></div>
+      <div class="bignum"><span class="eyebrow">KISAS 남은 일</span><span class="v num"><span id="bnK">–</span><small>개</small></span></div>
+      <div class="bignum"><span class="eyebrow">3PICKS 남은 일</span><span class="v num"><span id="bnP">–</span><small>개</small></span></div>
+    </div>
+    <div class="whoami">
+      <span>나는</span>
+      <div class="seg" role="group" aria-label="내 소속">
+        <button type="button" data-side="KISAS" aria-pressed="false">KISAS</button>
+        <button type="button" data-side="3PICKS" aria-pressed="false">3PICKS</button>
+      </div>
+      <span class="status" id="status">체크와 코멘트를 불러오는 중입니다…</span>
+    </div>
+  </header>
+
+  <section class="sec" aria-labelledby="h-board">
+    <div class="tp-head"><div><div class="eyebrow">Progress</div><h2 id="h-board">진행 현황</h2></div><p>할 일을 체크하면 단계와 완료율이 바로 바뀝니다</p></div>
+    <div class="board-wrap">
+      <table class="board">
+        <thead><tr><th class="name">품목</th><th>사양 확정</th><th>시안</th><th>샘플</th><th>본제작</th><th>납품</th><th>완료율</th></tr></thead>
+        <tbody id="board"></tbody>
+      </table>
+    </div>
+    <div class="legend"><span class="chip done">완료</span><span class="chip wip">진행</span><span class="chip">대기</span><span>칸 아래 숫자 = 끝난 일 / 전체 일</span><span>목도리는 진행하지 않음 (11.11 결정)</span></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-todo">
+    <div class="tp-head"><div><div class="eyebrow">To do</div><h2 id="h-todo">전체 할 일</h2></div><p>남은 일을 단계 순서로 보여 줍니다 · 「함께」는 양쪽에 모두 표시</p></div>
+    <div class="mesh todo">
+      <div class="todo-col"><div class="todo-head"><span class="who k">KISAS</span><b>KISAS 할 일</b><span class="cnt" id="cntK"></span></div><ul id="todoK"></ul><details><summary id="doneK">완료</summary><ul id="todoKDone"></ul></details></div>
+      <div class="todo-col"><div class="todo-head"><span class="who p">3PICKS</span><b>3PICKS 할 일</b><span class="cnt" id="cntP"></span></div><ul id="todoP"></ul><details><summary id="doneP">완료</summary><ul id="todoPDone"></ul></details></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-time">
+    <div class="tp-head"><div><div class="eyebrow">Schedule</div><h2 id="h-time">전체 일정</h2></div><p>샘플·본제작 날짜는 예정이며 미팅에서 확정합니다</p></div>
+    <div class="mesh steps" id="timeline"></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-log">
+    <div class="tp-head"><div><div class="eyebrow">Log</div><h2 id="h-log">진행 기록</h2></div><p>최근 순 · 체크와 코멘트가 자동으로 쌓입니다</p></div>
+    <ol class="log" id="log"><li><span class="empty">기록을 불러오는 중입니다…</span></li></ol>
+  </section>
+
+  <section class="sec" aria-labelledby="h-items">
+    <div class="tp-head"><div><div class="eyebrow">Items</div><h2 id="h-items">품목별 할 일</h2></div><p>끝난 일은 체크하고, 카드 아래에 코멘트를 남겨 주세요</p></div>
+    <div class="items" id="items"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="rail">
+    <b>3PICKS × KISAS</b>
+    <span>체크와 코멘트는 이 페이지를 보는 모든 사람에게 바로 보입니다.</span>
+    <span>사진은 참고용입니다. 후드 시안의 가슴 문구는 이전 안이며, 확정 문구는 3줄 문구입니다.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var STAGES=["사양 확정","시안","샘플","본제작","납품"];
+  var TIMELINE=[
+    {s:"2026-11-05",e:"2026-11-05",d:"11.05 목",t:"1차 미팅",x:"제안서·실물 샘플 확인"},
+    {s:"2026-11-11",e:"2026-11-11",d:"11.11 수",t:"품목·사양 결정",x:"KISAS 진행사항 정리 전달"},
+    {s:"2026-11-12",e:"2026-11-12",d:"11.12 목 17:00",t:"2차 미팅",x:"원단 컬러칩·캐릭터 시안 공유"},
+    {s:"2026-11-16",e:"2026-11-25",d:"11.16 – 11.25",t:"샘플 제작",x:"후드는 사이즈 샘플 → 로고 샘플"},
+    {s:"2026-11-26",e:"2026-11-30",d:"11.26 – 11.30",t:"샘플 수정·확정",x:"사이즈별 수량 확정"},
+    {s:"2026-12-01",e:"2026-12-20",d:"12.01 – 12.20",t:"본제작",x:"케어라벨·개별 포장 포함"},
+    {s:"2026-12-21",e:"2026-12-31",d:"12월 말",t:"납품",x:"품목별로 따로, 한 품목은 한 번에"},
+    {s:"2027-01-11",e:"2027-01-11",d:"2027.01.11",t:"입소일 전원 지급",x:"한양대 ERICA"}
+  ];
+  var LOG_FIXED=[{at:"2026-11-05T11:00:00+09:00",side:"함께",text:"1차 미팅 — 제안서·실물 샘플 확인"}];
+  var ITEMS=[
+    {id:"hood",short:"후드",name:"후드티 1-A 노이즈",qty:"200장 · 참가자 110 + 운영진·선물 90",thumb:"img/th_hood.jpg",
+     pics:[{src:"img/hood_navy.jpg",cap:"배색 시안 — 네이비 바디 + 카멜"},{src:"img/hood_camel.jpg",cap:"배색 시안 — 카멜 바디 + 네이비"}],
+     spec:[["구성","참가자용·운영진용 2종 (몸판 원단 + 패치 원단)"],["원단","샘플 옷과 같은 원단 · 기모 없음 · 바이오워싱 · 시보리·끈·패치는 원단 톤에 맞춤"],["사이즈","S·M은 아동복 기준, 세부 치수는 샘플 보고 조정"],["끈","전 사이즈"],["문구","Simplify the complex / Deepen the simple / Enjoy the profound — 3줄, 마침표 없음, 맨 아래 영문 단체명 줄은 넣지 않음"]],
+     tasks:[
+      {id:"h0",g:0,o:"b",t:"품목·사양 결정 (원단·구성·사이즈·끈·문구)"},
+      {id:"h1",g:1,o:"k",t:"원단 컬러칩 전달 (참가자용·운영진용 몸판·패치)",due:"11.12 미팅"},
+      {id:"h12",g:1,o:"p",t:"컬러칩을 보고 제작 관점 의견 회신"},
+      {id:"h2",g:1,o:"p",t:"사이즈별 로고·문구 크기 조절 가능 여부 회신",due:"11.12 미팅"},
+      {id:"h3",g:1,o:"p",t:"가슴 문구 서체·크기·배치 제안"},
+      {id:"h4",g:2,o:"b",t:"패치 붙일 샘플 사이즈 정하기"},
+      {id:"h5",g:2,o:"p",t:"샘플 비용 견적 전달"},
+      {id:"h6",g:2,o:"p",t:"샘플 4벌 제작 (S·M·XL·2XL, L은 기존 패턴)"},
+      {id:"h13",g:2,o:"b",t:"S 샘플에서 글자 간격이 좁아지는지 확인"},
+      {id:"h7",g:2,o:"b",t:"샘플 확인·사이즈 확정"},
+      {id:"h8",g:3,o:"k",t:"사이즈별 수량 전달"},
+      {id:"h9",g:3,o:"b",t:"케어라벨 문구·개별 포장 조율"},
+      {id:"h10",g:3,o:"p",t:"본제작"},
+      {id:"h11",g:4,o:"p",t:"납품 (한 번에 전량)"}]},
+    {id:"bag",short:"백팩",name:"백팩 2-A 네이비",qty:"110개",thumb:"img/th_bag.jpg",
+     pics:[{src:"img/bag_navy.jpg",cap:"네이비 백팩 원본 — 수정 시안이 오면 교체"}],
+     spec:[["바디","네이비, 지퍼·손잡이 색은 기본 그대로"],["인쇄","앞판 상단 문구 + 하단 오른쪽 방패 로고"],["색·가공","카멜색 · 디지털 나염"]],
+     tasks:[
+      {id:"b0",g:0,o:"b",t:"품목·사양 결정 (네이비·문구+방패 로고·카멜)"},
+      {id:"b1",g:1,o:"k",t:"수정 시안 전달 (상단 문구·배치)"},
+      {id:"b2",g:1,o:"p",t:"시안 제작 가능 여부 검토·회신"},
+      {id:"b3",g:2,o:"b",t:"샘플 확인"},
+      {id:"b4",g:3,o:"p",t:"본제작"},
+      {id:"b5",g:4,o:"p",t:"납품 (한 번에 전량)"}]},
+    {id:"keyring",short:"키링",name:"학생용 키링 — 키캡 · 비즈",qty:"키캡 110 + 비즈 110 · 참가자 1인 1세트",thumb:"img/th_keyring.jpg",
+     pics:[{src:"img/keycap.jpg",cap:"키캡 키링 — KISAS 이니셜"},{src:"img/beads.jpg",cap:"비즈 키링 참고 — 글자는 「KISAS」로"}],
+     spec:[["글자","두 종류 모두 「KISAS」 포함"],["원칙","키캡끼리·비즈끼리 스타일과 사양 통일"]],
+     tasks:[
+      {id:"k0",g:0,o:"b",t:"품목 결정 (키캡·비즈 두 종 모두)"},
+      {id:"k1",g:1,o:"p",t:"키캡·비즈 디자인과 색 제안"},
+      {id:"k2",g:1,o:"k",t:"디자인 확정"},
+      {id:"k3",g:2,o:"b",t:"샘플 확인"},
+      {id:"k4",g:3,o:"p",t:"본제작"},
+      {id:"k5",g:4,o:"p",t:"납품 (한 번에 전량)"}]},
+    {id:"towel",short:"수건",name:"수건 세트 4-A 브라운 최고급",qty:"최대 200세트",thumb:"img/th_towel.jpg",
+     pics:[{src:"img/towel_set.jpg",cap:"수건 세트 — 네이비 자수 참고"},{src:"img/band.jpg",cap:"박스 띠지 최종 (KISAS 제작) · 70 × 300mm"}],
+     spec:[["자수","방패 + KISAS 심플 로고, 네이비 한 색"],["포장","크래프트 박스 + 네이비 띠지, 띠지에 홈페이지 QR"],["띠지","아트지 무광 코팅 · 70 × 300mm (앞면 220 + 밑면 80)"]],
+     tasks:[
+      {id:"t0",g:0,o:"b",t:"품목·사양 결정 (4-A 브라운, 최대 200세트)"},
+      {id:"t1",g:1,o:"k",t:"수건 자수용 로고 전달"},
+      {id:"t2",g:1,o:"k",t:"박스 띠지 로고·홈페이지 QR 전달"},
+      {id:"t3",g:1,o:"k",t:"띠지 인쇄용 최종 파일·치수 안내 전달"},
+      {id:"t4",g:2,o:"p",t:"자수 실 색을 실 견본으로 맞추기"},
+      {id:"t5",g:2,o:"b",t:"띠지 인쇄 샘플·QR 인식 확인"},
+      {id:"t9",g:3,o:"p",t:"3PICKS 배포(홍보) 가능 수량 회신"},
+      {id:"t6",g:3,o:"b",t:"최종 수량 확정 (200세트 안에서)"},
+      {id:"t7",g:3,o:"p",t:"본제작 (자수·띠지 인쇄·포장)"},
+      {id:"t8",g:4,o:"p",t:"납품 (한 번에 전량)"}]},
+    {id:"strap",short:"가죽 키링",name:"캐릭터 가죽 키링",qty:"30개 · 선물용",thumb:null,
+     pics:[],
+     spec:[["내용","캐릭터 얼굴 가죽 스트랩 (선물용)"],["기준","레퍼런스(루이비통 Louis Bear 스트랩) 같은 느낌과 완성도 우선, 천연가죽 아니어도 됨"],["일정","참가자 굿즈와 별개로 먼저 진행 가능"]],
+     tasks:[
+      {id:"s0",g:0,o:"b",t:"방향 결정 (캐릭터 가죽 스트랩 30개)"},
+      {id:"s1",g:1,o:"k",t:"캐릭터 시안 전달",due:"11.12 미팅"},
+      {id:"s2",g:1,o:"p",t:"제작 가능 여부 · 단가 · 기간 · 도안 마감일 회신"},
+      {id:"s3",g:1,o:"k",t:"진행 확정"},
+      {id:"s4",g:2,o:"b",t:"샘플 확인"},
+      {id:"s5",g:3,o:"p",t:"본제작"},
+      {id:"s6",g:4,o:"p",t:"납품"}]}
+  ];
+  var OWN={p:"3PICKS",k:"KISAS",b:"함께"};
+  /* 공유 저장소가 없는 화면(읽기 전용)에서 보여 줄 진행 상태 */
+  var SNAPSHOT_AT="11.12 15:00";
+  var SNAPSHOT={
+    h0:{done:true,side:"KISAS",at:"2026-11-11T19:25:00+09:00"},b0:{done:true,side:"KISAS",at:"2026-11-11T19:25:00+09:00"},
+    k0:{done:true,side:"KISAS",at:"2026-11-11T19:25:00+09:00"},t0:{done:true,side:"KISAS",at:"2026-11-11T19:25:00+09:00"},
+    s0:{done:true,side:"KISAS",at:"2026-11-11T19:25:00+09:00"},t1:{done:true,side:"KISAS",at:"2026-11-12T11:57:00+09:00"},
+    t2:{done:true,side:"KISAS",at:"2026-11-12T11:57:00+09:00"},t3:{done:true,side:"KISAS",at:"2026-11-12T12:51:00+09:00"}};
+
+  var TASK={},ALL=[];ITEMS.forEach(function(it,ii){it.tasks.forEach(function(t,ti){t.item=it;t.ord=ii*100+ti;TASK[t.id]=t;ALL.push(t)})});
+  var checks={},comments=[],db=null,user=null,myId=null,canWrite=null,isOwnerFlag=false,editable=false,side="KISAS",profiles={};
+  var $=function(s,r){return (r||document).querySelector(s)};
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+  function ymd(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+  var TODAY=ymd(new Date());
+  function fmt(iso){var d=new Date(iso);if(isNaN(d))return "";return (d.getMonth()+1)+"."+String(d.getDate()).padStart(2,"0")+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")}
+  function setStatus(t){$("#status").textContent=t}
+  function whoCls(s){return s==="3PICKS"?"p":(s==="KISAS"?"k":"b")}
+  function isDone(id){var c=checks[id];return !!(c&&c.done)}
+
+  try{side=localStorage.getItem("kisas-side")||side}catch(e){}
+  function paintSide(){document.querySelectorAll(".seg button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.side===side))})}
+  document.querySelectorAll(".seg button").forEach(function(b){b.addEventListener("click",function(){side=b.dataset.side;try{localStorage.setItem("kisas-side",side)}catch(e){}paintSide()})});
+  paintSide();
+
+  /* d-day · next · ticker */
+  var dd=Math.round((new Date("2027-01-11T00:00:00")-new Date(TODAY+"T00:00:00"))/864e5),ddTxt=dd>0?"D-"+dd:(dd===0?"D-DAY":"지남");
+  $("#sumDday").textContent=ddTxt;$("#bnDday").textContent=ddTxt;
+  var nx=TIMELINE.filter(function(m){return m.e>=TODAY})[0];$("#sumNext").textContent=nx?nx.d+" "+nx.t:"–";
+  (function(){var parts=["KISAS 2기 캠프 굿즈 진행표","입소일 2027.01.11 전원 지급"];if(nx)parts.push("다음 일정 "+nx.d+" "+nx.t);parts.push("후드 · 백팩 · 키링 · 수건 세트 · 가죽 키링");
+    var s=parts.join("   ·   ")+"   ·   ";$("#tickerTrack").textContent=s+s})();
+
+  /* timeline */
+  (function(){var box=$("#timeline"),marked=false;
+    TIMELINE.forEach(function(m){var st,lab;if(m.e<TODAY){st="past";lab="지남"}else if(m.s<=TODAY){st="now";lab="NOW"}else{st="next";lab=marked?"예정":"NEXT";marked=true}
+      var c=el("div","step "+st);c.appendChild(el("span","tag",lab));c.appendChild(el("span","d",m.d));c.appendChild(el("span","t",m.t));c.appendChild(el("span","x",m.x));box.appendChild(c)})})();
+
+  /* board + summary chips */
+  ITEMS.forEach(function(it){
+    var tr=el("tr");tr.dataset.item=it.id;
+    var td=el("td","name"),a=el("a");a.href="#item-"+it.id;
+    if(it.thumb){var im=el("img","thumb");im.src=it.thumb;im.alt="";a.appendChild(im)}else{a.appendChild(el("span","thumb none","—"))}
+    a.appendChild(el("span",null,it.name));td.appendChild(a);tr.appendChild(td);
+    STAGES.forEach(function(_,g){var c=el("td"),w=el("div","st");w.appendChild(el("span","chip","대기"));w.appendChild(el("small",null,""));c.appendChild(w);c.dataset.g=g;tr.appendChild(c)});
+    var pc=el("td"),p=el("div","pct");p.appendChild(el("b",null,"0%"));var tk=el("div","track");tk.appendChild(el("i"));p.appendChild(tk);pc.appendChild(p);tr.appendChild(pc);
+    $("#board").appendChild(tr);
+    var chip=el("span");chip.dataset.item=it.id;chip.appendChild(document.createTextNode(it.short));chip.appendChild(el("b",null,"0%"));$("#sumChips").appendChild(chip);
+  });
+
+  /* item cards */
+  ITEMS.forEach(function(it){
+    var card=el("article","mesh item");card.id="item-"+it.id;
+    var pics=el("div","pics"+(it.pics.length===2?" two":""));
+    if(it.pics.length){it.pics.forEach(function(p){var f=el("figure"),im=el("img");im.src=p.src;im.alt=p.cap;im.loading="lazy";f.appendChild(im);f.appendChild(el("figcaption",null,p.cap));pics.appendChild(f)})}
+    else{var em=el("div","empty");em.appendChild(el("b",null,"NO IMAGE"));em.appendChild(el("span",null,"캐릭터 시안을 받으면 올립니다"));pics.appendChild(em)}
+    card.appendChild(pics);
+    var body=el("div","ibody");
+    var h=el("div","ihead");var row=el("div","row");row.appendChild(el("h3",null,it.name));row.appendChild(el("span","qty",it.qty));h.appendChild(row);
+    var ip=el("div","ip");ip.appendChild(el("b","v","0%"));var tk=el("div","track");tk.appendChild(el("i"));ip.appendChild(tk);ip.appendChild(el("span","mono n",""));h.appendChild(ip);body.appendChild(h);
+    var sp=el("table","spec");it.spec.forEach(function(r){var tr=el("tr");tr.appendChild(el("th",null,r[0]));tr.appendChild(el("td",null,r[1]));sp.appendChild(tr)});body.appendChild(sp);
+    STAGES.forEach(function(sn,g){var ts=it.tasks.filter(function(t){return t.g===g});if(!ts.length)return;
+      var grp=el("div","grp");var gh=el("div","grp-h");gh.appendChild(el("span",null,sn));var ch=el("span","chip","대기");ch.dataset.stageChip=it.id+"-"+g;gh.appendChild(ch);grp.appendChild(gh);
+      var ul=el("ul","tasks");
+      ts.forEach(function(t){var li=el("li","task");li.dataset.task=t.id;
+        var cb=el("input","cb");cb.type="checkbox";cb.id="cb-"+t.id;cb.disabled=true;cb.addEventListener("change",function(){toggle(t.id,cb.checked,cb)});
+        li.appendChild(cb);li.appendChild(el("span","who "+t.o,OWN[t.o]));
+        var lb=el("label");lb.htmlFor=cb.id;lb.appendChild(el("b",null,t.t));if(t.due)lb.appendChild(el("span","due",t.due));
+        var dn=el("span","done-by");dn.hidden=true;lb.appendChild(dn);li.appendChild(lb);ul.appendChild(li)});
+      grp.appendChild(ul);body.appendChild(grp)});
+    var cm=el("div","cmts");cm.appendChild(el("div","cmts-h","Comments · 코멘트"));
+    var list=el("div","cmt-list");list.dataset.item=it.id;list.appendChild(el("div","cmt-empty","아직 코멘트가 없습니다."));cm.appendChild(list);
+    var form=el("form","cmt-form");var ta=el("textarea");ta.id="ta-"+it.id;ta.placeholder=it.short+"에 대한 의견이나 전달 사항";ta.setAttribute("aria-label",it.name+" 코멘트");ta.disabled=true;ta.maxLength=2000;
+    var bt=el("button","tp-btn","남기기");bt.type="submit";bt.disabled=true;form.appendChild(ta);form.appendChild(bt);
+    form.addEventListener("submit",function(ev){ev.preventDefault();addComment(it.id,ta,bt)});
+    ta.addEventListener("keydown",function(ev){if(ev.key==="Enter"&&(ev.metaKey||ev.ctrlKey)){ev.preventDefault();addComment(it.id,ta,bt)}});
+    cm.appendChild(form);body.appendChild(cm);card.appendChild(body);$("#items").appendChild(card);
+  });
+
+  function todoItem(t){
+    var li=el("li",isDone(t.id)?"done":"");var cb=el("input","cb");cb.type="checkbox";cb.id="td-"+t.id;cb.checked=isDone(t.id);cb.disabled=!editable;
+    cb.addEventListener("change",function(){toggle(t.id,cb.checked,cb)});
+    var lb=el("label");lb.htmlFor=cb.id;lb.appendChild(el("span","it",t.item.short+" · "+STAGES[t.g]));lb.appendChild(document.createTextNode(t.t));
+    if(t.o==="b")lb.appendChild(el("span","both","함께"));if(t.due&&!isDone(t.id))lb.appendChild(el("span","due",t.due));
+    li.appendChild(cb);li.appendChild(lb);return li}
+  function renderTodo(){
+    [["k","K"],["p","P"]].forEach(function(x){
+      var mine=ALL.filter(function(t){return t.o===x[0]||t.o==="b"});
+      var open=mine.filter(function(t){return !isDone(t.id)}).sort(function(a,b){return a.g-b.g||a.ord-b.ord});
+      var done=mine.filter(function(t){return isDone(t.id)});
+      var ul=$("#todo"+x[1]),ud=$("#todo"+x[1]+"Done");ul.textContent="";ud.textContent="";
+      var soon=open.filter(function(t){return t.g<=2}),later=open.filter(function(t){return t.g>2});
+      if(!open.length)ul.appendChild(el("li","empty","남은 일이 없습니다."));
+      soon.forEach(function(t){ul.appendChild(todoItem(t))});
+      if(later.length){var lw=el("li","later");lw.style.display="block";lw.style.padding="0";var dt=el("details");dt.appendChild(el("summary",null,"본제작·납품 단계 할 일 "+later.length+"개 보기"));var lu=el("ul");later.forEach(function(t){lu.appendChild(todoItem(t))});dt.appendChild(lu);lw.appendChild(dt);ul.appendChild(lw)}
+      done.forEach(function(t){ud.appendChild(todoItem(t))});
+      $("#cnt"+x[1]).textContent="남은 "+open.length+" · 완료 "+done.length;$("#done"+x[1]).textContent="완료한 일 "+done.length+"개 보기";
+    })}
+  function render(){
+    var all=0,allDone=0,leftK=0,leftP=0;
+    ALL.forEach(function(t){if(!isDone(t.id)){if(t.o!=="p")leftK++;if(t.o!=="k")leftP++}});
+    ITEMS.forEach(function(it){
+      var n=it.tasks.length,d=it.tasks.filter(function(t){return isDone(t.id)}).length;all+=n;allDone+=d;
+      var pct=Math.round(d/n*100),firstOpen=-1;
+      STAGES.forEach(function(_,g){var ts=it.tasks.filter(function(t){return t.g===g});var k=ts.filter(function(t){return isDone(t.id)}).length;
+        var state=ts.length&&k===ts.length?"done":(k>0?"wip":"");
+        if(state!=="done"&&firstOpen<0){firstOpen=g;state="wip"}
+        var label=state==="done"?"완료":(state==="wip"?"진행":"대기");
+        var cell=document.querySelector('#board tr[data-item="'+it.id+'"] td[data-g="'+g+'"]');
+        if(cell){var c=cell.querySelector(".chip");c.className="chip "+state;c.textContent=label;cell.querySelector("small").textContent=k+" / "+ts.length}
+        var sc=document.querySelector('[data-stage-chip="'+it.id+"-"+g+'"]');if(sc){sc.className="chip "+state;sc.textContent=label}});
+      var row=document.querySelector('#board tr[data-item="'+it.id+'"]');row.querySelector(".pct b").textContent=pct+"%";row.querySelector(".pct i").style.width=pct+"%";
+      var card=$("#item-"+it.id);card.querySelector(".ip .v").textContent=pct+"%";card.querySelector(".ip i").style.width=pct+"%";card.querySelector(".ip .n").textContent=d+" / "+n;
+      document.querySelector('#sumChips span[data-item="'+it.id+'"] b').textContent=pct+"%";
+    });
+    var ap=Math.round(allDone/all*100);
+    $("#sumAll").textContent=ap+"%";$("#sumBar").style.width=ap+"%";$("#bnAll").textContent=ap+"%";$("#bnBar").style.width=ap+"%";
+    $("#bnK").textContent=leftK;$("#bnP").textContent=leftP;
+    document.querySelectorAll(".task").forEach(function(li){var c=checks[li.dataset.task],on=!!(c&&c.done),cb=li.querySelector("input"),dn=li.querySelector(".done-by");
+      cb.checked=on;cb.disabled=!editable;li.classList.toggle("is-done",on);
+      if(on){dn.hidden=false;dn.textContent="완료"+(c.side?" · "+c.side:"")+(c.at?" · "+fmt(c.at):"")}else dn.hidden=true});
+    renderTodo();renderLog();
+  }
+  function renderLog(){
+    var ev=LOG_FIXED.slice();
+    Object.keys(checks).forEach(function(id){var c=checks[id];if(c&&c.done&&c.at&&TASK[id])ev.push({at:c.at,side:c.side||"",text:TASK[id].item.short+" · "+TASK[id].t+" 완료"})});
+    comments.forEach(function(c){var it=ITEMS.filter(function(i){return i.id===c.item})[0];if(c.at)ev.push({at:c.at,side:c.side||"",text:(it?it.short:"")+" · 코멘트: "+String(c.text||"").slice(0,40)+((c.text||"").length>40?"…":"")})});
+    ev.sort(function(a,b){return new Date(b.at)-new Date(a.at)});
+    var ol=$("#log");ol.textContent="";
+    ev.slice(0,14).forEach(function(e){var li=el("li");li.appendChild(el("span","d",fmt(e.at)));var t=el("span");t.appendChild(el("span","who "+whoCls(e.side),e.side||"함께"));t.appendChild(document.createTextNode(e.text));li.appendChild(t);ol.appendChild(li)});
+  }
+  async function renderComments(){
+    var ids=[];comments.forEach(function(c){if(c.by&&ids.indexOf(c.by)<0)ids.push(c.by)});
+    if(user&&ids.length){try{profiles=await user.profiles(ids)}catch(e){}}
+    document.querySelectorAll(".cmt-list").forEach(function(list){
+      var mine=comments.filter(function(c){return c.item===list.dataset.item});list.textContent="";
+      if(!mine.length){list.appendChild(el("div","cmt-empty","아직 코멘트가 없습니다."));return}
+      mine.forEach(function(c){var box=el("div","cmt");var m=el("div","meta");
+        m.appendChild(el("span","who "+whoCls(c.side),c.side||""));var nm=(c.by&&profiles[c.by]&&profiles[c.by].name)||"";if(nm)m.appendChild(el("span",null,nm));m.appendChild(el("span",null,fmt(c.at)));
+        if(editable&&((myId&&c.by===myId)||isOwnerFlag)){var del=el("button",null,"삭제");del.type="button";del.addEventListener("click",function(){removeComment(c._id,del)});m.appendChild(del)}
+        box.appendChild(m);box.appendChild(el("p",null,c.text));list.appendChild(box)})});
+    renderLog();
+  }
+  render();
+
+  function setEditable(on){editable=on;document.querySelectorAll(".cb,.cmt-form textarea,.cmt-form button").forEach(function(x){x.disabled=!on})}
+  async function toggle(id,on,cb){if(!db||!editable){cb.checked=!on;return}cb.disabled=true;
+    try{await db.doc("checks/"+id).set({done:on,side:side,by:myId,at:new Date().toISOString()})}
+    catch(e){cb.checked=!on;handleWriteError(e)}finally{cb.disabled=!editable}}
+  async function addComment(item,ta,bt){var text=ta.value.trim();if(!db||!text||!editable)return;bt.disabled=true;
+    try{await db.collection("comments").add({item:item,text:text.slice(0,2000),side:side,by:myId,at:new Date().toISOString()});ta.value=""}
+    catch(e){handleWriteError(e)}finally{bt.disabled=!editable}}
+  async function removeComment(id,btn){if(!db)return;btn.disabled=true;try{await db.doc("comments/"+id).delete()}catch(e){btn.disabled=false;handleWriteError(e)}}
+  function handleWriteError(e){
+    if(e&&e.code==="invalid_argument"){setEditable(false);setStatus("이 계정은 보기 권한이라 체크와 코멘트를 남길 수 없습니다.")}
+    else if(e&&e.code==="quota_exceeded"){setStatus("저장 공간이 가득 찼습니다. 3PICKS에 알려 주세요.")}
+    else setStatus("저장하지 못했습니다. 잠시 뒤 다시 시도해 주세요.")}
+
+  async function boot(){
+    if(!window.claude||!window.claude.use){checks=SNAPSHOT;render();
+      document.querySelectorAll(".cmt-form").forEach(function(f){f.hidden=true});
+      document.querySelectorAll(".cmt-list").forEach(function(l){l.textContent="";l.appendChild(el("div","cmt-empty","코멘트는 공유 진행표에서 남길 수 있습니다."))});
+      setStatus("읽기 전용 화면입니다 · "+SNAPSHOT_AT+" 기준");return}
+    try{user=await window.claude.use("user")}catch(e){user=null}
+    try{db=await window.claude.use("db")}catch(e){db=null}
+    if(!db){checks=SNAPSHOT;render();setStatus("로그인하면 체크와 코멘트를 보고 남길 수 있습니다.");return}
+    if(user){try{myId=await user.id()}catch(e){}try{isOwnerFlag=await user.isOwner()}catch(e){}try{canWrite=await user.can("data.write")}catch(e){canWrite=null}
+      var saved=null;try{saved=localStorage.getItem("kisas-side")}catch(e){}if(!saved&&isOwnerFlag){side="3PICKS";paintSide()}}
+    var timer=setTimeout(function(){setStatus("체크와 코멘트를 아직 불러오지 못했습니다. 연결을 확인해 주세요.")},10000);
+    var gotC=false,gotM=false;
+    function ready(){if(!(gotC&&gotM))return;clearTimeout(timer);
+      if(canWrite===false){setEditable(false);setStatus("보기 권한이라 체크와 코멘트는 읽기만 할 수 있습니다.")}
+      else{setEditable(true);setStatus("체크하면 바로 저장되고 모두에게 보입니다.")}
+      render();renderComments()}
+    db.collection("checks").onSnapshot(function(snap){checks={};snap.docs.forEach(function(d){checks[d.id]=d.data()});render();if(!snap.metadata.fromCache){gotC=true;ready()}},
+      function(){clearTimeout(timer);setStatus("체크 정보를 불러오지 못했습니다.")});
+    db.collection("comments").orderBy("at").onSnapshot(function(snap){comments=snap.docs.map(function(d){var o=Object.assign({},d.data());o._id=d.id;return o});renderComments();if(!snap.metadata.fromCache){gotM=true;ready()}},
+      function(){clearTimeout(timer);setStatus("코멘트를 불러오지 못했습니다.")});
+  }
+  boot();
+})();
+</script>
+
+</body>
+</html>
