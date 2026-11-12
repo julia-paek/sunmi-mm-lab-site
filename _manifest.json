@@ -11,8 +11,8 @@
     "slug": "kisas2_goods",
     "mode": "primary",
     "url": "https://sunmi.works/kisas2_goods/",
-    "last_kind": "new",
-    "last_sha256": "8b3a73994b2d9cea7546b1b0ed8867ec17be9a3fefba2398fc4d4b4c750e17d6",
-    "timestamp": "2026-11-12T06:24:51.018834Z"
+    "last_kind": "redeploy",
+    "last_sha256": "9c12979c5ad626fcc0f9393d863fb226e0df889f288298c0c9492a0631647bf3",
+    "timestamp": "2026-11-12T06:26:43.570430Z"
   }
 }

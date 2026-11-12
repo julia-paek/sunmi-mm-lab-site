@@ -10,10 +10,10 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* SKILL: 3picks-design v1.8.0 · MODE: cream · REFERENCES: components(tp-ticker, tp-head, tp-bignum, tp-spec, tp-timeline, tp-btn, tp-badge) · precision-qa · mobile-preserve
-   Layout: 1200px 단일 레일 · 크림 캔버스 · 1px 그리지 모눈 · 먹=완료/KISAS, 오렌지=3PICKS·행동, 옐로=진행 중·현재 */
+   Layout: 1200px 단일 레일 · 크림 캔버스 · 1px 그리지 모눈 · 먹=완료, 네이비=KISAS, 오렌지=3PICKS·행동, 옐로=진행 중·현재 */
 :root{
   --tp-cream:#F5F0E4; --tp-ink:#000000; --tp-line:#A89F91; --tp-cell:#F5F0E4; --tp-photo:#FFFFFF;
-  --tp-pop:#FC6B38; --tp-sun:#FFFD78; --tp-grey:#767676;
+  --tp-pop:#FC6B38; --tp-sun:#FFFD78; --kisas:#002147; /* KISAS 브랜드 네이비 — 띠지 바탕색 */ --tp-grey:#767676;
   --tp-ink-70:rgba(0,0,0,.70); --tp-ink-45:rgba(0,0,0,.45); --tp-ink-12:rgba(0,0,0,.12);
   --tp-font-sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
   --tp-font-mono:ui-monospace,"SF Mono",Menlo,monospace;
@@ -75,7 +75,7 @@ button,input,textarea{font:inherit;color:inherit}
 .seg button{min-height:var(--tp-touch);min-width:88px;border:none;background:var(--tp-cream);padding:0 var(--tp-s-4);cursor:pointer;font-weight:700;font-size:var(--tp-fs-meta);letter-spacing:var(--tp-ls-label)}
 .seg button+button{border-left:1px solid var(--tp-line)}
 .seg button[aria-pressed="true"][data-side="3PICKS"]{background:var(--tp-pop)}
-.seg button[aria-pressed="true"][data-side="KISAS"]{background:var(--tp-ink);color:var(--tp-cream)}
+.seg button[aria-pressed="true"][data-side="KISAS"]{background:var(--kisas);color:var(--tp-cream)}
 .status{font-size:var(--tp-fs-label);color:var(--tp-ink-70)}
 
 /* 섹션 헤드 */
@@ -86,7 +86,7 @@ button,input,textarea{font:inherit;color:inherit}
 
 /* 담당 칩 — KISAS 먹 / 3PICKS 오렌지 / 함께 옐로 */
 .who{display:inline-grid;place-content:center;min-width:64px;height:26px;padding:0 var(--tp-s-2);font:700 var(--tp-fs-label)/1 var(--tp-font-mono);letter-spacing:var(--tp-ls-label);border:1px solid var(--tp-ink);border-radius:5px;white-space:nowrap}
-.who.k{background:var(--tp-ink);color:var(--tp-cream)} .who.p{background:var(--tp-pop);color:var(--tp-ink)} .who.b{background:var(--tp-sun);color:var(--tp-ink)}
+.who.k{background:var(--kisas);border-color:var(--kisas);color:var(--tp-cream)} .who.p{background:var(--tp-pop);color:var(--tp-ink)} .who.b{background:var(--tp-sun);color:var(--tp-ink)}
 
 /* 진행 현황판 */
 .board-wrap{overflow-x:auto;border:1px solid var(--tp-line)}
